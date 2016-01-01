@@ -83,19 +83,9 @@ void Scene::initializeGL()
 
     glEnable(GL_DEPTH_TEST);
 
-    for(int i=0;i<100;i++)
-    {
-        Picture* t=new Picture(QString("test.png"));
-        t->setCoordinate(i*0.01,i*0.01);
-        pictureBox.append(t);
-    }
-    for(int i=0;i<100;i++)
-    {
-        Picture* t=new Picture(QString("test.png"));
-        t->setZoom(0.01*i);
-        t->setCoordinate(-i*0.01,-i*0.01);
-        pictureBox.append(t);
-    }
+    Picture* t=new Picture(QString("test.png"));
+    t->setTexturePosition(0.33,0.33,0.33,0.33);
+    pictureBox.append(t);
 
     timer.start(12,this);
 }
@@ -137,11 +127,8 @@ void Scene::paintGL()
     program.setUniformValue("texture", 0);
 
     // Draw cube geometry
-    for(int i=0;i<200;i++)
-    {
-        pictureBox[i]->draw(&program);
-        pictureBox[i]->setZoom(0.01*i);
-    }
+    pictureBox[0]->draw(&program);
+
 }
 
 void Scene::resizeGL(int w, int h)

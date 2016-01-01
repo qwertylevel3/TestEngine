@@ -60,6 +60,7 @@ public:
     void draw(QOpenGLShaderProgram *program);
 
     void setCoordinate(float x,float y,float z=0);
+    void setTexturePosition(float x,float y,float dx,float dy);
     void setZoom(float z);
     void setTexture(const QString& name);
 
@@ -84,6 +85,8 @@ private:
     QImage image;
     float zoom;
     float x,y,z;
+    float cx,cy;
+    float dx,dy;
     QString imageName;
 };
 
