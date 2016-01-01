@@ -38,46 +38,53 @@
 **
 ****************************************************************************/
 
-#ifndef GEOMETRYENGINE_H
-#define GEOMETRYENGINE_H
+#ifndef PICTURE_H
+#define PICTURE_H
 
 #include <QOpenGLFunctions>
 #include <QOpenGLShaderProgram>
 #include <QOpenGLBuffer>
-
+#include <QOpenGLTexture>
 struct VertexData
 {
     QVector3D position;
     QVector2D texCoord;
 };
 
-class GeometryEngine : protected QOpenGLFunctions
+class Picture : protected QOpenGLFunctions
 {
 public:
-    GeometryEngine();
-    virtual ~GeometryEngine();
+    Picture(const QString& imageName);
+    virtual ~Picture();
 
     void draw(QOpenGLShaderProgram *program);
 
-    void setX(float x);
-    void setY(float y);
-    void setZ(float z);
-    void setZoom(float zoom);
+    void setCoordinate(float x,float y,float z);
+    void setZoom(float z);
+    void setTexture(const QString& name);
 
-    float getX();
-    float getY();
-    float getZ();
-    float getZoom();
+    float getX(){return x;}
+    float getY(){return y;}
+    float getZ(){return z;}
+    float getZoom(){return zoom;}
+    QString getTextureName(){return imageName;}
 
 private:
     void initFaceGeometry();
+    void initTextures(const QString &imageName);
     void allocateBuffer();
+    void updateArrayBuffer();
 
     VertexData vertices[4];
     GLushort indices[5];
 
     QOpenGLBuffer arrayBuf;
     QOpenGLBuffer indexBuf;
+    QOpenGLTexture* texture;
+    QImage image;
+    float zoom;
+    float x,y,z;
+    QString imageName;
 };
 
-#endif // GEOMETRYENGINE_H
+#endif // PICTURE_H

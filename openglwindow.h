@@ -45,7 +45,7 @@
 #include<QTimer>
 #include<QMatrix4x4>
 #include<QOpenGLTexture>
-#include"geometryengine.h"
+#include"picture.h"
 #include<QOpenGLShader>
 
 QT_BEGIN_NAMESPACE
@@ -67,7 +67,6 @@ protected:
     void initializeGL() Q_DECL_OVERRIDE;
 
     void initShaders();
-    void initTextures();
 private:
     QBasicTimer timer;
     bool m_update_pending;
@@ -86,9 +85,8 @@ private:
     int yRot;
     int zRot;
 
-    QOpenGLTexture *texture;
 
-    GeometryEngine *geometries;
+    Picture *geometries;
 
     QOpenGLShaderProgram program;
 

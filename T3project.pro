@@ -13,9 +13,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    geometryengine.cpp \
-    openglwindow.cpp
+    openglwindow.cpp \
+    picture.cpp
 
 HEADERS  += \
-    geometryengine.h \
-    openglwindow.h
+    openglwindow.h \
+    picture.h

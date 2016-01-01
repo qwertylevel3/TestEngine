@@ -79,12 +79,11 @@ void OpenGLWindow::initializeGL()
     glClearColor(0,0,0,1);
 
     initShaders();
-    initTextures();
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
 
-    geometries = new GeometryEngine;
+    geometries = new Picture(QString("test.png"));
 
     timer.start(12,this);
 }
@@ -107,27 +106,11 @@ void OpenGLWindow::initShaders()
         close();
 }
 
-void OpenGLWindow::initTextures()
-{
-    // Load cube.png image
-    texture = new QOpenGLTexture(QImage("test.png").mirrored());
-
-    // Set nearest filtering mode for texture minification
-    texture->setMinificationFilter(QOpenGLTexture::Nearest);
-
-    // Set bilinear filtering mode for texture magnification
-    texture->setMagnificationFilter(QOpenGLTexture::Linear);
-
-    // Wrap texture coordinates by repeating
-    // f.ex. texture coordinate (1.1, 1.2) is same as (0.1, 0.2)
-    texture->setWrapMode(QOpenGLTexture::Repeat);
-}
 void OpenGLWindow::paintGL()
 {
     // Clear color and depth buffer
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    texture->bind();
 
     // Calculate model view transformation
     QMatrix4x4 matrix;
