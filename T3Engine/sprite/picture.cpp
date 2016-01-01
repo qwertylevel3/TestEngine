@@ -172,8 +172,9 @@ void Picture::initTextures(const QString &imageName)
 {
     setTexture(imageName);
 
-    texture = new QOpenGLTexture((image).mirrored());
-
+    texture = new QOpenGLTexture(QOpenGLTexture::Target2D);
+    texture->setFormat(QOpenGLTexture::RGBA8U);
+    texture->setData(image.mirrored());
     // Set nearest filtering mode for texture minification
     texture->setMinificationFilter(QOpenGLTexture::Nearest);
 

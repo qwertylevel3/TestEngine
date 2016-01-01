@@ -45,7 +45,7 @@
 #include<QTimer>
 #include<QMatrix4x4>
 #include<QOpenGLTexture>
-#include"picture.h"
+#include"T3Engine/sprite/picture.h"
 #include<QOpenGLShader>
 
 QT_BEGIN_NAMESPACE

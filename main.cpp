@@ -1,4 +1,4 @@
-#include "scene.h"
+#include "T3Engine/scene/scene.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
