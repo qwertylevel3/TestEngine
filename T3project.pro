@@ -13,9 +13,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    openglwindow.cpp \
-    picture.cpp
+    picture.cpp \
+    scene.cpp
 
 HEADERS  += \
-    openglwindow.h \
-    picture.h
+    picture.h \
+    scene.h

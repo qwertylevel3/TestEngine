@@ -59,7 +59,7 @@ public:
 
     void draw(QOpenGLShaderProgram *program);
 
-    void setCoordinate(float x,float y,float z);
+    void setCoordinate(float x,float y,float z=0);
     void setZoom(float z);
     void setTexture(const QString& name);
 

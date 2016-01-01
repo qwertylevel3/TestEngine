@@ -54,12 +54,12 @@ class QOpenGLContext;
 class QOpenGLPaintDevice;
 QT_END_NAMESPACE
 
-class OpenGLWindow : public QOpenGLWidget, protected QOpenGLFunctions
+class Scene : public QOpenGLWidget, protected QOpenGLFunctions
 {
     Q_OBJECT
 public:
-    explicit OpenGLWindow(QWidget *parent = 0);
-    ~OpenGLWindow();
+    explicit Scene(QWidget *parent = 0);
+    ~Scene();
 protected:
     void timerEvent(QTimerEvent *e) Q_DECL_OVERRIDE;
     void paintGL() Q_DECL_OVERRIDE;
@@ -85,8 +85,7 @@ private:
     int yRot;
     int zRot;
 
-
-    Picture *geometries;
+    QVector<Picture*> pictureBox;
 
     QOpenGLShaderProgram program;
 

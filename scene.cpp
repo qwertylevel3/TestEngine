@@ -38,7 +38,7 @@
 **
 ****************************************************************************/
 
-#include "openglwindow.h"
+#include "scene.h"
 
 #include <QtCore/QCoreApplication>
 
@@ -47,24 +47,25 @@
 #include <QtGui/QPainter>
 
 
-OpenGLWindow::OpenGLWindow(QWidget *parent)
+Scene::Scene(QWidget *parent)
     : QOpenGLWidget(parent)
     , m_update_pending(false)
     , m_animating(false)
     , m_context(0)
 {
 
+    m_frame=0;
 }
 
-OpenGLWindow::~OpenGLWindow()
+Scene::~Scene()
 {
 }
-void OpenGLWindow::timerEvent(QTimerEvent *e)
+void Scene::timerEvent(QTimerEvent *e)
 {
     update();
 }
 
-GLuint OpenGLWindow::loadShader(GLenum type, const char *source)
+GLuint Scene::loadShader(GLenum type, const char *source)
 {
     GLuint shader = glCreateShader(type);
     glShaderSource(shader, 1, &source, 0);
@@ -72,7 +73,7 @@ GLuint OpenGLWindow::loadShader(GLenum type, const char *source)
     return shader;
 }
 
-void OpenGLWindow::initializeGL()
+void Scene::initializeGL()
 {
     initializeOpenGLFunctions();
 
@@ -81,13 +82,24 @@ void OpenGLWindow::initializeGL()
     initShaders();
 
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
 
-    geometries = new Picture(QString("test.png"));
+    for(int i=0;i<100;i++)
+    {
+        Picture* t=new Picture(QString("test.png"));
+        t->setCoordinate(i*0.01,i*0.01);
+        pictureBox.append(t);
+    }
+    for(int i=0;i<100;i++)
+    {
+        Picture* t=new Picture(QString("test.png"));
+        t->setZoom(0.01*i);
+        t->setCoordinate(-i*0.01,-i*0.01);
+        pictureBox.append(t);
+    }
 
     timer.start(12,this);
 }
-void OpenGLWindow::initShaders()
+void Scene::initShaders()
 {
     // Compile vertex shader
     if (!program.addShaderFromSourceFile(QOpenGLShader::Vertex, "vshader.glsl"))
@@ -106,8 +118,9 @@ void OpenGLWindow::initShaders()
         close();
 }
 
-void OpenGLWindow::paintGL()
+void Scene::paintGL()
 {
+    m_frame++;
     // Clear color and depth buffer
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -115,7 +128,7 @@ void OpenGLWindow::paintGL()
     // Calculate model view transformation
     QMatrix4x4 matrix;
     matrix.translate(0.0, 0.0, -5.0);
-
+    matrix.rotate(0.1*m_frame,1,1,1);
 
     // Set modelview-projection matrix
     program.setUniformValue("mvp_matrix", projection * matrix);
@@ -124,10 +137,14 @@ void OpenGLWindow::paintGL()
     program.setUniformValue("texture", 0);
 
     // Draw cube geometry
-    geometries->draw(&program);
+    for(int i=0;i<200;i++)
+    {
+        pictureBox[i]->draw(&program);
+        pictureBox[i]->setZoom(0.01*i);
+    }
 }
 
-void OpenGLWindow::resizeGL(int w, int h)
+void Scene::resizeGL(int w, int h)
 {
     // Calculate aspect ratio
     qreal aspect = qreal(w) / qreal(h ? h : 1);
