@@ -38,7 +38,7 @@
 **
 ****************************************************************************/
 
-#include "openglwindow.h"
+#include "scene.h"
 
 #include <QtCore/QCoreApplication>
 
@@ -47,24 +47,25 @@
 #include <QtGui/QPainter>
 
 
-OpenGLWindow::OpenGLWindow(QWidget *parent)
+Scene::Scene(QWidget *parent)
     : QOpenGLWidget(parent)
     , m_update_pending(false)
     , m_animating(false)
     , m_context(0)
 {
 
+    m_frame=0;
 }
 
-OpenGLWindow::~OpenGLWindow()
+Scene::~Scene()
 {
 }
-void OpenGLWindow::timerEvent(QTimerEvent *e)
+void Scene::timerEvent(QTimerEvent *e)
 {
     update();
 }
 
-GLuint OpenGLWindow::loadShader(GLenum type, const char *source)
+GLuint Scene::loadShader(GLenum type, const char *source)
 {
     GLuint shader = glCreateShader(type);
     glShaderSource(shader, 1, &source, 0);
@@ -72,23 +73,24 @@ GLuint OpenGLWindow::loadShader(GLenum type, const char *source)
     return shader;
 }
 
-void OpenGLWindow::initializeGL()
+void Scene::initializeGL()
 {
     initializeOpenGLFunctions();
 
-    glClearColor(0,0,0,1);
+    glClearColor(0,1,1,1);
 
     initShaders();
-    initTextures();
 
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    geometries = new GeometryEngine;
+    Picture* t=new Picture(QString("test.png"));
+    pictureBox.append(t);
 
     timer.start(12,this);
 }
-void OpenGLWindow::initShaders()
+void Scene::initShaders()
 {
     // Compile vertex shader
     if (!program.addShaderFromSourceFile(QOpenGLShader::Vertex, "vshader.glsl"))
@@ -107,32 +109,17 @@ void OpenGLWindow::initShaders()
         close();
 }
 
-void OpenGLWindow::initTextures()
+void Scene::paintGL()
 {
-    // Load cube.png image
-    texture = new QOpenGLTexture(QImage("test.png").mirrored());
-
-    // Set nearest filtering mode for texture minification
-    texture->setMinificationFilter(QOpenGLTexture::Nearest);
-
-    // Set bilinear filtering mode for texture magnification
-    texture->setMagnificationFilter(QOpenGLTexture::Linear);
-
-    // Wrap texture coordinates by repeating
-    // f.ex. texture coordinate (1.1, 1.2) is same as (0.1, 0.2)
-    texture->setWrapMode(QOpenGLTexture::Repeat);
-}
-void OpenGLWindow::paintGL()
-{
+    m_frame++;
     // Clear color and depth buffer
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    texture->bind();
 
     // Calculate model view transformation
     QMatrix4x4 matrix;
     matrix.translate(0.0, 0.0, -5.0);
-
+    matrix.rotate(0.1*m_frame,1,1,1);
 
     // Set modelview-projection matrix
     program.setUniformValue("mvp_matrix", projection * matrix);
@@ -141,10 +128,11 @@ void OpenGLWindow::paintGL()
     program.setUniformValue("texture", 0);
 
     // Draw cube geometry
-    geometries->draw(&program);
+    pictureBox[0]->draw(&program);
+
 }
 
-void OpenGLWindow::resizeGL(int w, int h)
+void Scene::resizeGL(int w, int h)
 {
     // Calculate aspect ratio
     qreal aspect = qreal(w) / qreal(h ? h : 1);

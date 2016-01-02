@@ -3,7 +3,7 @@
 ** Copyright (C) 2015 The Qt Company Ltd.
 ** Contact: http://www.qt.io/licensing/
 **
-** This file is part of the documentation of the Qt Toolkit.
+** This file is part of the QtCore module of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:BSD$
 ** You may use this file under the terms of the BSD license as follows:
@@ -38,63 +38,56 @@
 **
 ****************************************************************************/
 
-#include <QtGui/QWindow>
-#include <QtGui/QOpenGLFunctions>
-#include<QOpenGLBuffer>
-#include<QOpenGLWidget>
-#include<QTimer>
-#include<QMatrix4x4>
-#include<QOpenGLTexture>
-#include"geometryengine.h"
-#include<QOpenGLShader>
+#ifndef PICTURE_H
+#define PICTURE_H
 
-QT_BEGIN_NAMESPACE
-class QPainter;
-class QOpenGLContext;
-class QOpenGLPaintDevice;
-QT_END_NAMESPACE
-
-class OpenGLWindow : public QOpenGLWidget, protected QOpenGLFunctions
+#include <QOpenGLFunctions>
+#include <QOpenGLShaderProgram>
+#include <QOpenGLBuffer>
+#include <QOpenGLTexture>
+struct VertexData
 {
-    Q_OBJECT
-public:
-    explicit OpenGLWindow(QWidget *parent = 0);
-    ~OpenGLWindow();
-protected:
-    void timerEvent(QTimerEvent *e) Q_DECL_OVERRIDE;
-    void paintGL() Q_DECL_OVERRIDE;
-    void resizeGL(int w, int h) Q_DECL_OVERRIDE;
-    void initializeGL() Q_DECL_OVERRIDE;
-
-    void initShaders();
-    void initTextures();
-private:
-    QBasicTimer timer;
-    bool m_update_pending;
-    bool m_animating;
-
-    QMatrix4x4 projection;
-
-    QOpenGLContext *m_context;
-
-    GLuint loadShader(GLenum type, const char *source);
-
-    GLuint m_posAttr;
-    GLuint m_colAttr;
-    GLuint m_matrixUniform;
-    int xRot;
-    int yRot;
-    int zRot;
-
-    QOpenGLTexture *texture;
-
-    GeometryEngine *geometries;
-
-    QOpenGLShaderProgram program;
-
-    QOpenGLBuffer vbo;
-
-
-    int m_frame;
+    QVector3D position;
+    QVector2D texCoord;
 };
 
+class Picture : protected QOpenGLFunctions
+{
+public:
+    Picture(const QString& imageName);
+    virtual ~Picture();
+
+    void draw(QOpenGLShaderProgram *program);
+
+    void setCoordinate(float x,float y,float z=0);
+    void setTexturePosition(float x,float y,float dx,float dy);
+    void setZoom(float z);
+    void setTexture(const QString& name);
+
+    float getX(){return x;}
+    float getY(){return y;}
+    float getZ(){return z;}
+    float getZoom(){return zoom;}
+    QString getTextureName(){return imageName;}
+
+private:
+    void initFaceGeometry();
+    void initTextures(const QString &imageName);
+    void allocateBuffer();
+    void updateArrayBuffer();
+
+    VertexData vertices[4];
+    GLushort indices[5];
+
+    QOpenGLBuffer arrayBuf;
+    QOpenGLBuffer indexBuf;
+    QOpenGLTexture* texture;
+    QImage image;
+    float zoom;
+    float x,y,z;
+    float cx,cy;
+    float dx,dy;
+    QString imageName;
+};
+
+#endif // PICTURE_H

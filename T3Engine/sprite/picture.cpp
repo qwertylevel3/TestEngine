@@ -38,15 +38,12 @@
 **
 ****************************************************************************/
 
-#include "geometryengine.h"
+#include "picture.h"
 
 #include <QVector2D>
 #include <QVector3D>
 
-
-
-
-GeometryEngine::GeometryEngine()
+Picture::Picture(const QString &imageName)
     : indexBuf(QOpenGLBuffer::IndexBuffer)
 {
     initializeOpenGLFunctions();
@@ -57,16 +54,24 @@ GeometryEngine::GeometryEngine()
 
     // Initializes cube geometry and transfers it to VBOs
     initFaceGeometry();
+    initTextures(imageName);
+
+    zoom=1;
+    x=y=z=0;
+    cx=cy=0;
+    dx=dy=1;
+
 }
 
-GeometryEngine::~GeometryEngine()
+Picture::~Picture()
 {
     arrayBuf.destroy();
     indexBuf.destroy();
+    delete texture;
 }
 
 
-void GeometryEngine::initFaceGeometry()
+void Picture::initFaceGeometry()
 {
     vertices[0]=VertexData({QVector3D(-1.0f, -1.0f,  1.0f), QVector2D(0.0f, 0.0f)});
     vertices[1]=VertexData({QVector3D( 1.0f, -1.0f,  1.0f), QVector2D(1.0f, 0.0f)});
@@ -82,7 +87,7 @@ void GeometryEngine::initFaceGeometry()
     allocateBuffer();
 }
 
-void GeometryEngine::allocateBuffer()
+void Picture::allocateBuffer()
 {
     // Transfer vertex data to VBO 0
     arrayBuf.bind();
@@ -94,12 +99,23 @@ void GeometryEngine::allocateBuffer()
 
 }
 
+void Picture::updateArrayBuffer()
+{
+    vertices[0]=VertexData({QVector3D(-1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 0.0f+cy)*zoom});
+    vertices[1]=VertexData({QVector3D( 1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 0.0f+cy)*zoom});
+    vertices[2]=VertexData({QVector3D(-1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 1.0f*dy+cy)*zoom});
+    vertices[3]=VertexData({QVector3D( 1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 1.0f*dy+cy)*zoom});
 
-void GeometryEngine::draw(QOpenGLShaderProgram *program)
+    arrayBuf.write(0,vertices,4*sizeof(VertexData));
+}
+
+
+void Picture::draw(QOpenGLShaderProgram *program)
 {
     // Tell OpenGL which VBOs to use
     arrayBuf.bind();
     indexBuf.bind();
+    texture->bind();
 
     // Offset for position
     quintptr offset = 0;
@@ -119,4 +135,53 @@ void GeometryEngine::draw(QOpenGLShaderProgram *program)
 
     // Draw cube geometry using indices from VBO 1
     glDrawElements(GL_TRIANGLE_STRIP, 34, GL_UNSIGNED_SHORT, 0);
+}
+
+void Picture::setCoordinate(float x, float y, float z)
+{
+    this->x=x;
+    this->y=y;
+    this->z=z;
+
+    updateArrayBuffer();
+}
+
+void Picture::setTexturePosition(float x, float y, float dx, float dy)
+{
+    this->cx=x;
+    this->cy=y;
+    this->dx=dx;
+    this->dy=dy;
+
+    updateArrayBuffer();
+}
+
+void Picture::setZoom(float z)
+{
+    zoom=z;
+
+    updateArrayBuffer();
+}
+
+void Picture::setTexture(const QString &name)
+{
+    image.load(name);
+}
+
+void Picture::initTextures(const QString &imageName)
+{
+    setTexture(imageName);
+
+    texture = new QOpenGLTexture(QOpenGLTexture::Target2D);
+    texture->setFormat(QOpenGLTexture::RGBA8U);
+    texture->setData(image.mirrored());
+    // Set nearest filtering mode for texture minification
+    texture->setMinificationFilter(QOpenGLTexture::Nearest);
+
+    // Set bilinear filtering mode for texture magnification
+    texture->setMagnificationFilter(QOpenGLTexture::Linear);
+
+    // Wrap texture coordinates by repeating
+    // f.ex. texture coordinate (1.1, 1.2) is same as (0.1, 0.2)
+    texture->setWrapMode(QOpenGLTexture::Repeat);
 }

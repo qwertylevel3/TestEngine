@@ -3,7 +3,7 @@
 ** Copyright (C) 2015 The Qt Company Ltd.
 ** Contact: http://www.qt.io/licensing/
 **
-** This file is part of the QtCore module of the Qt Toolkit.
+** This file is part of the documentation of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:BSD$
 ** You may use this file under the terms of the BSD license as follows:
@@ -38,46 +38,60 @@
 **
 ****************************************************************************/
 
-#ifndef GEOMETRYENGINE_H
-#define GEOMETRYENGINE_H
+#include <QtGui/QWindow>
+#include <QtGui/QOpenGLFunctions>
+#include<QOpenGLBuffer>
+#include<QOpenGLWidget>
+#include<QTimer>
+#include<QMatrix4x4>
+#include<QOpenGLTexture>
+#include"T3Engine/sprite/picture.h"
+#include<QOpenGLShader>
 
-#include <QOpenGLFunctions>
-#include <QOpenGLShaderProgram>
-#include <QOpenGLBuffer>
+QT_BEGIN_NAMESPACE
+class QPainter;
+class QOpenGLContext;
+class QOpenGLPaintDevice;
+QT_END_NAMESPACE
 
-struct VertexData
+class Scene : public QOpenGLWidget, protected QOpenGLFunctions
 {
-    QVector3D position;
-    QVector2D texCoord;
-};
-
-class GeometryEngine : protected QOpenGLFunctions
-{
+    Q_OBJECT
 public:
-    GeometryEngine();
-    virtual ~GeometryEngine();
+    explicit Scene(QWidget *parent = 0);
+    ~Scene();
+protected:
+    void timerEvent(QTimerEvent *e) Q_DECL_OVERRIDE;
+    void paintGL() Q_DECL_OVERRIDE;
+    void resizeGL(int w, int h) Q_DECL_OVERRIDE;
+    void initializeGL() Q_DECL_OVERRIDE;
 
-    void draw(QOpenGLShaderProgram *program);
-
-    void setX(float x);
-    void setY(float y);
-    void setZ(float z);
-    void setZoom(float zoom);
-
-    float getX();
-    float getY();
-    float getZ();
-    float getZoom();
-
+    void initShaders();
 private:
-    void initFaceGeometry();
-    void allocateBuffer();
+    QBasicTimer timer;
+    bool m_update_pending;
+    bool m_animating;
 
-    VertexData vertices[4];
-    GLushort indices[5];
+    QMatrix4x4 projection;
 
-    QOpenGLBuffer arrayBuf;
-    QOpenGLBuffer indexBuf;
+    QOpenGLContext *m_context;
+
+    GLuint loadShader(GLenum type, const char *source);
+
+    GLuint m_posAttr;
+    GLuint m_colAttr;
+    GLuint m_matrixUniform;
+    int xRot;
+    int yRot;
+    int zRot;
+
+    QVector<Picture*> pictureBox;
+
+    QOpenGLShaderProgram program;
+
+    QOpenGLBuffer vbo;
+
+
+    int m_frame;
 };
 
-#endif // GEOMETRYENGINE_H

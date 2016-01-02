@@ -13,9 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    geometryengine.cpp \
-    openglwindow.cpp
+    t3engine.cpp \
+    T3Engine/scene/scene.cpp \
+    T3Engine/sprite/picture.cpp
 
 HEADERS  += \
-    geometryengine.h \
-    openglwindow.h
+    t3engine.h \
+    T3Engine/scene/scene.h \
+    T3Engine/sprite/picture.h

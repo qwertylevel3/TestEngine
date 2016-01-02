@@ -1,4 +1,4 @@
-#include "openglwindow.h"
+#include "T3Engine/scene/scene.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     format.setDepthBufferSize(24);
     QSurfaceFormat::setDefaultFormat(format);
 
-    OpenGLWindow window;
+    Scene window;
     window.setFormat(format);
     window.resize(640, 480);
     window.show();
