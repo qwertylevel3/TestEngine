@@ -15,9 +15,16 @@ TEMPLATE = app
 SOURCES += main.cpp\
     t3engine.cpp \
     T3Engine/scene/scene.cpp \
-    T3Engine/sprite/picture.cpp
+    T3Engine/sprite/picture.cpp \
+    T3Engine/sprite/frame.cpp \
+    T3Engine/manager/shadermanager.cpp
 
 HEADERS  += \
     t3engine.h \
     T3Engine/scene/scene.h \
-    T3Engine/sprite/picture.h
+    T3Engine/sprite/picture.h \
+    T3Engine/sprite/frame.h \
+    T3Engine/manager/shadermanager.h
+
+RESOURCES += \
+    shader.qrc

@@ -63,11 +63,13 @@ public:
     void setTexturePosition(float x,float y,float dx,float dy);
     void setZoom(float z);
     void setTexture(const QString& name);
+    void setMirror(bool m);
 
     float getX(){return x;}
     float getY(){return y;}
     float getZ(){return z;}
     float getZoom(){return zoom;}
+    bool isMirror(){return mirror;}
     QString getTextureName(){return imageName;}
 
 private:
@@ -87,6 +89,7 @@ private:
     float x,y,z;
     float cx,cy;
     float dx,dy;
+    bool mirror;
     QString imageName;
 };
 

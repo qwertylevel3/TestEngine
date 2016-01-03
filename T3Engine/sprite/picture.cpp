@@ -60,6 +60,7 @@ Picture::Picture(const QString &imageName)
     x=y=z=0;
     cx=cy=0;
     dx=dy=1;
+    mirror=false;
 
 }
 
@@ -101,11 +102,20 @@ void Picture::allocateBuffer()
 
 void Picture::updateArrayBuffer()
 {
-    vertices[0]=VertexData({QVector3D(-1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 0.0f+cy)*zoom});
-    vertices[1]=VertexData({QVector3D( 1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 0.0f+cy)*zoom});
-    vertices[2]=VertexData({QVector3D(-1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 1.0f*dy+cy)*zoom});
-    vertices[3]=VertexData({QVector3D( 1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 1.0f*dy+cy)*zoom});
-
+    if(!mirror)
+    {
+        vertices[0]=VertexData({QVector3D(-1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 0.0f+cy)*zoom});
+        vertices[1]=VertexData({QVector3D( 1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 0.0f+cy)*zoom});
+        vertices[2]=VertexData({QVector3D(-1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 1.0f*dy+cy)*zoom});
+        vertices[3]=VertexData({QVector3D( 1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 1.0f*dy+cy)*zoom});
+    }
+    else
+    {
+        vertices[0]=VertexData({QVector3D(-1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 0.0f+cy)*zoom});
+        vertices[1]=VertexData({QVector3D( 1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 0.0f+cy)*zoom});
+        vertices[2]=VertexData({QVector3D(-1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 1.0f*dy+cy)*zoom});
+        vertices[3]=VertexData({QVector3D( 1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 1.0f*dy+cy)*zoom});
+    }
     arrayBuf.write(0,vertices,4*sizeof(VertexData));
 }
 
@@ -166,6 +176,12 @@ void Picture::setZoom(float z)
 void Picture::setTexture(const QString &name)
 {
     image.load(name);
+}
+
+void Picture::setMirror(bool m)
+{
+    mirror=m;
+    updateArrayBuffer();
 }
 
 void Picture::initTextures(const QString &imageName)

@@ -46,7 +46,7 @@
 #include<QMatrix4x4>
 #include<QOpenGLTexture>
 #include"T3Engine/sprite/picture.h"
-#include<QOpenGLShader>
+#include"T3Engine/manager/shadermanager.h"
 
 QT_BEGIN_NAMESPACE
 class QPainter;
@@ -65,8 +65,7 @@ protected:
     void paintGL() Q_DECL_OVERRIDE;
     void resizeGL(int w, int h) Q_DECL_OVERRIDE;
     void initializeGL() Q_DECL_OVERRIDE;
-
-    void initShaders();
+    void gameLoop();
 private:
     QBasicTimer timer;
     bool m_update_pending;
@@ -76,7 +75,6 @@ private:
 
     QOpenGLContext *m_context;
 
-    GLuint loadShader(GLenum type, const char *source);
 
     GLuint m_posAttr;
     GLuint m_colAttr;
@@ -87,9 +85,9 @@ private:
 
     QVector<Picture*> pictureBox;
 
-    QOpenGLShaderProgram program;
-
     QOpenGLBuffer vbo;
+
+    ShaderManager shaderManager;
 
 
     int m_frame;

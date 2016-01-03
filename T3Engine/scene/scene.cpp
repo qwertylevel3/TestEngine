@@ -62,16 +62,11 @@ Scene::~Scene()
 }
 void Scene::timerEvent(QTimerEvent *e)
 {
+    Q_UNUSED(e)
+    gameLoop();
     update();
 }
 
-GLuint Scene::loadShader(GLenum type, const char *source)
-{
-    GLuint shader = glCreateShader(type);
-    glShaderSource(shader, 1, &source, 0);
-    glCompileShader(shader);
-    return shader;
-}
 
 void Scene::initializeGL()
 {
@@ -79,34 +74,23 @@ void Scene::initializeGL()
 
     glClearColor(0,1,1,1);
 
-    initShaders();
+    shaderManager.init(":/vshader.glsl",":/fshader.glsl");
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     Picture* t=new Picture(QString("test.png"));
+    t->setTexturePosition(0.33,0.33,0.33,0.33);
+    t->setMirror(true);
     pictureBox.append(t);
 
     timer.start(12,this);
 }
-void Scene::initShaders()
+
+void Scene::gameLoop()
 {
-    // Compile vertex shader
-    if (!program.addShaderFromSourceFile(QOpenGLShader::Vertex, "vshader.glsl"))
-        close();
 
-    // Compile fragment shader
-    if (!program.addShaderFromSourceFile(QOpenGLShader::Fragment, "fshader.glsl"))
-        close();
-
-    // Link shader pipeline
-    if (!program.link())
-        close();
-
-    // Bind shader pipeline for use
-    if (!program.bind())
-        close();
 }
 
 void Scene::paintGL()
@@ -121,14 +105,11 @@ void Scene::paintGL()
     matrix.translate(0.0, 0.0, -5.0);
     matrix.rotate(0.1*m_frame,1,1,1);
 
-    // Set modelview-projection matrix
-    program.setUniformValue("mvp_matrix", projection * matrix);
+    shaderManager.getProgram()->setUniformValue("mvp_matrix", projection * matrix);
 
-    // Use texture unit 0 which contains cube.png
-    program.setUniformValue("texture", 0);
+    shaderManager.getProgram()->setUniformValue("texture", 0);
 
-    // Draw cube geometry
-    pictureBox[0]->draw(&program);
+    pictureBox[0]->draw(shaderManager.getProgram());
 
 }
 
