@@ -52,8 +52,6 @@ struct VertexData
 };
 
 
-//每一个picture管理一块显存内容
-
 class Picture : protected QOpenGLFunctions
 {
 public:

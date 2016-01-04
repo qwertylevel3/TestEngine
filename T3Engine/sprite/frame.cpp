@@ -33,5 +33,10 @@ void Frame::addRect(float x, float y, float dx, float dy)
 //                 y,
 //                 width,
 //                 height);
-//    mrects.push_back(mtemp);
+    //    mrects.push_back(mtemp);
+}
+
+void Frame::draw()
+{
+    picture->draw();
 }

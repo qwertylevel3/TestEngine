@@ -4,6 +4,7 @@
 #include<QSurfaceFormat>
 #include"T3Engine/scene/scene.h"
 #include"T3Engine/manager/shadermanager.h"
+#include"T3Engine/render/rendermodule.h"
 
 class T3Engine
 {
@@ -13,7 +14,7 @@ public:
     void init();
     void run();
 private:
-    Scene* scene;
+    RenderModule* renderModule;
     QSurfaceFormat format;
 };
 

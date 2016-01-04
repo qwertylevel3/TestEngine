@@ -16,13 +16,13 @@ void T3Engine::init()
     QSurfaceFormat::setDefaultFormat(format);
 
 
-    scene=new Scene();
-    scene->setFormat(format);
-    scene->resize(640, 480);
+    renderModule=new RenderModule();
+    renderModule->setFormat(format);
+    renderModule->resize(640, 480);
 }
 
 void T3Engine::run()
 {
-    scene->show();
+    renderModule->show();
 }
 
