@@ -5,6 +5,7 @@
 #include <QtGui/QOpenGLPaintDevice>
 #include <QtGui/QPainter>
 #include"T3Engine/manager/shadermanager.h"
+#include"T3Engine/manager/picturemanager.h"
 
 RenderModule::RenderModule(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -41,11 +42,12 @@ void RenderModule::initializeGL()
     //initialize...
 
     ShaderManager::instance()->init(":/vshader.glsl",":/fshader.glsl");
+    PictureManager::instance()->init();
 
-    Picture* t=new Picture(QString("test.png"));
+
+    Picture* t=PictureManager::instance()->getPicture("test.png");
     //t->setTexturePosition(0.33,0.33,0.33,0.33);
     t->mirror(true);
-    pictureBox.append(t);
 
     timer.start(12,this);
     m_frame=0;
@@ -55,9 +57,14 @@ void RenderModule::initializeGL()
 void RenderModule::gameLoop()
 {
     m_frame++;
-    pictureBox[0]->getMatrix().setToIdentity();
-    pictureBox[0]->getMatrix().translate(0.0, 0.0, -5.0);
-    pictureBox[0]->getMatrix().rotate(0.1*m_frame,1,1,1);
+
+    PictureManager::instance()->getPicture("test.png")
+            ->getMatrix().setToIdentity();
+
+     PictureManager::instance()->getPicture("test.png")
+             ->getMatrix().translate(0.0, 0.0, -5.0);
+     PictureManager::instance()->getPicture("test.png")
+             ->getMatrix().rotate(0.1*m_frame,1,1,1);
 }
 
 void RenderModule::paintGL()
@@ -67,15 +74,11 @@ void RenderModule::paintGL()
 
     ShaderManager::instance()->getProgram()
             ->setUniformValue("mvp_matrix"
-            ,projection*(pictureBox[0]->getMatrix()));
+            ,projection*(PictureManager::instance()->getPicture("test.png")->getMatrix()));
 
     ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
 
-    for(int i=0;i<pictureBox.length();i++)
-    {
-        pictureBox[i]->draw();
-    }
-
+    PictureManager::instance()->getPicture("test.png")->draw();
 }
 
 void RenderModule::resizeGL(int w, int h)

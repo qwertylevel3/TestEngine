@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     T3Engine/sprite/action.cpp \
     T3Engine/sprite/sprite.cpp \
     T3Engine/render/rendermodule.cpp \
-    T3Engine/render/picture.cpp
+    T3Engine/render/picture.cpp \
+    T3Engine/manager/picturemanager.cpp
 
 HEADERS  += \
     t3engine.h \
@@ -32,7 +33,8 @@ HEADERS  += \
     T3Engine/sprite/sprite.h \
     T3Engine/render/rendermodule.h \
     T3Engine/render/picture.h \
-    T3Engine/singleton.h
+    T3Engine/singleton.h \
+    T3Engine/manager/picturemanager.h
 
 RESOURCES += \
     shader.qrc

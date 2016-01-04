@@ -1,15 +1,14 @@
 #include "frame.h"
 
-Frame::Frame(Picture *p, const QRectF &fp)
+Frame::Frame(const QString& pictureName, const QRectF &fp)
 {
-    picture=p;
+    picture=pictureName;
     framePosition=fp;
 }
 
 
 Frame::~Frame()
 {
-    delete picture;
 }
 
 void Frame::addRect(const QRectF &r)
@@ -38,5 +37,5 @@ void Frame::addRect(float x, float y, float dx, float dy)
 
 void Frame::draw()
 {
-    picture->draw();
+    //picture->draw();
 }

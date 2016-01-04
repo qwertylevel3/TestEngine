@@ -1,4 +1,5 @@
 #include "t3engine.h"
+#include"T3Engine/manager/picturemanager.h"
 
 T3Engine::T3Engine()
 {
@@ -14,6 +15,7 @@ void T3Engine::init()
     format.setSamples(16);
     format.setDepthBufferSize(24);
     QSurfaceFormat::setDefaultFormat(format);
+
 
 
     renderModule=new RenderModule();

@@ -1,28 +1,28 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include"picture.h"
+#include"T3Engine/render/picture.h"
 #include<QList>
 #include<QTextStream>
 #include<QPixmap>
 
 struct Frame
 {
-    Frame(Picture* p,const QRectF& fp);
+    Frame(const QString& pictureName,const QRectF& fp);
     ~Frame();
 
-    void setPicture(Picture* p);
+    void setPicture(const QString& pictureName);
     void setFramePosition(const QRectF& p){framePosition=p;}
     void addRect(const QRectF& r);
     void addRect(float x,float y,float dx,float dy);
     void draw();
 
-    Picture* getPicture(){return picture;}
+    QString getPicture(){return picture;}
     QRectF& getFramePosition(){return framePosition;}
     QList<QRectF>& getRects(){return rects;}
     QList<QRectF>& getmRects(){return mrects;}
 
-    Picture* picture;
+    QString picture;
     //the position of this frame in the picture
     QRectF framePosition;
     //QVector<QRectF> redRect;

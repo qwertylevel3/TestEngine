@@ -47,8 +47,6 @@ private:
     int yRot;
     int zRot;
 
-    QVector<Picture*> pictureBox;
-
     int m_frame;
 };
 

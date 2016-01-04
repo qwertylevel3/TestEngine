@@ -55,13 +55,13 @@ void Action::mirror(bool m)
 {
     for(int i=0;i<frameBox.length();i++)
     {
-        frameBox[i]->getPicture()->mirror(m);
+        //frameBox[i]->getPicture()->mirror(m);
     }
 }
 
 void Action::draw(bool showRect)
 {
-    frameBox[currFrame]->getPicture()->draw();
+    //frameBox[currFrame]->getPicture()->draw();
 
 //    //绘制碰撞矩形
 //    if(showRect)
