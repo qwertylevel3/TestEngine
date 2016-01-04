@@ -51,26 +51,30 @@ struct VertexData
     QVector2D texCoord;
 };
 
+
+//每一个picture管理一块显存内容
+
 class Picture : protected QOpenGLFunctions
 {
 public:
     Picture(const QString& imageName);
     virtual ~Picture();
 
-    void draw(QOpenGLShaderProgram *program);
+    void draw();
 
     void setCoordinate(float x,float y,float z=0);
     void setTexturePosition(float x,float y,float dx,float dy);
     void setZoom(float z);
     void setTexture(const QString& name);
-    void setMirror(bool m);
+    void mirror(bool m);
 
     float getX(){return x;}
     float getY(){return y;}
     float getZ(){return z;}
     float getZoom(){return zoom;}
-    bool isMirror(){return mirror;}
+    bool isMirror(){return mir;}
     QString getTextureName(){return imageName;}
+    QMatrix4x4& getMatrix(){return matrix;}
 
 private:
     void initFaceGeometry();
@@ -89,7 +93,8 @@ private:
     float x,y,z;
     float cx,cy;
     float dx,dy;
-    bool mirror;
+    bool mir;
+    QMatrix4x4 matrix;
     QString imageName;
 };
 

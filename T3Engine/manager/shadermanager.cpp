@@ -26,6 +26,8 @@ bool ShaderManager::loadFragmentShader(const QString &fShader)
 
 bool ShaderManager::init(const QString& vShader,const QString& fShader)
 {
+    QOpenGLFunctions::initializeOpenGLFunctions();
+
     program=new QOpenGLShaderProgram;
 
     if(!loadVertexShader(vShader))

@@ -17,14 +17,17 @@ SOURCES += main.cpp\
     T3Engine/scene/scene.cpp \
     T3Engine/sprite/picture.cpp \
     T3Engine/sprite/frame.cpp \
-    T3Engine/manager/shadermanager.cpp
+    T3Engine/manager/shadermanager.cpp \
+    T3Engine/sprite/action.cpp
 
 HEADERS  += \
     t3engine.h \
     T3Engine/scene/scene.h \
     T3Engine/sprite/picture.h \
     T3Engine/sprite/frame.h \
-    T3Engine/manager/shadermanager.h
+    T3Engine/manager/shadermanager.h \
+    T3Engine/sprite/action.h \
+    T3Engine/manager/singleton.h
 
 RESOURCES += \
     shader.qrc

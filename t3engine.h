@@ -9,12 +9,12 @@ class T3Engine
 {
 public:
     T3Engine();
+    ~T3Engine();
     void init();
     void run();
 private:
     Scene* scene;
     QSurfaceFormat format;
-    ShaderManager shaderManager;
 };
 
 #endif // T3ENGINE_H

@@ -42,6 +42,9 @@
 
 #include <QVector2D>
 #include <QVector3D>
+#include<QMatrix2x2>
+#include<math.h>
+#include"T3Engine/manager/shadermanager.h"
 
 Picture::Picture(const QString &imageName)
     : indexBuf(QOpenGLBuffer::IndexBuffer)
@@ -60,7 +63,9 @@ Picture::Picture(const QString &imageName)
     x=y=z=0;
     cx=cy=0;
     dx=dy=1;
-    mirror=false;
+    mir=false;
+
+    matrix.setToIdentity();
 
 }
 
@@ -102,7 +107,7 @@ void Picture::allocateBuffer()
 
 void Picture::updateArrayBuffer()
 {
-    if(!mirror)
+    if(!mir)
     {
         vertices[0]=VertexData({QVector3D(-1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 0.0f+cy)*zoom});
         vertices[1]=VertexData({QVector3D( 1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 0.0f+cy)*zoom});
@@ -120,7 +125,7 @@ void Picture::updateArrayBuffer()
 }
 
 
-void Picture::draw(QOpenGLShaderProgram *program)
+void Picture::draw()
 {
     // Tell OpenGL which VBOs to use
     arrayBuf.bind();
@@ -131,17 +136,18 @@ void Picture::draw(QOpenGLShaderProgram *program)
     quintptr offset = 0;
 
     // Tell OpenGL programmable pipeline how to locate vertex position data
-    int vertexLocation = program->attributeLocation("a_position");
-    program->enableAttributeArray(vertexLocation);
-    program->setAttributeBuffer(vertexLocation, GL_FLOAT, offset, 3, sizeof(VertexData));
+    int vertexLocation = ShaderManager::instance()->getProgram()->attributeLocation("a_position");
+    ShaderManager::instance()->getProgram()->enableAttributeArray(vertexLocation);
+    ShaderManager::instance()->getProgram()->setAttributeBuffer(vertexLocation, GL_FLOAT, offset, 3, sizeof(VertexData));
 
     // Offset for texture coordinate
     offset += sizeof(QVector3D);
 
     // Tell OpenGL programmable pipeline how to locate vertex texture coordinate data
-    int texcoordLocation = program->attributeLocation("a_texcoord");
-    program->enableAttributeArray(texcoordLocation);
-    program->setAttributeBuffer(texcoordLocation, GL_FLOAT, offset, 2, sizeof(VertexData));
+    int texcoordLocation =
+            ShaderManager::instance()->getProgram()->attributeLocation("a_texcoord");
+    ShaderManager::instance()->getProgram()->enableAttributeArray(texcoordLocation);
+    ShaderManager::instance()->getProgram()->setAttributeBuffer(texcoordLocation, GL_FLOAT, offset, 2, sizeof(VertexData));
 
     // Draw cube geometry using indices from VBO 1
     glDrawElements(GL_TRIANGLE_STRIP, 34, GL_UNSIGNED_SHORT, 0);
@@ -178,11 +184,12 @@ void Picture::setTexture(const QString &name)
     image.load(name);
 }
 
-void Picture::setMirror(bool m)
+void Picture::mirror(bool m)
 {
-    mirror=m;
+    mir=m;
     updateArrayBuffer();
 }
+
 
 void Picture::initTextures(const QString &imageName)
 {

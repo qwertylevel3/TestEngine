@@ -45,6 +45,7 @@
 #include <QtGui/QOpenGLContext>
 #include <QtGui/QOpenGLPaintDevice>
 #include <QtGui/QPainter>
+#include"T3Engine/manager/shadermanager.h"
 
 
 Scene::Scene(QWidget *parent)
@@ -54,12 +55,13 @@ Scene::Scene(QWidget *parent)
     , m_context(0)
 {
 
-    m_frame=0;
+
 }
 
 Scene::~Scene()
 {
 }
+
 void Scene::timerEvent(QTimerEvent *e)
 {
     Q_UNUSED(e)
@@ -74,42 +76,47 @@ void Scene::initializeGL()
 
     glClearColor(0,1,1,1);
 
-    shaderManager.init(":/vshader.glsl",":/fshader.glsl");
-
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+    //initialize...
+
+    ShaderManager::instance()->init(":/vshader.glsl",":/fshader.glsl");
     Picture* t=new Picture(QString("test.png"));
-    t->setTexturePosition(0.33,0.33,0.33,0.33);
-    t->setMirror(true);
+    //t->setTexturePosition(0.33,0.33,0.33,0.33);
+    t->mirror(true);
     pictureBox.append(t);
 
     timer.start(12,this);
+    m_frame=0;
+
 }
 
 void Scene::gameLoop()
 {
-
+    m_frame++;
+    pictureBox[0]->getMatrix().setToIdentity();
+    pictureBox[0]->getMatrix().translate(0.0, 0.0, -5.0);
+    pictureBox[0]->getMatrix().rotate(0.1*m_frame,1,1,1);
 }
 
 void Scene::paintGL()
 {
-    m_frame++;
-    // Clear color and depth buffer
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
-    // Calculate model view transformation
-    QMatrix4x4 matrix;
-    matrix.translate(0.0, 0.0, -5.0);
-    matrix.rotate(0.1*m_frame,1,1,1);
 
-    shaderManager.getProgram()->setUniformValue("mvp_matrix", projection * matrix);
+    ShaderManager::instance()->getProgram()
+            ->setUniformValue("mvp_matrix"
+            ,projection*(pictureBox[0]->getMatrix()));
 
-    shaderManager.getProgram()->setUniformValue("texture", 0);
+    ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
 
-    pictureBox[0]->draw(shaderManager.getProgram());
+    for(int i=0;i<pictureBox.length();i++)
+    {
+        pictureBox[i]->draw();
+    }
 
 }
 
@@ -127,5 +134,4 @@ void Scene::resizeGL(int w, int h)
     // Set perspective projection
     projection.perspective(fov, aspect, zNear, zFar);
 }
-
 

@@ -2,8 +2,10 @@
 #define SHADERMANAGER_H
 
 #include<QOpenGLShaderProgram>
+#include"singleton.h"
+#include<QOpenGLFunctions>
 
-class ShaderManager
+class ShaderManager:public Singleton<ShaderManager>,public QOpenGLFunctions
 {
 public:
     ShaderManager();

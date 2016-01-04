@@ -87,9 +87,6 @@ private:
 
     QOpenGLBuffer vbo;
 
-    ShaderManager shaderManager;
-
-
     int m_frame;
 };
 
