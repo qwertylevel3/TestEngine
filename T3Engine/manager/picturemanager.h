@@ -12,6 +12,9 @@ public:
     PictureManager();
     void init();
     Picture *getPicture(const QString& pictureName);
+
+    //debug...
+    void showPictureBoxMessage();
 private:
     void loadImage(const QString& path);
     QHash<QString,Picture*> pictureBox;

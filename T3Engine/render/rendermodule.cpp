@@ -44,8 +44,9 @@ void RenderModule::initializeGL()
     ShaderManager::instance()->init(":/vshader.glsl",":/fshader.glsl");
     PictureManager::instance()->init();
 
+    PictureManager::instance()->showPictureBoxMessage();
 
-    Picture* t=PictureManager::instance()->getPicture("test.png");
+    Picture* t=PictureManager::instance()->getPicture("\\resource\\character\\test.png");
     //t->setTexturePosition(0.33,0.33,0.33,0.33);
     t->mirror(true);
 
@@ -58,12 +59,12 @@ void RenderModule::gameLoop()
 {
     m_frame++;
 
-    PictureManager::instance()->getPicture("test.png")
+    PictureManager::instance()->getPicture("\\resource\\character\\test.png")
             ->getMatrix().setToIdentity();
 
-     PictureManager::instance()->getPicture("test.png")
+     PictureManager::instance()->getPicture("\\resource\\character\\test.png")
              ->getMatrix().translate(0.0, 0.0, -5.0);
-     PictureManager::instance()->getPicture("test.png")
+     PictureManager::instance()->getPicture("\\resource\\character\\test.png")
              ->getMatrix().rotate(0.1*m_frame,1,1,1);
 }
 
@@ -74,11 +75,11 @@ void RenderModule::paintGL()
 
     ShaderManager::instance()->getProgram()
             ->setUniformValue("mvp_matrix"
-            ,projection*(PictureManager::instance()->getPicture("test.png")->getMatrix()));
+            ,projection*(PictureManager::instance()->getPicture("\\resource\\character\\test.png")->getMatrix()));
 
     ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
 
-    PictureManager::instance()->getPicture("test.png")->draw();
+    PictureManager::instance()->getPicture("\\resource\\character\\test.png")->draw();
 }
 
 void RenderModule::resizeGL(int w, int h)

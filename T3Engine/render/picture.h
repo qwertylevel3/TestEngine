@@ -55,7 +55,7 @@ struct VertexData
 class Picture : protected QOpenGLFunctions
 {
 public:
-    Picture(const QString& imageName);
+    Picture(const QString& imagePath);
     virtual ~Picture();
 
     void draw();
@@ -63,7 +63,7 @@ public:
     void setCoordinate(float x,float y,float z=0);
     void setTexturePosition(float x,float y,float dx,float dy);
     void setZoom(float z);
-    void setTexture(const QString& name);
+    void setTextures(const QString &imagePath);
     void mirror(bool m);
 
     float getX(){return x;}
@@ -71,14 +71,15 @@ public:
     float getZ(){return z;}
     float getZoom(){return zoom;}
     bool isMirror(){return mir;}
-    QString getTextureName(){return imageName;}
+    QString getName(){return name;}
     QMatrix4x4& getMatrix(){return matrix;}
 
 private:
     void initFaceGeometry();
-    void initTextures(const QString &imageName);
     void allocateBuffer();
     void updateArrayBuffer();
+    //名字由路径名自动分配
+    void setName(const QString& imagePath);
 
     VertexData vertices[4];
     GLushort indices[5];
@@ -93,7 +94,7 @@ private:
     float dx,dy;
     bool mir;
     QMatrix4x4 matrix;
-    QString imageName;
+    QString name;
 };
 
 #endif // PICTURE_H

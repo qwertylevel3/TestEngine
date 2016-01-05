@@ -45,8 +45,9 @@
 #include<QMatrix2x2>
 #include<math.h>
 #include"T3Engine/manager/shadermanager.h"
+#include<QDir>
 
-Picture::Picture(const QString &imageName)
+Picture::Picture(const QString &imagePath)
     : indexBuf(QOpenGLBuffer::IndexBuffer)
 {
     initializeOpenGLFunctions();
@@ -57,7 +58,10 @@ Picture::Picture(const QString &imageName)
 
     // Initializes cube geometry and transfers it to VBOs
     initFaceGeometry();
-    initTextures(imageName);
+
+    setTextures(imagePath);
+
+    setName(imagePath);
 
     zoom=1;
     x=y=z=0;
@@ -124,6 +128,12 @@ void Picture::updateArrayBuffer()
     arrayBuf.write(0,vertices,4*sizeof(VertexData));
 }
 
+void Picture::setName(const QString &imagePath)
+{
+    int len=imagePath.length()-QDir::currentPath().length();
+    name=imagePath.right(len);
+}
+
 
 void Picture::draw()
 {
@@ -179,11 +189,6 @@ void Picture::setZoom(float z)
     updateArrayBuffer();
 }
 
-void Picture::setTexture(const QString &name)
-{
-    image.load(name);
-}
-
 void Picture::mirror(bool m)
 {
     mir=m;
@@ -191,9 +196,16 @@ void Picture::mirror(bool m)
 }
 
 
-void Picture::initTextures(const QString &imageName)
+void Picture::setTextures(const QString &imagePath)
 {
-    setTexture(imageName);
+
+    if(!image.load(imagePath))
+    {
+        qDebug()<<"can not load "<<imagePath<<endl;
+        return ;
+    }
+    setName(imagePath);
+
 
     texture = new QOpenGLTexture(QOpenGLTexture::Target2D);
     texture->setFormat(QOpenGLTexture::RGBA8U);
