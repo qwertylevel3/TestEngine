@@ -1,5 +1,6 @@
 #include "t3engine.h"
 #include"T3Engine/manager/picturemanager.h"
+#include"T3Engine/render/rendermodule.h"
 
 T3Engine::T3Engine()
 {
@@ -16,15 +17,12 @@ void T3Engine::init()
     format.setDepthBufferSize(24);
     QSurfaceFormat::setDefaultFormat(format);
 
-
-
-    renderModule=new RenderModule();
-    renderModule->setFormat(format);
-    renderModule->resize(640, 480);
+    RenderModule::instance()->setFormat(format);
+    RenderModule::instance()->resize(640, 480);
 }
 
 void T3Engine::run()
 {
-    renderModule->show();
+    RenderModule::instance()->show();
 }
 

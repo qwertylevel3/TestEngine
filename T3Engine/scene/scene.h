@@ -4,6 +4,11 @@
 
 class Scene
 {
+    //Q_OBJECT
+public:
+    Scene();
+    ~Scene();
+protected:
 
 };
 

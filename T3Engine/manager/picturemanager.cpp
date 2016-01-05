@@ -7,10 +7,10 @@ PictureManager::PictureManager()
 
 }
 
-bool PictureManager::init()
+void PictureManager::init()
 {
     QString path=QDir::currentPath();
-    //path+=QDir::separator()+QString("resource");
+    path+=QDir::separator()+QString("resource");
     loadImage(path);
 }
 

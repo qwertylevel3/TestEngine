@@ -1,4 +1,5 @@
 #include "frame.h"
+#include"T3Engine/render/rendermodule.h"
 
 Frame::Frame(const QString& pictureName, const QRectF &fp)
 {
@@ -35,7 +36,7 @@ void Frame::addRect(float x, float y, float dx, float dy)
     //    mrects.push_back(mtemp);
 }
 
-void Frame::draw()
+void Frame::draw(float x, float y, float zoom, bool mir)
 {
-    //picture->draw();
+
 }

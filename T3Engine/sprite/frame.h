@@ -15,7 +15,7 @@ struct Frame
     void setFramePosition(const QRectF& p){framePosition=p;}
     void addRect(const QRectF& r);
     void addRect(float x,float y,float dx,float dy);
-    void draw();
+    void draw(float x,float y,float zoom=1.0,bool mir=false);
 
     QString getPicture(){return picture;}
     QRectF& getFramePosition(){return framePosition;}

@@ -11,7 +11,7 @@
 #include<QOpenGLTexture>
 #include"T3Engine/render/picture.h"
 #include"T3Engine/manager/shadermanager.h"
-
+#include"T3Engine/singleton.h"
 
 QT_BEGIN_NAMESPACE
 class QPainter;
@@ -19,7 +19,7 @@ class QOpenGLContext;
 class QOpenGLPaintDevice;
 QT_END_NAMESPACE
 
-class RenderModule:public QOpenGLWidget, protected QOpenGLFunctions
+class RenderModule:public QOpenGLWidget, protected QOpenGLFunctions,public Singleton<RenderModule>
 {
     Q_OBJECT
 public:

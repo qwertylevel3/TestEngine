@@ -10,7 +10,7 @@ class PictureManager:public Singleton<PictureManager>
 {
 public:
     PictureManager();
-    bool init();
+    void init();
     Picture *getPicture(const QString& pictureName);
 private:
     void loadImage(const QString& path);

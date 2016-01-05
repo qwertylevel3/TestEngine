@@ -14,7 +14,6 @@ public:
     void init();
     void run();
 private:
-    RenderModule* renderModule;
     QSurfaceFormat format;
 };
 
