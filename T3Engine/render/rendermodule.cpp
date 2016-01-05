@@ -57,27 +57,27 @@ void RenderModule::gameLoop()
 {
     m_frame++;
 
-    PictureManager::instance()->getPicture("\\resource\\character\\test.png")
-            ->getMatrix().setToIdentity();
 
-     PictureManager::instance()->getPicture("\\resource\\character\\test.png")
-             ->getMatrix().translate(0.0, 0.0, -5.0);
-     PictureManager::instance()->getPicture("\\resource\\character\\test.png")
-             ->getMatrix().rotate(0.1*m_frame,1,1,1);
+//	PictureManager::instance()->getPicture("\\resource\\character\\test.png")
+//	        ->getMatrix().setToIdentity();
+//	PictureManager::instance()->getPicture("\\resource\\character\\test.png")
+//	        ->getMatrix().translate(0.0, 0.0, -5.0);
+//	PictureManager::instance()->getPicture("\\resource\\character\\test.png")
+//	        ->getMatrix().rotate(0.1*m_frame,1,1,1);
 }
 
 void RenderModule::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
     ShaderManager::instance()->getProgram()
-            ->setUniformValue("mvp_matrix"
-            ,projection*(PictureManager::instance()->getPicture("\\resource\\character\\test.png")->getMatrix()));
+            ->setUniformValue("mvp_matrix",projection);
 
     ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
 
-    f->draw(0,0,1,false);
+
+    //how to rotate...
+    f->draw(0,0,-5.0,1.0,false,0.1*m_frame,0,0,1);
 }
 
 void RenderModule::resizeGL(int w, int h)

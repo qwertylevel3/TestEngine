@@ -63,8 +63,10 @@ public:
     void setCoordinate(float x,float y,float z=0);
     void setTexturePosition(float x,float y,float dx,float dy);
     void setZoom(float z);
+    void setMatrix(const QMatrix4x4& m);
     void setTextures(const QString &imagePath);
     void mirror(bool m);
+    void rotate(float angle,float x,float y,float z=0);
 
     float getX(){return x;}
     float getY(){return y;}

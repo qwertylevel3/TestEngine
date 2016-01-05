@@ -37,8 +37,9 @@ void Frame::addRect(float x, float y, float dx, float dy)
     //    mrects.push_back(mtemp);
 }
 
-void Frame::draw(float x, float y, float zoom, bool mir)
+void Frame::draw(float x, float y,float z,float zoom, bool mir, float angle, float ax, float ay, float az)
 {
+
     Picture* p=PictureManager::instance()->getPicture(picture);
     if(!p)
     {
@@ -48,8 +49,10 @@ void Frame::draw(float x, float y, float zoom, bool mir)
     p->setTexturePosition(framePosition.x(),framePosition.y(),
                           framePosition.width()/p->getImageWidth(),
                           framePosition.height()/p->getImageHeight());
-    p->setCoordinate(x,y);
+
+    p->setCoordinate(x,y,z);
     p->setZoom(zoom);
     p->mirror(mir);
+    p->rotate(angle,ax,ay,az);
     p->draw();
 }

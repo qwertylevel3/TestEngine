@@ -113,17 +113,25 @@ void Picture::updateArrayBuffer()
 {
     if(!mir)
     {
-        vertices[0]=VertexData({QVector3D(-1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 0.0f+cy)*zoom});
-        vertices[1]=VertexData({QVector3D( 1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 0.0f+cy)*zoom});
-        vertices[2]=VertexData({QVector3D(-1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 1.0f*dy+cy)*zoom});
-        vertices[3]=VertexData({QVector3D( 1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 1.0f*dy+cy)*zoom});
+        vertices[0]=VertexData({(QVector4D(-1.0f+x, -1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
+                                QVector2D(0.0f+cx, 0.0f+cy)*zoom});
+        vertices[1]=VertexData({(QVector4D( 1.0f+x, -1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
+                                QVector2D(1.0f*dx+cx, 0.0f+cy)*zoom});
+        vertices[2]=VertexData({(QVector4D(-1.0f+x,  1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
+                                QVector2D(0.0f+cx, 1.0f*dy+cy)*zoom});
+        vertices[3]=VertexData({(QVector4D( 1.0f+x,  1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
+                                QVector2D(1.0f*dx+cx, 1.0f*dy+cy)*zoom});
     }
     else
     {
-        vertices[0]=VertexData({QVector3D(-1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 0.0f+cy)*zoom});
-        vertices[1]=VertexData({QVector3D( 1.0f+x, -1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 0.0f+cy)*zoom});
-        vertices[2]=VertexData({QVector3D(-1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(1.0f*dx+cx, 1.0f*dy+cy)*zoom});
-        vertices[3]=VertexData({QVector3D( 1.0f+x,  1.0f+y,  1.0f+z)*zoom, QVector2D(0.0f+cx, 1.0f*dy+cy)*zoom});
+        vertices[0]=VertexData({(QVector4D(-1.0f+x, -1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
+                                QVector2D(1.0f*dx+cx, 0.0f+cy)*zoom});
+        vertices[1]=VertexData({(QVector4D( 1.0f+x, -1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
+                                QVector2D(0.0f+cx, 0.0f+cy)*zoom});
+        vertices[2]=VertexData({(QVector4D(-1.0f+x,  1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
+                                QVector2D(1.0f*dx+cx, 1.0f*dy+cy)*zoom});
+        vertices[3]=VertexData({(QVector4D( 1.0f+x,  1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
+                                QVector2D(0.0f+cx, 1.0f*dy+cy)*zoom});
     }
     arrayBuf.write(0,vertices,4*sizeof(VertexData));
 }
@@ -189,9 +197,22 @@ void Picture::setZoom(float z)
     updateArrayBuffer();
 }
 
+void Picture::setMatrix(const QMatrix4x4 &m)
+{
+    matrix=m;
+    updateArrayBuffer();
+}
+
 void Picture::mirror(bool m)
 {
     mir=m;
+    updateArrayBuffer();
+}
+
+void Picture::rotate(float angle, float x, float y, float z)
+{
+    matrix.setToIdentity();
+    matrix.rotate(angle,x,y,z);
     updateArrayBuffer();
 }
 
