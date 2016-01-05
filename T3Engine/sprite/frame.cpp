@@ -1,5 +1,6 @@
 #include "frame.h"
 #include"T3Engine/render/rendermodule.h"
+#include"T3Engine/manager/picturemanager.h"
 
 Frame::Frame(const QString& pictureName, const QRectF &fp)
 {
@@ -38,5 +39,17 @@ void Frame::addRect(float x, float y, float dx, float dy)
 
 void Frame::draw(float x, float y, float zoom, bool mir)
 {
-
+    Picture* p=PictureManager::instance()->getPicture(picture);
+    if(!p)
+    {
+        qDebug()<<"can not get picture point"<<endl;
+        return;
+    }
+    p->setTexturePosition(framePosition.x(),framePosition.y(),
+                          framePosition.width()/p->getImageWidth(),
+                          framePosition.height()/p->getImageHeight());
+    p->setCoordinate(x,y);
+    p->setZoom(zoom);
+    p->mirror(mir);
+    p->draw();
 }

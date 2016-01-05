@@ -70,6 +70,8 @@ public:
     float getY(){return y;}
     float getZ(){return z;}
     float getZoom(){return zoom;}
+    float getImageHeight(){return imageHeight;}
+    float getImageWidth(){return imageWidth;}
     bool isMirror(){return mir;}
     QString getName(){return name;}
     QMatrix4x4& getMatrix(){return matrix;}
@@ -88,6 +90,8 @@ private:
     QOpenGLBuffer indexBuf;
     QOpenGLTexture* texture;
     QImage image;
+    float imageHeight;
+    float imageWidth;
     float zoom;
     float x,y,z;
     float cx,cy;

@@ -46,13 +46,11 @@ void RenderModule::initializeGL()
 
     PictureManager::instance()->showPictureBoxMessage();
 
-    Picture* t=PictureManager::instance()->getPicture("\\resource\\character\\test.png");
-    //t->setTexturePosition(0.33,0.33,0.33,0.33);
-    t->mirror(true);
-
     timer.start(12,this);
     m_frame=0;
 
+    QRectF r(0,0,128,128);
+    f=new Frame(QString("\\resource\\character\\test.png"),r);
 }
 
 void RenderModule::gameLoop()
@@ -79,7 +77,7 @@ void RenderModule::paintGL()
 
     ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
 
-    PictureManager::instance()->getPicture("\\resource\\character\\test.png")->draw();
+    f->draw(0,0,1,false);
 }
 
 void RenderModule::resizeGL(int w, int h)

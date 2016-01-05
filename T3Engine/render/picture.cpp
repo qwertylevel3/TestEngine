@@ -205,6 +205,8 @@ void Picture::setTextures(const QString &imagePath)
         return ;
     }
     setName(imagePath);
+    imageWidth=image.size().width();
+    imageHeight=image.size().height();
 
 
     texture = new QOpenGLTexture(QOpenGLTexture::Target2D);
