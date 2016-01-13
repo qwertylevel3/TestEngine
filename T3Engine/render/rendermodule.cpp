@@ -31,40 +31,89 @@ void RenderModule::initializeGL()
 {
     initializeOpenGLFunctions();
 
-    glClearColor(0,1,1,1);
+    glClearColor(1,1,1,0);
 
     glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LEQUAL);
+
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+    glEnable(GL_POLYGON_OFFSET_FILL);
+    glEnable(GL_POLYGON_OFFSET_LINE);
+    glEnable(GL_POLYGON_OFFSET_POINT);
+    glPolygonOffset(0.1,1);
+
     //initialize...
 
+    //读取shader
     ShaderManager::instance()->init(":/vshader.glsl",":/fshader.glsl");
+    //读取图片资源
     PictureManager::instance()->init();
 
-    PictureManager::instance()->showPictureBoxMessage();
+    //PictureManager::instance()->showPictureBoxMessage();
 
     timer.start(12,this);
     m_frame=0;
 
-    action=new Action();
-    for(int i=0;i<2;i++)
+    for(int i=0;i<100;i++)
     {
-        QRectF r(0+128*i,128,128,128);
+        Action* action=new Action();
+        for(int j=0;j<8;j++)
+        {
+            QRectF r(0+128*j,0,128,128);
+
+            Frame* t=new Frame("\\resource\\character\\test.png",r);
+            action->addFrame(t);
+        }
+        action->setFrameTotal(8);
+        action->setRepeatStart(0);
+        action->setRepeatOver(7);
+        action->setRepeat(true);
+        action->setFrameDelay(4);
+
+        actionList.push_back(action);
+    }
+
+    action2=new Action();
+    for(int j=0;j<8;j++)
+    {
+        QRectF r(0+128*j,0,128,128);
 
         Frame* t=new Frame("\\resource\\character\\test.png",r);
-        action->addFrame(t);
+        action2->addFrame(t);
     }
-    action->setFrameTotal(2);
-    action->setRepeatStart(0);
-    action->setRepeatOver(1);
-    action->setRepeat(true);
+    action2->setFrameTotal(8);
+    action2->setRepeatStart(0);
+    action2->setRepeatOver(7);
+    action2->setRepeat(true);
+    action2->setFrameDelay(4);
+
+    action3=new Action();
+    for(int j=0;j<8;j++)
+    {
+        QRectF r(0+128*j,0,128,128);
+
+        Frame* t=new Frame("\\resource\\character\\test.png",r);
+        action3->addFrame(t);
+    }
+    action3->setFrameTotal(8);
+    action3->setRepeatStart(0);
+    action3->setRepeatOver(7);
+    action3->setRepeat(true);
+    action3->setFrameDelay(4);
+
 }
 
 void RenderModule::gameLoop()
 {
     m_frame++;
-    action->update();
+    for(int i=0;i<actionList.size();i++)
+    {
+        actionList.at(i)->update();
+    }
+    action2->update();
+    action3->update();
 }
 
 void RenderModule::paintGL()
@@ -76,7 +125,15 @@ void RenderModule::paintGL()
 
     ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
 
-    action->draw(0,0,-5,1,false,0.1*m_frame,0,0,1);
+    for(int i=0;i<actionList.size();i++)
+    {
+        actionList.at(i)->draw(i*0.01,0,-5,1,false);
+    }
+    //actionList.at(0)->draw(0.7,0,-5,1,false);
+    //actionList.at(1)->draw(1*0.5,0,-6,1.5,false);
+    action3->draw(0.7,0,-4,1,false);
+    action2->draw(1,0,-4,1,false);
+
 }
 
 void RenderModule::resizeGL(int w, int h)

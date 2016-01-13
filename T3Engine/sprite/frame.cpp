@@ -57,6 +57,7 @@ void Frame::draw(float x, float y,float z,float zoom, bool mir, float angle, flo
     //qDebug()<<framePosition.height()/p->getImageHeight()<<endl;
 
     p->setCoordinate(x,y,z);
+
     p->setZoom(zoom);
     p->mirror(mir);
     p->rotate(angle,ax,ay,az);
