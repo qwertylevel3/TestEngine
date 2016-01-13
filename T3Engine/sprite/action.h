@@ -11,7 +11,9 @@ public:
 
     void addFrame(Frame* frame){frameBox.push_back(frame);}
 
-    void draw(bool showRect);
+    //xyz坐标，zoom放缩，mir是否镜像，绕axayaz转angle度
+    void draw(float x, float y, float z,float zoom=1.0, bool mir=false
+            ,float angle=0,float ax=0,float ay=0,float az=0);
 
     void start();
     int update();
@@ -23,8 +25,6 @@ public:
     void setRepeat(bool r){isRepeat=r;}
     void setRepeatStart(int index){repeatStart=index;}
     void setRepeatOver(int index){repeatOver=index;}
-    void mirror(bool m);
-
 
     int getFrameTotal(){return frameTotal;}
     int getFrameDelay(){return frameDelay;}
@@ -32,9 +32,6 @@ public:
     bool getRepeat(){return isRepeat;}
     int getRepeatStart(){return repeatStart;}
     int getRepeatOver() {return repeatOver;}
-    bool isMirror(){return mir;}
-
-
 private:
     QList<Frame*> frameBox;
 
@@ -46,8 +43,6 @@ private:
 
     int repeatStart;//重复开始帧
     int repeatOver;//重复终止帧
-    bool mir;//是否反向(向左为true)
-
 };
 
 #endif // ACTION_H

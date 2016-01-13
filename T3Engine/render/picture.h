@@ -61,12 +61,12 @@ public:
     void draw();
 
     void setCoordinate(float x,float y,float z=0);
-    void setTexturePosition(float x,float y,float dx,float dy);
+    void setTexturePosition(float t_x,float t_y,float t_w,float t_h);
     void setZoom(float z);
     void setMatrix(const QMatrix4x4& m);
     void setTextures(const QString &imagePath);
     void mirror(bool m);
-    void rotate(float angle,float x,float y,float z=0);
+    void rotate(float angle,float a_x,float a_y,float a_z=0);
 
     float getX(){return x;}
     float getY(){return y;}
@@ -94,11 +94,13 @@ private:
     QImage image;
     float imageHeight;
     float imageWidth;
-    float zoom;
-    float x,y,z;
-    float cx,cy;
-    float dx,dy;
-    bool mir;
+    float zoom;//放缩
+    float x,y,z;//位置坐标
+    float tx,ty;//纹理坐标
+    float tw,th;//纹理宽高
+    bool mir;//镜像
+    float angle;//旋转角度
+    float ax,ay,az;//旋转轴
     QMatrix4x4 matrix;
     QString name;
 };

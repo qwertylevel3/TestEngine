@@ -13,8 +13,6 @@ RenderModule::RenderModule(QWidget *parent)
     , m_animating(false)
     , m_context(0)
 {
-
-
 }
 
 RenderModule::~RenderModule()
@@ -49,21 +47,24 @@ void RenderModule::initializeGL()
     timer.start(12,this);
     m_frame=0;
 
-    QRectF r(0,0,128,128);
-    f=new Frame(QString("\\resource\\character\\test.png"),r);
+    action=new Action();
+    for(int i=0;i<2;i++)
+    {
+        QRectF r(0+128*i,128,128,128);
+
+        Frame* t=new Frame("\\resource\\character\\test.png",r);
+        action->addFrame(t);
+    }
+    action->setFrameTotal(2);
+    action->setRepeatStart(0);
+    action->setRepeatOver(1);
+    action->setRepeat(true);
 }
 
 void RenderModule::gameLoop()
 {
     m_frame++;
-
-
-//	PictureManager::instance()->getPicture("\\resource\\character\\test.png")
-//	        ->getMatrix().setToIdentity();
-//	PictureManager::instance()->getPicture("\\resource\\character\\test.png")
-//	        ->getMatrix().translate(0.0, 0.0, -5.0);
-//	PictureManager::instance()->getPicture("\\resource\\character\\test.png")
-//	        ->getMatrix().rotate(0.1*m_frame,1,1,1);
+    action->update();
 }
 
 void RenderModule::paintGL()
@@ -75,9 +76,7 @@ void RenderModule::paintGL()
 
     ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
 
-
-    //how to rotate...
-    f->draw(0,0,-5.0,1.0,false,0.1*m_frame,0,0,1);
+    action->draw(0,0,-5,1,false,0.1*m_frame,0,0,1);
 }
 
 void RenderModule::resizeGL(int w, int h)

@@ -13,6 +13,7 @@
 #include"T3Engine/manager/shadermanager.h"
 #include"T3Engine/singleton.h"
 #include"T3Engine/sprite/frame.h"
+#include"T3Engine/sprite/action.h"
 
 QT_BEGIN_NAMESPACE
 class QPainter;
@@ -52,7 +53,8 @@ private:
 
 
     //temp...
-    Frame* f;
+    Action* action;
+    //Frame* frame;
 };
 
 #endif // RENDERMODULE_H

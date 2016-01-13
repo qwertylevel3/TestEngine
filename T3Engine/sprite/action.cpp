@@ -11,7 +11,6 @@ Action::Action()
     repeatStart=0;
     repeatOver=0;
 
-    mir=false;
 }
 
 Action::~Action()
@@ -31,12 +30,12 @@ int Action::update()
         frameClock=0;
         if(isRepeat)
         {
-            currFrame=(++currFrame==repeatOver?0:currFrame);
+            currFrame=(++currFrame>repeatOver?0:currFrame);
             return 1;
         }
         else
         {
-            if(++currFrame==repeatOver)
+            if(++currFrame>repeatOver)
             {
                 currFrame=repeatStart;
                 return 0;
@@ -51,18 +50,11 @@ void Action::end()
 
 }
 
-void Action::mirror(bool m)
-{
-    for(int i=0;i<frameBox.length();i++)
-    {
-        //frameBox[i]->getPicture()->mirror(m);
-    }
-}
 
-void Action::draw(bool showRect)
+void Action::draw(float x, float y, float z,float zoom, bool mir
+        ,float angle,float ax,float ay,float az)
 {
-    //frameBox[currFrame]->getPicture()->draw();
-
+    frameBox[currFrame]->draw(x,y,z,zoom,mir,angle,ax,ay,az);
 //    //绘制碰撞矩形
 //    if(showRect)
 //    {

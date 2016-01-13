@@ -65,9 +65,14 @@ Picture::Picture(const QString &imagePath)
 
     zoom=1;
     x=y=z=0;
-    cx=cy=0;
-    dx=dy=1;
+    tx=ty=0;
+    tw=th=1;
     mir=false;
+
+    angle=0;
+    ax=0;
+    ay=0;
+    az=0;
 
     matrix.setToIdentity();
 
@@ -83,10 +88,10 @@ Picture::~Picture()
 
 void Picture::initFaceGeometry()
 {
-    vertices[0]=VertexData({QVector3D(-1.0f, -1.0f,  1.0f), QVector2D(0.0f, 0.0f)});
-    vertices[1]=VertexData({QVector3D( 1.0f, -1.0f,  1.0f), QVector2D(1.0f, 0.0f)});
-    vertices[2]=VertexData({QVector3D(-1.0f,  1.0f,  1.0f), QVector2D(0.0f, 1.0f)});
-    vertices[3]=VertexData({QVector3D( 1.0f,  1.0f,  1.0f), QVector2D(1.0f, 1.0f)});
+    vertices[0]=VertexData({QVector3D(-1.0f, -1.0f,  0.0f), QVector2D(0.0f, 0.0f)});
+    vertices[1]=VertexData({QVector3D( 1.0f, -1.0f,  0.0f), QVector2D(1.0f, 0.0f)});
+    vertices[2]=VertexData({QVector3D(-1.0f,  1.0f,  0.0f), QVector2D(0.0f, 1.0f)});
+    vertices[3]=VertexData({QVector3D( 1.0f,  1.0f,  0.0f), QVector2D(1.0f, 1.0f)});
 
     indices[0]=0;
     indices[1]=1;
@@ -111,27 +116,32 @@ void Picture::allocateBuffer()
 
 void Picture::updateArrayBuffer()
 {
+    matrix.setToIdentity();
+    matrix.rotate(angle,x,y,z);
+    matrix.scale(zoom,zoom,1);
     if(!mir)
     {
-        vertices[0]=VertexData({(QVector4D(-1.0f+x, -1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
-                                QVector2D(0.0f+cx, 0.0f+cy)*zoom});
-        vertices[1]=VertexData({(QVector4D( 1.0f+x, -1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
-                                QVector2D(1.0f*dx+cx, 0.0f+cy)*zoom});
-        vertices[2]=VertexData({(QVector4D(-1.0f+x,  1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
-                                QVector2D(0.0f+cx, 1.0f*dy+cy)*zoom});
-        vertices[3]=VertexData({(QVector4D( 1.0f+x,  1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
-                                QVector2D(1.0f*dx+cx, 1.0f*dy+cy)*zoom});
+        vertices[0]=VertexData({(QVector4D(-1.0f+x, -1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+                                QVector2D(0.0f+tx, 0.0f+ty)});
+        vertices[1]=VertexData({(QVector4D( 1.0f+x, -1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+                                QVector2D(1.0f*tw+tx, 0.0f+ty)});
+        vertices[2]=VertexData({(QVector4D(-1.0f+x,  1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+                                QVector2D(0.0f+tx, 1.0f*th+ty)});
+        vertices[3]=VertexData({(QVector4D( 1.0f+x,  1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+                                QVector2D(1.0f*tw+tx, 1.0f*th+ty)});
+
+
     }
     else
     {
-        vertices[0]=VertexData({(QVector4D(-1.0f+x, -1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
-                                QVector2D(1.0f*dx+cx, 0.0f+cy)*zoom});
-        vertices[1]=VertexData({(QVector4D( 1.0f+x, -1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
-                                QVector2D(0.0f+cx, 0.0f+cy)*zoom});
-        vertices[2]=VertexData({(QVector4D(-1.0f+x,  1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
-                                QVector2D(1.0f*dx+cx, 1.0f*dy+cy)*zoom});
-        vertices[3]=VertexData({(QVector4D( 1.0f+x,  1.0f+y,  1.0f+z,zoom)*matrix).toVector3DAffine(),
-                                QVector2D(0.0f+cx, 1.0f*dy+cy)*zoom});
+        vertices[0]=VertexData({(QVector4D(-1.0f+x, -1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+                                QVector2D(1.0f*tw+tx, 0.0f+ty)});
+        vertices[1]=VertexData({(QVector4D( 1.0f+x, -1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+                                QVector2D(0.0f+tx, 0.0f+ty)});
+        vertices[2]=VertexData({(QVector4D(-1.0f+x,  1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+                                QVector2D(1.0f*tw+tx, 1.0f*th+ty)});
+        vertices[3]=VertexData({(QVector4D( 1.0f+x,  1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+                                QVector2D(0.0f+tx, 1.0f*th+ty)});
     }
     arrayBuf.write(0,vertices,4*sizeof(VertexData));
 }
@@ -180,12 +190,12 @@ void Picture::setCoordinate(float x, float y, float z)
     updateArrayBuffer();
 }
 
-void Picture::setTexturePosition(float x, float y, float dx, float dy)
+void Picture::setTexturePosition(float t_x, float t_y, float t_w, float t_h)
 {
-    this->cx=x;
-    this->cy=y;
-    this->dx=dx;
-    this->dy=dy;
+    this->tx=t_x;
+    this->ty=t_y;
+    this->tw=t_w;
+    this->th=t_h;
 
     updateArrayBuffer();
 }
@@ -209,10 +219,13 @@ void Picture::mirror(bool m)
     updateArrayBuffer();
 }
 
-void Picture::rotate(float angle, float x, float y, float z)
+void Picture::rotate(float angle, float a_x, float a_y, float a_z)
 {
-    matrix.setToIdentity();
-    matrix.rotate(angle,x,y,z);
+    this->angle=angle;
+    ax=a_x;
+    ay=a_y;
+    az=a_z;
+
     updateArrayBuffer();
 }
 
