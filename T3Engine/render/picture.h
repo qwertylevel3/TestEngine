@@ -21,14 +21,30 @@ public:
     void draw();
 
     void setCoordinate(float x,float y,float z=0);
+    void setWidth(float w){width=w;}
+    void setHeight(float h){height=h;}
     void setTexturePosition(float t_x,float t_y,float t_w,float t_h);
-    void setZoomX(float z);
-    void setZoomY(float z);
-    void setMatrix(const QMatrix4x4& m);
+    void setZoomX(float z)
+    {
+        zoomX=z;
+    }
+    void setZoomY(float z)
+    {
+        zoomY=z;
+    }
+    void setMatrix(const QMatrix4x4& m)
+    {
+        matrix=m;
+    }
     void setTextures(const QString &imagePath);
-    void mirror(bool m);
+    void mirror(bool m)
+    {
+        mir=m;
+    }
     void rotate(float angle,float a_x,float a_y,float a_z=0);
 
+    float getWidth(){return width;}
+    float getHeight(){return height;}
     float getX(){return x;}
     float getY(){return y;}
     float getZ(){return z;}
@@ -60,6 +76,8 @@ private:
     float zoomX;//放缩
     float zoomY;
     float x,y,z;//位置坐标
+    float width;
+    float height;
     float tx,ty;//纹理坐标
     float tw,th;//纹理宽高
     bool mir;//镜像
@@ -84,28 +102,5 @@ void Picture::setTexturePosition(float t_x, float t_y, float t_w, float t_h)
     this->tw=t_w;
     this->th=t_h;
 }
-
-inline
-void Picture::setZoomX(float z)
-{
-    zoomX=z;
-}
-inline
-void Picture::setZoomY(float z)
-{
-    zoomY=z;
-}
-inline
-void Picture::setMatrix(const QMatrix4x4 &m)
-{
-    matrix=m;
-}
-inline
-void Picture::mirror(bool m)
-{
-    mir=m;
-}
-
-
 
 #endif // PICTURE_H

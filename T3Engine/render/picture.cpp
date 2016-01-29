@@ -26,6 +26,8 @@ Picture::Picture(const QString &imagePath)
     zoomX=1;
     zoomY=1;
     x=y=z=0;
+    width=1;
+    height=1;
     tx=ty=0;
     tw=th=1;
     mir=false;
@@ -82,26 +84,26 @@ void Picture::updateArrayBuffer()
     matrix.scale(zoomX,zoomY,1);
     if(!mir)
     {
-        vertices[0]=VertexData({(QVector4D(-1.0f+x, -1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+        vertices[0]=VertexData({(QVector4D(-1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
                                 QVector2D(0.0f+tx, 0.0f+ty)});
-        vertices[1]=VertexData({(QVector4D( 1.0f+x, -1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+        vertices[1]=VertexData({(QVector4D( 1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
                                 QVector2D(1.0f*tw+tx, 0.0f+ty)});
-        vertices[2]=VertexData({(QVector4D(-1.0f+x,  1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+        vertices[2]=VertexData({(QVector4D(-1.0f*width+x,  1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
                                 QVector2D(0.0f+tx, 1.0f*th+ty)});
-        vertices[3]=VertexData({(QVector4D( 1.0f+x,  1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+        vertices[3]=VertexData({(QVector4D( 1.0f*width+x,  1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
                                 QVector2D(1.0f*tw+tx, 1.0f*th+ty)});
 
 
     }
     else
     {
-        vertices[0]=VertexData({(QVector4D(-1.0f+x, -1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+        vertices[0]=VertexData({(QVector4D(-1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
                                 QVector2D(1.0f*tw+tx, 0.0f+ty)});
-        vertices[1]=VertexData({(QVector4D( 1.0f+x, -1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+        vertices[1]=VertexData({(QVector4D( 1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
                                 QVector2D(0.0f+tx, 0.0f+ty)});
-        vertices[2]=VertexData({(QVector4D(-1.0f+x,  1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+        vertices[2]=VertexData({(QVector4D(-1.0f*width+x, 1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
                                 QVector2D(1.0f*tw+tx, 1.0f*th+ty)});
-        vertices[3]=VertexData({(QVector4D( 1.0f+x,  1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
+        vertices[3]=VertexData({(QVector4D( 1.0f*width+x,  1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
                                 QVector2D(0.0f+tx, 1.0f*th+ty)});
     }
     arrayBuf.bind();

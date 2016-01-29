@@ -8,7 +8,7 @@
 
 struct Frame
 {
-    Frame(const QString& pictureName,const QRectF& fp);
+    Frame(const QString& pictureName, const QRectF& fp, const int w, const int h);
     ~Frame();
 
     void setPicture(const QString& pictureName);
@@ -19,16 +19,19 @@ struct Frame
               bool mir=false,float angle=0,float ax=0,float ay=0,float az=0);
     void drawRect();
 
-    QString getPicture(){return picture;}
+    QString getPicture(){return pictureName;}
     QRectF& getFramePosition(){return framePosition;}
     QList<QRectF>& getRects(){return rects;}
     QList<QRectF>& getmRects(){return mrects;}
 
-    QString picture;
+    QString pictureName;
+    Picture* picturePoint;
     QRectF framePosition;//当前帧在全图中的坐标
     //QVector<QRectF> redRect;
     QList<QRectF> rects;
     QList<QRectF> mrects;//镜像矩形
+    float width;
+    float height;
 
 };
 

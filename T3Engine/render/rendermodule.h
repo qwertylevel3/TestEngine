@@ -53,7 +53,6 @@ private:
 
 
     //temp...
-    QList<Action*> actionList;
     Action* action2;
     Action* action3;
     //Frame* frame;
