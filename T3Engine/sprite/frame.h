@@ -15,8 +15,9 @@ struct Frame
     void setFramePosition(const QRectF& p){framePosition=p;}
     void addRect(const QRectF& r);
     void addRect(float x,float y,float dx,float dy);
-    void draw(float x, float y, float z,float zoom=1.0, bool mir=false
-            ,float angle=0,float ax=0,float ay=0,float az=0);
+    void draw(float x, float y, float z,float zoomX=1.0,float zoomY=1.0,
+              bool mir=false,float angle=0,float ax=0,float ay=0,float az=0);
+    void drawRect();
 
     QString getPicture(){return picture;}
     QRectF& getFramePosition(){return framePosition;}
@@ -24,8 +25,7 @@ struct Frame
     QList<QRectF>& getmRects(){return mrects;}
 
     QString picture;
-    //the position of this frame in the picture
-    QRectF framePosition;
+    QRectF framePosition;//当前帧在全图中的坐标
     //QVector<QRectF> redRect;
     QList<QRectF> rects;
     QList<QRectF> mrects;//镜像矩形

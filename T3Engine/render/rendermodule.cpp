@@ -127,12 +127,12 @@ void RenderModule::paintGL()
 
     for(int i=0;i<actionList.size();i++)
     {
-        actionList.at(i)->draw(i*0.01,0,-5,1,false);
+        actionList.at(i)->draw(i*0.01,0,-5,1,1,false);
     }
     //actionList.at(0)->draw(0.7,0,-5,1,false);
     //actionList.at(1)->draw(1*0.5,0,-6,1.5,false);
-    action3->draw(0.7,0,-4,1,false);
-    action2->draw(1,0,-4,1,false);
+    action3->draw(0.7,0,-4,1,1,false);
+    action2->draw(1,0,-4,1,1,false);
 
 }
 

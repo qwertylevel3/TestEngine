@@ -22,7 +22,8 @@ public:
 
     void setCoordinate(float x,float y,float z=0);
     void setTexturePosition(float t_x,float t_y,float t_w,float t_h);
-    void setZoom(float z);
+    void setZoomX(float z);
+    void setZoomY(float z);
     void setMatrix(const QMatrix4x4& m);
     void setTextures(const QString &imagePath);
     void mirror(bool m);
@@ -31,7 +32,8 @@ public:
     float getX(){return x;}
     float getY(){return y;}
     float getZ(){return z;}
-    float getZoom(){return zoom;}
+    float getZoomX(){return zoomX;}
+    float getZoomY(){return zoomY;}
     float getImageHeight(){return imageHeight;}
     float getImageWidth(){return imageWidth;}
     bool isMirror(){return mir;}
@@ -55,7 +57,8 @@ private:
     QImage image;
     float imageHeight;
     float imageWidth;
-    float zoom;//放缩
+    float zoomX;//放缩
+    float zoomY;
     float x,y,z;//位置坐标
     float tx,ty;//纹理坐标
     float tw,th;//纹理宽高
@@ -65,5 +68,44 @@ private:
     QMatrix4x4 matrix;
     QString name;
 };
+
+inline
+void Picture::setCoordinate(float x, float y, float z)
+{
+    this->x=x;
+    this->y=y;
+    this->z=z;
+}
+inline
+void Picture::setTexturePosition(float t_x, float t_y, float t_w, float t_h)
+{
+    this->tx=t_x;
+    this->ty=t_y;
+    this->tw=t_w;
+    this->th=t_h;
+}
+
+inline
+void Picture::setZoomX(float z)
+{
+    zoomX=z;
+}
+inline
+void Picture::setZoomY(float z)
+{
+    zoomY=z;
+}
+inline
+void Picture::setMatrix(const QMatrix4x4 &m)
+{
+    matrix=m;
+}
+inline
+void Picture::mirror(bool m)
+{
+    mir=m;
+}
+
+
 
 #endif // PICTURE_H

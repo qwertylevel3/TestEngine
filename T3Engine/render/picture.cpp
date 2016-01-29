@@ -23,7 +23,8 @@ Picture::Picture(const QString &imagePath)
 
     setName(imagePath);
 
-    zoom=1;
+    zoomX=1;
+    zoomY=1;
     x=y=z=0;
     tx=ty=0;
     tw=th=1;
@@ -78,7 +79,7 @@ void Picture::updateArrayBuffer()
 {
     matrix.setToIdentity();
     matrix.rotate(angle,x,y,z);
-    matrix.scale(zoom,zoom,1);
+    matrix.scale(zoomX,zoomY,1);
     if(!mir)
     {
         vertices[0]=VertexData({(QVector4D(-1.0f+x, -1.0f+y,  0.0f+z,1)*matrix).toVector3D(),
@@ -116,6 +117,7 @@ void Picture::setName(const QString &imagePath)
 
 void Picture::draw()
 {
+    updateArrayBuffer();
     // Tell OpenGL which VBOs to use
     arrayBuf.bind();
     indexBuf.bind();
@@ -146,44 +148,6 @@ void Picture::draw()
     //indexBuf.release();
 }
 
-void Picture::setCoordinate(float x, float y, float z)
-{
-    this->x=x;
-    this->y=y;
-    this->z=z;
-
-    updateArrayBuffer();
-}
-
-void Picture::setTexturePosition(float t_x, float t_y, float t_w, float t_h)
-{
-    this->tx=t_x;
-    this->ty=t_y;
-    this->tw=t_w;
-    this->th=t_h;
-
-    updateArrayBuffer();
-}
-
-void Picture::setZoom(float z)
-{
-    zoom=z;
-
-    updateArrayBuffer();
-}
-
-void Picture::setMatrix(const QMatrix4x4 &m)
-{
-    matrix=m;
-    updateArrayBuffer();
-}
-
-void Picture::mirror(bool m)
-{
-    mir=m;
-    updateArrayBuffer();
-}
-
 void Picture::rotate(float angle, float a_x, float a_y, float a_z)
 {
     this->angle=angle;
@@ -191,7 +155,6 @@ void Picture::rotate(float angle, float a_x, float a_y, float a_z)
     ay=a_y;
     az=a_z;
 
-    updateArrayBuffer();
 }
 
 
