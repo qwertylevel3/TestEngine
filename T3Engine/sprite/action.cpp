@@ -85,6 +85,11 @@ void Action::draw(float x, float y, float z,float zoom, bool mir
 //                painter->drawRect(x,y,w,h);
 //            }
 //        }
-//    }
+    //    }
+}
+
+void Action::drawRect()
+{
+    frameBox[currFrame]->drawRect();
 }
 

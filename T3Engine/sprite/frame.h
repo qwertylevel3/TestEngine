@@ -32,6 +32,7 @@ struct Frame
     QList<QRectF> mrects;//镜像矩形
     float width;
     float height;
+    float x,y,z;
 
 };
 

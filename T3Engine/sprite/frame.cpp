@@ -12,9 +12,11 @@ Frame::Frame(const QString& pictureName, const QRectF &fp,
         qDebug()<<"picturePoint"<<pictureName<<" is empty"<<endl;
     }
     framePosition=fp;
-    width=float(w)/200;
-    height=float(h)/200;
+    width=float(w)/100;
+    height=float(h)/100;
     qDebug()<<width<<" "<<height<<endl;
+
+    x=y=z=0;
 }
 
 
@@ -30,7 +32,7 @@ void Frame::addRect(const QRectF &r)
 
 void Frame::addRect(float x, float y, float dx, float dy)
 {
-    QRectF temp(x,y,width,height);
+    QRectF temp(x,y,dx,dy);
     rects.push_back(temp);
 }
 
@@ -48,6 +50,10 @@ void Frame::draw(float x, float y,float z,float zoomX,float zoomY,
     //qDebug()<<framePosition.width()/p->getImageWidth()<<endl;
     //qDebug()<<framePosition.height()/p->getImageHeight()<<endl;
 
+    this->x=x;
+    this->y=y;
+    this->z=z;
+
     picturePoint->setCoordinate(x,y,z);
 
     picturePoint->setZoomX(zoomX);
@@ -61,41 +67,17 @@ void Frame::draw(float x, float y,float z,float zoomX,float zoomY,
 
 void Frame::drawRect()
 {
-//    Picture* p=PictureManager::instance()->getPicture(picture);
-//    if(!p)
-//    {
-//        qDebug()<<"can not get picture point:"<<picture<<endl;
-//        return;
-//    }
-//
-//	Picture* r=PictureManager::instance()->getPicture("rect");
-//	if(!r)
-//	{
-//		qDebug()<<"can not get picture point:"<<"rect"<<endl;
-//		return;
-//	}
-//
-//	float px=framePosition.x()/p->getImageWidth();
-//	float py=framePosition.y()/p->getImageHeight();
-//
-//	for(int i=0;i<rects.size();i++)
-//	{
-//		p->setTexturePosition(0,0,1,1);
-//
-//		if(!mir)
-//		{
-//			r->setCoordinate(x+rects[i].x()*p->getImageWidth(),
-//			                 y+rects[i].y()*p->getImageHeight(),z);
-//		}
-//		else
-//		{
-//			r->setCoordinate(x+mrects[i].x()*p->getImageWidth(),
-//			                 y+mrects[i].y()*p->getImageHeight(),z);
-//		}
-//
-//		p->setZoom(zoom);
-//		p->rotate(angle,ax,ay,az);
-//		p->draw();
-//	}
+    Picture* rectPoint=PictureManager::instance()->getPicture("\\resource\\rect.png");
+
+    for(int i=0;i<rects.size();i++)
+    {
+        rectPoint->setWidth(float(rects[i].width())/100);
+        rectPoint->setHeight(float(rects[i].height())/100);
+
+        rectPoint->setCoordinate(x+float(rects[i].x()*width)/100,
+                         y+float(rects[i].y()*height)/100,z);
+
+        rectPoint->draw();
+    }
 }
 

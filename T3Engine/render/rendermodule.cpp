@@ -62,6 +62,9 @@ void RenderModule::initializeGL()
         QRectF r(0+32*j,0,32,48);
 
         Frame* t=new Frame("\\resource\\character\\test.png",r,32,48);
+        QRectF tr(0,0,15,20);
+        t->addRect(tr);
+
         action2->addFrame(t);
     }
     action2->setFrameTotal(8);
@@ -76,6 +79,9 @@ void RenderModule::initializeGL()
         QRectF r(0+32*j,0,32,48);
 
         Frame* t=new Frame("\\resource\\character\\test.png",r,32,48);
+        QRectF tr(0,0,10,20);
+        t->addRect(tr);
+
         action3->addFrame(t);
     }
     action3->setFrameTotal(8);
@@ -106,6 +112,9 @@ void RenderModule::paintGL()
     //actionList.at(1)->draw(1*0.5,0,-6,1.5,false);
     action3->draw(0.7,0,-5,1,1,false);
     action2->draw(1,0,-4,1,1,false);
+
+    action2->drawRect();
+    action3->drawRect();
 
 }
 

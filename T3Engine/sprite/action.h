@@ -14,6 +14,7 @@ public:
     //xyz坐标，zoom放缩，mir是否镜像，绕axayaz转angle度
     void draw(float x, float y, float z,float zoom=1.0, bool mir=false
             ,float angle=0,float ax=0,float ay=0,float az=0);
+    void drawRect();
 
     void start();
     int update();
