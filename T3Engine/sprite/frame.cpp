@@ -24,6 +24,19 @@ Frame::~Frame()
 {
 }
 
+Frame *Frame::clone()
+{
+    Frame* newFrame=new Frame(this->pictureName,this->framePosition,
+                             this->width,this->height);
+    for(int i=0;i<rects.size();i++)
+    {
+        QRectF r(rects[i]);
+        newFrame->addRect(r);
+    }
+
+    return newFrame;
+}
+
 void Frame::addRect(const QRectF &r)
 {
     QRectF temp(r);

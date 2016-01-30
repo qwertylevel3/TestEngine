@@ -18,6 +18,27 @@ Action::~Action()
 
 }
 
+Action *Action::clone()
+{
+    Action* newAction=new Action();
+    newAction->setName(this->name);
+    newAction->setCurrFrame(0);
+    newAction->setFrameDelay(this->frameDelay);
+    newAction->setFrameTotal(this->frameTotal);
+    newAction->setRepeat(this->isRepeat);
+    newAction->setRepeatStart(this->repeatStart);
+    newAction->setRepeatOver(this->repeatOver);
+
+
+    for(int i=0;i<frameBox.size();i++)
+    {
+        Frame* f=frameBox[i]->clone();
+        newAction->addFrame(f);
+    }
+
+    return newAction;
+}
+
 void Action::start()
 {
     currFrame=repeatStart;
@@ -51,10 +72,10 @@ void Action::end()
 }
 
 
-void Action::draw(float x, float y, float z,float zoom, bool mir
-        ,float angle,float ax,float ay,float az)
+void Action::draw(float x, float y, float z, float zoomX, float zoomY, bool mir
+        , float angle, float ax, float ay, float az)
 {
-    frameBox[currFrame]->draw(x,y,z,zoom,mir,angle,ax,ay,az);
+    frameBox[currFrame]->draw(x,y,z,zoomX,zoomY,mir,angle,ax,ay,az);
 //    //绘制碰撞矩形
 //    if(showRect)
 //    {

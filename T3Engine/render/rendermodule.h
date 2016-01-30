@@ -14,6 +14,7 @@
 #include"T3Engine/singleton.h"
 #include"T3Engine/sprite/frame.h"
 #include"T3Engine/sprite/action.h"
+#include"T3Engine/sprite/sprite.h"
 
 QT_BEGIN_NAMESPACE
 class QPainter;

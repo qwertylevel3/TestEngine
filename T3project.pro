@@ -5,6 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT	 += xml
+QT	 += xmlpatterns
 CONFIG += c++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -22,7 +24,8 @@ SOURCES += main.cpp\
     T3Engine/sprite/sprite.cpp \
     T3Engine/render/rendermodule.cpp \
     T3Engine/render/picture.cpp \
-    T3Engine/manager/picturemanager.cpp
+    T3Engine/manager/picturemanager.cpp \
+    T3Engine/manager/spritemanager.cpp
 
 HEADERS  += \
     t3engine.h \
@@ -34,7 +37,8 @@ HEADERS  += \
     T3Engine/render/rendermodule.h \
     T3Engine/render/picture.h \
     T3Engine/singleton.h \
-    T3Engine/manager/picturemanager.h
+    T3Engine/manager/picturemanager.h \
+    T3Engine/manager/spritemanager.h
 
 RESOURCES += \
     shader.qrc

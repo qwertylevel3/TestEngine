@@ -9,10 +9,12 @@ public:
     Action();
     ~Action();
 
+    Action* clone();
+
     void addFrame(Frame* frame){frameBox.push_back(frame);}
 
     //xyz坐标，zoom放缩，mir是否镜像，绕axayaz转angle度
-    void draw(float x, float y, float z,float zoom=1.0, bool mir=false
+    void draw(float x, float y, float z,float zoomX=1.0,float zoomY=1.0, bool mir=false
             ,float angle=0,float ax=0,float ay=0,float az=0);
     void drawRect();
 
@@ -20,6 +22,7 @@ public:
     int update();
     void end();
 
+    void setName(const QString& n){name=n;}
     void setFrameTotal(int n){frameTotal=n;}
     void setFrameDelay(int d){frameDelay=d;}
     void setCurrFrame(int index){currFrame=index;}
@@ -27,13 +30,16 @@ public:
     void setRepeatStart(int index){repeatStart=index;}
     void setRepeatOver(int index){repeatOver=index;}
 
+    QString getName(){return name;}
     int getFrameTotal(){return frameTotal;}
     int getFrameDelay(){return frameDelay;}
-    int getCurrFrame(){return currFrame;}
+    int getCurrFrameIndex(){return currFrame;}
     bool getRepeat(){return isRepeat;}
     int getRepeatStart(){return repeatStart;}
     int getRepeatOver() {return repeatOver;}
+    Frame* getCurrFrame(){return frameBox[currFrame];}
 private:
+    QString name;
     QList<Frame*> frameBox;
 
     int frameDelay;//每帧延迟
