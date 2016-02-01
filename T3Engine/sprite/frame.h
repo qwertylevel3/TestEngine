@@ -8,7 +8,7 @@
 
 struct Frame
 {
-    Frame(const QString& pictureName, const QRectF& fp, const int w, const int h);
+    Frame(const QString& pictureName, const QRectF& fp, const float w, const float h);
     ~Frame();
 
     Frame* clone();

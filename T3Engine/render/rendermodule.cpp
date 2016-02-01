@@ -13,6 +13,7 @@ RenderModule::RenderModule(QWidget *parent)
     , m_animating(false)
     , m_context(0)
 {
+    testSprite=NULL;
 }
 
 RenderModule::~RenderModule()
@@ -50,53 +51,27 @@ void RenderModule::initializeGL()
     ShaderManager::instance()->init(":/vshader.glsl",":/fshader.glsl");
     //读取图片资源
     PictureManager::instance()->init();
+    SpriteManager::instance()->init();
 
     //PictureManager::instance()->showPictureBoxMessage();
 
     timer.start(12,this);
     m_frame=0;
 
-    action2=new Action();
-    for(int j=0;j<4;j++)
-    {
-        QRectF r(0+32*j,0,32,48);
+    testSprite=SpriteManager::instance()->getSprite("test");
 
-        Frame* t=new Frame("\\resource\\character\\test.png",r,32,48);
-        QRectF tr(0,0,15,20);
-        t->addRect(tr);
 
-        action2->addFrame(t);
-    }
-    action2->setFrameTotal(8);
-    action2->setRepeatStart(0);
-    action2->setRepeatOver(3);
-    action2->setRepeat(true);
-    action2->setFrameDelay(4);
-
-    action3=new Action();
-    for(int j=0;j<4;j++)
-    {
-        QRectF r(0+32*j,0,32,48);
-
-        Frame* t=new Frame("\\resource\\character\\test.png",r,32,48);
-        QRectF tr(0,0,10,20);
-        t->addRect(tr);
-
-        action3->addFrame(t);
-    }
-    action3->setFrameTotal(8);
-    action3->setRepeatStart(0);
-    action3->setRepeatOver(3);
-    action3->setRepeat(true);
-    action3->setFrameDelay(4);
 }
 
 void RenderModule::gameLoop()
 {
     m_frame++;
 
-    action2->update();
-    action3->update();
+    if(testSprite)
+    {
+        testSprite->update();
+    }
+
 }
 
 void RenderModule::paintGL()
@@ -110,11 +85,9 @@ void RenderModule::paintGL()
 
     //actionList.at(0)->draw(0.7,0,-5,1,false);
     //actionList.at(1)->draw(1*0.5,0,-6,1.5,false);
-    action3->draw(0.7,0,-5,1,1,false);
-    action2->draw(1,0,-4,1,1,false);
 
-    action2->drawRect();
-    action3->drawRect();
+    testSprite->setZ(-5);
+    testSprite->draw();
 
 }
 

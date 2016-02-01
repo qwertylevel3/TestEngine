@@ -3,7 +3,7 @@
 #include"T3Engine/manager/picturemanager.h"
 
 Frame::Frame(const QString& pictureName, const QRectF &fp,
-             const int w,const int h)
+             const float w,const float h)
 {
     this->pictureName=pictureName;
     picturePoint=PictureManager::instance()->getPicture(pictureName);
@@ -12,8 +12,8 @@ Frame::Frame(const QString& pictureName, const QRectF &fp,
         qDebug()<<"picturePoint"<<pictureName<<" is empty"<<endl;
     }
     framePosition=fp;
-    width=float(w)/100;
-    height=float(h)/100;
+    width=w/100;
+    height=h/100;
     qDebug()<<width<<" "<<height<<endl;
 
     x=y=z=0;
@@ -27,7 +27,7 @@ Frame::~Frame()
 Frame *Frame::clone()
 {
     Frame* newFrame=new Frame(this->pictureName,this->framePosition,
-                             this->width,this->height);
+                             (this->width)*100,(this->height)*100);
     for(int i=0;i<rects.size();i++)
     {
         QRectF r(rects[i]);

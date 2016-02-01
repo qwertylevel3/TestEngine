@@ -76,37 +76,6 @@ void Action::draw(float x, float y, float z, float zoomX, float zoomY, bool mir
         , float angle, float ax, float ay, float az)
 {
     frameBox[currFrame]->draw(x,y,z,zoomX,zoomY,mir,angle,ax,ay,az);
-//    //绘制碰撞矩形
-//    if(showRect)
-//    {
-//        painter->setOpacity(0.5);
-//        if(oritation==-1)
-//        {
-//            painter->setBrush(QBrush(Qt::blue,Qt::SolidPattern));
-//            for(int i=0;i<frameBox[currFrame].mrects.size();i++)
-//            {
-//                double x,y,w,h;
-//                x=sprite->pos().x()+frameBox[currFrame].mrects[i].x();
-//                y=sprite->pos().y()+frameBox[currFrame].mrects[i].y();
-//                w=frameBox[currFrame].mrects[i].width();
-//                h=frameBox[currFrame].mrects[i].height();
-//                painter->drawRect(x,y,w,h);
-//            }
-//        }
-//        else if(oritation==1)
-//        {
-//            painter->setBrush(QBrush(Qt::blue,Qt::SolidPattern));
-//            for(int i=0;i<frameBox[currFrame].rects.size();i++)
-//            {
-//                double x,y,w,h;
-//                x=sprite->pos().x()+frameBox[currFrame].rects[i].x();
-//                y=sprite->pos().y()+frameBox[currFrame].rects[i].y();
-//                w=frameBox[currFrame].rects[i].width();
-//                h=frameBox[currFrame].rects[i].height();
-//                painter->drawRect(x,y,w,h);
-//            }
-//        }
-    //    }
 }
 
 void Action::drawRect()

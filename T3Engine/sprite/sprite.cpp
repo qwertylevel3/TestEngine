@@ -10,20 +10,22 @@ Sprite::Sprite()
 
     angle=0;
     ax=ay=az=0;
+
+    currentAction=0;
+    totalActionNumber=0;
 }
 
 Sprite *Sprite::clone()
 {
     Sprite* newSp=new Sprite();
     newSp->setName(this->name);
-    newSp->setPictureName(this->pictureName);
     newSp->setCurrentAction(0);
     newSp->setTotalActionNumber(this->totalActionNumber);
 
     for(int i=0;i<this->actionBox.size();i++)
     {
         Action* a=actionBox[i]->clone();
-        actionBox.append(a);
+        newSp->addAction(a);
     }
 
     return newSp;

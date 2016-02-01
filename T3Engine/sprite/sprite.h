@@ -15,9 +15,9 @@ public:
     void addAction(Action* action){actionBox.append(action);}
     void setX(float x){this->x=x;}
     void setY(float y){this->y=y;}
+    void setZ(float z){this->z=z;}
     void setCurrentAction(int index);
     void setName(const QString& n){name=n;}
-    void setPictureName(const QString& n){pictureName=n;}
     void setTotalActionNumber(int n){totalActionNumber=n;}
     void setZoomX(float z){zoomX=z;}
     void setZoomY(float z){zoomY=z;}
@@ -29,10 +29,10 @@ public:
 
     float getX(){return x;}
     float getY(){return y;}
+    float getZ(){return z;}
     int getCurrentActionIndex(){return currentAction;}
     QList<QRectF>& getCurrentRects();
     QString getName(){return name;}
-    QString getPictureName(){return pictureName;}
     int getTotalActionNumber(){return totalActionNumber;}
     float getZoomX(){return zoomX;}
     float getZoomY(){return zoomY;}
@@ -44,7 +44,6 @@ public:
     Action* getAction(int index){return actionBox.at(index);}
 protected:
     QString name;
-    QString pictureName;
 
     int currentAction;
     int totalActionNumber;

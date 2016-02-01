@@ -18,6 +18,10 @@ protected:
     QMap<QString,Sprite*> spriteBox;
     QXmlStreamReader reader;
 
+    Sprite* makeSprite();
+    Action* makeAction();
+    Frame* makeFrame();
+
 };
 
 #endif // SPRITEMANAGER_H

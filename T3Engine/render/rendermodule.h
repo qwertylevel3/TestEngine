@@ -15,6 +15,7 @@
 #include"T3Engine/sprite/frame.h"
 #include"T3Engine/sprite/action.h"
 #include"T3Engine/sprite/sprite.h"
+#include"T3Engine/manager/spritemanager.h"
 
 QT_BEGIN_NAMESPACE
 class QPainter;
@@ -56,6 +57,8 @@ private:
     //temp...
     Action* action2;
     Action* action3;
+
+    Sprite* testSprite;
     //Frame* frame;
 };
 
