@@ -87,8 +87,11 @@ void RenderModule::paintGL()
     //actionList.at(1)->draw(1*0.5,0,-6,1.5,false);
 
     testSprite->setZ(-5);
+    testSprite->setX(1);
+    //testSprite->setZoomX(0.7);
     testSprite->draw();
 
+    testSprite->drawRect();
 }
 
 void RenderModule::resizeGL(int w, int h)

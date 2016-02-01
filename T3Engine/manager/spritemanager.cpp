@@ -149,7 +149,47 @@ Frame *SpriteManager::makeFrame()
 
     QRectF rect(x,y,dx,dy);
 
+    Frame* frame=new Frame(pictureName,rect,width,height);
+
+
+    reader.readNextStartElement();//<rectBox>
+    QString rectBox=reader.name().toString();
+
+    reader.readNextStartElement();//<rectNumber>
+    QString rectNumberStr=reader.name().toString();
+    int rectNumber=reader.readElementText().toInt();
+
+    for(int i=0;i<rectNumber;i++)
+    {
+        QRectF rect=makeRect();
+        frame->addRect(rect);
+    }
+    reader.readNextStartElement();//</rectBox>
+
     reader.readNextStartElement();//</Frame>
 
-    return new Frame(pictureName,rect,width,height);
+    return frame;
+}
+
+QRectF SpriteManager::makeRect()
+{
+    reader.readNextStartElement();//<rect>
+
+    reader.readNextStartElement();
+    int x=reader.readElementText().toInt();
+
+    reader.readNextStartElement();
+    int y=reader.readElementText().toInt();
+
+    reader.readNextStartElement();
+    int w=reader.readElementText().toInt();
+
+    reader.readNextStartElement();
+    int h=reader.readElementText().toInt();
+
+    QRectF rect(x,y,w,h);
+
+    reader.readNextStartElement();//</rect>
+
+    return rect;
 }

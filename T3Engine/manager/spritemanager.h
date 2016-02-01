@@ -21,6 +21,7 @@ protected:
     Sprite* makeSprite();
     Action* makeAction();
     Frame* makeFrame();
+    QRectF makeRect();
 
 };
 

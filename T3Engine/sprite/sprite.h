@@ -11,6 +11,7 @@ public:
     Sprite* clone();
     void update();
     void draw();
+    void drawRect();
 
     void addAction(Action* action){actionBox.append(action);}
     void setX(float x){this->x=x;}

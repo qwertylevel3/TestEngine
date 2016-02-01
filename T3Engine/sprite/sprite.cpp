@@ -41,4 +41,9 @@ void Sprite::draw()
     actionBox[currentAction]->draw(x,y,z,zoomX,zoomY,mir,angle,ax,ay,az);
 }
 
+void Sprite::drawRect()
+{
+    actionBox[currentAction]->drawRect();
+}
+
 

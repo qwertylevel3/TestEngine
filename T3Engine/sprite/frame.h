@@ -26,7 +26,7 @@ struct Frame
 
     QString pictureName;
     Picture* picturePoint;
-    QRectF framePosition;//当前帧在全图中的坐标
+    QRectF framePosition;//当前帧在全图中的位置
     //QVector<QRectF> redRect;
     QList<QRectF> rects;
     float width;
