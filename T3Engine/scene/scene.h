@@ -1,6 +1,8 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include"T3Engine/entity/character/character.h"
+#include<QList>
 
 class Scene
 {
@@ -8,8 +10,18 @@ class Scene
 public:
     Scene();
     ~Scene();
-protected:
 
+    void init();
+    void draw();
+    void drawRect();
+    void update();
+
+    void load(const QString& filename);
+    void unload();
+
+    void collision();
+protected:
+    QList<Character*> characterBox;
 };
 
 #endif // SCENE_H

@@ -7,6 +7,7 @@
 #include"T3Engine/manager/shadermanager.h"
 #include"T3Engine/manager/picturemanager.h"
 
+
 RenderModule::RenderModule(QWidget *parent)
     : QOpenGLWidget(parent)
     , m_update_pending(false)
@@ -58,7 +59,8 @@ void RenderModule::initializeGL()
     timer.start(12,this);
     m_frame=0;
 
-    testSprite=SpriteManager::instance()->getSprite("test");
+    scene=new Scene();
+    scene->init();
 
 
 }
@@ -67,11 +69,7 @@ void RenderModule::gameLoop()
 {
     m_frame++;
 
-    if(testSprite)
-    {
-        testSprite->update();
-    }
-
+    scene->update();
 }
 
 void RenderModule::paintGL()
@@ -86,12 +84,9 @@ void RenderModule::paintGL()
     //actionList.at(0)->draw(0.7,0,-5,1,false);
     //actionList.at(1)->draw(1*0.5,0,-6,1.5,false);
 
-    testSprite->setZ(-5);
-    testSprite->setX(1);
-    testSprite->setZoomX(0.7);
-    testSprite->draw();
+    scene->draw();
+    scene->drawRect();
 
-    testSprite->drawRect();
 }
 
 void RenderModule::resizeGL(int w, int h)
