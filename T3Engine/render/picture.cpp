@@ -81,9 +81,14 @@ void Picture::updateArrayBuffer()
 {
     matrix.setToIdentity();
     matrix.rotate(angle,x,y,z);
-    matrix.scale(zoomX,zoomY,1);
+    //matrix.scale(zoomX,zoomY,1);
+
+    width=width*zoomX;
+    height=height*zoomY;
+
     if(!mir)
     {
+
         vertices[0]=VertexData({(QVector4D(-1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
                                 QVector2D(0.0f+tx, 0.0f+ty)});
         vertices[1]=VertexData({(QVector4D( 1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
