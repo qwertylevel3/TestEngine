@@ -20,6 +20,8 @@ public:
     void unload();
 
     void collision();
+    bool isCollision(Entity *a, Entity *b);
+    bool isCollision(QRectF a,QRectF b);
 protected:
     QList<Character*> characterBox;
 };
