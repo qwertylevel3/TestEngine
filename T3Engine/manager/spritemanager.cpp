@@ -42,7 +42,8 @@ void SpriteManager::init()
 
 Sprite *SpriteManager::getSprite(const QString &spriteName)
 {
-    Sprite* s=spriteBox[spriteName]->clone();
+    Sprite* t=spriteBox[spriteName];
+    Sprite* s=t->clone();
     return s;
 }
 

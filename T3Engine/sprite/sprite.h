@@ -65,11 +65,6 @@ protected:
 inline
 void Sprite::setCurrentAction(int index)
 {
-    if(index<0 || index >=totalActionNumber)
-    {
-        qDebug()<<name<<"index out of range"<<endl;
-        return ;
-    }
     currentAction=index;
 }
 

@@ -33,6 +33,8 @@ struct Frame
     float height;
     float x,y,z;
 
+    float scale;
+
 };
 
 #endif // FRAME_H

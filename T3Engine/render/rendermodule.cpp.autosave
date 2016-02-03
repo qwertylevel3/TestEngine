@@ -27,7 +27,6 @@ void RenderModule::init()
     setFormat(GameConfigurator::instance()->getQSurfaceFormat());
     resize(GameConfigurator::instance()->getWindowWidth(),
            GameConfigurator::instance()->getWindowHeight());
-    initializeGL();
 }
 
 void RenderModule::timerEvent(QTimerEvent *e)

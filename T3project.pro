@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     T3Engine/manager/picturemanager.cpp \
     T3Engine/manager/spritemanager.cpp \
     T3Engine/entity/character/character.cpp \
-    T3Engine/entity/entity.cpp
+    T3Engine/entity/entity.cpp \
+    T3Engine/gameconfigurator.cpp
 
 HEADERS  += \
     t3engine.h \
@@ -42,7 +43,8 @@ HEADERS  += \
     T3Engine/manager/picturemanager.h \
     T3Engine/manager/spritemanager.h \
     T3Engine/entity/character/character.h \
-    T3Engine/entity/entity.h
+    T3Engine/entity/entity.h \
+    T3Engine/gameconfigurator.h
 
 RESOURCES += \
     shader.qrc

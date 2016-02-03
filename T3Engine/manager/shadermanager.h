@@ -9,12 +9,14 @@ class ShaderManager:public Singleton<ShaderManager>,public QOpenGLFunctions
 {
 public:
     ShaderManager();
-    bool init(const QString& vShader,const QString& fShader);
+    bool init();
     bool loadVertexShader(const QString& vShader);
     bool loadFragmentShader(const QString& fShader);
     QOpenGLShaderProgram* getProgram(){return program;}
 private:
     QOpenGLShaderProgram* program;
+    QString vShader;
+    QString fShader;
 };
 
 #endif // SHADERMANAGER_H

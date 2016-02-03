@@ -1,4 +1,5 @@
 #include"scene.h"
+#include"T3Engine/gameconfigurator.h"
 
 Scene::Scene()
 {
@@ -92,9 +93,9 @@ bool Scene::isCollision(Entity* a,Entity* b)
             QRectF aRect=a->getCurrentRects()[i];
 
             float aRectx=aRect.x()+a->getX();
-            aRectx*=100;
+            aRectx*=GameConfigurator::instance()->getScale();
             float aRecty=aRect.y()+a->getY();
-            aRecty*=100;
+            aRecty*=GameConfigurator::instance()->getScale();
             float aRectwidth=aRect.width();
             float aRectheight=aRect.height();
 
@@ -106,9 +107,9 @@ bool Scene::isCollision(Entity* a,Entity* b)
             QRectF bRect=b->getCurrentRects()[j];
 
             float bRectx=bRect.x()+b->getX();
-            bRectx*=100;
+            bRectx*=GameConfigurator::instance()->getScale();
             float bRecty=bRect.y()+b->getY();
-            bRecty*=100;
+            bRecty*=GameConfigurator::instance()->getScale();
             float bRectwidth=bRect.width();
             float bRectheight=bRect.height();
 

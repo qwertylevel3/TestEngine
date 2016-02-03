@@ -5,6 +5,7 @@ Entity::Entity(const QString &spriteName)
 {
     this->spriteName=spriteName;
     sprite=SpriteManager::instance()->getSprite(spriteName);
+
 }
 
 Entity::~Entity()

@@ -30,6 +30,8 @@ class RenderModule:public QOpenGLWidget, protected QOpenGLFunctions,public Singl
 public:
     explicit RenderModule(QWidget *parent = 0);
     ~RenderModule();
+
+    void init();
 protected:
     void timerEvent(QTimerEvent *e) Q_DECL_OVERRIDE;
     void paintGL() Q_DECL_OVERRIDE;

@@ -2,6 +2,8 @@
 
 ShaderManager::ShaderManager()
 {
+    vShader=":/vshader.glsl";
+    fShader=":/fshader.glsl";
 }
 
 bool ShaderManager::loadVertexShader(const QString &vShader)
@@ -24,7 +26,7 @@ bool ShaderManager::loadFragmentShader(const QString &fShader)
     return true;
 }
 
-bool ShaderManager::init(const QString& vShader,const QString& fShader)
+bool ShaderManager::init()
 {
     QOpenGLFunctions::initializeOpenGLFunctions();
 

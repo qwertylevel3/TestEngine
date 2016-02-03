@@ -1,10 +1,13 @@
 #include "frame.h"
 #include"T3Engine/render/rendermodule.h"
 #include"T3Engine/manager/picturemanager.h"
+#include"T3Engine/gameconfigurator.h"
 
 Frame::Frame(const QString& pictureName, const QRectF &fp,
              const float w,const float h)
 {
+    scale=GameConfigurator::instance()->getScale();
+
     this->pictureName=pictureName;
     picturePoint=PictureManager::instance()->getPicture(pictureName);
     if(!picturePoint)
@@ -12,9 +15,9 @@ Frame::Frame(const QString& pictureName, const QRectF &fp,
         qDebug()<<"picturePoint"<<pictureName<<" is empty"<<endl;
     }
     framePosition=fp;
-    width=w/100;
-    height=h/100;
-    qDebug()<<width<<" "<<height<<endl;
+    width=w/scale;
+    height=h/scale;
+    //qDebug()<<width<<" "<<height<<endl;
 
     x=y=z=0;
 }
@@ -27,7 +30,7 @@ Frame::~Frame()
 Frame *Frame::clone()
 {
     Frame* newFrame=new Frame(this->pictureName,this->framePosition,
-                             (this->width)*100,(this->height)*100);
+                             (this->width)*scale,(this->height)*scale);
     for(int i=0;i<rects.size();i++)
     {
         QRectF r(rects[i]);
@@ -84,11 +87,11 @@ void Frame::drawRect()
 
     for(int i=0;i<rects.size();i++)
     {
-        rectPoint->setWidth(float(rects[i].width())/100);
-        rectPoint->setHeight(float(rects[i].height())/100);
+        rectPoint->setWidth(float(rects[i].width())/scale);
+        rectPoint->setHeight(float(rects[i].height())/scale);
 
-        rectPoint->setCoordinate(x+float(rects[i].x()*width)/100,
-                         y+float(rects[i].y()*height)/100,z);
+        rectPoint->setCoordinate(x+float(rects[i].x()*width)/scale,
+                         y+float(rects[i].y()*height)/scale,z);
 
         rectPoint->draw();
     }
