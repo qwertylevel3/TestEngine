@@ -16,7 +16,6 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    t3engine.cpp \
     T3Engine/scene/scene.cpp \
     T3Engine/sprite/frame.cpp \
     T3Engine/manager/shadermanager.cpp \
@@ -28,10 +27,10 @@ SOURCES += main.cpp\
     T3Engine/manager/spritemanager.cpp \
     T3Engine/entity/character/character.cpp \
     T3Engine/entity/entity.cpp \
-    T3Engine/gameconfigurator.cpp
+    T3Engine/gameconfigurator.cpp \
+    T3Engine/t3engine.cpp
 
 HEADERS  += \
-    t3engine.h \
     T3Engine/scene/scene.h \
     T3Engine/sprite/frame.h \
     T3Engine/manager/shadermanager.h \
@@ -44,7 +43,8 @@ HEADERS  += \
     T3Engine/manager/spritemanager.h \
     T3Engine/entity/character/character.h \
     T3Engine/entity/entity.h \
-    T3Engine/gameconfigurator.h
+    T3Engine/gameconfigurator.h \
+    T3Engine/t3engine.h
 
 RESOURCES += \
     shader.qrc

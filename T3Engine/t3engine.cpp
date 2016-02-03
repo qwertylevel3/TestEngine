@@ -1,4 +1,4 @@
-#include"rendermodule.h"
+#include "t3engine.h"
 #include <QtCore/QCoreApplication>
 
 #include <QtGui/QOpenGLContext>
@@ -7,29 +7,38 @@
 #include"T3Engine/manager/shadermanager.h"
 #include"T3Engine/manager/picturemanager.h"
 #include"T3Engine/gameconfigurator.h"
+#include"T3Engine/manager/spritemanager.h"
 
 
-RenderModule::RenderModule(QWidget *parent)
+T3Engine::T3Engine(QWidget *parent)
     : QOpenGLWidget(parent)
     , m_update_pending(false)
     , m_animating(false)
     , m_context(0)
 {
-    testSprite=NULL;
+
 }
 
-RenderModule::~RenderModule()
+T3Engine::~T3Engine()
 {
 }
 
-void RenderModule::init()
+void T3Engine::init()
 {
+    GameConfigurator::instance()->init();
+
     setFormat(GameConfigurator::instance()->getQSurfaceFormat());
     resize(GameConfigurator::instance()->getWindowWidth(),
            GameConfigurator::instance()->getWindowHeight());
+
+    //读取shader
+    ShaderManager::instance()->init();
+    //读取图片资源
+    PictureManager::instance()->init();
+    SpriteManager::instance()->init();
 }
 
-void RenderModule::timerEvent(QTimerEvent *e)
+void T3Engine::timerEvent(QTimerEvent *e)
 {
     Q_UNUSED(e)
     gameLoop();
@@ -37,7 +46,7 @@ void RenderModule::timerEvent(QTimerEvent *e)
 }
 
 
-void RenderModule::initializeGL()
+void T3Engine::initializeGL()
 {
     initializeOpenGLFunctions();
 
@@ -57,12 +66,7 @@ void RenderModule::initializeGL()
     //initialize...
     //PictureManager::instance()->showPictureBoxMessage();
 
-    //读取shader
-    ShaderManager::instance()->init();
-    //读取图片资源
-    PictureManager::instance()->init();
-    SpriteManager::instance()->init();
-
+    init();
 
     timer.start(12,this);
     m_frame=0;
@@ -72,14 +76,14 @@ void RenderModule::initializeGL()
 
 }
 
-void RenderModule::gameLoop()
+void T3Engine::gameLoop()
 {
     m_frame++;
 
     scene->update();
 }
 
-void RenderModule::paintGL()
+void T3Engine::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -92,7 +96,7 @@ void RenderModule::paintGL()
     scene->drawRect();
 }
 
-void RenderModule::resizeGL(int w, int h)
+void T3Engine::resizeGL(int w, int h)
 {
     // Calculate aspect ratio
     qreal aspect = qreal(w) / qreal(h ? h : 1);
