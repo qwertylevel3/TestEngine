@@ -1,7 +1,9 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include"T3Engine/entity/decoration/decoration.h"
 #include"T3Engine/entity/character/character.h"
+#include"T3Engine/entity/terrain/terrain.h"
 #include<QList>
 
 class Scene
@@ -24,6 +26,12 @@ public:
     bool isCollision(QRectF a,QRectF b);
 protected:
     QList<Character*> characterBox;
+    QList<Terrain*> terrainBox;
+    QList<Decoration*> decorationBox;
+
+    void drawTerrain();
+    void drawDecoration();
+    void drawCharacter();
 };
 
 #endif // SCENE_H

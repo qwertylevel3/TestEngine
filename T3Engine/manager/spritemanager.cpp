@@ -1,6 +1,7 @@
 #include "spritemanager.h"
 #include<QFile>
 #include<QDir>
+#include"T3Engine/gameconfigurator.h"
 
 SpriteManager::SpriteManager()
 {
@@ -9,7 +10,7 @@ SpriteManager::SpriteManager()
 
 void SpriteManager::init()
 {
-    QString fileName="test.xml";
+    QString fileName=GameConfigurator::instance()->getSpriteConfiguratorName();
 
     QString path=QDir::currentPath()+QDir::separator()+fileName;
 
@@ -23,7 +24,6 @@ void SpriteManager::init()
     reader.setDevice(&file);
 
     reader.readNextStartElement();//spriteBox;
-    QString tagName=reader.name().toString();
 
     reader.readNextStartElement();//<totalSpriteNumber>
     int totalSpriteNumber=reader.readElementText().toInt();

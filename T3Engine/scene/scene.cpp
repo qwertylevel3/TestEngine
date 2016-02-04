@@ -1,5 +1,6 @@
 #include"scene.h"
 #include"T3Engine/gameconfigurator.h"
+#include"T3Engine/manager/charactermanager.h"
 
 Scene::Scene()
 {
@@ -13,14 +14,14 @@ Scene::~Scene()
 
 void Scene::init()
 {
-    Character* testCharacter_0=new Character("test");
+    Character* testCharacter_0=CharacterManager::instance()->getCharacter("test");
     characterBox.append(testCharacter_0);
 
     testCharacter_0->setZ(-5);
     testCharacter_0->setX(1);
     testCharacter_0->setZoomX(0.7);
 
-    Character* testCharacter_1=new Character("test");
+    Character* testCharacter_1=CharacterManager::instance()->getCharacter("test");
     characterBox.append(testCharacter_1);
 
     testCharacter_1->setZ(-5);
@@ -30,10 +31,9 @@ void Scene::init()
 
 void Scene::draw()
 {
-    for(int i=0;i<characterBox.size();i++)
-    {
-        characterBox[i]->draw();
-    }
+    drawTerrain();
+    drawDecoration();
+    drawCharacter();
 }
 
 void Scene::drawRect()
@@ -144,4 +144,28 @@ bool Scene::isCollision(QRectF a, QRectF b)
     }
 
     return false;
+}
+
+void Scene::drawTerrain()
+{
+    for(int i=0;i<terrainBox.size();i++)
+    {
+        terrainBox[i]->draw();
+    }
+}
+
+void Scene::drawDecoration()
+{
+    for(int i=0;i<decorationBox.size();i++)
+    {
+        decorationBox[i]->draw();
+    }
+}
+
+void Scene::drawCharacter()
+{
+    for(int i=0;i<characterBox.size();i++)
+    {
+        characterBox[i]->draw();
+    }
 }

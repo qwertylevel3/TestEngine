@@ -8,6 +8,7 @@
 #include"T3Engine/manager/picturemanager.h"
 #include"T3Engine/gameconfigurator.h"
 #include"T3Engine/manager/spritemanager.h"
+#include"T3Engine/manager/charactermanager.h"
 
 
 T3Engine::T3Engine(QWidget *parent)
@@ -33,6 +34,7 @@ void T3Engine::init()
     //读取图片资源
     PictureManager::instance()->init();
     SpriteManager::instance()->init();
+    CharacterManager::instance()->init();
 }
 
 void T3Engine::timerEvent(QTimerEvent *e)

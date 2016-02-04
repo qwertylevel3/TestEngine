@@ -42,6 +42,7 @@ private:
     int m_frame;
 
     Scene* scene;
+
     //Frame* frame;
 };
 

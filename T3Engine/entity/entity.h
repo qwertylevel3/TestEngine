@@ -17,6 +17,7 @@ public:
     void drawRect(){sprite->drawRect();}
 
     virtual void update();
+    virtual Entity* clone()=0;
 
     void setX(float x){sprite->setX(x);}
     void setY(float y){sprite->setY(y);}
@@ -30,7 +31,6 @@ public:
     void setRotateX(float x){sprite->setRotateX(x);}
     void setRotateY(float y){sprite->setRotateY(y);}
     void setRotateZ(float z){sprite->setRotateZ(z);}
-
 
     float getX(){return sprite->getX();}
     float getY(){return sprite->getY();}

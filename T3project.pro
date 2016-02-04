@@ -27,7 +27,10 @@ SOURCES += main.cpp\
     T3Engine/entity/entity.cpp \
     T3Engine/gameconfigurator.cpp \
     T3Engine/t3engine.cpp \
-    T3Engine/picture.cpp
+    T3Engine/picture.cpp \
+    T3Engine/entity/decoration/decoration.cpp \
+    T3Engine/entity/terrain/terrain.cpp \
+    T3Engine/manager/charactermanager.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -42,7 +45,10 @@ HEADERS  += \
     T3Engine/entity/entity.h \
     T3Engine/gameconfigurator.h \
     T3Engine/t3engine.h \
-    T3Engine/picture.h
+    T3Engine/picture.h \
+    T3Engine/entity/decoration/decoration.h \
+    T3Engine/entity/terrain/terrain.h \
+    T3Engine/manager/charactermanager.h
 
 RESOURCES += \
     shader.qrc
