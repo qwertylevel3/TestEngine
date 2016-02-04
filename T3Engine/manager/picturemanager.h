@@ -3,7 +3,7 @@
 
 #include<T3Engine/singleton.h>
 #include<QHash>
-#include"T3Engine/render/picture.h"
+#include"T3Engine/picture.h"
 
 
 class PictureManager:public Singleton<PictureManager>

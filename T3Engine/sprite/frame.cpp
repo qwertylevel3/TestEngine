@@ -1,5 +1,4 @@
 #include "frame.h"
-#include"T3Engine/render/rendermodule.h"
 #include"T3Engine/manager/picturemanager.h"
 #include"T3Engine/gameconfigurator.h"
 

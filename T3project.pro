@@ -21,14 +21,13 @@ SOURCES += main.cpp\
     T3Engine/manager/shadermanager.cpp \
     T3Engine/sprite/action.cpp \
     T3Engine/sprite/sprite.cpp \
-    T3Engine/render/rendermodule.cpp \
-    T3Engine/render/picture.cpp \
     T3Engine/manager/picturemanager.cpp \
     T3Engine/manager/spritemanager.cpp \
     T3Engine/entity/character/character.cpp \
     T3Engine/entity/entity.cpp \
     T3Engine/gameconfigurator.cpp \
-    T3Engine/t3engine.cpp
+    T3Engine/t3engine.cpp \
+    T3Engine/picture.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -36,15 +35,14 @@ HEADERS  += \
     T3Engine/manager/shadermanager.h \
     T3Engine/sprite/action.h \
     T3Engine/sprite/sprite.h \
-    T3Engine/render/rendermodule.h \
-    T3Engine/render/picture.h \
     T3Engine/singleton.h \
     T3Engine/manager/picturemanager.h \
     T3Engine/manager/spritemanager.h \
     T3Engine/entity/character/character.h \
     T3Engine/entity/entity.h \
     T3Engine/gameconfigurator.h \
-    T3Engine/t3engine.h
+    T3Engine/t3engine.h \
+    T3Engine/picture.h
 
 RESOURCES += \
     shader.qrc

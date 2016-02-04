@@ -16,7 +16,7 @@ public:
     int getWindowHeight(){return windowHeight;}
     QSurfaceFormat getQSurfaceFormat(){return format;}
 protected:
-    float scale;//绘制时缩放比例
+    float scale;//绘制时缩放比例,值越大越小。。
     int windowWidth;
     int windowHeight;
     QSurfaceFormat format;

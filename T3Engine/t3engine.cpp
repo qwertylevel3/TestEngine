@@ -16,7 +16,10 @@ T3Engine::T3Engine(QWidget *parent)
     , m_animating(false)
     , m_context(0)
 {
+    this->setFormat(GameConfigurator::instance()->getQSurfaceFormat());
 
+    this->setFixedSize(GameConfigurator::instance()->getWindowWidth(),
+                       GameConfigurator::instance()->getWindowHeight());
 }
 
 T3Engine::~T3Engine()
@@ -25,12 +28,6 @@ T3Engine::~T3Engine()
 
 void T3Engine::init()
 {
-    GameConfigurator::instance()->init();
-
-    setFormat(GameConfigurator::instance()->getQSurfaceFormat());
-    resize(GameConfigurator::instance()->getWindowWidth(),
-           GameConfigurator::instance()->getWindowHeight());
-
     //读取shader
     ShaderManager::instance()->init();
     //读取图片资源
