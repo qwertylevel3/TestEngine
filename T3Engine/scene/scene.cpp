@@ -1,5 +1,6 @@
 #include"scene.h"
 #include"T3Engine/gameconfigurator.h"
+#include"T3Engine/manager/terrainmanager.h"
 #include"T3Engine/manager/charactermanager.h"
 
 Scene::Scene()
@@ -14,6 +15,11 @@ Scene::~Scene()
 
 void Scene::init()
 {
+    Terrain* grass=TerrainManager::instance()->getTerrain("grass");
+    grass->setZ(-6);
+    terrainBox.append(grass);
+
+
     Character* testCharacter_0=CharacterManager::instance()->getCharacter("test");
     characterBox.append(testCharacter_0);
 

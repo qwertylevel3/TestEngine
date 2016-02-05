@@ -51,6 +51,7 @@ Sprite *SpriteManager::makeSprite()
 {
     reader.readNextStartElement();//sprite
 
+    QString s=reader.name().toString();
 
     Sprite* sprite=new Sprite();
 
@@ -67,9 +68,6 @@ Sprite *SpriteManager::makeSprite()
         Action* action=makeAction();
         sprite->addAction(action);
     }
-    reader.readNextStartElement();//</sprite>
-
-    QString t=reader.name().toString();
 
     return sprite;
 }

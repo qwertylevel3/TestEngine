@@ -27,11 +27,29 @@ public:
 
     QString getCharacterConfiguratorName() const
     {
-        return characterConfiguratorName;
+        return characterConfigFileName;
     }
     void setCharacterConfiguratorName(const QString &value)
     {
-        characterConfiguratorName = value;
+        characterConfigFileName = value;
+    }
+
+    QString getTerrainConfigFileName() const
+    {
+        return terrainConfigFileName;
+    }
+    void setTerrainConfigFileName(const QString &value)
+    {
+        terrainConfigFileName = value;
+    }
+
+    QString getDecorationConfigFileName() const
+    {
+        return decorationConfigFileName;
+    }
+    void setDecorationConfigFileName(const QString &value)
+    {
+        decorationConfigFileName = value;
     }
 
 protected:
@@ -40,7 +58,9 @@ protected:
     int windowHeight;
     QSurfaceFormat format;
     QString spriteConfiguratorName;
-    QString characterConfiguratorName;
+    QString characterConfigFileName;
+    QString terrainConfigFileName;
+    QString decorationConfigFileName;
 };
 
 #endif // GAMECONFIGURATOR_H

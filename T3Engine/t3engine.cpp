@@ -9,7 +9,7 @@
 #include"T3Engine/gameconfigurator.h"
 #include"T3Engine/manager/spritemanager.h"
 #include"T3Engine/manager/charactermanager.h"
-
+#include"T3Engine/manager/terrainmanager.h"
 
 T3Engine::T3Engine(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -33,8 +33,13 @@ void T3Engine::init()
     ShaderManager::instance()->init();
     //读取图片资源
     PictureManager::instance()->init();
+
+    //PictureManager::instance()->showPictureBoxMessage();
+
     SpriteManager::instance()->init();
+
     CharacterManager::instance()->init();
+    TerrainManager::instance()->init();
 }
 
 void T3Engine::timerEvent(QTimerEvent *e)

@@ -65,15 +65,14 @@ Character *CharacterManager::makeCharacter()
     reader.readNextStartElement();//<CurrentMP>
     int currentMP=reader.readElementText().toInt();
 
+    reader.readNextStartElement();//</Character>
+
     Character* character=new Character(spriteName);
     character->setName(name);
     character->setHP(HP);
     character->setMP(MP);
     character->setCurrentHP(currentHP);
     character->setCurrentMP(currentMP);
-
-    reader.readNextStartElement();//</Character>
-
     return character;
 }
 

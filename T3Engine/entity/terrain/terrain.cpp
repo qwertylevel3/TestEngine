@@ -6,3 +6,11 @@ Terrain::Terrain(const QString &spriteName)
 
 }
 
+Terrain *Terrain::clone()
+{
+    Terrain* newTerrain=new Terrain(this->spriteName);
+    newTerrain->setName(this->name);
+
+    return newTerrain;
+}
+
