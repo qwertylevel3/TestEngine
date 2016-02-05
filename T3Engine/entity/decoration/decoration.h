@@ -7,6 +7,7 @@ class Decoration:public Entity
 {
 public:
     Decoration(const QString& spriteName);
+    Decoration* clone();
 };
 
 #endif // DECORATION_H

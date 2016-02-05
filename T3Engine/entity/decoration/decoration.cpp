@@ -6,3 +6,12 @@ Decoration::Decoration(const QString &spriteName)
 
 }
 
+Decoration *Decoration::clone()
+{
+    Decoration* newDecoration=new Decoration(this->spriteName);
+    newDecoration->setName(this->name);
+
+    return newDecoration;
+}
+
+

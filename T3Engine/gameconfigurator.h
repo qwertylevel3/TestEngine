@@ -16,20 +16,20 @@ public:
     int getWindowWidth(){return windowWidth;}
     int getWindowHeight(){return windowHeight;}
     QSurfaceFormat getQSurfaceFormat(){return format;}
-    QString getSpriteConfiguratorName() const
+    QString getSpriteConfigFileName() const
     {
-        return spriteConfiguratorName;
+        return spriteConfigFileName;
     }
-    void setSpriteConfiguratorName(const QString &value)
+    void setSpriteConfigFileName(const QString &value)
     {
-        spriteConfiguratorName = value;
+        spriteConfigFileName = value;
     }
 
-    QString getCharacterConfiguratorName() const
+    QString getCharacterConfigFileName() const
     {
         return characterConfigFileName;
     }
-    void setCharacterConfiguratorName(const QString &value)
+    void setCharacterConfigFileName(const QString &value)
     {
         characterConfigFileName = value;
     }
@@ -57,7 +57,7 @@ protected:
     int windowWidth;
     int windowHeight;
     QSurfaceFormat format;
-    QString spriteConfiguratorName;
+    QString spriteConfigFileName;
     QString characterConfigFileName;
     QString terrainConfigFileName;
     QString decorationConfigFileName;

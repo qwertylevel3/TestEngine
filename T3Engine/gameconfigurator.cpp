@@ -10,7 +10,7 @@ void GameConfigurator::init()
     scale=200;
     windowWidth=800;
     windowHeight=600;
-    spriteConfiguratorName="test.xml";
+    spriteConfigFileName="test.xml";
     characterConfigFileName="character.xml";
     terrainConfigFileName="terrain.xml";
     decorationConfigFileName="decoration.xml";

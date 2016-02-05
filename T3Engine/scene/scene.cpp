@@ -2,7 +2,7 @@
 #include"T3Engine/gameconfigurator.h"
 #include"T3Engine/manager/terrainmanager.h"
 #include"T3Engine/manager/charactermanager.h"
-
+#include"T3Engine/manager/decorationmanager.h"
 Scene::Scene()
 {
 
@@ -15,10 +15,21 @@ Scene::~Scene()
 
 void Scene::init()
 {
-    Terrain* grass=TerrainManager::instance()->getTerrain("grass");
-    grass->setZ(-6);
-    terrainBox.append(grass);
+    for(int i=0;i<15;i++)
+    {
+        for(int j=0;j<15;j++)
+        {
+            Terrain* grass=TerrainManager::instance()->getTerrain("grass");
+            grass->setX(-3.2+i*0.48);
+            grass->setY(-3.2+j*0.48);
+            grass->setZ(-6);
 
+            terrainBox.append(grass);
+        }
+    }
+    Decoration* tree=DecorationManager::instance()->getDecoration("tree1");
+    tree->setZ(-5);
+    decorationBox.append(tree);
 
     Character* testCharacter_0=CharacterManager::instance()->getCharacter("test");
     characterBox.append(testCharacter_0);

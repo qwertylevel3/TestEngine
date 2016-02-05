@@ -10,7 +10,7 @@ CharacterManager::CharacterManager()
 
 void CharacterManager::init()
 {
-    QString fileName=GameConfigurator::instance()->getCharacterConfiguratorName();
+    QString fileName=GameConfigurator::instance()->getCharacterConfigFileName();
     QString path=QDir::currentPath()+QDir::separator()+fileName;
 
     QFile file(path);

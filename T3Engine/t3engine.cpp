@@ -10,6 +10,7 @@
 #include"T3Engine/manager/spritemanager.h"
 #include"T3Engine/manager/charactermanager.h"
 #include"T3Engine/manager/terrainmanager.h"
+#include"T3Engine/manager/decorationmanager.h"
 
 T3Engine::T3Engine(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -40,6 +41,7 @@ void T3Engine::init()
 
     CharacterManager::instance()->init();
     TerrainManager::instance()->init();
+    DecorationManager::instance()->init();
 }
 
 void T3Engine::timerEvent(QTimerEvent *e)

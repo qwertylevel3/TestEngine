@@ -10,7 +10,7 @@ SpriteManager::SpriteManager()
 
 void SpriteManager::init()
 {
-    QString fileName=GameConfigurator::instance()->getSpriteConfiguratorName();
+    QString fileName=GameConfigurator::instance()->getSpriteConfigFileName();
 
     QString path=QDir::currentPath()+QDir::separator()+fileName;
 
