@@ -52,10 +52,40 @@ public:
         decorationConfigFileName = value;
     }
 
+    int getPaintNear() const
+    {
+        return paintNear;
+    }
+    void setPaintNear(float value)
+    {
+        paintNear = value;
+    }
+
+    int getPaintFar() const
+    {
+        return paintFar;
+    }
+    void setPaintFar(float value)
+    {
+        paintFar = value;
+    }
+
+    bool getDrawRect() const
+    {
+        return drawRect;
+    }
+    void setDrawRect(bool value)
+    {
+        drawRect = value;
+    }
+
 protected:
     float scale;//绘制时缩放比例,值越大越小。。
+    bool drawRect;
     int windowWidth;
     int windowHeight;
+    int paintNear;
+    int paintFar;
     QSurfaceFormat format;
     QString spriteConfigFileName;
     QString characterConfigFileName;

@@ -25,13 +25,17 @@ public:
     bool isCollision(Entity *a, Entity *b);
     bool isCollision(QRectF a,QRectF b);
 protected:
+    void addEntityToLayerBox(Entity* entity);
+    void addCharacterToBox(Character* character);
+    void addTerrainToBox(Terrain* terrain);
+    void addDecorationToBox(Decoration* decoration);
+
     QList<Character*> characterBox;
     QList<Terrain*> terrainBox;
     QList<Decoration*> decorationBox;
 
-    void drawTerrain();
-    void drawDecoration();
-    void drawCharacter();
+    QList<QList<Entity*> > layerBox;
+
 };
 
 #endif // SCENE_H

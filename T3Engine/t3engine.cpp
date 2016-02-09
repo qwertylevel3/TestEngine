@@ -99,21 +99,24 @@ void T3Engine::paintGL()
     ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
 
     scene->draw();
-    scene->drawRect();
+    //scene->drawRect();
 }
 
 void T3Engine::resizeGL(int w, int h)
 {
     // Calculate aspect ratio
-    qreal aspect = qreal(w) / qreal(h ? h : 1);
+    //qreal aspect = qreal(w) / qreal(h ? h : 1);
 
     // Set near plane to 3.0, far plane to 7.0, field of view 45 degrees
-    const qreal zNear = 3.0, zFar = 7.0, fov = 45.0;
+    //const qreal zNear = 3.0, zFar = 7.0, fov = 45.0;
 
     // Reset projection
     projection.setToIdentity();
 
     // Set perspective projection
-    projection.perspective(fov, aspect, zNear, zFar);
+    //projection.perspective(fov, aspect, zNear, zFar);
+    projection.ortho(-2,2,-2,2,
+                     GameConfigurator::instance()->getPaintNear(),
+                     GameConfigurator::instance()->getPaintFar());
 }
 

@@ -8,6 +8,9 @@ GameConfigurator::GameConfigurator()
 void GameConfigurator::init()
 {
     scale=200;
+    drawRect=false;
+    paintNear=3;
+    paintFar=20;
     windowWidth=800;
     windowHeight=600;
     spriteConfigFileName="test.xml";
@@ -19,3 +22,7 @@ void GameConfigurator::init()
     format.setDepthBufferSize(24);
     QSurfaceFormat::setDefaultFormat(format);
 }
+
+
+
+

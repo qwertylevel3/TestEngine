@@ -15,6 +15,14 @@ Scene::~Scene()
 
 void Scene::init()
 {
+    for(int i=0;
+        i<=GameConfigurator::instance()->getPaintFar();i++)
+    {
+
+        QList<Entity*>* box =new QList<Entity*>;
+        layerBox.append(*box);
+    }
+
     for(int i=0;i<15;i++)
     {
         for(int j=0;j<15;j++)
@@ -22,43 +30,67 @@ void Scene::init()
             Terrain* grass=TerrainManager::instance()->getTerrain("grass");
             grass->setX(-3.2+i*0.48);
             grass->setY(-3.2+j*0.48);
-            grass->setZ(-6);
+            grass->setZ(-10);
 
-            terrainBox.append(grass);
+            addTerrainToBox(grass);
         }
     }
+
     Decoration* tree=DecorationManager::instance()->getDecoration("tree1");
-    tree->setZ(-5);
-    decorationBox.append(tree);
+    tree->setZ(-4);
+    addDecorationToBox(tree);
+
+
 
     Character* testCharacter_0=CharacterManager::instance()->getCharacter("test");
-    characterBox.append(testCharacter_0);
-
     testCharacter_0->setZ(-5);
     testCharacter_0->setX(1);
-    testCharacter_0->setZoomX(0.7);
+    addCharacterToBox(testCharacter_0);
+
+
+//    Decoration* shadow=DecorationManager::instance()->getDecoration("shadow");
+//    shadow->setZ(-6);
+//    shadow->setX(1);
+//    shadow->setY(-0.18);
+//    decorationBox.append(shadow);
+//
+//
+//    Decoration* shadow_0=DecorationManager::instance()->getDecoration("shadow");
+//    testCharacter_0->addChild(shadow_0);
+//    shadow_0->setY(-0.18);
+//    shadow_0->setLocalZ(-1);
 
     Character* testCharacter_1=CharacterManager::instance()->getCharacter("test");
-    characterBox.append(testCharacter_1);
-
     testCharacter_1->setZ(-5);
     testCharacter_1->setX(2);
-    testCharacter_1->setZoomX(0.7);
+    addCharacterToBox(testCharacter_1);
+
+
+//    Decoration* shadow_1=DecorationManager::instance()->getDecoration("shadow");
+//    testCharacter_1->addChild(shadow_1);
+//    shadow_1->setLocalY(-0.18);
+//    shadow_1->setLocalZ(-1);
 }
 
 void Scene::draw()
 {
-    drawTerrain();
-    drawDecoration();
-    drawCharacter();
+    for(int i=GameConfigurator::instance()->getPaintFar();
+        i>=GameConfigurator::instance()->getPaintNear();i--)
+    {
+        for(int j=0;j<layerBox[i].size();j++)
+        {
+            layerBox[i][j]->draw();
+        }
+    }
+    if(GameConfigurator::instance()->getDrawRect())
+    {
+        drawRect();
+    }
 }
 
 void Scene::drawRect()
 {
-    for(int i=0;i<characterBox.size();i++)
-    {
-        characterBox[i]->drawRect();
-    }
+    //TODO
 }
 
 void Scene::update()
@@ -67,7 +99,15 @@ void Scene::update()
     {
         characterBox[i]->update();
     }
-    characterBox[1]->setX(characterBox[1]->getX()-0.001);
+    for(int i=0;i<terrainBox.size();i++)
+    {
+        terrainBox[i]->update();
+    }
+    for(int i=0;i<decorationBox.size();i++)
+    {
+        decorationBox[i]->update();
+    }
+    characterBox[1]->setX(characterBox[1]->getX()-0.01);
     collision();
 }
 
@@ -163,26 +203,25 @@ bool Scene::isCollision(QRectF a, QRectF b)
     return false;
 }
 
-void Scene::drawTerrain()
+void Scene::addEntityToLayerBox(Entity *entity)
 {
-    for(int i=0;i<terrainBox.size();i++)
-    {
-        terrainBox[i]->draw();
-    }
+    layerBox[-(entity->getZ())].append(entity);
 }
 
-void Scene::drawDecoration()
+void Scene::addCharacterToBox(Character *character)
 {
-    for(int i=0;i<decorationBox.size();i++)
-    {
-        decorationBox[i]->draw();
-    }
+    characterBox.append(character);
+    addEntityToLayerBox(character);
 }
 
-void Scene::drawCharacter()
+void Scene::addTerrainToBox(Terrain *terrain)
 {
-    for(int i=0;i<characterBox.size();i++)
-    {
-        characterBox[i]->draw();
-    }
+    terrainBox.append(terrain);
+    addEntityToLayerBox(terrain);
+}
+
+void Scene::addDecorationToBox(Decoration *decoration)
+{
+    decorationBox.append(decoration);
+    addEntityToLayerBox(decoration);
 }
