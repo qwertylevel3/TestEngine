@@ -24,18 +24,25 @@ void Scene::init()
         layerBox.append(*box);
     }
 
-    for(int i=0;i<15;i++)
-    {
-        for(int j=0;j<15;j++)
-        {
-            Terrain* grass=TerrainManager::instance()->getTerrain("grass");
-            grass->setX(-3.2+i*0.48);
-            grass->setY(-3.2+j*0.48);
-            grass->setZ(-10);
 
-            addTerrainToBox(grass);
-        }
-    }
+    Terrain* grass=TerrainManager::instance()->getTerrain("grass_0");
+
+    float w=grass->getWidth();
+    float h=grass->getHeight();
+
+    qDebug()<<w<<endl;
+
+    grass->setWidth(this->width);
+    grass->setHeight(this->height);
+
+    grass->setRepeatX(int(width/w));
+    grass->setRepeatY(int(height/h));
+
+    grass->setZ(-10);
+
+    addTerrainToBox(grass);
+
+
 
     Decoration* tree=DecorationManager::instance()->getDecoration("tree1");
     tree->setZ(-4);
@@ -83,15 +90,6 @@ void Scene::draw()
             layerBox[i][j]->draw();
         }
     }
-    if(GameConfigurator::instance()->getDrawRect())
-    {
-        drawRect();
-    }
-}
-
-void Scene::drawRect()
-{
-    //TODO
 }
 
 void Scene::drawBackground()

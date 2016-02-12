@@ -115,8 +115,7 @@ void T3Engine::resizeGL(int w, int h)
 
     // Set perspective projection
     //projection.perspective(fov, aspect, zNear, zFar);
-    projection.ortho(-2,2,-2,2,
-                     GameConfigurator::instance()->getPaintNear(),
+    projection.ortho(-2,2,-2,2,0,
                      GameConfigurator::instance()->getPaintFar());
 }
 

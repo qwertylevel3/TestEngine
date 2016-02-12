@@ -25,6 +25,8 @@ Sprite *Sprite::clone()
     newSp->setName(this->name);
     newSp->setCurrentAction(0);
     newSp->setTotalActionNumber(this->totalActionNumber);
+    newSp->setWidth(width);
+    newSp->setHeight(height);
 
     for(int i=0;i<this->actionBox.size();i++)
     {
@@ -49,8 +51,8 @@ void Sprite::draw()
     actionBox[currentAction]->rotate(angle,ax,ay,az);
     actionBox[currentAction]->setRepeatX(repeatX);
     actionBox[currentAction]->setRepeatY(repeatY);
-    actionBox[currentAction]->setWidth(width);
-    actionBox[currentAction]->setHeight(height);
+    actionBox[currentAction]->setWidth(width/GameConfigurator::instance()->getScale());
+    actionBox[currentAction]->setHeight(height/GameConfigurator::instance()->getScale());
     actionBox[currentAction]->draw();
 }
 

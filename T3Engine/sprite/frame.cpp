@@ -26,6 +26,10 @@ void Frame::draw()
                                      framePosition.width()/picturePoint->getImageWidth(),
                                      framePosition.height()/picturePoint->getImageHeight());
     picturePoint->draw();
+    if(GameConfigurator::instance()->getDrawRect())
+    {
+        drawRect();
+    }
 }
 
 Frame *Frame::clone()
@@ -63,7 +67,7 @@ void Frame::drawRect()
 
         rectPoint->setCoordinate(picturePoint->getX()+float(rects[i].x()*picturePoint->getWidth())/scale,
                                  picturePoint->getY()+float(rects[i].y()*picturePoint->getHeight())/scale,
-                                 picturePoint->getZ());
+                                 -1);
 
         rectPoint->draw();
     }

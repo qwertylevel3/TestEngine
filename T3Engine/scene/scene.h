@@ -15,7 +15,6 @@ public:
 
     void init();
     void draw();
-    void drawRect();
     void drawBackground();
     void update();
 

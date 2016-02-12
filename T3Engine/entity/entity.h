@@ -42,6 +42,41 @@ public:
     void setY(float y);
     void setZ(float z);
 
+    void setRepeatX(int value)
+    {
+        sprite->setRepeatX(value);
+    }
+    void setRepeatY(int value)
+    {
+        sprite->setRepeatY(value);
+    }
+    int getRepeatX() const
+    {
+        return sprite->getRepeatX();
+    }
+    int getRepeatY() const
+    {
+        return sprite->getRepeatY();
+    }
+
+
+    void setWidth(float width)
+    {
+        sprite->setWidth(width);
+    }
+    void setHeight(float height)
+    {
+        sprite->setHeight(height);
+    }
+    float getWidth() const
+    {
+        return sprite->getWidth();
+    }
+    float getHeight() const
+    {
+        return sprite->getHeight();
+    }
+
     void setLocalX(float x);
     void setLocalY(float y);
     void setLocalZ(float z);

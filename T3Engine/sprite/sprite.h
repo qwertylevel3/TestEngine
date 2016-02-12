@@ -51,7 +51,7 @@ public:
     }
     void setWidth(float value)
     {
-        width = value/GameConfigurator::instance()->getScale();
+        width = value;
     }
 
     float getHeight() const
@@ -60,7 +60,7 @@ public:
     }
     void setHeight(float value)
     {
-        height = value/GameConfigurator::instance()->getScale();
+        height = value;
     }
 
     int getRepeatX() const
