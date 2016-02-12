@@ -2,11 +2,9 @@
 #include"T3Engine/manager/picturemanager.h"
 #include"T3Engine/gameconfigurator.h"
 
-Frame::Frame(const QString& pictureName, const QRectF &fp,
-             const float w,const float h)
+Frame::Frame(const QString& pictureName, const QRectF &fp)
 {
     scale=GameConfigurator::instance()->getScale();
-
     this->pictureName=pictureName;
     picturePoint=PictureManager::instance()->getPicture(pictureName);
     if(!picturePoint)
@@ -14,11 +12,6 @@ Frame::Frame(const QString& pictureName, const QRectF &fp,
         qDebug()<<"picturePoint"<<pictureName<<" is empty"<<endl;
     }
     framePosition=fp;
-    width=w/scale;
-    height=h/scale;
-    //qDebug()<<width<<" "<<height<<endl;
-
-    x=y=z=0;
 }
 
 
@@ -26,10 +19,18 @@ Frame::~Frame()
 {
 }
 
+void Frame::draw()
+{
+    picturePoint->setTexturePosition(framePosition.x()/picturePoint->getImageWidth(),
+                                     framePosition.y()/picturePoint->getImageHeight(),
+                                     framePosition.width()/picturePoint->getImageWidth(),
+                                     framePosition.height()/picturePoint->getImageHeight());
+    picturePoint->draw();
+}
+
 Frame *Frame::clone()
 {
-    Frame* newFrame=new Frame(this->pictureName,this->framePosition,
-                             (this->width)*scale,(this->height)*scale);
+    Frame* newFrame=new Frame(this->pictureName,this->framePosition);
     for(int i=0;i<rects.size();i++)
     {
         QRectF r(rects[i]);
@@ -51,35 +52,6 @@ void Frame::addRect(float x, float y, float dx, float dy)
     rects.push_back(temp);
 }
 
-void Frame::draw(float x, float y,float z,float zoomX,float zoomY,
-                 bool mir, float angle, float ax, float ay, float az)
-{
-
-    picturePoint->setTexturePosition(framePosition.x()/picturePoint->getImageWidth(),
-                          framePosition.y()/picturePoint->getImageHeight(),
-                          framePosition.width()/picturePoint->getImageWidth(),
-                          framePosition.height()/picturePoint->getImageHeight());
-
-    //qDebug()<<framePosition.x()<<endl;
-    //qDebug()<<framePosition.y()<<endl;
-    //qDebug()<<framePosition.width()/p->getImageWidth()<<endl;
-    //qDebug()<<framePosition.height()/p->getImageHeight()<<endl;
-
-    this->x=x;
-    this->y=y;
-    this->z=z;
-
-    picturePoint->setCoordinate(x,y,z);
-
-    picturePoint->setZoomX(zoomX);
-    picturePoint->setZoomY(zoomY);
-    picturePoint->mirror(mir);
-    picturePoint->rotate(angle,ax,ay,az);
-    picturePoint->setWidth(width);
-    picturePoint->setHeight(height);
-    picturePoint->draw();
-}
-
 void Frame::drawRect()
 {
     Picture* rectPoint=PictureManager::instance()->getPicture("\\resource\\rect.png");
@@ -89,10 +61,10 @@ void Frame::drawRect()
         rectPoint->setWidth(float(rects[i].width())/scale);
         rectPoint->setHeight(float(rects[i].height())/scale);
 
-        rectPoint->setCoordinate(x+float(rects[i].x()*width)/scale,
-                         y+float(rects[i].y()*height)/scale,z);
+        rectPoint->setCoordinate(picturePoint->getX()+float(rects[i].x()*picturePoint->getWidth())/scale,
+                                 picturePoint->getY()+float(rects[i].y()*picturePoint->getHeight())/scale,
+                                 picturePoint->getZ());
 
         rectPoint->draw();
     }
 }
-

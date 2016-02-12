@@ -72,12 +72,6 @@ void Action::end()
 }
 
 
-void Action::draw(float x, float y, float z, float zoomX, float zoomY, bool mir
-        , float angle, float ax, float ay, float az)
-{
-    frameBox[currFrame]->draw(x,y,z,zoomX,zoomY,mir,angle,ax,ay,az);
-}
-
 void Action::drawRect()
 {
     frameBox[currFrame]->drawRect();

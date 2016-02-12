@@ -3,6 +3,7 @@
 
 #include"action.h"
 #include<QList>
+#include"T3Engine/gameconfigurator.h"
 
 class Sprite
 {
@@ -43,6 +44,43 @@ public:
     float getRotateY(){return ay;}
     float getRotateZ(){return az;}
     Action* getAction(int index){return actionBox.at(index);}
+
+    float getWidth() const
+    {
+        return width;
+    }
+    void setWidth(float value)
+    {
+        width = value/GameConfigurator::instance()->getScale();
+    }
+
+    float getHeight() const
+    {
+        return height;
+    }
+    void setHeight(float value)
+    {
+        height = value/GameConfigurator::instance()->getScale();
+    }
+
+    int getRepeatX() const
+    {
+        return repeatX;
+    }
+    void setRepeatX(int value)
+    {
+        repeatX = value;
+    }
+
+    int getRepeatY() const
+    {
+        return repeatY;
+    }
+    void setRepeatY(int value)
+    {
+        repeatY = value;
+    }
+
 protected:
     QString name;
 
@@ -58,6 +96,10 @@ protected:
 
     float angle;//旋转角度
     float ax,ay,az;//旋转轴
+    float width;
+    float height;
+    int repeatX;//重复绘制
+    int repeatY;
 
     QList<Action*> actionBox;
 };

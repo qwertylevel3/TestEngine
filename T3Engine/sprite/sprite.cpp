@@ -10,6 +10,10 @@ Sprite::Sprite()
 
     angle=0;
     ax=ay=az=0;
+    repeatX=0;
+    repeatY=0;
+    width=0.1;
+    height=0.1;
 
     currentAction=0;
     totalActionNumber=0;
@@ -38,12 +42,20 @@ void Sprite::update()
 
 void Sprite::draw()
 {
-    actionBox[currentAction]->draw(x,y,z,zoomX,zoomY,mir,angle,ax,ay,az);
+    actionBox[currentAction]->setCoordinate(x,y,z);
+    actionBox[currentAction]->setZoomX(zoomX);
+    actionBox[currentAction]->setZoomY(zoomY);
+    actionBox[currentAction]->mirror(mir);
+    actionBox[currentAction]->rotate(angle,ax,ay,az);
+    actionBox[currentAction]->setRepeatX(repeatX);
+    actionBox[currentAction]->setRepeatY(repeatY);
+    actionBox[currentAction]->setWidth(width);
+    actionBox[currentAction]->setHeight(height);
+    actionBox[currentAction]->draw();
 }
 
 void Sprite::drawRect()
 {
     actionBox[currentAction]->drawRect();
 }
-
 

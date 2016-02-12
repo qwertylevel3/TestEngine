@@ -16,6 +16,7 @@ public:
     void init();
     void draw();
     void drawRect();
+    void drawBackground();
     void update();
 
     void load(const QString& filename);
@@ -36,6 +37,8 @@ protected:
 
     QList<QList<Entity*> > layerBox;
 
+    int width;
+    int height;
 };
 
 #endif // SCENE_H

@@ -9,13 +9,51 @@ public:
     Action();
     ~Action();
 
+    void setCoordinate(float x,float y,float z)
+    {
+        frameBox[currFrame]->setCoordinate(x,y,z);
+    }
+    void setZoomX(float zoomX)
+    {
+        frameBox[currFrame]->setZoomX(zoomX);
+    }
+    void setZoomY(float zoomY)
+    {
+        frameBox[currFrame]->setZoomY(zoomY);
+    }
+    void mirror(float mir)
+    {
+        frameBox[currFrame]->mirror(mir);
+    }
+    void rotate(float angle,float ax,float ay,float az)
+    {
+        frameBox[currFrame]->rotate(angle,ax,ay,az);
+    }
+    void setWidth(float width)
+    {
+        frameBox[currFrame]->setWidth(width);
+    }
+    void setHeight(float height)
+    {
+        frameBox[currFrame]->setHeight(height);
+    }
+    void setRepeatX(int value)
+    {
+        frameBox[currFrame]->setRepeatX(value);
+    }
+    void setRepeatY(int value)
+    {
+        frameBox[currFrame]->setRepeatY(value);
+    }
+    void draw()
+    {
+        frameBox[currFrame]->draw();
+    }
+
     Action* clone();
 
     void addFrame(Frame* frame){frameBox.push_back(frame);}
 
-    //xyz坐标，zoom放缩，mir是否镜像，绕axayaz转angle度
-    void draw(float x, float y, float z,float zoomX=1.0,float zoomY=1.0, bool mir=false
-            ,float angle=0,float ax=0,float ay=0,float az=0);
     void drawRect();
 
     void start();

@@ -51,17 +51,23 @@ Sprite *SpriteManager::makeSprite()
 {
     reader.readNextStartElement();//sprite
 
-    QString s=reader.name().toString();
-
     Sprite* sprite=new Sprite();
 
     reader.readNextStartElement();
-    QString spriteName=reader.readElementText();
+    QString spriteName=reader.readElementText();//<spriteName>
     sprite->setName(spriteName);
 
     reader.readNextStartElement();
-    int totalActionNumber=reader.readElementText().toInt();
+    int totalActionNumber=reader.readElementText().toInt();//<totalActionNumber>
     sprite->setTotalActionNumber(totalActionNumber);
+
+    reader.readNextStartElement();//<width>
+    float width=reader.readElementText().toFloat();
+    sprite->setWidth(width);
+
+    reader.readNextStartElement();//<height>
+    float height=reader.readElementText().toFloat();
+    sprite->setHeight(height);
 
     for(int i=0;i<totalActionNumber;i++)
     {
@@ -140,22 +146,14 @@ Frame *SpriteManager::makeFrame()
     reader.readNextStartElement();
     float dy=reader.readElementText().toFloat();
 
-    reader.readNextStartElement();
-    float width=reader.readElementText().toFloat();
-
-    reader.readNextStartElement();
-    float height=reader.readElementText().toFloat();
-
     QRectF rect(x,y,dx,dy);
 
-    Frame* frame=new Frame(pictureName,rect,width,height);
+    Frame* frame=new Frame(pictureName,rect);
 
 
     reader.readNextStartElement();//<rectBox>
-    QString rectBox=reader.name().toString();
 
     reader.readNextStartElement();//<rectNumber>
-    QString rectNumberStr=reader.name().toString();
     int rectNumber=reader.readElementText().toInt();
 
     for(int i=0;i<rectNumber;i++)

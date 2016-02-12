@@ -5,7 +5,8 @@
 #include"T3Engine/manager/decorationmanager.h"
 Scene::Scene()
 {
-
+    width=GameConfigurator::instance()->getWindowWidth();
+    height=GameConfigurator::instance()->getWindowHeight();
 }
 
 Scene::~Scene()
@@ -91,6 +92,10 @@ void Scene::draw()
 void Scene::drawRect()
 {
     //TODO
+}
+
+void Scene::drawBackground()
+{
 }
 
 void Scene::update()

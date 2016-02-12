@@ -56,6 +56,24 @@ public:
     QString getName(){return name;}
     QMatrix4x4& getMatrix(){return matrix;}
 
+    int getRepeatX() const
+    {
+        return repeatX;
+    }
+    void setRepeatX(int value)
+    {
+        repeatX = value;
+    }
+
+    int getRepeatY() const
+    {
+        return repeatY;
+    }
+    void setRepeatY(int value)
+    {
+        repeatY = value;
+    }
+
 private:
     void initFaceGeometry();
     void allocateBuffer();
@@ -83,6 +101,8 @@ private:
     bool mir;//镜像
     float angle;//旋转角度
     float ax,ay,az;//旋转轴
+    int repeatX;//重复次数(重复一次，绘制两次)
+    int repeatY;
     QMatrix4x4 matrix;
     QString name;
 };

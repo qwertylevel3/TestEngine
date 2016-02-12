@@ -31,6 +31,8 @@ Picture::Picture(const QString &imagePath)
     tx=ty=0;
     tw=th=1;
     mir=false;
+    repeatX=0;
+    repeatY=0;
 
     angle=0;
     ax=0;
@@ -86,30 +88,33 @@ void Picture::updateArrayBuffer()
     width=width*zoomX;
     height=height*zoomY;
 
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
     if(!mir)
     {
 
         vertices[0]=VertexData({(QVector4D(-1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
                                 QVector2D(0.0f+tx, 0.0f+ty)});
         vertices[1]=VertexData({(QVector4D( 1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
-                                QVector2D(1.0f*tw+tx, 0.0f+ty)});
+                                QVector2D(1.0f*tw+tx+repeatX, 0.0f+ty)});
         vertices[2]=VertexData({(QVector4D(-1.0f*width+x,  1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
-                                QVector2D(0.0f+tx, 1.0f*th+ty)});
+                                QVector2D(0.0f+tx, 1.0f*th+ty+repeatY)});
         vertices[3]=VertexData({(QVector4D( 1.0f*width+x,  1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
-                                QVector2D(1.0f*tw+tx, 1.0f*th+ty)});
+                                QVector2D(1.0f*tw+tx+repeatX, 1.0f*th+ty+repeatY)});
 
 
     }
     else
     {
         vertices[0]=VertexData({(QVector4D(-1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
-                                QVector2D(1.0f*tw+tx, 0.0f+ty)});
+                                QVector2D(1.0f*tw+tx+repeatX, 0.0f+ty)});
         vertices[1]=VertexData({(QVector4D( 1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
                                 QVector2D(0.0f+tx, 0.0f+ty)});
         vertices[2]=VertexData({(QVector4D(-1.0f*width+x, 1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
-                                QVector2D(1.0f*tw+tx, 1.0f*th+ty)});
+                                QVector2D(1.0f*tw+tx+repeatX, 1.0f*th+ty+repeatY)});
         vertices[3]=VertexData({(QVector4D( 1.0f*width+x,  1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
-                                QVector2D(0.0f+tx, 1.0f*th+ty)});
+                                QVector2D(0.0f+tx, 1.0f*th+ty+repeatY)});
     }
     arrayBuf.bind();
     arrayBuf.write(0,vertices,4*sizeof(VertexData));
@@ -120,7 +125,6 @@ void Picture::setName(const QString &imagePath)
     int len=imagePath.length()-QDir::currentPath().length();
     name=imagePath.right(len);
 }
-
 
 void Picture::draw()
 {
