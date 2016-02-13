@@ -20,6 +20,11 @@ public:
     virtual void update();
     virtual Entity* clone()=0;
 
+    void setText(const QString& text)
+    {
+        sprite->setText(text);
+    }
+
     void addChild(Entity* childEntity)
     {
         child.append(childEntity);

@@ -48,6 +48,11 @@ struct Frame
         picturePoint->setRepeatY(value);
     }
 
+    void setText(const QString& text)
+    {
+        picturePoint->setText(text);
+    }
+
     void draw();
 
     Frame* clone();

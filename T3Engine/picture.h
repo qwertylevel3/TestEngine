@@ -5,6 +5,7 @@
 #include <QOpenGLShaderProgram>
 #include <QOpenGLBuffer>
 #include <QOpenGLTexture>
+
 struct VertexData
 {
     QVector3D position;
@@ -19,6 +20,7 @@ public:
     virtual ~Picture();
 
     void draw();
+    void loadImage(const QString& imagePath);
 
     void setCoordinate(float x,float y,float z=0);
     void setWidth(float w){width=w;}
@@ -36,7 +38,8 @@ public:
     {
         matrix=m;
     }
-    void setTextures(const QString &imagePath);
+    void setTextures(QImage img);
+    void setText(const QString& text);
     void mirror(bool m)
     {
         mir=m;

@@ -14,6 +14,12 @@ public:
     void draw();
     void drawRect();
 
+    void setText(const QString& text)
+    {
+        this->text=text;
+        actionBox[currentAction]->setText(text);
+    }
+
     void addAction(Action* action){actionBox.append(action);}
     void setX(float x){this->x=x;}
     void setY(float y){this->y=y;}
@@ -100,6 +106,7 @@ protected:
     float height;
     int repeatX;//重复绘制
     int repeatY;
+    QString text;
 
     QList<Action*> actionBox;
 };

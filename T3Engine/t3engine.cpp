@@ -11,6 +11,7 @@
 #include"T3Engine/manager/charactermanager.h"
 #include"T3Engine/manager/terrainmanager.h"
 #include"T3Engine/manager/decorationmanager.h"
+#include<QLabel>
 
 T3Engine::T3Engine(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -22,6 +23,8 @@ T3Engine::T3Engine(QWidget *parent)
 
     this->setFixedSize(GameConfigurator::instance()->getWindowWidth(),
                        GameConfigurator::instance()->getWindowHeight());
+    device=0;
+
 }
 
 T3Engine::~T3Engine()
@@ -97,9 +100,9 @@ void T3Engine::paintGL()
             ->setUniformValue("mvp_matrix",projection);
 
     ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
-
     scene->draw();
     //scene->drawRect();
+
 }
 
 void T3Engine::resizeGL(int w, int h)

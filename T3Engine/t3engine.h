@@ -9,6 +9,7 @@
 #include"T3Engine/singleton.h"
 #include"T3Engine/scene/scene.h"
 #include<QOpenGLContext>
+#include<QOpenGLPaintDevice>
 
 class T3Engine:public QOpenGLWidget,public QOpenGLFunctions,public Singleton<T3Engine>
 {
@@ -44,6 +45,8 @@ private:
     Scene* scene;
 
     //Frame* frame;
+
+    QOpenGLPaintDevice* device;
 };
 
 #endif // T3ENGINE_H

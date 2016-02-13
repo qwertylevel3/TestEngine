@@ -30,8 +30,6 @@ void Scene::init()
     float w=grass->getWidth();
     float h=grass->getHeight();
 
-    qDebug()<<w<<endl;
-
     grass->setWidth(this->width);
     grass->setHeight(this->height);
 
@@ -42,16 +40,23 @@ void Scene::init()
 
     addTerrainToBox(grass);
 
-
+    Decoration* textFrame=DecorationManager::instance()->getDecoration("textFrame");
+    textFrame->setY(1.2);
+    textFrame->setWidth(400);
+    textFrame->setHeight(173);
+    textFrame->setZ(-3);
+    textFrame->setText("Hello T3!");
+    addDecorationToBox(textFrame);
 
     Decoration* tree=DecorationManager::instance()->getDecoration("tree1");
     tree->setZ(-4);
+    tree->setY(-0.5);
     addDecorationToBox(tree);
-
 
 
     Character* testCharacter_0=CharacterManager::instance()->getCharacter("test");
     testCharacter_0->setZ(-5);
+    testCharacter_0->setY(-0.4);
     testCharacter_0->setX(1);
     addCharacterToBox(testCharacter_0);
 
@@ -63,21 +68,25 @@ void Scene::init()
 //    decorationBox.append(shadow);
 //
 //
-//    Decoration* shadow_0=DecorationManager::instance()->getDecoration("shadow");
-//    testCharacter_0->addChild(shadow_0);
-//    shadow_0->setY(-0.18);
-//    shadow_0->setLocalZ(-1);
+    Decoration* shadow_0=DecorationManager::instance()->getDecoration("shadow");
+    testCharacter_0->addChild(shadow_0);
+    shadow_0->setLocalY(-0.18);
+    shadow_0->setLocalZ(-1);
+    addDecorationToBox(shadow_0);
 
     Character* testCharacter_1=CharacterManager::instance()->getCharacter("test");
     testCharacter_1->setZ(-5);
     testCharacter_1->setX(2);
+    testCharacter_1->setY(-0.6);
+    testCharacter_1->setCurrentAction(1);
     addCharacterToBox(testCharacter_1);
 
 
-//    Decoration* shadow_1=DecorationManager::instance()->getDecoration("shadow");
-//    testCharacter_1->addChild(shadow_1);
-//    shadow_1->setLocalY(-0.18);
-//    shadow_1->setLocalZ(-1);
+    Decoration* shadow_1=DecorationManager::instance()->getDecoration("shadow");
+    testCharacter_1->addChild(shadow_1);
+    shadow_1->setLocalY(-0.18);
+    shadow_1->setLocalZ(-1);
+    addDecorationToBox(shadow_1);
 }
 
 void Scene::draw()

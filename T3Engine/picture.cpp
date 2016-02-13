@@ -6,6 +6,7 @@
 #include<math.h>
 #include"T3Engine/manager/shadermanager.h"
 #include<QDir>
+#include<QPainter>
 
 Picture::Picture(const QString &imagePath)
     : indexBuf(QOpenGLBuffer::IndexBuffer)
@@ -19,7 +20,8 @@ Picture::Picture(const QString &imagePath)
     // Initializes cube geometry and transfers it to VBOs
     initFaceGeometry();
 
-    setTextures(imagePath);
+    loadImage(imagePath);
+    setTextures(image);
 
     setName(imagePath);
 
@@ -40,7 +42,6 @@ Picture::Picture(const QString &imagePath)
     az=0;
 
     matrix.setToIdentity();
-
 }
 
 Picture::~Picture()
@@ -138,6 +139,9 @@ void Picture::draw()
     // Offset for position
     quintptr offset = 0;
 
+
+    //glColor4f(1.0,1.0,1.0,0.5);
+
     // Tell OpenGL programmable pipeline how to locate vertex position data
     int vertexLocation = ShaderManager::instance()->getProgram()->attributeLocation("a_position");
     ShaderManager::instance()->getProgram()->enableAttributeArray(vertexLocation);
@@ -159,6 +163,19 @@ void Picture::draw()
     //indexBuf.release();
 }
 
+void Picture::loadImage(const QString &imagePath)
+{
+    if(!image.load(imagePath))
+    {
+        qDebug()<<"can not load "<<imagePath<<endl;
+        return ;
+    }
+    setName(imagePath);
+
+    imageWidth=image.size().width();
+    imageHeight=image.size().height();
+}
+
 void Picture::rotate(float angle, float a_x, float a_y, float a_z)
 {
     this->angle=angle;
@@ -169,22 +186,11 @@ void Picture::rotate(float angle, float a_x, float a_y, float a_z)
 }
 
 
-void Picture::setTextures(const QString &imagePath)
+void Picture::setTextures(QImage img)
 {
-
-    if(!image.load(imagePath))
-    {
-        qDebug()<<"can not load "<<imagePath<<endl;
-        return ;
-    }
-    setName(imagePath);
-    imageWidth=image.size().width();
-    imageHeight=image.size().height();
-
-
     texture = new QOpenGLTexture(QOpenGLTexture::Target2D);
     texture->setFormat(QOpenGLTexture::RGBA8U);
-    texture->setData(image.mirrored());
+    texture->setData(img.mirrored());
     // Set nearest filtering mode for texture minification
     texture->setMinificationFilter(QOpenGLTexture::Nearest);
 
@@ -194,4 +200,18 @@ void Picture::setTextures(const QString &imagePath)
     // Wrap texture coordinates by repeating
     // f.ex. texture coordinate (1.1, 1.2) is same as (0.1, 0.2)
     texture->setWrapMode(QOpenGLTexture::Repeat);
+}
+
+void Picture::setText(const QString &text)
+{
+    QImage tempImage=image;
+
+    QPainter p;
+    p.begin(&tempImage);
+    p.setPen(Qt::blue);
+    p.setFont(QFont("Arial", 30));
+    p.drawText(QRect(0,0,tempImage.width(),tempImage.height()),Qt::AlignCenter,text);
+    p.end();
+
+    setTextures(tempImage);
 }

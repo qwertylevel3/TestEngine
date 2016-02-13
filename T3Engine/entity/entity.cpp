@@ -23,28 +23,16 @@ Entity::~Entity()
 void Entity::draw()
 {
     sprite->draw();
-    for(int i=0;i<child.size();i++)
-    {
-        child[i]->draw();
-    }
 }
 
 void Entity::drawRect()
 {
     sprite->drawRect();
-    for(int i=0;i<child.size();i++)
-    {
-        child[i]->drawRect();
-    }
 }
 
 void Entity::update()
 {
     sprite->update();
-    for(int i=0;i<child.size();i++)
-    {
-        child[i]->update();
-    }
 }
 
 void Entity::setX(float x)

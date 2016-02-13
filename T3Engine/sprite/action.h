@@ -9,6 +9,11 @@ public:
     Action();
     ~Action();
 
+    void setText(const QString& text)
+    {
+        frameBox[currFrame]->setText(text);
+    }
+
     void setCoordinate(float x,float y,float z)
     {
         frameBox[currFrame]->setCoordinate(x,y,z);
