@@ -20,6 +20,16 @@ Entity::~Entity()
     }
 }
 
+void Entity::startCommand(int c)
+{
+    this->setX(sprite->getX()+0.1);
+}
+
+void Entity::overCommand(int c)
+{
+
+}
+
 void Entity::draw()
 {
     sprite->draw();

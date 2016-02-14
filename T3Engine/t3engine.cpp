@@ -23,8 +23,6 @@ T3Engine::T3Engine(QWidget *parent)
 
     this->setFixedSize(GameConfigurator::instance()->getWindowWidth(),
                        GameConfigurator::instance()->getWindowHeight());
-    device=0;
-
 }
 
 T3Engine::~T3Engine()
@@ -90,6 +88,18 @@ void T3Engine::gameLoop()
     m_frame++;
 
     scene->update();
+}
+
+void T3Engine::keyPressEvent(QKeyEvent *e)
+{
+    QOpenGLWidget::keyPressEvent(e);
+    InputModule::instance()->keyPressEvent(e);
+}
+
+void T3Engine::keyReleaseEvent(QKeyEvent *e)
+{
+    QOpenGLWidget::keyReleaseEvent(e);
+    InputModule::instance()->keyReleaseEvent(e);
 }
 
 void T3Engine::paintGL()

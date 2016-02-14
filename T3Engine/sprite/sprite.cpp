@@ -44,6 +44,10 @@ void Sprite::update()
 
 void Sprite::draw()
 {
+    if(!text.isEmpty())
+    {
+        actionBox[currentAction]->setText(text);
+    }
     actionBox[currentAction]->setCoordinate(x,y,z);
     actionBox[currentAction]->setZoomX(zoomX);
     actionBox[currentAction]->setZoomY(zoomY);

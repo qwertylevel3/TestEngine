@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     T3Engine/entity/terrain/terrain.cpp \
     T3Engine/manager/charactermanager.cpp \
     T3Engine/manager/terrainmanager.cpp \
-    T3Engine/manager/decorationmanager.cpp
+    T3Engine/manager/decorationmanager.cpp \
+    T3Engine/inputmodule.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -52,7 +53,8 @@ HEADERS  += \
     T3Engine/entity/terrain/terrain.h \
     T3Engine/manager/charactermanager.h \
     T3Engine/manager/terrainmanager.h \
-    T3Engine/manager/decorationmanager.h
+    T3Engine/manager/decorationmanager.h \
+    T3Engine/inputmodule.h
 
 RESOURCES += \
     shader.qrc

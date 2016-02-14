@@ -12,6 +12,10 @@ public:
     Entity(const QString& spriteName);
     ~Entity();
 
+
+    void startCommand(int c);
+    void overCommand(int c);
+
     void setName(const QString& n){name=n;}
     void setSprite(const QString& n);
     virtual void draw();
@@ -20,77 +24,29 @@ public:
     virtual void update();
     virtual Entity* clone()=0;
 
-    void setText(const QString& text)
-    {
-        sprite->setText(text);
-    }
+    void setText(const QString& text);
 
-    void addChild(Entity* childEntity)
-    {
-        child.append(childEntity);
-        childEntity->setParent(this);
-
-
-        childEntity->setX(this->getX());
-        childEntity->setY(this->getY());
-        childEntity->setZ(this->getZ());
-
-        childEntity->setLocalX(0);
-        childEntity->setLocalY(0);
-        childEntity->setLocalZ(0);
-
-        childEntity->setZoomX(this->getZoomX());
-        childEntity->setZoomY(this->getZoomY());
-
-    }
+    void addChild(Entity* childEntity);
     void setX(float x);
     void setY(float y);
     void setZ(float z);
 
-    void setRepeatX(int value)
-    {
-        sprite->setRepeatX(value);
-    }
-    void setRepeatY(int value)
-    {
-        sprite->setRepeatY(value);
-    }
-    int getRepeatX() const
-    {
-        return sprite->getRepeatX();
-    }
-    int getRepeatY() const
-    {
-        return sprite->getRepeatY();
-    }
+    void setRepeatX(int value);
+    void setRepeatY(int value);
+    int getRepeatX() const;
+    int getRepeatY() const;
 
-
-    void setWidth(float width)
-    {
-        sprite->setWidth(width);
-    }
-    void setHeight(float height)
-    {
-        sprite->setHeight(height);
-    }
-    float getWidth() const
-    {
-        return sprite->getWidth();
-    }
-    float getHeight() const
-    {
-        return sprite->getHeight();
-    }
+    void setWidth(float width);
+    void setHeight(float height);
+    float getWidth() const;
+    float getHeight() const;
 
     void setLocalX(float x);
     void setLocalY(float y);
     void setLocalZ(float z);
 
-    void setCurrentAction(int index){sprite->setCurrentAction(index);}
-    void setChildCurrentAction(int childIndex,int index)
-    {
-        child[childIndex]->setCurrentAction(index);
-    }
+    void setCurrentAction(int index);
+    void setChildCurrentAction(int childIndex,int index);
     void setTotalActionNumber(int t){sprite->setTotalActionNumber(t);}
     void setZoomX(float z);
     void setZoomY(float z);
@@ -153,6 +109,80 @@ void Entity::setSprite(const QString &n)
 }
 
 inline
+void Entity::setText(const QString &text)
+{
+    sprite->setText(text);
+}
+
+inline
+void Entity::addChild(Entity *childEntity)
+{
+    child.append(childEntity);
+    childEntity->setParent(this);
+
+
+    childEntity->setX(this->getX());
+    childEntity->setY(this->getY());
+    childEntity->setZ(this->getZ());
+
+    childEntity->setLocalX(0);
+    childEntity->setLocalY(0);
+    childEntity->setLocalZ(0);
+
+    childEntity->setZoomX(this->getZoomX());
+    childEntity->setZoomY(this->getZoomY());
+
+}
+
+inline
+void Entity::setRepeatX(int value)
+{
+    sprite->setRepeatX(value);
+}
+
+inline
+void Entity::setRepeatY(int value)
+{
+    sprite->setRepeatY(value);
+}
+
+inline
+int Entity::getRepeatX() const
+{
+    return sprite->getRepeatX();
+}
+
+inline
+int Entity::getRepeatY() const
+{
+    return sprite->getRepeatY();
+}
+
+inline
+void Entity::setWidth(float width)
+{
+    sprite->setWidth(width);
+}
+
+inline
+void Entity::setHeight(float height)
+{
+    sprite->setHeight(height);
+}
+
+inline
+float Entity::getWidth() const
+{
+    return sprite->getWidth();
+}
+
+inline
+float Entity::getHeight() const
+{
+    return sprite->getHeight();
+}
+
+inline
 void Entity::setLocalX(float x)
 {
     if(parent)
@@ -194,6 +224,19 @@ void Entity::setLocalZ(float z)
         this->setZ(z);
     }
 }
+
+inline
+void Entity::setCurrentAction(int index)
+{
+    sprite->setCurrentAction(index);
+}
+
+inline
+void Entity::setChildCurrentAction(int childIndex, int index)
+{
+    child[childIndex]->setCurrentAction(index);
+}
+
 inline
 float Entity::getLocalX()
 {

@@ -42,6 +42,11 @@ Picture::Picture(const QString &imagePath)
     az=0;
 
     matrix.setToIdentity();
+
+    this->textColor=Qt::white;
+    this->textAlignment=Qt::AlignCenter;
+    this->textFont=QFont("Arial", 30);
+    this->textRect=QRect(0,0,image.width(),image.height());
 }
 
 Picture::~Picture()
@@ -208,9 +213,9 @@ void Picture::setText(const QString &text)
 
     QPainter p;
     p.begin(&tempImage);
-    p.setPen(Qt::blue);
-    p.setFont(QFont("Arial", 30));
-    p.drawText(QRect(0,0,tempImage.width(),tempImage.height()),Qt::AlignCenter,text);
+    p.setPen(textColor);
+    p.setFont(textFont);
+    p.drawText(textRect,textAlignment,text);
     p.end();
 
     setTextures(tempImage);

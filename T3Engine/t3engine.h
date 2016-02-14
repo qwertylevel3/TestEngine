@@ -10,6 +10,7 @@
 #include"T3Engine/scene/scene.h"
 #include<QOpenGLContext>
 #include<QOpenGLPaintDevice>
+#include"inputmodule.h"
 
 class T3Engine:public QOpenGLWidget,public QOpenGLFunctions,public Singleton<T3Engine>
 {
@@ -24,6 +25,8 @@ protected:
     void resizeGL(int w, int h) Q_DECL_OVERRIDE;
     void initializeGL() Q_DECL_OVERRIDE;
     void gameLoop();
+    void keyPressEvent(QKeyEvent *e);
+    void keyReleaseEvent(QKeyEvent *e);
 private:
     QBasicTimer timer;
     bool m_update_pending;
@@ -46,7 +49,6 @@ private:
 
     //Frame* frame;
 
-    QOpenGLPaintDevice* device;
 };
 
 #endif // T3ENGINE_H

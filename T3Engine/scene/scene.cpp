@@ -3,6 +3,8 @@
 #include"T3Engine/manager/terrainmanager.h"
 #include"T3Engine/manager/charactermanager.h"
 #include"T3Engine/manager/decorationmanager.h"
+#include"T3Engine/inputmodule.h"
+
 Scene::Scene()
 {
     width=GameConfigurator::instance()->getWindowWidth();
@@ -40,13 +42,22 @@ void Scene::init()
 
     addTerrainToBox(grass);
 
-    Decoration* textFrame=DecorationManager::instance()->getDecoration("textFrame");
-    textFrame->setY(1.2);
-    textFrame->setWidth(400);
-    textFrame->setHeight(173);
-    textFrame->setZ(-3);
-    textFrame->setText("Hello T3!");
-    addDecorationToBox(textFrame);
+//    Decoration* textFrame_0=DecorationManager::instance()->getDecoration("textFrame");
+//    textFrame_0->setY(1.2);
+//    textFrame_0->setWidth(400);
+//    textFrame_0->setHeight(173);
+//    textFrame_0->setZ(-3);
+//    textFrame_0->setText("Hello T3!");
+//    addDecorationToBox(textFrame_0);
+//
+//    Decoration* textFrame_1=DecorationManager::instance()->getDecoration("textFrame");
+//    textFrame_1->setY(-1.2);
+//    textFrame_1->setWidth(400);
+//    textFrame_1->setHeight(173);
+//    textFrame_1->setZ(-3);
+//    textFrame_1->setText("qwerty");
+//    addDecorationToBox(textFrame_1);
+
 
     Decoration* tree=DecorationManager::instance()->getDecoration("tree1");
     tree->setZ(-4);
@@ -59,6 +70,8 @@ void Scene::init()
     testCharacter_0->setY(-0.4);
     testCharacter_0->setX(1);
     addCharacterToBox(testCharacter_0);
+
+    InputModule::instance()->setEntity(testCharacter_0);
 
 
 //    Decoration* shadow=DecorationManager::instance()->getDecoration("shadow");

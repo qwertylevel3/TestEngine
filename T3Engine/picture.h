@@ -5,6 +5,8 @@
 #include <QOpenGLShaderProgram>
 #include <QOpenGLBuffer>
 #include <QOpenGLTexture>
+#include<QColor>
+#include<QFont>
 
 struct VertexData
 {
@@ -108,6 +110,12 @@ private:
     int repeatY;
     QMatrix4x4 matrix;
     QString name;
+
+    QColor textColor;
+    QFont textFont;
+    QRect textRect;
+    Qt::Alignment textAlignment;
+
 };
 
 inline
