@@ -4,6 +4,7 @@
 #include"T3Engine/entity/decoration/decoration.h"
 #include"T3Engine/entity/character/character.h"
 #include"T3Engine/entity/terrain/terrain.h"
+#include"T3Engine/entity/bullet/bullet.h"
 #include<QList>
 
 class Scene
@@ -29,10 +30,12 @@ protected:
     void addCharacterToBox(Character* character);
     void addTerrainToBox(Terrain* terrain);
     void addDecorationToBox(Decoration* decoration);
+    void addBulletToBox(Bullet* bullet);
 
     QList<Character*> characterBox;
     QList<Terrain*> terrainBox;
     QList<Decoration*> decorationBox;
+    QList<Bullet*> bulletBox;
 
     QList<QList<Entity*> > layerBox;
 

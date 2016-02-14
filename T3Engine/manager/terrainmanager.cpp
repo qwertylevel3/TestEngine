@@ -10,7 +10,7 @@ TerrainManager::TerrainManager()
 
 void TerrainManager::init()
 {
-    QString  fileName=GameConfigurator::instance()->getTerrainConfigFileName();
+    QString fileName=GameConfigurator::instance()->getTerrainConfigFileName();
     QString path=QDir::currentPath()+QDir::separator()+fileName;
 
 

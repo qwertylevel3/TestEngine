@@ -11,6 +11,7 @@
 #include"T3Engine/manager/charactermanager.h"
 #include"T3Engine/manager/terrainmanager.h"
 #include"T3Engine/manager/decorationmanager.h"
+#include"T3Engine/manager/bulletmanager.h"
 #include<QLabel>
 
 T3Engine::T3Engine(QWidget *parent)
@@ -43,6 +44,7 @@ void T3Engine::init()
     CharacterManager::instance()->init();
     TerrainManager::instance()->init();
     DecorationManager::instance()->init();
+    BulletManager::instance()->init();
 }
 
 void T3Engine::timerEvent(QTimerEvent *e)

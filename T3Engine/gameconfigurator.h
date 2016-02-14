@@ -79,6 +79,15 @@ public:
         drawRect = value;
     }
 
+    QString getBulletConfigFileName() const
+    {
+        return bulletConfigFileName;
+    }
+    void setBulletConfigFileName(const QString &value)
+    {
+        bulletConfigFileName = value;
+    }
+
 protected:
     float scale;//绘制时缩放比例,值越大越小。。
     bool drawRect;
@@ -91,6 +100,7 @@ protected:
     QString characterConfigFileName;
     QString terrainConfigFileName;
     QString decorationConfigFileName;
+    QString bulletConfigFileName;
 };
 
 #endif // GAMECONFIGURATOR_H

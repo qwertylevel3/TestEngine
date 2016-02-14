@@ -35,7 +35,10 @@ SOURCES += main.cpp\
     T3Engine/manager/decorationmanager.cpp \
     T3Engine/inputmodule.cpp \
     T3Engine/skill/skill.cpp \
-    T3Engine/skill/move.cpp
+    T3Engine/skill/move.cpp \
+    T3Engine/entity/bullet/bullet.cpp \
+    T3Engine/manager/bulletmanager.cpp \
+    T3Engine/skill/shoot.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -58,7 +61,10 @@ HEADERS  += \
     T3Engine/manager/decorationmanager.h \
     T3Engine/inputmodule.h \
     T3Engine/skill/skill.h \
-    T3Engine/skill/move.h
+    T3Engine/skill/move.h \
+    T3Engine/entity/bullet/bullet.h \
+    T3Engine/manager/bulletmanager.h \
+    T3Engine/skill/shoot.h
 
 RESOURCES += \
     shader.qrc

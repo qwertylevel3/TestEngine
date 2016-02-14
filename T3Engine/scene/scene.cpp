@@ -4,6 +4,7 @@
 #include"T3Engine/manager/charactermanager.h"
 #include"T3Engine/manager/decorationmanager.h"
 #include"T3Engine/inputmodule.h"
+#include"T3Engine/manager/bulletmanager.h"
 
 Scene::Scene()
 {
@@ -100,6 +101,10 @@ void Scene::init()
     shadow_1->setLocalY(-0.18);
     shadow_1->setLocalZ(-1);
     addDecorationToBox(shadow_1);
+
+    Bullet* bullet=BulletManager::instance()->getBullet("bullet");
+    bullet->setZ(-4);
+    addBulletToBox(bullet);
 }
 
 void Scene::draw()
@@ -120,6 +125,10 @@ void Scene::drawBackground()
 
 void Scene::update()
 {
+    for(int i=0;i<bulletBox.size();i++)
+    {
+        bulletBox[i]->update();
+    }
     for(int i=0;i<characterBox.size();i++)
     {
         characterBox[i]->update();
@@ -249,4 +258,10 @@ void Scene::addDecorationToBox(Decoration *decoration)
 {
     decorationBox.append(decoration);
     addEntityToLayerBox(decoration);
+}
+
+void Scene::addBulletToBox(Bullet *bullet)
+{
+    bulletBox.append(bullet);
+    addEntityToLayerBox(bullet);
 }

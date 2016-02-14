@@ -17,11 +17,16 @@ void GameConfigurator::init()
     characterConfigFileName="character.xml";
     terrainConfigFileName="terrain.xml";
     decorationConfigFileName="decoration.xml";
+    bulletConfigFileName="bullet.xml";
 
     format.setSamples(16);
     format.setDepthBufferSize(24);
     QSurfaceFormat::setDefaultFormat(format);
 }
+
+
+
+
 
 
 
