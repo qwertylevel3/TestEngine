@@ -1,4 +1,6 @@
 #include "entity.h"
+#include"T3Engine/inputmodule.h"
+#include"T3Engine/skill/move.h"
 
 
 Entity::Entity(const QString &spriteName)
@@ -10,6 +12,7 @@ Entity::Entity(const QString &spriteName)
     localY=0;
     localZ=0;
     parent=0;
+    skill=new Move(this);
 }
 
 Entity::~Entity()
@@ -20,14 +23,20 @@ Entity::~Entity()
     }
 }
 
-void Entity::startCommand(int c)
+void Entity::startCommand(InputModule::Command c)
 {
-    this->setX(sprite->getX()+0.1);
+    if(c==InputModule::up
+            || c==InputModule::down
+            || c==InputModule::left
+            || c==InputModule::right)
+    {
+        skill->start(c);
+    }
 }
 
-void Entity::overCommand(int c)
+void Entity::endCommand(InputModule::Command c)
 {
-
+    skill->end(c);
 }
 
 void Entity::draw()
@@ -43,6 +52,11 @@ void Entity::drawRect()
 void Entity::update()
 {
     sprite->update();
+    if(skill)
+    {
+        skill->run();
+    }
+
 }
 
 void Entity::setX(float x)

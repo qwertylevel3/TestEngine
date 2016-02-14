@@ -1,9 +1,15 @@
 #include "character.h"
+#include"T3Engine/inputmodule.h"
 
 
 Character::Character(const QString &spriteName)
     :Entity(spriteName)
 {
+    HP=0;
+    MP=0;
+    currentHP=0;
+    currentMP=0;
+    speed=0.01;
 }
 
 Character *Character::clone()
@@ -17,3 +23,27 @@ Character *Character::clone()
 
     return newCharacter;
 }
+
+void Character::startCommand(int c)
+{
+    if(c==InputModule::up)
+    {
+        qDebug()<<"up"<<endl;
+    }
+}
+
+void Character::endCommand(int c)
+{
+
+}
+float Character::getSpeed() const
+{
+    return speed;
+}
+
+void Character::setSpeed(float value)
+{
+    speed = value;
+}
+
+

@@ -6,8 +6,8 @@
 #include<QObject>
 #include<QKeyEvent>
 #include"T3Engine/singleton.h"
-#include"T3Engine/entity/entity.h"
 
+class Entity;
 //处理键盘映射
 class InputModule:public QObject,public Singleton<InputModule>
 {

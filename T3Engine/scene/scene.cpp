@@ -156,7 +156,7 @@ void Scene::collision()
             {
                 if(isCollision(characterBox[i],characterBox[j]))
                 {
-                    qDebug()<<"collision!"<<endl;
+                    //qDebug()<<"collision!"<<endl;
                 }
             }
         }

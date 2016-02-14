@@ -4,6 +4,8 @@
 #include"T3Engine/sprite/sprite.h"
 #include"T3Engine/manager/spritemanager.h"
 #include<QList>
+#include"T3Engine/skill/skill.h"
+#include"T3Engine/inputmodule.h"
 
 class Entity
 {
@@ -13,8 +15,8 @@ public:
     ~Entity();
 
 
-    void startCommand(int c);
-    void overCommand(int c);
+    virtual void startCommand(InputModule::Command c);
+    virtual void endCommand(InputModule::Command c);
 
     void setName(const QString& n){name=n;}
     void setSprite(const QString& n);
@@ -95,6 +97,8 @@ protected:
     float localX;
     float localY;
     float localZ;
+
+    Skill* skill;
 };
 
 inline

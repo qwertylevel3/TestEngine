@@ -11,6 +11,9 @@ public:
     Character(const QString& spriteName);
     Character* clone();
 
+    void startCommand(int c);
+    void endCommand(int c);
+
     int getHP() const
     {
         return HP;
@@ -46,11 +49,16 @@ public:
     {
         currentMP = value;
     }
+
+    float getSpeed() const;
+    void setSpeed(float value);
+
 protected:
     int HP;
     int MP;
     int currentHP;
     int currentMP;
+    float speed;
 };
 
 #endif // CHARACTER_H

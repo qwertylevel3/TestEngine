@@ -65,6 +65,9 @@ Character *CharacterManager::makeCharacter()
     reader.readNextStartElement();//<CurrentMP>
     int currentMP=reader.readElementText().toInt();
 
+    reader.readNextStartElement();//<speed>
+    float speed=reader.readElementText().toFloat();
+
     reader.readNextStartElement();//</Character>
 
     Character* character=new Character(spriteName);
@@ -73,6 +76,7 @@ Character *CharacterManager::makeCharacter()
     character->setMP(MP);
     character->setCurrentHP(currentHP);
     character->setCurrentMP(currentMP);
+    character->setSpeed(speed);
     return character;
 }
 

@@ -1,5 +1,6 @@
 #include "inputmodule.h"
 #include<QDebug>
+#include"T3Engine/entity/entity.h"
 
 InputModule::InputModule()
 {
@@ -59,10 +60,10 @@ void InputModule::keyPressEvent(QKeyEvent *e)
     {
         return ;
     }
-    this->input(e->key());
+    //this->input(e->key());
     if(entity)
     {
-        entity->startCommand(this->getCommand());
+        entity->startCommand(keyMap[e->key()]);
     }
 }
 
@@ -74,6 +75,6 @@ void InputModule::keyReleaseEvent(QKeyEvent *e)
     }
     if(entity)
     {
-        entity->overCommand(this->popCommand());
+        entity->endCommand(keyMap[e->key()]);
     }
 }
