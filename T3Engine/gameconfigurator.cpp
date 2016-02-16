@@ -8,7 +8,7 @@ GameConfigurator::GameConfigurator()
 void GameConfigurator::init()
 {
     scale=200;
-    drawRect=false;
+    drawRect=true;
     paintNear=3;
     paintFar=20;
     windowWidth=800;

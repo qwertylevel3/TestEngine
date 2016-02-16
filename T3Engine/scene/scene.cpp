@@ -104,6 +104,9 @@ void Scene::init()
 
     Bullet* bullet=BulletManager::instance()->getBullet("bullet");
     bullet->setZ(-4);
+    bullet->setY(-0.5);
+    bullet->setZoomX(0.2);
+    bullet->setZoomY(0.2);
     addBulletToBox(bullet);
 }
 
@@ -141,7 +144,8 @@ void Scene::update()
     {
         decorationBox[i]->update();
     }
-    characterBox[1]->setX(characterBox[1]->getX()-0.01);
+    //characterBox[1]->setX(characterBox[1]->getX()-0.01);
+    bulletBox[0]->setX(bulletBox[0]->getX()+0.001);
     collision();
 }
 
@@ -159,14 +163,27 @@ void Scene::collision()
 {
     for(int i=0;i<characterBox.size();i++)
     {
-        for(int j=0;j<characterBox.size();j++)
+        for(int j=0;j<bulletBox.size();j++)
         {
-            if(i!=j)
+//            if(i!=j)
+//            {
+//                if(isCollision(characterBox[i],characterBox[j]))
+//                {
+//                    qDebug()<<"collision!"<<endl;
+//
+//                }
+//                else
+//                {
+//                    qDebug()<<"....."<<endl;
+//                }
+//            }
+            if(isCollision(characterBox[i],bulletBox[j]))
             {
-                if(isCollision(characterBox[i],characterBox[j]))
-                {
-                    //qDebug()<<"collision!"<<endl;
-                }
+                qDebug()<<"collision"<<endl;
+            }
+            else
+            {
+                qDebug()<<"...."<<endl;
             }
         }
     }
@@ -183,31 +200,35 @@ bool Scene::isCollision(Entity* a,Entity* b)
         {
             QRectF aRect=a->getCurrentRects()[i];
 
-            float aRectx=aRect.x()+a->getX();
-            aRectx*=GameConfigurator::instance()->getScale();
-            float aRecty=aRect.y()+a->getY();
-            aRecty*=GameConfigurator::instance()->getScale();
+            float aRectx=aRect.x()+a->getX()*GameConfigurator::instance()->getScale();
+            float aRecty=aRect.y()+a->getY()*GameConfigurator::instance()->getScale();
             float aRectwidth=aRect.width();
             float aRectheight=aRect.height();
 
-            aRect.setX(aRectx-aRectwidth);
-            aRect.setY(aRecty-aRectheight);
-            aRect.setWidth(aRectwidth*2);
-            aRect.setHeight(aRectheight*2);
+            //aRect里保存的是矩形的中点和宽高，不是左上角点
+            aRect.setX(aRectx);
+            aRect.setY(aRecty);
+            aRect.setWidth(aRectwidth*2*a->getZoomX());
+            aRect.setHeight(aRectheight*2*a->getZoomY());
 
             QRectF bRect=b->getCurrentRects()[j];
 
-            float bRectx=bRect.x()+b->getX();
-            bRectx*=GameConfigurator::instance()->getScale();
-            float bRecty=bRect.y()+b->getY();
-            bRecty*=GameConfigurator::instance()->getScale();
+            float bRectx=bRect.x()+b->getX()*GameConfigurator::instance()->getScale();
+            //qDebug()<<bRectx<<endl;
+            //qDebug()<<GameConfigurator::instance()->getScale()<<endl;
+            //qDebug()<<bRectx<<endl;
+            float bRecty=bRect.y()+b->getY()*GameConfigurator::instance()->getScale();
             float bRectwidth=bRect.width();
             float bRectheight=bRect.height();
 
-            bRect.setX(bRectx-bRectwidth);
-            bRect.setY(bRecty-bRectheight);
-            bRect.setWidth(bRectwidth*2);
-            bRect.setHeight(bRectheight*2);
+            bRect.setX(bRectx);
+            bRect.setY(bRecty);
+            bRect.setWidth(bRectwidth*2*b->getZoomX());
+            bRect.setHeight(bRectheight*2*b->getZoomY());
+//            bRect.setX(bRectx);
+//            bRect.setY(bRecty);
+//            bRect.setWidth(bRectwidth);
+//            bRect.setHeight(bRectheight);
 
 
             //发现接触
@@ -220,6 +241,7 @@ bool Scene::isCollision(Entity* a,Entity* b)
     return false;
 }
 
+//碰撞检测，a,b的xy坐标意义为中点
 bool Scene::isCollision(QRectF a, QRectF b)
 {
     float dx=a.x()-b.x();
@@ -227,6 +249,7 @@ bool Scene::isCollision(QRectF a, QRectF b)
 
     float dy=a.y()-b.y();
     dy=dy<0?-dy:dy;
+
 
     if((dx<=a.width()/2+b.width()/2) &&
             (dy<=a.height()/2+b.height()/2))
