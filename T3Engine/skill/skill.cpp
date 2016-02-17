@@ -1,8 +1,8 @@
 #include "skill.h"
-#include"T3Engine/entity/entity.h"
+#include"T3Engine/entity/character/character.h"
 
-Skill::Skill(Entity *e)
-    :entity(e)
+Skill::Skill(Character *c)
+    :character(c)
 {
 
 }

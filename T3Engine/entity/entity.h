@@ -4,7 +4,6 @@
 #include"T3Engine/sprite/sprite.h"
 #include"T3Engine/manager/spritemanager.h"
 #include<QList>
-#include"T3Engine/skill/skill.h"
 #include"T3Engine/inputmodule.h"
 
 class Entity
@@ -98,7 +97,6 @@ protected:
     float localY;
     float localZ;
 
-    QList<Skill* > skillList;
 };
 
 inline

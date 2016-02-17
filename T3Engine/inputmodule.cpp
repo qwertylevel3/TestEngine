@@ -58,7 +58,7 @@ void InputModule::keyPressEvent(QKeyEvent *e)
 {
     if(e->isAutoRepeat())
     {
-        qDebug()<<"press repeat"<<endl;
+        //qDebug()<<"press repeat"<<endl;
         return ;
     }
     //this->input(e->key());
@@ -72,7 +72,7 @@ void InputModule::keyReleaseEvent(QKeyEvent *e)
 {
     if(e->isAutoRepeat())
     {
-        qDebug()<<"release repeat"<<endl;
+        //qDebug()<<"release repeat"<<endl;
         return ;
     }
     if(entity)

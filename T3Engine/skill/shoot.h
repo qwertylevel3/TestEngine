@@ -6,7 +6,7 @@
 class Shoot:public Skill
 {
 public:
-    Shoot(Entity* e);
+    Shoot(Character *e);
     void start(InputModule::Command c);
     void end(InputModule::Command c);
     void run();

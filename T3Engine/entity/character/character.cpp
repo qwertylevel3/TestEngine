@@ -1,5 +1,6 @@
 #include "character.h"
 #include"T3Engine/inputmodule.h"
+#include"T3Engine/skill/move.h"
 
 
 Character::Character(const QString &spriteName)
@@ -11,6 +12,22 @@ Character::Character(const QString &spriteName)
     currentMP=0;
     speed=0.01;
     orientation=empty;
+
+    Move* move=new Move(this);
+    skillList.push_back(move);
+
+}
+
+void Character::update()
+{
+    Entity::update();
+
+    if(skillList[0])
+    {
+        skillList[0]->run();
+    }
+
+
 }
 
 Character *Character::clone()
@@ -25,17 +42,20 @@ Character *Character::clone()
     return newCharacter;
 }
 
-void Character::startCommand(int c)
+void Character::startCommand(InputModule::Command c)
 {
-    if(c==InputModule::up)
+    if(c==InputModule::up
+            || c==InputModule::down
+            || c==InputModule::left
+            || c==InputModule::right)
     {
-        qDebug()<<"up"<<endl;
+        skillList[0]->start(c);
     }
 }
 
-void Character::endCommand(int c)
+void Character::endCommand(InputModule::Command c)
 {
-
+    skillList[0]->end(c);
 }
 float Character::getSpeed() const
 {
@@ -46,5 +66,12 @@ void Character::setSpeed(float value)
 {
     speed = value;
 }
+Character::ORIENTATION Character::getOrientation() const
+{
+    return orientation;
+}
 
-
+void Character::setOrientation(const ORIENTATION &value)
+{
+    orientation = value;
+}

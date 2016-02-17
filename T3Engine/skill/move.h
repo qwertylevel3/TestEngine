@@ -8,7 +8,7 @@ class Move:public Skill
 public:
     enum ORIENTATION{empty,up,down,left,right,
                      upLeft,upRight,downLeft,downRight};
-    Move(Entity* e);
+    Move(Character* c);
     void start(InputModule::Command c);
     void end(InputModule::Command c);
     void run();

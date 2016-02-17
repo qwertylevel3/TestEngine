@@ -1,7 +1,7 @@
 #include "shoot.h"
 
 
-Shoot::Shoot(Entity *e)
+Shoot::Shoot(Character *e)
     :Skill(e)
 {
 

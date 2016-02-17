@@ -3,6 +3,7 @@
 
 //#include"T3Engine/sprite/sprite.h"
 //#include"T3Engine/manager/spritemanager.h"
+#include"T3Engine/skill/skill.h"
 #include"T3Engine/entity/entity.h"
 
 class Character:public Entity
@@ -12,10 +13,12 @@ public:
                      upLeft,upRight,downLeft,downRight};
 
     Character(const QString& spriteName);
+
+    void update();
     Character* clone();
 
-    void startCommand(int c);
-    void endCommand(int c);
+    void startCommand(InputModule::Command c);
+    void endCommand(InputModule::Command c);
 
     int getHP() const
     {
@@ -56,6 +59,9 @@ public:
     float getSpeed() const;
     void setSpeed(float value);
 
+    ORIENTATION getOrientation() const;
+    void setOrientation(const ORIENTATION &value);
+
 protected:
     int HP;
     int MP;
@@ -64,6 +70,7 @@ protected:
     float speed;
 
     ORIENTATION orientation;
+    QList<Skill*> skillList;
 };
 
 #endif // CHARACTER_H
