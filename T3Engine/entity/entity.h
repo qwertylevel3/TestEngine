@@ -98,7 +98,7 @@ protected:
     float localY;
     float localZ;
 
-    Skill* skill;
+    QList<Skill* > skillList;
 };
 
 inline

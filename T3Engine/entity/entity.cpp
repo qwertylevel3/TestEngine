@@ -12,7 +12,8 @@ Entity::Entity(const QString &spriteName)
     localY=0;
     localZ=0;
     parent=0;
-    skill=new Move(this);
+    Move* move=new Move(this);
+    skillList.push_back(move);
 }
 
 Entity::~Entity()
@@ -30,13 +31,13 @@ void Entity::startCommand(InputModule::Command c)
             || c==InputModule::left
             || c==InputModule::right)
     {
-        skill->start(c);
+        skillList[0]->start(c);
     }
 }
 
 void Entity::endCommand(InputModule::Command c)
 {
-    skill->end(c);
+    skillList[0]->end(c);
 }
 
 void Entity::draw()
@@ -52,9 +53,9 @@ void Entity::drawRect()
 void Entity::update()
 {
     sprite->update();
-    if(skill)
+    if(skillList[0])
     {
-        skill->run();
+        skillList[0]->run();
     }
 
 }

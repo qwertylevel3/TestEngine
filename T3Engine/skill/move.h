@@ -15,6 +15,8 @@ public:
 protected:
     void chooseOrientation(InputModule::Command c);
     ORIENTATION orientation;
+
+    InputModule::Command nextCommand;
 };
 
 #endif // MOVE_H

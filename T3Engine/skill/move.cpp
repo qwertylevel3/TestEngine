@@ -5,6 +5,7 @@ Move::Move(Entity *e)
     :Skill(e)
 {
     orientation=empty;
+    nextCommand=InputModule::empty;
 }
 
 void Move::start(InputModule::Command c)
@@ -14,6 +15,11 @@ void Move::start(InputModule::Command c)
 
 void Move::end(InputModule::Command c)
 {
+    if(nextCommand==c)
+    {
+        nextCommand=InputModule::empty;
+        return;
+    }
     switch(orientation)
     {
     case upLeft:
@@ -63,6 +69,22 @@ void Move::end(InputModule::Command c)
 
 void Move::run()
 {
+    if(orientation==empty)
+    {
+        if(nextCommand!=InputModule::empty)
+        {
+            if(nextCommand==InputModule::right)
+            {
+                orientation=right;
+                nextCommand=InputModule::empty;
+            }
+            else if(nextCommand==InputModule::left)
+            {
+                orientation=left;
+                nextCommand=InputModule::empty;
+            }
+        }
+    }
     float speed=static_cast<Character*>(entity)->getSpeed();
     switch(orientation)
     {
@@ -150,6 +172,11 @@ void Move::chooseOrientation(InputModule::Command c)
         {
             orientation=downLeft;
         }
+        else if(c==InputModule::right)
+        {
+//            orientation=right;
+            nextCommand=c;
+        }
         break;
     case right:
         if(c==InputModule::up)
@@ -159,6 +186,11 @@ void Move::chooseOrientation(InputModule::Command c)
         else if(c==InputModule::down)
         {
             orientation=downRight;
+        }
+        else if(c==InputModule::left)
+        {
+//            orientation=left;
+            nextCommand=c;
         }
         break;
     default:

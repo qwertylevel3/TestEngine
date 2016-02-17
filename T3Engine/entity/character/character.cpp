@@ -10,6 +10,7 @@ Character::Character(const QString &spriteName)
     currentHP=0;
     currentMP=0;
     speed=0.01;
+    orientation=empty;
 }
 
 Character *Character::clone()

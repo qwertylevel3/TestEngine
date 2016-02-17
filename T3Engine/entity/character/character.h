@@ -8,6 +8,9 @@
 class Character:public Entity
 {
 public:
+    enum ORIENTATION{empty,up,down,left,right,
+                     upLeft,upRight,downLeft,downRight};
+
     Character(const QString& spriteName);
     Character* clone();
 
@@ -59,6 +62,8 @@ protected:
     int currentHP;
     int currentMP;
     float speed;
+
+    ORIENTATION orientation;
 };
 
 #endif // CHARACTER_H

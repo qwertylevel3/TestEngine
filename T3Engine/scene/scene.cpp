@@ -107,6 +107,8 @@ void Scene::init()
     bullet->setY(-0.5);
     bullet->setZoomX(0.2);
     bullet->setZoomY(0.2);
+    //bullet->setWidth(20);
+    //bullet->setHeight(20);
     addBulletToBox(bullet);
 }
 
