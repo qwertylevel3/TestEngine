@@ -13,7 +13,6 @@ public:
     void end(InputModule::Command c);
     void run();
 protected:
-    void chooseOrientation(InputModule::Command c);
     ORIENTATION orientation;
 
     InputModule::Command nextCommand;

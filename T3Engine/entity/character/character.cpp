@@ -11,7 +11,11 @@ Character::Character(const QString &spriteName)
     currentHP=0;
     currentMP=0;
     speed=0.01;
-    orientation=empty;
+    moveOrientation=empty;
+    orientation=down;
+
+    skillIndex=-1;
+    skillIndexCount=0;
 
     Move* move=new Move(this);
     skillList.push_back(move);
@@ -22,12 +26,13 @@ void Character::update()
 {
     Entity::update();
 
-    if(skillList[0])
+    if(skillIndex!=-1)
     {
-        skillList[0]->run();
+        if(skillList[skillIndex])
+        {
+            skillList[skillIndex]->run();
+        }
     }
-
-
 }
 
 Character *Character::clone()
@@ -49,13 +54,23 @@ void Character::startCommand(InputModule::Command c)
             || c==InputModule::left
             || c==InputModule::right)
     {
-        skillList[0]->start(c);
+        skillIndexCount++;
+        skillIndex=0;
+        skillList[skillIndex]->start(c);
     }
 }
 
 void Character::endCommand(InputModule::Command c)
 {
-    skillList[0]->end(c);
+    if(skillIndex!=-1)
+    {
+        skillList[skillIndex]->end(c);
+    }
+
+    if(--skillIndexCount==0)
+    {
+        skillIndex=-1;
+    }
 }
 float Character::getSpeed() const
 {
@@ -65,6 +80,15 @@ float Character::getSpeed() const
 void Character::setSpeed(float value)
 {
     speed = value;
+}
+Character::ORIENTATION Character::getMoveOrientation() const
+{
+    return moveOrientation;
+}
+
+void Character::setMoveOrientation(const ORIENTATION &value)
+{
+    moveOrientation = value;
 }
 Character::ORIENTATION Character::getOrientation() const
 {

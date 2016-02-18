@@ -51,6 +51,12 @@ Bullet* BulletManager::makeBullet()
     reader.readNextStartElement();//<SpriteName>
     QString spriteName=reader.readElementText();
 
+    reader.readNextStartElement();//<speed>
+    float speed=reader.readElementText().toFloat();
+
+    reader.readNextStartElement();//<damage>
+    float damage=reader.readElementText().toFloat();
+
     reader.readNextStartElement();//</Bullet>
 
     Bullet* bullet=new Bullet(spriteName);

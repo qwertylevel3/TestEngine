@@ -59,6 +59,9 @@ public:
     float getSpeed() const;
     void setSpeed(float value);
 
+    ORIENTATION getMoveOrientation() const;
+    void setMoveOrientation(const ORIENTATION &value);
+
     ORIENTATION getOrientation() const;
     void setOrientation(const ORIENTATION &value);
 
@@ -70,7 +73,11 @@ protected:
     float speed;
 
     ORIENTATION orientation;
+    ORIENTATION moveOrientation;
     QList<Skill*> skillList;
+
+    int skillIndex;
+    int skillIndexCount;
 };
 
 #endif // CHARACTER_H
