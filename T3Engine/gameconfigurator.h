@@ -88,6 +88,9 @@ public:
         bulletConfigFileName = value;
     }
 
+    QString getSceneConfigFileName() const;
+    void setSceneConfigFileName(const QString &value);
+
 protected:
     float scale;//绘制时缩放比例,值越大越小。。
     bool drawRect;
@@ -101,6 +104,7 @@ protected:
     QString terrainConfigFileName;
     QString decorationConfigFileName;
     QString bulletConfigFileName;
+    QString SceneConfigFileName;
 };
 
 #endif // GAMECONFIGURATOR_H

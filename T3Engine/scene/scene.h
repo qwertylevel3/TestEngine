@@ -14,7 +14,6 @@ public:
     Scene();
     ~Scene();
 
-    void init();
     void draw();
     void drawBackground();
     void update();
@@ -25,12 +24,20 @@ public:
     void collision();
     bool isCollision(Entity *a, Entity *b);
     bool isCollision(QRectF a,QRectF b);
-protected:
-    void addEntityToLayerBox(Entity* entity);
+    
     void addCharacterToBox(Character* character);
     void addTerrainToBox(Terrain* terrain);
     void addDecorationToBox(Decoration* decoration);
     void addBulletToBox(Bullet* bullet);
+    int getWidth() const;
+    void setWidth(int value);
+
+    int getHeight() const;
+    void setHeight(int value);
+
+protected:
+    void addEntityToLayerBox(Entity* entity);
+
 
     QList<Character*> characterBox;
     QList<Terrain*> terrainBox;

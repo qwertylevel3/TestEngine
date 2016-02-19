@@ -10,15 +10,6 @@ Scene::Scene()
 {
     width=GameConfigurator::instance()->getWindowWidth();
     height=GameConfigurator::instance()->getWindowHeight();
-}
-
-Scene::~Scene()
-{
-
-}
-
-void Scene::init()
-{
     for(int i=0;
         i<=GameConfigurator::instance()->getPaintFar();i++)
     {
@@ -27,89 +18,10 @@ void Scene::init()
         layerBox.append(*box);
     }
 
+}
 
-    Terrain* grass=TerrainManager::instance()->getTerrain("grass_0");
-
-    float w=grass->getWidth();
-    float h=grass->getHeight();
-
-    grass->setWidth(this->width);
-    grass->setHeight(this->height);
-
-    grass->setRepeatX(int(width/w));
-    grass->setRepeatY(int(height/h));
-
-    grass->setZ(-10);
-
-    addTerrainToBox(grass);
-
-//    Decoration* textFrame_0=DecorationManager::instance()->getDecoration("textFrame");
-//    textFrame_0->setY(1.2);
-//    textFrame_0->setWidth(400);
-//    textFrame_0->setHeight(173);
-//    textFrame_0->setZ(-3);
-//    textFrame_0->setText("Hello T3!");
-//    addDecorationToBox(textFrame_0);
-//
-//    Decoration* textFrame_1=DecorationManager::instance()->getDecoration("textFrame");
-//    textFrame_1->setY(-1.2);
-//    textFrame_1->setWidth(400);
-//    textFrame_1->setHeight(173);
-//    textFrame_1->setZ(-3);
-//    textFrame_1->setText("qwerty");
-//    addDecorationToBox(textFrame_1);
-
-
-    Decoration* tree=DecorationManager::instance()->getDecoration("tree1");
-    tree->setZ(-4);
-    tree->setY(-0.5);
-    addDecorationToBox(tree);
-
-
-    Character* testCharacter_0=CharacterManager::instance()->getCharacter("test");
-    testCharacter_0->setZ(-5);
-    testCharacter_0->setY(-0.4);
-    testCharacter_0->setX(1);
-    addCharacterToBox(testCharacter_0);
-
-    InputModule::instance()->setEntity(testCharacter_0);
-
-
-//    Decoration* shadow=DecorationManager::instance()->getDecoration("shadow");
-//    shadow->setZ(-6);
-//    shadow->setX(1);
-//    shadow->setY(-0.18);
-//    decorationBox.append(shadow);
-//
-//
-    Decoration* shadow_0=DecorationManager::instance()->getDecoration("shadow");
-    testCharacter_0->addChild(shadow_0);
-    shadow_0->setLocalY(-0.18);
-    shadow_0->setLocalZ(-1);
-    addDecorationToBox(shadow_0);
-
-    Character* testCharacter_1=CharacterManager::instance()->getCharacter("test");
-    testCharacter_1->setZ(-5);
-    testCharacter_1->setX(2);
-    testCharacter_1->setY(-0.6);
-    testCharacter_1->setCurrentAction(1);
-    addCharacterToBox(testCharacter_1);
-
-
-    Decoration* shadow_1=DecorationManager::instance()->getDecoration("shadow");
-    testCharacter_1->addChild(shadow_1);
-    shadow_1->setLocalY(-0.18);
-    shadow_1->setLocalZ(-1);
-    addDecorationToBox(shadow_1);
-
-    Bullet* bullet=BulletManager::instance()->getBullet("bullet");
-    bullet->setZ(-4);
-    bullet->setY(-0.5);
-    bullet->setZoomX(0.2);
-    bullet->setZoomY(0.2);
-    //bullet->setWidth(20);
-    //bullet->setHeight(20);
-    addBulletToBox(bullet);
+Scene::~Scene()
+{
 }
 
 void Scene::draw()
@@ -147,7 +59,7 @@ void Scene::update()
         decorationBox[i]->update();
     }
     //characterBox[1]->setX(characterBox[1]->getX()-0.01);
-    bulletBox[0]->setX(bulletBox[0]->getX()+0.001);
+    //bulletBox[0]->setX(bulletBox[0]->getX()+0.001);
     collision();
 }
 
@@ -266,6 +178,26 @@ void Scene::addEntityToLayerBox(Entity *entity)
 {
     layerBox[-(entity->getZ())].append(entity);
 }
+int Scene::getHeight() const
+{
+    return height;
+}
+
+void Scene::setHeight(int value)
+{
+    height = value;
+}
+
+int Scene::getWidth() const
+{
+    return width;
+}
+
+void Scene::setWidth(int value)
+{
+    width = value;
+}
+
 
 void Scene::addCharacterToBox(Character *character)
 {

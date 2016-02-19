@@ -61,5 +61,7 @@ Bullet* BulletManager::makeBullet()
 
     Bullet* bullet=new Bullet(spriteName);
     bullet->setName(name);
+    bullet->setSpeed(speed);
+    bullet->setDamage(damage);
     return bullet;
 }

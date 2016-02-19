@@ -38,7 +38,8 @@ SOURCES += main.cpp\
     T3Engine/skill/move.cpp \
     T3Engine/entity/bullet/bullet.cpp \
     T3Engine/manager/bulletmanager.cpp \
-    T3Engine/skill/shoot.cpp
+    T3Engine/skill/shoot.cpp \
+    T3Engine/manager/scenemanager.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -64,7 +65,8 @@ HEADERS  += \
     T3Engine/skill/move.h \
     T3Engine/entity/bullet/bullet.h \
     T3Engine/manager/bulletmanager.h \
-    T3Engine/skill/shoot.h
+    T3Engine/skill/shoot.h \
+    T3Engine/manager/scenemanager.h
 
 RESOURCES += \
     shader.qrc

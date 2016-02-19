@@ -18,11 +18,22 @@ void GameConfigurator::init()
     terrainConfigFileName="terrain.xml";
     decorationConfigFileName="decoration.xml";
     bulletConfigFileName="bullet.xml";
+    SceneConfigFileName="scene.xml";
 
     format.setSamples(16);
     format.setDepthBufferSize(24);
     QSurfaceFormat::setDefaultFormat(format);
 }
+QString GameConfigurator::getSceneConfigFileName() const
+{
+    return SceneConfigFileName;
+}
+
+void GameConfigurator::setSceneConfigFileName(const QString &value)
+{
+    SceneConfigFileName = value;
+}
+
 
 
 

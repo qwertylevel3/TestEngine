@@ -12,6 +12,7 @@
 #include"T3Engine/manager/terrainmanager.h"
 #include"T3Engine/manager/decorationmanager.h"
 #include"T3Engine/manager/bulletmanager.h"
+#include"T3Engine/manager/scenemanager.h"
 #include<QLabel>
 
 T3Engine::T3Engine(QWidget *parent)
@@ -45,6 +46,7 @@ void T3Engine::init()
     TerrainManager::instance()->init();
     DecorationManager::instance()->init();
     BulletManager::instance()->init();
+    SceneManager::instance()->init();
 }
 
 void T3Engine::timerEvent(QTimerEvent *e)
@@ -80,9 +82,7 @@ void T3Engine::initializeGL()
     timer.start(12,this);
     m_frame=0;
 
-    scene=new Scene();
-    scene->init();
-
+    scene=SceneManager::instance()->getScene("init");
 }
 
 void T3Engine::gameLoop()
