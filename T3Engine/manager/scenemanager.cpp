@@ -42,6 +42,7 @@ Scene *SceneManager::getScene(const QString &sceneName)
     return sceneBox.value(sceneName);
 }
 
+
 void SceneManager::makeScene()
 {
     reader.readNextStartElement();//<scene>

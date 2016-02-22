@@ -1,5 +1,6 @@
 #include "entity.h"
 #include"T3Engine/inputmodule.h"
+#include"T3Engine/scene/scene.h"
 
 
 Entity::Entity(const QString &spriteName)
@@ -98,6 +99,17 @@ void Entity::setParent(Entity *value)
 {
     parent = value;
 }
+Scene *Entity::getScene() const
+{
+    return scene;
+}
+
+void Entity::setScene(Scene *value)
+{
+    scene = value;
+}
+
+
 
 
 

@@ -35,9 +35,11 @@ public:
     int getHeight() const;
     void setHeight(int value);
 
+    QString getName() const;
+    void setName(const QString &value);
+
 protected:
     void addEntityToLayerBox(Entity* entity);
-
 
     QList<Character*> characterBox;
     QList<Terrain*> terrainBox;

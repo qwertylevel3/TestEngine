@@ -6,6 +6,8 @@
 #include<QList>
 #include"T3Engine/inputmodule.h"
 
+class Scene;
+
 class Entity
 {
 public:
@@ -86,6 +88,9 @@ public:
     Entity *getParent() const;
     void setParent(Entity *value);
 
+    Scene *getScene() const;
+    void setScene(Scene *value);
+
 protected:
     QString name;
     QString spriteName;
@@ -96,6 +101,8 @@ protected:
     float localX;
     float localY;
     float localZ;
+
+    Scene* scene;
 
 };
 

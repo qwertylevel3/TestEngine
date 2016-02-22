@@ -176,6 +176,7 @@ bool Scene::isCollision(QRectF a, QRectF b)
 
 void Scene::addEntityToLayerBox(Entity *entity)
 {
+    entity->setScene(this);
     layerBox[-(entity->getZ())].append(entity);
 }
 int Scene::getHeight() const
