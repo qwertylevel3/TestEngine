@@ -1,6 +1,7 @@
 #include "character.h"
 #include"T3Engine/inputmodule.h"
 #include"T3Engine/skill/move.h"
+#include"T3Engine/skill/shoot.h"
 
 
 Character::Character(const QString &spriteName)
@@ -15,11 +16,12 @@ Character::Character(const QString &spriteName)
     orientation=Orientation::down;
 
     skillIndex=-1;
-    skillIndexCount=0;
 
     Move* move=new Move(this);
     skillList.push_back(move);
 
+    Shoot* shoot=new Shoot(this);
+    skillList.push_back(shoot);
 }
 
 void Character::update()
@@ -54,8 +56,16 @@ void Character::startCommand(InputModule::Command c)
             || c==InputModule::left
             || c==InputModule::right)
     {
-        skillIndexCount++;
+        //skillIndexCount++;
         skillIndex=0;
+        skillList[skillIndex]->setCount(skillList[skillIndex]->getCount()+1);
+        skillList[skillIndex]->start(c);
+    }
+    if(c==InputModule::A_C)
+    {
+        //skillIndexCount++;
+        skillIndex=1;
+        skillList[skillIndex]->setCount(skillList[skillIndex]->getCount()+1);
         skillList[skillIndex]->start(c);
     }
 }
@@ -65,12 +75,18 @@ void Character::endCommand(InputModule::Command c)
     if(skillIndex!=-1)
     {
         skillList[skillIndex]->end(c);
-    }
 
-    if(--skillIndexCount==0)
-    {
-        skillIndex=-1;
+        skillList[skillIndex]->setCount(skillList[skillIndex]->getCount()-1);
+
+        if(skillList[skillIndex]->getCount()==0)
+        {
+            skillIndex=-1;
+        }
     }
+//    if(--skillIndexCount==0)
+//    {
+//        skillIndex=-1;
+//    }
 }
 float Character::getSpeed() const
 {

@@ -93,11 +93,11 @@ void Scene::collision()
 //            }
             if(isCollision(characterBox[i],bulletBox[j]))
             {
-                qDebug()<<"collision"<<endl;
+                //qDebug()<<"collision"<<endl;
             }
             else
             {
-                qDebug()<<"...."<<endl;
+                //qDebug()<<"...."<<endl;
             }
         }
     }

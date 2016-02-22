@@ -75,7 +75,6 @@ protected:
     QList<Skill*> skillList;
 
     int skillIndex;
-    int skillIndexCount;
 };
 
 #endif // CHARACTER_H

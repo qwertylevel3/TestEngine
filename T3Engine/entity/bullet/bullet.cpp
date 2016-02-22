@@ -10,6 +10,8 @@ Bullet::Bullet(const QString &spriteName)
 Bullet *Bullet::clone()
 {
     Bullet* newBullet=new Bullet(this->spriteName);
+    newBullet->setSpeed(this->speed);
+    newBullet->setDamage(this->damage);
 
     return newBullet;
 }
@@ -80,6 +82,7 @@ Character *Bullet::getShooter() const
 void Bullet::setShooter(Character *value)
 {
     shooter = value;
+
     switch(shooter->getOrientation())
     {
     case Orientation::up:
