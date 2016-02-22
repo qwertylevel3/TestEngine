@@ -4,7 +4,7 @@
 Move::Move(Character *c)
     :Skill(c)
 {
-    orientation=empty;
+    orientation=Orientation::empty;
     nextCommand=InputModule::empty;
 }
 
@@ -12,86 +12,86 @@ void Move::start(InputModule::Command c)
 {
     switch(character->getMoveOrientation())
     {
-    case Character::empty:
+    case Orientation::empty:
         if(c==InputModule::left)
         {
-            character->setMoveOrientation(Character::left);
-            character->setOrientation(Character::left);
+            character->setMoveOrientation(Orientation::left);
+            character->setOrientation(Orientation::left);
         }
         else if(c==InputModule::right)
         {
-            character->setMoveOrientation(Character::right);
-            character->setOrientation(Character::right);
+            character->setMoveOrientation(Orientation::right);
+            character->setOrientation(Orientation::right);
         }
         else if(c==InputModule::up)
         {
-            character->setMoveOrientation(Character::up);
-            character->setOrientation(Character::up);
+            character->setMoveOrientation(Orientation::up);
+            character->setOrientation(Orientation::up);
         }
         else if(c==InputModule::down)
         {
-            character->setMoveOrientation(Character::down);
-            character->setOrientation(Character::down);
+            character->setMoveOrientation(Orientation::down);
+            character->setOrientation(Orientation::down);
         }
         break;
-    case Character::up:
+    case Orientation::up:
         if(c==InputModule::left)
         {
-            character->setMoveOrientation(Character::upLeft);
-            character->setOrientation(Character::upLeft);
+            character->setMoveOrientation(Orientation::upLeft);
+            character->setOrientation(Orientation::upLeft);
         }
         else if(c==InputModule::right)
         {
-            character->setMoveOrientation(Character::upRight);
-            character->setOrientation(Character::upRight);
+            character->setMoveOrientation(Orientation::upRight);
+            character->setOrientation(Orientation::upRight);
         }
         else if(c==InputModule::down)
         {
             nextCommand=c;
         }
         break;
-    case Character::down:
+    case Orientation::down:
         if(c==InputModule::left)
         {
-            character->setMoveOrientation(Character::downLeft);
-            character->setOrientation(Character::downLeft);
+            character->setMoveOrientation(Orientation::downLeft);
+            character->setOrientation(Orientation::downLeft);
         }
         else if(c==InputModule::right)
         {
-            character->setMoveOrientation(Character::downRight);
-            character->setOrientation(Character::downRight);
+            character->setMoveOrientation(Orientation::downRight);
+            character->setOrientation(Orientation::downRight);
         }
         else if(c==InputModule::up)
         {
             nextCommand=c;
         }
         break;
-    case Character::left:
+    case Orientation::left:
         if(c==InputModule::up)
         {
-            character->setMoveOrientation(Character::upLeft);
-            character->setOrientation(Character::upLeft);
+            character->setMoveOrientation(Orientation::upLeft);
+            character->setOrientation(Orientation::upLeft);
         }
         else if(c==InputModule::down)
         {
-            character->setMoveOrientation(Character::downLeft);
-            character->setOrientation(Character::downLeft);
+            character->setMoveOrientation(Orientation::downLeft);
+            character->setOrientation(Orientation::downLeft);
         }
         else if(c==InputModule::right)
         {
             nextCommand=c;
         }
         break;
-    case Character::right:
+    case Orientation::right:
         if(c==InputModule::up)
         {
-            character->setMoveOrientation(Character::upRight);
-            character->setOrientation(Character::upRight);
+            character->setMoveOrientation(Orientation::upRight);
+            character->setOrientation(Orientation::upRight);
         }
         else if(c==InputModule::down)
         {
-            character->setMoveOrientation(Character::downRight);
-            character->setOrientation(Character::downRight);
+            character->setMoveOrientation(Orientation::downRight);
+            character->setOrientation(Orientation::downRight);
         }
         else if(c==InputModule::left)
         {
@@ -112,87 +112,87 @@ void Move::end(InputModule::Command c)
     }
     switch(character->getMoveOrientation())
     {
-    case Character::upLeft:
+    case Orientation::upLeft:
         if(c==InputModule::up)
         {
-            character->setMoveOrientation(Character::left);
-            character->setOrientation(Character::left);
+            character->setMoveOrientation(Orientation::left);
+            character->setOrientation(Orientation::left);
         }
         else if(c==InputModule::left)
         {
-            character->setMoveOrientation(Character::up);
-            character->setOrientation(Character::up);
+            character->setMoveOrientation(Orientation::up);
+            character->setOrientation(Orientation::up);
         }
         break;
-    case Character::downLeft:
+    case Orientation::downLeft:
         if(c==InputModule::down)
         {
-            character->setMoveOrientation(Character::left);
-            character->setOrientation(Character::left);
+            character->setMoveOrientation(Orientation::left);
+            character->setOrientation(Orientation::left);
         }
         else if(c==InputModule::left)
         {
-            character->setMoveOrientation(Character::down);
-            character->setOrientation(Character::down);
+            character->setMoveOrientation(Orientation::down);
+            character->setOrientation(Orientation::down);
         }
         break;
-    case Character::upRight:
+    case Orientation::upRight:
         if(c==InputModule::up)
         {
-            character->setMoveOrientation(Character::right);
-            character->setOrientation(Character::right);
+            character->setMoveOrientation(Orientation::right);
+            character->setOrientation(Orientation::right);
         }
         else if(c==InputModule::right)
         {
-            character->setMoveOrientation(Character::up);
-            character->setOrientation(Character::up);
+            character->setMoveOrientation(Orientation::up);
+            character->setOrientation(Orientation::up);
         }
         break;
-    case Character::downRight:
+    case Orientation::downRight:
         if(c==InputModule::down)
         {
-            character->setMoveOrientation(Character::right);
-            character->setOrientation(Character::right);
+            character->setMoveOrientation(Orientation::right);
+            character->setOrientation(Orientation::right);
         }
         else if(c==InputModule::right)
         {
-            character->setMoveOrientation(Character::down);
-            character->setOrientation(Character::down);
+            character->setMoveOrientation(Orientation::down);
+            character->setOrientation(Orientation::down);
         }
         break;
     default:
-        character->setMoveOrientation(Character::empty);
+        character->setMoveOrientation(Orientation::empty);
     }
 }
 
 void Move::run()
 {
-    if(character->getMoveOrientation()==Character::empty)
+    if(character->getMoveOrientation()==Orientation::empty)
     {
         if(nextCommand!=InputModule::empty)
         {
             if(nextCommand==InputModule::right)
             {
-                character->setMoveOrientation(Character::right);
-                character->setOrientation(Character::right);
+                character->setMoveOrientation(Orientation::right);
+                character->setOrientation(Orientation::right);
                 nextCommand=InputModule::empty;
             }
             else if(nextCommand==InputModule::left)
             {
-                character->setMoveOrientation(Character::left);
-                character->setOrientation(Character::left);
+                character->setMoveOrientation(Orientation::left);
+                character->setOrientation(Orientation::left);
                 nextCommand=InputModule::empty;
             }
             else if(nextCommand==InputModule::up)
             {
-                character->setMoveOrientation(Character::up);
-                character->setOrientation(Character::up);
+                character->setMoveOrientation(Orientation::up);
+                character->setOrientation(Orientation::up);
                 nextCommand=InputModule::empty;
             }
             else if(nextCommand==InputModule::down)
             {
-                character->setMoveOrientation(Character::down);
-                character->setOrientation(Character::down);
+                character->setMoveOrientation(Orientation::down);
+                character->setOrientation(Orientation::down);
                 nextCommand=InputModule::empty;
             }
         }
@@ -200,31 +200,31 @@ void Move::run()
     float speed=character->getSpeed();
     switch(character->getMoveOrientation())
     {
-    case Character::up:
+    case Orientation::up:
         character->setY(character->getY()+speed);
         break;
-    case Character::down:
+    case Orientation::down:
         character->setY(character->getY()-speed);
         break;
-    case right:
+    case Orientation::right:
         character->setX(character->getX()+speed);
         break;
-    case left:
+    case Orientation::left:
         character->setX(character->getX()-speed);
         break;
-    case upLeft:
+    case Orientation::upLeft:
         character->setX(character->getX()-speed/1.4);
         character->setY(character->getY()+speed/1.4);
         break;
-    case upRight:
+    case Orientation::upRight:
         character->setX(character->getX()+speed/1.4);
         character->setY(character->getY()+speed/1.4);
         break;
-    case downLeft:
+    case Orientation::downLeft:
         character->setX(character->getX()-speed/1.4);
         character->setY(character->getY()-speed/1.4);
         break;
-    case downRight:
+    case Orientation::downRight:
         character->setX(character->getX()+speed/1.4);
         character->setY(character->getY()-speed/1.4);
         break;

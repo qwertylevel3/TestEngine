@@ -3,13 +3,11 @@
 
 #include"T3Engine/entity/entity.h"
 #include"T3Engine/entity/character/character.h"
+#include"T3Engine/orientation.h"
 
 class Bullet:public Entity
 {
 public:
-    enum ORIENTATION{empty,up,down,left,right,
-                     upLeft,upRight,downLeft,downRight};
-
     Bullet(const QString& spriteName);
     Bullet* clone();
     void update();
@@ -19,8 +17,8 @@ public:
     float getDamage() const;
     void setDamage(float value);
 
-    Bullet::ORIENTATION getOrientation() const;
-    void setOrientation(const ORIENTATION &value);
+    Orientation::ORIENTATION getOrientation() const;
+    void setOrientation(const Orientation::ORIENTATION &value);
 
     Character *getShooter() const;
     void setShooter(Character *value);
@@ -28,7 +26,7 @@ public:
 protected:
     float speed;
     float damage;
-    ORIENTATION orientation;
+    Orientation::ORIENTATION orientation;
 
     Character* shooter;
 };

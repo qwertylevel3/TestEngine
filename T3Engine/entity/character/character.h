@@ -5,13 +5,11 @@
 //#include"T3Engine/manager/spritemanager.h"
 #include"T3Engine/skill/skill.h"
 #include"T3Engine/entity/entity.h"
+#include"T3Engine/orientation.h"
 
 class Character:public Entity
 {
 public:
-    enum ORIENTATION{empty,up,down,left,right,
-                     upLeft,upRight,downLeft,downRight};
-
     Character(const QString& spriteName);
 
     void update();
@@ -59,11 +57,11 @@ public:
     float getSpeed() const;
     void setSpeed(float value);
 
-    ORIENTATION getMoveOrientation() const;
-    void setMoveOrientation(const ORIENTATION &value);
+    Orientation::ORIENTATION getOrientation() const;
+    void setOrientation(const Orientation::ORIENTATION &value);
 
-    ORIENTATION getOrientation() const;
-    void setOrientation(const ORIENTATION &value);
+    Orientation::ORIENTATION getMoveOrientation() const;
+    void setMoveOrientation(const Orientation::ORIENTATION &value);
 
 protected:
     int HP;
@@ -72,8 +70,8 @@ protected:
     int currentMP;
     float speed;
 
-    ORIENTATION orientation;
-    ORIENTATION moveOrientation;
+    Orientation::ORIENTATION orientation;
+    Orientation::ORIENTATION moveOrientation;
     QList<Skill*> skillList;
 
     int skillIndex;

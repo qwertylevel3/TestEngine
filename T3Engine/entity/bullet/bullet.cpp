@@ -3,7 +3,7 @@
 Bullet::Bullet(const QString &spriteName)
     :Entity(spriteName)
 {
-    orientation=empty;
+    orientation=Orientation::empty;
 
 }
 
@@ -20,23 +20,23 @@ void Bullet::update()
 
     switch(orientation)
     {
-    case up:this->setY(this->getY()+speed);break;
-    case down:this->setY(this->getY()-speed);break;
-    case left:this->setX(this->getX()-speed);break;
-    case right:this->setX(this->getX()+speed);break;
-    case upLeft:
+    case Orientation::up:this->setY(this->getY()+speed);break;
+    case Orientation::down:this->setY(this->getY()-speed);break;
+    case Orientation::left:this->setX(this->getX()-speed);break;
+    case Orientation::right:this->setX(this->getX()+speed);break;
+    case Orientation::upLeft:
         this->setX(this->getX()-speed);
         this->setY(this->getY()+speed);
         break;
-    case downLeft:
+    case Orientation::downLeft:
         this->setX(this->getX()-speed);
         this->setY(this->getY()+speed);
         break;
-    case upRight:
+    case Orientation::upRight:
         this->setX(this->getX()+speed);
         this->setY(this->getY()+speed);
         break;
-    case downRight:
+    case Orientation::downRight:
         this->setX(this->getX()+speed);
         this->setY(this->getY()-speed);
         break;
@@ -63,12 +63,12 @@ void Bullet::setDamage(float value)
 {
     damage = value;
 }
-Bullet::ORIENTATION Bullet::getOrientation() const
+Orientation::ORIENTATION Bullet::getOrientation() const
 {
     return orientation;
 }
 
-void Bullet::setOrientation(const ORIENTATION &value)
+void Bullet::setOrientation(const Orientation::ORIENTATION &value)
 {
     orientation = value;
 }
@@ -82,29 +82,29 @@ void Bullet::setShooter(Character *value)
     shooter = value;
     switch(shooter->getOrientation())
     {
-    case Character::up:
-        orientation=up;
+    case Orientation::up:
+        orientation=Orientation::up;
         break;
-    case Character::down:
-        orientation=down;
+    case Orientation::down:
+        orientation=Orientation::down;
         break;
-    case Character::left:
-        orientation=left;
+    case Orientation::left:
+        orientation=Orientation::left;
         break;
-    case Character::right:
-        orientation=right;
+    case Orientation::right:
+        orientation=Orientation::right;
         break;
-    case Character::upLeft:
-        orientation=upLeft;
+    case Orientation::upLeft:
+        orientation=Orientation::upLeft;
         break;
-    case Character::downLeft:
-        orientation=downLeft;
+    case Orientation::downLeft:
+        orientation=Orientation::downLeft;
         break;
-    case Character::upRight:
-        orientation=upRight;
+    case Orientation::upRight:
+        orientation=Orientation::upRight;
         break;
-    case Character::downRight:
-        orientation=downRight;
+    case Orientation::downRight:
+        orientation=Orientation::downRight;
         break;
     default:
         break;

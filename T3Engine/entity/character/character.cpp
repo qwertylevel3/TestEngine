@@ -11,8 +11,8 @@ Character::Character(const QString &spriteName)
     currentHP=0;
     currentMP=0;
     speed=0.01;
-    moveOrientation=empty;
-    orientation=down;
+    moveOrientation=Orientation::empty;
+    orientation=Orientation::down;
 
     skillIndex=-1;
     skillIndexCount=0;
@@ -81,21 +81,24 @@ void Character::setSpeed(float value)
 {
     speed = value;
 }
-Character::ORIENTATION Character::getMoveOrientation() const
-{
-    return moveOrientation;
-}
-
-void Character::setMoveOrientation(const ORIENTATION &value)
-{
-    moveOrientation = value;
-}
-Character::ORIENTATION Character::getOrientation() const
+Orientation::ORIENTATION Character::getOrientation() const
 {
     return orientation;
 }
 
-void Character::setOrientation(const ORIENTATION &value)
+void Character::setOrientation(const Orientation::ORIENTATION &value)
 {
     orientation = value;
 }
+Orientation::ORIENTATION Character::getMoveOrientation() const
+{
+    return moveOrientation;
+}
+
+void Character::setMoveOrientation(const Orientation::ORIENTATION &value)
+{
+    moveOrientation = value;
+}
+
+
+
