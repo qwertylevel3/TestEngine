@@ -86,6 +86,9 @@ public:
         repeatY = value;
     }
 
+    float getAlpha() const;
+    void setAlpha(float value);
+
 protected:
     QString name;
 
@@ -105,6 +108,7 @@ protected:
     float height;
     int repeatX;//重复绘制
     int repeatY;
+    float alpha;
     QString text;
 
     QList<Action*> actionBox;

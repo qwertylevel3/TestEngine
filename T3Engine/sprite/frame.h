@@ -49,6 +49,10 @@ struct Frame
     {
         picturePoint->setText(text);
     }
+    void setAlpha(float alpha)
+    {
+        picturePoint->setAlpha(alpha);
+    }
 
     void draw();
 

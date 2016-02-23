@@ -58,8 +58,7 @@ void Scene::update()
     {
         decorationBox[i]->update();
     }
-    //characterBox[1]->setX(characterBox[1]->getX()-0.01);
-    //bulletBox[0]->setX(bulletBox[0]->getX()+0.001);
+    characterBox[0]->setAlpha(0.5);
     collision();
 }
 

@@ -14,6 +14,7 @@ Sprite::Sprite()
     repeatY=0;
     width=0.1;
     height=0.1;
+    alpha=1.0;
 
     currentAction=0;
     totalActionNumber=0;
@@ -57,6 +58,7 @@ void Sprite::draw()
     actionBox[currentAction]->setRepeatY(repeatY);
     actionBox[currentAction]->setWidth(width);
     actionBox[currentAction]->setHeight(height);
+    actionBox[currentAction]->setAlpha(alpha);
     actionBox[currentAction]->draw();
 }
 
@@ -64,4 +66,14 @@ void Sprite::drawRect()
 {
     actionBox[currentAction]->drawRect();
 }
+float Sprite::getAlpha() const
+{
+    return alpha;
+}
+
+void Sprite::setAlpha(float value)
+{
+    alpha = value;
+}
+
 

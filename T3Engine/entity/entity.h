@@ -20,13 +20,22 @@ public:
 
     void setName(const QString& n){name=n;}
     void setSprite(const QString& n);
-    virtual void draw();
     void drawRect();
 
+    virtual void draw();
     virtual void update();
     virtual Entity* clone()=0;
 
     void setText(const QString& text);
+
+    void setAlpha(float alpha)
+    {
+        sprite->setAlpha(alpha);
+    }
+    float getAlpha()
+    {
+        return sprite->getAlpha();
+    }
 
     void addChild(Entity* childEntity);
     void setX(float x);

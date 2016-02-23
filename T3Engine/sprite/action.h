@@ -50,6 +50,11 @@ public:
     {
         frameBox[currFrame]->setRepeatY(value);
     }
+    void setAlpha(float alpha)
+    {
+        frameBox[currFrame]->setAlpha(alpha);
+    }
+
     void draw()
     {
         frameBox[currFrame]->draw();
