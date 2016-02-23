@@ -106,7 +106,7 @@ private:
     float zoomX;//放缩
     float zoomY;
     float x,y,z;//位置坐标
-    float width;
+    float width;//宽高，单位为像素
     float height;
     float tx,ty;//纹理坐标
     float tw,th;//纹理宽高

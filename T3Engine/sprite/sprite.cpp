@@ -55,8 +55,8 @@ void Sprite::draw()
     actionBox[currentAction]->rotate(angle,ax,ay,az);
     actionBox[currentAction]->setRepeatX(repeatX);
     actionBox[currentAction]->setRepeatY(repeatY);
-    actionBox[currentAction]->setWidth(width/GameConfigurator::instance()->getScale());
-    actionBox[currentAction]->setHeight(height/GameConfigurator::instance()->getScale());
+    actionBox[currentAction]->setWidth(width);
+    actionBox[currentAction]->setHeight(height);
     actionBox[currentAction]->draw();
 }
 

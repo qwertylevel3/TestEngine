@@ -7,6 +7,7 @@
 #include"T3Engine/manager/shadermanager.h"
 #include<QDir>
 #include<QPainter>
+#include"gameconfigurator.h"
 
 Picture::Picture(const QString &imagePath)
     : indexBuf(QOpenGLBuffer::IndexBuffer)
@@ -69,8 +70,8 @@ void Picture::updateArrayBuffer()
     matrix.rotate(angle,x,y,z);
     //matrix.scale(zoomX,zoomY,1);
 
-    width=width*zoomX;
-    height=height*zoomY;
+   // width=width*zoomX;
+    //height=height*zoomY;
 
     if(!mir)
     {
@@ -111,25 +112,31 @@ void Picture::initParameter()
 
 void Picture::updateVertexData()
 {
-    vertices[0]=VertexData({(QVector4D(-1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
+    float tempWidth=width*zoomX/GameConfigurator::instance()->getScale();
+    float tempHeight=height*zoomY/GameConfigurator::instance()->getScale();
+
+    vertices[0]=VertexData({(QVector4D(-1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
                             QVector2D(0.0f+tx, 0.0f+ty)});
-    vertices[1]=VertexData({(QVector4D( 1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
+    vertices[1]=VertexData({(QVector4D( 1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
                             QVector2D(1.0f*tw+tx+repeatX, 0.0f+ty)});
-    vertices[2]=VertexData({(QVector4D(-1.0f*width+x,  1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
+    vertices[2]=VertexData({(QVector4D(-1.0f*tempWidth+x,  1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
                             QVector2D(0.0f+tx, 1.0f*th+ty+repeatY)});
-    vertices[3]=VertexData({(QVector4D( 1.0f*width+x,  1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
+    vertices[3]=VertexData({(QVector4D( 1.0f*tempWidth+x,  1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
                             QVector2D(1.0f*tw+tx+repeatX, 1.0f*th+ty+repeatY)});
 }
 
 void Picture::updateVertexDataMir()
 {
-    vertices[0]=VertexData({(QVector4D(-1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
+    float tempWidth=width*zoomX/GameConfigurator::instance()->getScale();
+    float tempHeight=height*zoomY/GameConfigurator::instance()->getScale();
+
+    vertices[0]=VertexData({(QVector4D(-1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
                             QVector2D(1.0f*tw+tx+repeatX, 0.0f+ty)});
-    vertices[1]=VertexData({(QVector4D( 1.0f*width+x, -1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
+    vertices[1]=VertexData({(QVector4D( 1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
                             QVector2D(0.0f+tx, 0.0f+ty)});
-    vertices[2]=VertexData({(QVector4D(-1.0f*width+x, 1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
+    vertices[2]=VertexData({(QVector4D(-1.0f*tempWidth+x, 1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
                             QVector2D(1.0f*tw+tx+repeatX, 1.0f*th+ty+repeatY)});
-    vertices[3]=VertexData({(QVector4D( 1.0f*width+x,  1.0f*height+y,  0.0f+z,1)*matrix).toVector3D(),
+    vertices[3]=VertexData({(QVector4D( 1.0f*tempWidth+x,  1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
                             QVector2D(0.0f+tx, 1.0f*th+ty+repeatY)});
 }
 
@@ -152,41 +159,33 @@ void Picture::setAlpha(float value)
 void Picture::draw()
 {
     updateArrayBuffer();
+
     // Tell OpenGL which VBOs to use
     arrayBuf.bind();
     indexBuf.bind();
 
     texture->bind();
 
-    // Offset for position
     quintptr offset = 0;
 
-
-    //glColor4f(1.0,1.0,1.0,0.5);
-
-    // Tell OpenGL programmable pipeline how to locate vertex position data
     int vertexLocation = ShaderManager::instance()->getProgram()->attributeLocation("a_position");
     ShaderManager::instance()->getProgram()->enableAttributeArray(vertexLocation);
     ShaderManager::instance()->getProgram()->setAttributeBuffer(vertexLocation, GL_FLOAT, offset, 3, sizeof(VertexData));
 
-    // Offset for texture coordinate
     offset += sizeof(QVector3D);
 
-
-    // Tell OpenGL programmable pipeline how to locate vertex texture coordinate data
     int texcoordLocation =
             ShaderManager::instance()->getProgram()->attributeLocation("a_texcoord");
     ShaderManager::instance()->getProgram()->enableAttributeArray(texcoordLocation);
     ShaderManager::instance()->getProgram()->setAttributeBuffer(texcoordLocation, GL_FLOAT, offset, 2, sizeof(VertexData));
 
+    //set alpha
     ShaderManager::instance()->getProgram()->setUniformValue("alpha",alpha);
 
 
     // Draw cube geometry using indices from VBO 1
     glDrawElements(GL_TRIANGLE_STRIP, 34, GL_UNSIGNED_SHORT, 0);
 
-    //arrayBuf.release();
-    //indexBuf.release();
 }
 
 void Picture::loadImage(const QString &imagePath)
