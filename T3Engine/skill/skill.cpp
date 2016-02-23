@@ -1,5 +1,5 @@
 #include "skill.h"
-#include"T3Engine/entity/character/character.h"
+#include"character.h"
 
 Skill::Skill(Character *c)
     :character(c)

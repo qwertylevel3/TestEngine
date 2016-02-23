@@ -1,7 +1,7 @@
 #include "character.h"
-#include"T3Engine/inputmodule.h"
-#include"T3Engine/skill/move.h"
-#include"T3Engine/skill/shoot.h"
+#include"inputmodule.h"
+#include"move.h"
+#include"shoot.h"
 
 
 Character::Character(const QString &spriteName)

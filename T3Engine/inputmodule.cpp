@@ -1,6 +1,5 @@
-#include "inputmodule.h"
-#include<QDebug>
-#include"T3Engine/entity/entity.h"
+#include"inputmodule.h"
+#include"entity.h"
 
 InputModule::InputModule()
 {

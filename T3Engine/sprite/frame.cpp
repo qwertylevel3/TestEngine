@@ -1,6 +1,6 @@
 #include "frame.h"
-#include"T3Engine/manager/picturemanager.h"
-#include"T3Engine/gameconfigurator.h"
+#include"picturemanager.h"
+#include"gameconfigurator.h"
 
 Frame::Frame(const QString& pictureName, const QRectF &fp)
 {

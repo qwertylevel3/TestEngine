@@ -1,7 +1,6 @@
 #include "charactermanager.h"
-#include<QFile>
-#include<QDir>
-#include"T3Engine/gameconfigurator.h"
+#include"stable.h"
+#include"gameconfigurator.h"
 
 CharacterManager::CharacterManager()
 {

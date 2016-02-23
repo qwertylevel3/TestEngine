@@ -1,5 +1,5 @@
 #include "move.h"
-#include"T3Engine/entity/character/character.h"
+#include"character.h"
 
 Move::Move(Character *c)
     :Skill(c)

@@ -1,6 +1,6 @@
 #include "entity.h"
-#include"T3Engine/inputmodule.h"
-#include"T3Engine/scene/scene.h"
+#include"inputmodule.h"
+#include"scene.h"
 
 
 Entity::Entity(const QString &spriteName)

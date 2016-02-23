@@ -1,10 +1,9 @@
 #include "scenemanager.h"
-#include<QDir>
-#include<QFile>
-#include"T3Engine/manager/charactermanager.h"
-#include"T3Engine/manager/terrainmanager.h"
-#include"T3Engine/manager/decorationmanager.h"
-#include"T3Engine/inputmodule.h"
+#include"stable.h"
+#include"charactermanager.h"
+#include"terrainmanager.h"
+#include"decorationmanager.h"
+#include"inputmodule.h"
 
 SceneManager::SceneManager()
 {

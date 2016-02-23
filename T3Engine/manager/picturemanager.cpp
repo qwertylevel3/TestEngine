@@ -1,6 +1,5 @@
 #include "picturemanager.h"
-#include<QDir>
-#include<QImageReader>
+#include"stable.h"
 
 PictureManager::PictureManager()
 {

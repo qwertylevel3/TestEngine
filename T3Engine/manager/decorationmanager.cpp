@@ -1,7 +1,5 @@
 #include "decorationmanager.h"
-#include"T3Engine/gameconfigurator.h"
-#include<QDir>
-#include<QFile>
+#include"gameconfigurator.h"
 
 DecorationManager::DecorationManager()
 {

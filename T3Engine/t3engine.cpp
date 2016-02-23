@@ -1,19 +1,15 @@
 #include "t3engine.h"
-#include <QtCore/QCoreApplication>
 
-#include <QtGui/QOpenGLContext>
-#include <QtGui/QOpenGLPaintDevice>
-#include <QtGui/QPainter>
-#include"T3Engine/manager/shadermanager.h"
-#include"T3Engine/manager/picturemanager.h"
-#include"T3Engine/gameconfigurator.h"
-#include"T3Engine/manager/spritemanager.h"
-#include"T3Engine/manager/charactermanager.h"
-#include"T3Engine/manager/terrainmanager.h"
-#include"T3Engine/manager/decorationmanager.h"
-#include"T3Engine/manager/bulletmanager.h"
-#include"T3Engine/manager/scenemanager.h"
-#include<QLabel>
+#include"stable.h"
+#include"shadermanager.h"
+#include"picturemanager.h"
+#include"gameconfigurator.h"
+#include"spritemanager.h"
+#include"charactermanager.h"
+#include"terrainmanager.h"
+#include"decorationmanager.h"
+#include"bulletmanager.h"
+#include"scenemanager.h"
 
 T3Engine::T3Engine(QWidget *parent)
     : QOpenGLWidget(parent)

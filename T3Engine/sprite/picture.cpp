@@ -1,12 +1,8 @@
 #include "picture.h"
 
-#include <QVector2D>
-#include <QVector3D>
-#include<QMatrix2x2>
+#include"stable.h"
 #include<math.h>
-#include"T3Engine/manager/shadermanager.h"
-#include<QDir>
-#include<QPainter>
+#include"shadermanager.h"
 #include"gameconfigurator.h"
 
 Picture::Picture(const QString &imagePath)

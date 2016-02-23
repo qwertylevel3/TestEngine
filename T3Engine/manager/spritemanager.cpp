@@ -1,7 +1,6 @@
 #include "spritemanager.h"
-#include<QFile>
-#include<QDir>
-#include"T3Engine/gameconfigurator.h"
+#include"stable.h"
+#include"gameconfigurator.h"
 
 SpriteManager::SpriteManager()
 {

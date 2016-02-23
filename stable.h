@@ -4,7 +4,8 @@
 
 //qt...
 #include<QtGui/QWindow>
-#include<QOpenGLWidget>
+#include<QtCore/QCoreApplication>
+
 #include<QTimer>
 #include<QColor>
 #include<QFont>
@@ -15,16 +16,23 @@
 #include<QPixmap>
 #include<QXmlStreamReader>
 #include<QPainter>
-
+#include<QDebug>
+#include<QDir>
+#include<QImageReader>
 
 
 //qt_opengl
+#include<QOpenGLWidget>
 #include<QOpenGLBuffer>
 #include<QOpenGLContext>
 #include<QOpenGLPaintDevice>
 #include <QOpenGLFunctions>
 #include <QOpenGLShaderProgram>
 #include <QOpenGLTexture>
+#include<QVector2D>
+#include<QVector3D>
+#include<QMatrix2x2>
+
 
 //container
 #include<QMap>

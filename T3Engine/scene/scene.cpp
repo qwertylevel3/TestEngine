@@ -1,10 +1,10 @@
 #include"scene.h"
-#include"T3Engine/gameconfigurator.h"
-#include"T3Engine/manager/terrainmanager.h"
-#include"T3Engine/manager/charactermanager.h"
-#include"T3Engine/manager/decorationmanager.h"
-#include"T3Engine/inputmodule.h"
-#include"T3Engine/manager/bulletmanager.h"
+#include"gameconfigurator.h"
+#include"terrainmanager.h"
+#include"charactermanager.h"
+#include"decorationmanager.h"
+#include"inputmodule.h"
+#include"bulletmanager.h"
 
 Scene::Scene()
 {

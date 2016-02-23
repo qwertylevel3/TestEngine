@@ -1,6 +1,6 @@
 #include "shoot.h"
-#include"T3Engine/manager/bulletmanager.h"
-#include"T3Engine/manager/scenemanager.h"
+#include"bulletmanager.h"
+#include"scenemanager.h"
 
 
 Shoot::Shoot(Character *e)

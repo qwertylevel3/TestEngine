@@ -1,7 +1,6 @@
 #include "bulletmanager.h"
-#include"T3Engine/gameconfigurator.h"
-#include<QDir>
-#include<QFile>
+#include"stable.h"
+#include"gameconfigurator.h"
 
 BulletManager::BulletManager()
 {
