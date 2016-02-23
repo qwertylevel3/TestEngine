@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BulletBox>
+	<TotalBullletNumber>1</TotalBullletNumber>
+	<Bullet>
+		<Name>bullet</Name>
+		<SpriteName>bullet</SpriteName>
+		<speed>0.01</speed>
+		<damage>5</damage>
+	</Bullet>
+</BulletBox>

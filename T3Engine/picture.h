@@ -42,7 +42,7 @@ public:
     }
     void setTextures(QImage img);
     void setText(const QString& text);
-    void mirror(bool m)
+    void setMirror(bool m)
     {
         mir=m;
     }
@@ -78,6 +78,9 @@ public:
     {
         repeatY = value;
     }
+
+    float getAlpha() const;
+    void setAlpha(float value);
 
 private:
     void initFaceGeometry();
@@ -116,22 +119,8 @@ private:
     QRect textRect;
     Qt::Alignment textAlignment;
 
+    float alpha;
 };
 
-inline
-void Picture::setCoordinate(float x, float y, float z)
-{
-    this->x=x;
-    this->y=y;
-    this->z=z;
-}
-inline
-void Picture::setTexturePosition(float t_x, float t_y, float t_w, float t_h)
-{
-    this->tx=t_x;
-    this->ty=t_y;
-    this->tw=t_w;
-    this->th=t_h;
-}
 
 #endif // PICTURE_H

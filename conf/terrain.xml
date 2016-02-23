@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TerrainBox>
+	<TotalTerrainNumber>1</TotalTerrainNumber>
+	<Terrain>
+		<Name>grass_0</Name>
+		<SpriteName>grass_0</SpriteName>
+	</Terrain>
+</TerrainBox>

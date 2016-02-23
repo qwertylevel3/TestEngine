@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SceneBox>
+	<TotalSceneNumber>1</TotalSceneNumber>
+	<Scene>
+		<Name>init</Name>
+		<Background>
+			<BackgroundName>grass_0</BackgroundName>
+		</Background>
+		<TerrainBox>
+			<TotalTerrainNumber>0</TotalTerrainNumber>
+		</TerrainBox>
+		<DecorationBox>
+			<TotalDecorationNumber>1</TotalDecorationNumber>
+			<Decoration>
+				<DecorationName>tree1</DecorationName>
+				<x>0</x>
+				<y>-0.5</y>
+				<z>-4</z>
+			</Decoration>
+		</DecorationBox>
+		<CharacterBox>
+			<TotalCharacterNumber>1</TotalCharacterNumber>
+			<Character>
+				<CharacterName>test</CharacterName>
+				<x>1</x>
+				<y>-0.6</y>
+				<z>-5</z>
+			</Character>
+		</CharacterBox>
+		<Player>
+			<PlayerName>test</PlayerName>
+			<x>1</x>
+			<y>-0.4</y>
+			<z>-5</z>
+		</Player>
+	</Scene>
+</SceneBox>

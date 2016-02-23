@@ -25,7 +25,7 @@ struct Frame
     }
     void mirror(bool mir)
     {
-        picturePoint->mirror(mir);
+        picturePoint->setMirror(mir);
     }
     void rotate(float angle,float ax,float ay,float az)
     {

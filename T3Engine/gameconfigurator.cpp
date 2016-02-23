@@ -13,14 +13,14 @@ void GameConfigurator::init()
     paintFar=20;
     windowWidth=800;
     windowHeight=600;
-    spriteConfigFileName="test.xml";
-    characterConfigFileName="character.xml";
-    terrainConfigFileName="terrain.xml";
-    decorationConfigFileName="decoration.xml";
-    bulletConfigFileName="bullet.xml";
-    SceneConfigFileName="scene.xml";
+    spriteConfigFileName="conf/test.xml";
+    characterConfigFileName="conf/character.xml";
+    terrainConfigFileName="conf/terrain.xml";
+    decorationConfigFileName="conf/decoration.xml";
+    bulletConfigFileName="conf/bullet.xml";
+    SceneConfigFileName="conf/scene.xml";
 
-    format.setSamples(16);
+    //format.setSamples(16);
     format.setDepthBufferSize(24);
     QSurfaceFormat::setDefaultFormat(format);
 }

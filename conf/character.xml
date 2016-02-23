@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CharacterBox>
+	<TotalCharacterNumber>1</TotalCharacterNumber>
+	<Character>
+		<Name>test</Name>
+		<SpriteName>test</SpriteName>
+		<HP>100</HP>
+		<MP>100</MP>
+		<CurrentHP>100</CurrentHP>
+		<CurrentMP>100</CurrentMP>
+	</Character>
+</CharacterBox>
+

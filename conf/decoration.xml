@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecorationBox>
+	<TotalDecorationNumber>3</TotalDecorationNumber>
+	<Decoration>
+		<Name>tree1</Name>
+		<SpriteName>tree1</SpriteName>
+	</Decoration>
+	<Decoration>
+		<Name>shadow</Name>
+		<SpriteName>shadow</SpriteName>
+	</Decoration>
+	<Decoration>
+		<Name>textFrame</Name>
+		<SpriteName>textFrame</SpriteName>
+	</Decoration>
+</DecorationBox>

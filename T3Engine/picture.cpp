@@ -41,6 +41,8 @@ Picture::Picture(const QString &imagePath)
     ay=0;
     az=0;
 
+    alpha=1.0;
+
     matrix.setToIdentity();
 
     this->textColor=Qt::white;
@@ -131,6 +133,16 @@ void Picture::setName(const QString &imagePath)
     int len=imagePath.length()-QDir::currentPath().length();
     name=imagePath.right(len);
 }
+float Picture::getAlpha() const
+{
+    return alpha;
+}
+
+void Picture::setAlpha(float value)
+{
+    alpha = value;
+}
+
 
 void Picture::draw()
 {
@@ -155,11 +167,15 @@ void Picture::draw()
     // Offset for texture coordinate
     offset += sizeof(QVector3D);
 
+
     // Tell OpenGL programmable pipeline how to locate vertex texture coordinate data
     int texcoordLocation =
             ShaderManager::instance()->getProgram()->attributeLocation("a_texcoord");
     ShaderManager::instance()->getProgram()->enableAttributeArray(texcoordLocation);
     ShaderManager::instance()->getProgram()->setAttributeBuffer(texcoordLocation, GL_FLOAT, offset, 2, sizeof(VertexData));
+
+    ShaderManager::instance()->getProgram()->setUniformValue("alpha",alpha);
+
 
     // Draw cube geometry using indices from VBO 1
     glDrawElements(GL_TRIANGLE_STRIP, 34, GL_UNSIGNED_SHORT, 0);
@@ -219,4 +235,21 @@ void Picture::setText(const QString &text)
     p.end();
 
     setTextures(tempImage);
+}
+
+
+void Picture::setCoordinate(float x, float y, float z)
+{
+    this->x=x;
+    this->y=y;
+    this->z=z;
+}
+
+
+void Picture::setTexturePosition(float t_x, float t_y, float t_w, float t_h)
+{
+    this->tx=t_x;
+    this->ty=t_y;
+    this->tw=t_w;
+    this->th=t_h;
 }

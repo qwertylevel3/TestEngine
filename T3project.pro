@@ -14,7 +14,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = T3project
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
     T3Engine/scene/scene.cpp \
     T3Engine/sprite/frame.cpp \
