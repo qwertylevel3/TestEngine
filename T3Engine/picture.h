@@ -1,13 +1,6 @@
 #ifndef PICTURE_H
 #define PICTURE_H
 
-#include <QOpenGLFunctions>
-#include <QOpenGLShaderProgram>
-#include <QOpenGLBuffer>
-#include <QOpenGLTexture>
-#include<QColor>
-#include<QFont>
-
 struct VertexData
 {
     QVector3D position;

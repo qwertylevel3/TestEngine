@@ -14,6 +14,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = T3project
 TEMPLATE = app
 
+PRECOMPILED_HEADER = stable.h
+QMAKE_CXXFLAGS += /MP
+
 SOURCES += main.cpp\
     T3Engine/scene/scene.cpp \
     T3Engine/sprite/frame.cpp \
@@ -67,7 +70,8 @@ HEADERS  += \
     T3Engine/manager/bulletmanager.h \
     T3Engine/skill/shoot.h \
     T3Engine/manager/scenemanager.h \
-    T3Engine/orientation.h
+    T3Engine/orientation.h \
+    stable.h
 
 RESOURCES += \
     shader.qrc

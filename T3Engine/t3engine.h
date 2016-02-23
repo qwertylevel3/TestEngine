@@ -1,15 +1,8 @@
 #ifndef T3ENGINE_H
 #define T3ENGINE_H
 
-#include<QtGui/QWindow>
-#include<QtGui/QOpenGLFunctions>
-#include<QOpenGLBuffer>
-#include<QOpenGLWidget>
-#include<QTimer>
 #include"T3Engine/singleton.h"
 #include"T3Engine/scene/scene.h"
-#include<QOpenGLContext>
-#include<QOpenGLPaintDevice>
 #include"inputmodule.h"
 
 class T3Engine:public QOpenGLWidget,public QOpenGLFunctions,public Singleton<T3Engine>
