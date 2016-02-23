@@ -1,10 +1,7 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include"T3Engine/picture.h"
-#include<QList>
-#include<QTextStream>
-#include<QPixmap>
+#include<picture.h>
 
 struct Frame
 {

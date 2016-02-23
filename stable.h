@@ -2,21 +2,38 @@
 #define STABLE_H
 
 
+//qt...
 #include<QtGui/QWindow>
-#include<QtGui/QWindow>
-#include<QtGui/QOpenGLFunctions>
-#include<QOpenGLBuffer>
 #include<QOpenGLWidget>
 #include<QTimer>
+#include<QColor>
+#include<QFont>
+#include<QObject>
+#include<QKeyEvent>
+#include<QSurfaceFormat>
+#include<QTextStream>
+#include<QPixmap>
+#include<QXmlStreamReader>
+#include<QPainter>
+
+
+
+//qt_opengl
+#include<QOpenGLBuffer>
 #include<QOpenGLContext>
 #include<QOpenGLPaintDevice>
 #include <QOpenGLFunctions>
 #include <QOpenGLShaderProgram>
-#include <QOpenGLBuffer>
 #include <QOpenGLTexture>
-#include<QColor>
-#include<QFont>
 
+//container
+#include<QMap>
+#include<QStack>
+#include<QList>
+#include<QHash>
+
+//own...
+#include"T3Engine/singleton.h"
 
 
 

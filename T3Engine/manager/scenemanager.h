@@ -1,10 +1,7 @@
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
 
-#include"T3Engine/singleton.h"
 #include"T3Engine/scene/scene.h"
-#include<QMap>
-#include<QXmlStreamReader>
 
 class SceneManager:public Singleton<SceneManager>
 {

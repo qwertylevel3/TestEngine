@@ -2,9 +2,6 @@
 #define CHARACTERMANAGER_H
 
 #include"T3Engine/entity/character/character.h"
-#include<QMap>
-#include<QXmlStreamReader>
-#include"T3Engine/singleton.h"
 
 class CharacterManager:public Singleton<CharacterManager>
 {

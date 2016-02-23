@@ -1,6 +1,9 @@
 #ifndef PICTURE_H
 #define PICTURE_H
 
+#include<stable.h>
+#include"picturetext.h"
+
 struct VertexData
 {
     QVector3D position;
@@ -16,6 +19,10 @@ public:
 
     void draw();
     void loadImage(const QString& imagePath);
+
+    QString getName(){return name;}
+    QMatrix4x4& getMatrix(){return matrix;}
+
 
     void setCoordinate(float x,float y,float z=0);
     void setWidth(float w){width=w;}
@@ -34,7 +41,7 @@ public:
         matrix=m;
     }
     void setTextures(QImage img);
-    void setText(const QString& text);
+    void setText(const QString& content);
     void setMirror(bool m)
     {
         mir=m;
@@ -48,12 +55,9 @@ public:
     float getZ(){return z;}
     float getZoomX(){return zoomX;}
     float getZoomY(){return zoomY;}
-    float getImageHeight(){return imageHeight;}
-    float getImageWidth(){return imageWidth;}
-    bool isMirror(){return mir;}
-    QString getName(){return name;}
-    QMatrix4x4& getMatrix(){return matrix;}
-
+    float getImageHeight(){return image.height();}
+    float getImageWidth(){return image.width();}
+    bool getMirror(){return mir;}
     int getRepeatX() const
     {
         return repeatX;
@@ -79,6 +83,9 @@ private:
     void initFaceGeometry();
     void allocateBuffer();
     void updateArrayBuffer();
+    void initParameter();
+    void updateVertexData();
+    void updateVertexDataMir();
 
     //名字由路径名自动分配
     void setName(const QString& imagePath);
@@ -90,8 +97,12 @@ private:
     QOpenGLBuffer indexBuf;
     QOpenGLTexture* texture;
     QImage image;
-    float imageHeight;
-    float imageWidth;
+    QMatrix4x4 matrix;
+
+    QString name;
+    PictureText text;
+
+
     float zoomX;//放缩
     float zoomY;
     float x,y,z;//位置坐标
@@ -104,14 +115,6 @@ private:
     float ax,ay,az;//旋转轴
     int repeatX;//重复次数(重复一次，绘制两次)
     int repeatY;
-    QMatrix4x4 matrix;
-    QString name;
-
-    QColor textColor;
-    QFont textFont;
-    QRect textRect;
-    Qt::Alignment textAlignment;
-
     float alpha;
 };
 

@@ -2,8 +2,6 @@
 #define GAMECONFIGURATOR_H
 
 #include"T3Engine/singleton.h"
-#include<QSurfaceFormat>
-#include<QString>
 
 class GameConfigurator :public Singleton<GameConfigurator>
 {

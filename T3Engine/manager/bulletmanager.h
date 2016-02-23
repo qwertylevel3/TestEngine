@@ -1,10 +1,8 @@
 #ifndef BULLETMANAGER_H
 #define BULLETMANAGER_H
 
-#include"T3Engine/singleton.h"
 #include"T3Engine/entity/bullet/bullet.h"
-#include<QXmlStreamReader>
-#include<QMap>
+
 
 class BulletManager:public Singleton<BulletManager>
 {

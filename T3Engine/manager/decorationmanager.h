@@ -1,9 +1,7 @@
 #ifndef DECORATIONMANAGER_H
 #define DECORATIONMANAGER_H
 
-#include"T3Engine/singleton.h"
-#include<QMap>
-#include<QXmlStreamReader>
+
 #include<T3Engine/entity/decoration/decoration.h>
 
 class DecorationManager:public Singleton<DecorationManager>

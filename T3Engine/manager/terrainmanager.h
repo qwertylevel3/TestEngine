@@ -1,10 +1,8 @@
 #ifndef TERRAINMANAGER_H
 #define TERRAINMANAGER_H
 
-#include"T3Engine/singleton.h"
+
 #include"T3Engine/entity/terrain/terrain.h"
-#include<QXmlStreamReader>
-#include<QMap>
 
 class TerrainManager:public Singleton<TerrainManager>
 {

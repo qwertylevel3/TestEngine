@@ -3,7 +3,6 @@
 
 #include"T3Engine/sprite/sprite.h"
 #include"T3Engine/manager/spritemanager.h"
-#include<QList>
 #include"T3Engine/inputmodule.h"
 
 class Scene;

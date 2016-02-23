@@ -11,7 +11,6 @@ INPUT(
 ./debug\entity.o
 ./debug\gameconfigurator.o
 ./debug\t3engine.o
-./debug\picture.o
 ./debug\decoration.o
 ./debug\terrain.o
 ./debug\charactermanager.o
@@ -25,6 +24,8 @@ INPUT(
 ./debug\shoot.o
 ./debug\scenemanager.o
 ./debug\orientation.o
+./debug\picture.o
+./debug\picturetext.o
 ./debug\qrc_shader.o
 ./debug\moc_inputmodule.o
 );

@@ -1,9 +1,6 @@
 #ifndef SHADERMANAGER_H
 #define SHADERMANAGER_H
 
-#include<QOpenGLShaderProgram>
-#include"T3Engine/singleton.h"
-#include<QOpenGLFunctions>
 
 class ShaderManager:public Singleton<ShaderManager>,public QOpenGLFunctions
 {

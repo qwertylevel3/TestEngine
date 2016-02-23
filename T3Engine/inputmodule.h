@@ -1,10 +1,5 @@
 #ifndef INPUTMODULE_H
 #define INPUTMODULE_H
-
-#include<QMap>
-#include<QStack>
-#include<QObject>
-#include<QKeyEvent>
 #include"T3Engine/singleton.h"
 
 class Entity;

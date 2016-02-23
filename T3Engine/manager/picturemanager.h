@@ -1,9 +1,8 @@
 #ifndef PICTUREMANAGER_H
 #define PICTUREMANAGER_H
 
-#include<T3Engine/singleton.h>
-#include<QHash>
-#include"T3Engine/picture.h"
+
+#include<picture.h>
 
 
 class PictureManager:public Singleton<PictureManager>

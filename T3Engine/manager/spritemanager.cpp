@@ -118,7 +118,6 @@ Action *SpriteManager::makeAction()
     }
     reader.readNextStartElement();//</FrameBox>
     reader.readNextStartElement();//</Action>
-    QString t=reader.name().toString();
 
     return action;
 }
@@ -129,12 +128,9 @@ Frame *SpriteManager::makeFrame()
 
     reader.readNextStartElement();
 
-    QString temp=reader.name().toString();
-
     QString pictureName=reader.readElementText();
 
     reader.readNextStartElement();
-    QString temp1=reader.name().toString();
     float x=reader.readElementText().toFloat();
 
     reader.readNextStartElement();

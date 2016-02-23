@@ -9,13 +9,24 @@ QT	 += xml
 QT	 += xmlpatterns
 CONFIG += c++11
 
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = T3project
 TEMPLATE = app
 
 PRECOMPILED_HEADER = stable.h
-QMAKE_CXXFLAGS += /MP
+
+INCLUDEPATH += $$PWD\T3Engine\entity\
+INCLUDEPATH += $$PWD\T3Engine\entity\bullet\
+INCLUDEPATH += $$PWD\T3Engine\entity\character\
+INCLUDEPATH += $$PWD\T3Engine\entity\decoration\
+INCLUDEPATH += $$PWD\T3Engine\entity\terrain
+INCLUDEPATH += $$PWD\T3Engine\manager\
+INCLUDEPATH += $$PWD\T3Engine\scene\
+INCLUDEPATH += $$PWD\T3Engine\skill\
+INCLUDEPATH += $$PWD\T3Engine\sprite\
+INCLUDEPATH += $$PWD\T3Engine\
 
 SOURCES += main.cpp\
     T3Engine/scene/scene.cpp \
@@ -29,7 +40,6 @@ SOURCES += main.cpp\
     T3Engine/entity/entity.cpp \
     T3Engine/gameconfigurator.cpp \
     T3Engine/t3engine.cpp \
-    T3Engine/picture.cpp \
     T3Engine/entity/decoration/decoration.cpp \
     T3Engine/entity/terrain/terrain.cpp \
     T3Engine/manager/charactermanager.cpp \
@@ -42,7 +52,9 @@ SOURCES += main.cpp\
     T3Engine/manager/bulletmanager.cpp \
     T3Engine/skill/shoot.cpp \
     T3Engine/manager/scenemanager.cpp \
-    T3Engine/orientation.cpp
+    T3Engine/orientation.cpp \
+    T3Engine/sprite/picture.cpp \
+    T3Engine/sprite/picturetext.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -57,7 +69,6 @@ HEADERS  += \
     T3Engine/entity/entity.h \
     T3Engine/gameconfigurator.h \
     T3Engine/t3engine.h \
-    T3Engine/picture.h \
     T3Engine/entity/decoration/decoration.h \
     T3Engine/entity/terrain/terrain.h \
     T3Engine/manager/charactermanager.h \
@@ -71,7 +82,9 @@ HEADERS  += \
     T3Engine/skill/shoot.h \
     T3Engine/manager/scenemanager.h \
     T3Engine/orientation.h \
-    stable.h
+    stable.h \
+    T3Engine/sprite/picture.h \
+    T3Engine/sprite/picturetext.h
 
 RESOURCES += \
     shader.qrc

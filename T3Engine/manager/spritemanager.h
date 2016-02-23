@@ -1,10 +1,8 @@
 #ifndef SPRITEMANAGER_H
 #define SPRITEMANAGER_H
 
-#include<QXmlStreamReader>
-#include<QMap>
+
 #include"T3Engine/sprite/sprite.h"
-#include"T3Engine/singleton.h"
 
 class SpriteManager:public Singleton<SpriteManager>
 {

@@ -5,7 +5,7 @@
 #include"T3Engine/entity/character/character.h"
 #include"T3Engine/entity/terrain/terrain.h"
 #include"T3Engine/entity/bullet/bullet.h"
-#include<QList>
+
 
 class Scene
 {
