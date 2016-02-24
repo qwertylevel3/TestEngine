@@ -201,32 +201,32 @@ void Move::run()
     switch(character->getMoveOrientation())
     {
     case Orientation::up:
-        character->setY(character->getY()+speed);
+        character->moveY(speed);
         break;
     case Orientation::down:
-        character->setY(character->getY()-speed);
+        character->moveY(-speed);
         break;
     case Orientation::right:
-        character->setX(character->getX()+speed);
+        character->moveX(speed);
         break;
     case Orientation::left:
-        character->setX(character->getX()-speed);
+        character->moveX(-speed);
         break;
     case Orientation::upLeft:
-        character->setX(character->getX()-speed/1.4);
-        character->setY(character->getY()+speed/1.4);
+        character->moveX(-speed/1.4);
+        character->moveY(speed/1.4);
         break;
     case Orientation::upRight:
-        character->setX(character->getX()+speed/1.4);
-        character->setY(character->getY()+speed/1.4);
+        character->moveX(speed/1.4);
+        character->moveY(speed/1.4);
         break;
     case Orientation::downLeft:
-        character->setX(character->getX()-speed/1.4);
-        character->setY(character->getY()-speed/1.4);
+        character->moveX(-speed/1.4);
+        character->moveY(-speed/1.4);
         break;
     case Orientation::downRight:
-        character->setX(character->getX()+speed/1.4);
-        character->setY(character->getY()-speed/1.4);
+        character->moveX(speed/1.4);
+        character->moveY(-speed/1.4);
         break;
     default:
         break;

@@ -28,6 +28,10 @@ public:
 
     void setText(const QString& text);
 
+
+    void moveX(float dx);
+    void moveY(float dy);
+
     void setAlpha(float alpha)
     {
         sprite->setAlpha(alpha);

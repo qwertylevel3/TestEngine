@@ -47,6 +47,16 @@ void Entity::update()
     sprite->update();
 }
 
+void Entity::moveX(float dx)
+{
+    setX(getX()+dx);
+}
+
+void Entity::moveY(float dy)
+{
+    setY(getY()+dy);
+}
+
 void Entity::setX(float x)
 {
     sprite->setX(x);
