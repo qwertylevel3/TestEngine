@@ -64,6 +64,9 @@ public:
     void setMoveOrientation(const Orientation::ORIENTATION &value);
 
 protected:
+    void initSkill();
+    void initParamater();
+    void runSkill();
     int HP;
     int MP;
     int currentHP;
@@ -74,7 +77,6 @@ protected:
     Orientation::ORIENTATION moveOrientation;
     QList<Skill*> skillList;
 
-    int skillIndex;
 };
 
 #endif // CHARACTER_H

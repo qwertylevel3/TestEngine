@@ -11,10 +11,13 @@ public:
     void start(InputModule::Command c);
     void end(InputModule::Command c);
     void run();
+
+    Orientation::ORIENTATION getOrientation() const;
+    void setOrientation(const Orientation::ORIENTATION &value);
+
 protected:
     Orientation::ORIENTATION orientation;
-
-    InputModule::Command nextCommand;
+    int count;
 };
 
 #endif // MOVE_H

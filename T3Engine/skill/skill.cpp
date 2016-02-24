@@ -6,6 +6,24 @@ Skill::Skill(Character *c)
 {
     count=0;
 }
+
+void Skill::start(InputModule::Command c)
+{
+    Q_UNUSED(c)
+    incCount();
+}
+
+void Skill::end(InputModule::Command c)
+{
+    Q_UNUSED(c)
+    decCount();
+}
+
+void Skill::run()
+{
+
+}
+
 int Skill::getCount() const
 {
     return count;

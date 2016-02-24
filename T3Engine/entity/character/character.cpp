@@ -7,35 +7,14 @@
 Character::Character(const QString &spriteName)
     :Entity(spriteName)
 {
-    HP=0;
-    MP=0;
-    currentHP=0;
-    currentMP=0;
-    speed=0.01;
-    moveOrientation=Orientation::empty;
-    orientation=Orientation::down;
-
-    skillIndex=-1;
-
-    Move* move=new Move(this);
-    skillList.push_back(move);
-
-    Shoot* shoot=new Shoot(this);
-    skillList.push_back(shoot);
+    initParamater();
+    initSkill();
 }
 
 void Character::update()
 {
     Entity::update();
-
-    for(int i=0;i<skillList.size();i++)
-    {
-        if(skillList[i]->isRunning())
-        {
-            skillList[i]->run();
-        }
-    }
-
+    runSkill();
 }
 
 Character *Character::clone()
@@ -52,37 +31,86 @@ Character *Character::clone()
 
 void Character::startCommand(InputModule::Command c)
 {
-    if(c==InputModule::up
-            || c==InputModule::down
-            || c==InputModule::left
-            || c==InputModule::right)
+    if(c==InputModule::up)
     {
-        skillList[0]->incCount();
         skillList[0]->start(c);
+        orientation=Orientation::up;
+        if(skillList[2]->isRunning())
+        {
+            orientation=Orientation::upLeft;
+        }
+        else if(skillList[3]->isRunning())
+        {
+            orientation=Orientation::upRight;
+        }
+    }
+    if(c==InputModule::down)
+    {
+        skillList[1]->start(c);
+        orientation=Orientation::down;
+        if(skillList[2]->isRunning())
+        {
+            orientation=Orientation::downLeft;
+        }
+        if(skillList[3]->isRunning())
+        {
+            orientation=Orientation::downRight;
+        }
+
+    }
+    if(c==InputModule::left)
+    {
+        skillList[2]->start(c);
+        orientation=Orientation::left;
+        if(skillList[0]->isRunning())
+        {
+            orientation=Orientation::upLeft;
+        }
+        else if(skillList[1]->isRunning())
+        {
+            orientation=Orientation::downLeft;
+        }
+    }
+    if(c==InputModule::right)
+    {
+        skillList[3]->start(c);
+        orientation=Orientation::right;
+        if(skillList[0]->isRunning())
+        {
+            orientation=Orientation::upRight;
+        }
+        if(skillList[1]->isRunning())
+        {
+            orientation=Orientation::downRight;
+        }
     }
     if(c==InputModule::A_C)
     {
-        skillList[1]->incCount();
-        skillList[1]->start(c);
+        skillList[4]->start(c);
     }
 }
 
 void Character::endCommand(InputModule::Command c)
 {
-    if(c==InputModule::up
-            || c==InputModule::down
-            || c==InputModule::left
-            || c==InputModule::right)
+    if(c==InputModule::up)
     {
-        //skillIndexCount++;
         skillList[0]->end(c);
-        skillList[0]->decCount();
+    }
+    if(c==InputModule::down)
+    {
+        skillList[1]->end(c);
+    }
+    if(c==InputModule::left)
+    {
+        skillList[2]->end(c);
+    }
+    if(c==InputModule::right)
+    {
+        skillList[3]->end(c);
     }
     if(c==InputModule::A_C)
     {
-        //skillIndexCount++;
-        skillList[1]->end(c);
-        skillList[1]->decCount();
+        skillList[4]->end(c);
     }
 
 }
@@ -112,6 +140,48 @@ Orientation::ORIENTATION Character::getMoveOrientation() const
 void Character::setMoveOrientation(const Orientation::ORIENTATION &value)
 {
     moveOrientation = value;
+}
+
+void Character::initSkill()
+{
+    Move* moveUp=new Move(this);
+    moveUp->setOrientation(Orientation::up);
+    Move* moveDown=new Move(this);
+    moveDown->setOrientation(Orientation::down);
+    Move* moveLeft=new Move(this);
+    moveLeft->setOrientation(Orientation::left);
+    Move* moveRight=new Move(this);
+    moveRight->setOrientation(Orientation::right);
+
+    skillList.push_back(moveUp);
+    skillList.push_back(moveDown);
+    skillList.push_back(moveLeft);
+    skillList.push_back(moveRight);
+
+    Shoot* shoot=new Shoot(this);
+    skillList.push_back(shoot);
+}
+
+void Character::initParamater()
+{
+    HP=0;
+    MP=0;
+    currentHP=0;
+    currentMP=0;
+    speed=0.01;
+    moveOrientation=Orientation::empty;
+    orientation=Orientation::down;
+}
+
+void Character::runSkill()
+{
+    for(int i=0;i<skillList.size();i++)
+    {
+        if(skillList[i]->isRunning())
+        {
+            skillList[i]->run();
+        }
+    }
 }
 
 

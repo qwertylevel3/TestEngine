@@ -11,7 +11,8 @@ Shoot::Shoot(Character *e)
 
 void Shoot::start(InputModule::Command c)
 {
-    Q_UNUSED(c)
+    Skill::start(c);
+
     Bullet* bullet=BulletManager::instance()->getBullet("bullet");
     bullet->setZoomX(0.2);
     bullet->setZoomY(0.2);
@@ -28,7 +29,7 @@ void Shoot::start(InputModule::Command c)
 
 void Shoot::end(InputModule::Command c)
 {
-    Q_UNUSED(c)
+    Skill::end(c);
 }
 
 void Shoot::run()
