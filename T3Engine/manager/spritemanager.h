@@ -2,7 +2,7 @@
 #define SPRITEMANAGER_H
 
 
-#include"T3Engine/sprite/sprite.h"
+#include"sprite.h"
 
 class SpriteManager:public Singleton<SpriteManager>
 {

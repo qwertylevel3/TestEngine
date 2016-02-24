@@ -2,7 +2,7 @@
 #define TERRAINMANAGER_H
 
 
-#include"T3Engine/entity/terrain/terrain.h"
+#include"terrain.h"
 
 class TerrainManager:public Singleton<TerrainManager>
 {

@@ -1,7 +1,7 @@
 #ifndef DECORATION_H
 #define DECORATION_H
 
-#include"T3Engine/entity/entity.h"
+#include"entity.h"
 
 class Decoration:public Entity
 {

@@ -24,10 +24,12 @@ Entity::~Entity()
 
 void Entity::startCommand(InputModule::Command c)
 {
+    Q_UNUSED(c)
 }
 
 void Entity::endCommand(InputModule::Command c)
 {
+    Q_UNUSED(c)
 }
 
 void Entity::draw()

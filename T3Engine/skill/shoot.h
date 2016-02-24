@@ -1,7 +1,7 @@
 #ifndef SHOOT_H
 #define SHOOT_H
 
-#include"T3Engine/skill/skill.h"
+#include"skill.h"
 
 class Shoot:public Skill
 {

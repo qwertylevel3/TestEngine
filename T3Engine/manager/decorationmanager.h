@@ -2,7 +2,7 @@
 #define DECORATIONMANAGER_H
 
 
-#include<T3Engine/entity/decoration/decoration.h>
+#include"decoration.h"
 
 class DecorationManager:public Singleton<DecorationManager>
 {

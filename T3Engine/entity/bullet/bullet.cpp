@@ -32,7 +32,7 @@ void Bullet::update()
         break;
     case Orientation::downLeft:
         this->setX(this->getX()-speed);
-        this->setY(this->getY()+speed);
+        this->setY(this->getY()-speed);
         break;
     case Orientation::upRight:
         this->setX(this->getX()+speed);

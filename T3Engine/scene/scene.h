@@ -1,10 +1,10 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include"T3Engine/entity/decoration/decoration.h"
-#include"T3Engine/entity/character/character.h"
-#include"T3Engine/entity/terrain/terrain.h"
-#include"T3Engine/entity/bullet/bullet.h"
+#include"decoration.h"
+#include"character.h"
+#include"terrain.h"
+#include"bullet.h"
 
 
 class Scene
@@ -17,9 +17,6 @@ public:
     void draw();
     void drawBackground();
     void update();
-
-    void load(const QString& filename);
-    void unload();
 
     void collision();
     bool isCollision(Entity *a, Entity *b);

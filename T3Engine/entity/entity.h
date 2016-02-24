@@ -1,9 +1,9 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include"T3Engine/sprite/sprite.h"
-#include"T3Engine/manager/spritemanager.h"
-#include"T3Engine/inputmodule.h"
+#include"sprite.h"
+#include"spritemanager.h"
+#include"inputmodule.h"
 
 class Scene;
 

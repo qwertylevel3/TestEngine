@@ -1,7 +1,7 @@
 #ifndef GAMECONFIGURATOR_H
 #define GAMECONFIGURATOR_H
 
-#include"T3Engine/singleton.h"
+#include"singleton.h"
 
 class GameConfigurator :public Singleton<GameConfigurator>
 {

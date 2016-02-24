@@ -115,6 +115,8 @@ void T3Engine::paintGL()
 
 void T3Engine::resizeGL(int w, int h)
 {
+    Q_UNUSED(w)
+    Q_UNUSED(h)
     // Calculate aspect ratio
     //qreal aspect = qreal(w) / qreal(h ? h : 1);
 

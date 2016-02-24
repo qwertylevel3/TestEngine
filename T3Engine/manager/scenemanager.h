@@ -1,7 +1,7 @@
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
 
-#include"T3Engine/scene/scene.h"
+#include"scene.h"
 
 class SceneManager:public Singleton<SceneManager>
 {

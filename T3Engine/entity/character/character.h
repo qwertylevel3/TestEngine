@@ -3,9 +3,9 @@
 
 //#include"T3Engine/sprite/sprite.h"
 //#include"T3Engine/manager/spritemanager.h"
-#include"T3Engine/skill/skill.h"
-#include"T3Engine/entity/entity.h"
-#include"T3Engine/orientation.h"
+#include"skill.h"
+#include"entity.h"
+#include"orientation.h"
 
 class Character:public Entity
 {

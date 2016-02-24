@@ -1,6 +1,6 @@
 #ifndef INPUTMODULE_H
 #define INPUTMODULE_H
-#include"T3Engine/singleton.h"
+#include"singleton.h"
 
 class Entity;
 //处理键盘映射

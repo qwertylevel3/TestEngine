@@ -1,9 +1,9 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include"T3Engine/entity/entity.h"
-#include"T3Engine/entity/character/character.h"
-#include"T3Engine/orientation.h"
+#include"entity.h"
+#include"character.h"
+#include"orientation.h"
 
 class Bullet:public Entity
 {

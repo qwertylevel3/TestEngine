@@ -1,9 +1,8 @@
 #ifndef SKILL_H
 #define SKILL_H
 
-//#include"T3Engine/entity/entity.h"
+#include"inputmodule.h"
 
-#include"T3Engine/inputmodule.h"
 class Character;
 
 class Skill
@@ -16,6 +15,10 @@ public:
     int getCount() const;
     void setCount(int value);
 
+    void incCount();
+    void decCount();
+
+    bool isRunning();
 protected:
     Character* character;
     int count;

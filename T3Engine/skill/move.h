@@ -1,8 +1,8 @@
 #ifndef MOVE_H
 #define MOVE_H
 
-#include"T3Engine/skill/skill.h"
-#include"T3Engine/orientation.h"
+#include"skill.h"
+#include"orientation.h"
 
 class Move:public Skill
 {

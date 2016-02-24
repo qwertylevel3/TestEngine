@@ -1,8 +1,8 @@
 #ifndef T3ENGINE_H
 #define T3ENGINE_H
 
-#include"T3Engine/singleton.h"
-#include"T3Engine/scene/scene.h"
+#include"singleton.h"
+#include"scene.h"
 #include"inputmodule.h"
 
 class T3Engine:public QOpenGLWidget,public QOpenGLFunctions,public Singleton<T3Engine>

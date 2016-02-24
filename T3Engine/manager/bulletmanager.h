@@ -1,7 +1,7 @@
 #ifndef BULLETMANAGER_H
 #define BULLETMANAGER_H
 
-#include"T3Engine/entity/bullet/bullet.h"
+#include"bullet.h"
 
 
 class BulletManager:public Singleton<BulletManager>

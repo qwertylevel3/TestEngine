@@ -1,7 +1,7 @@
 #ifndef TERRAIN_H
 #define TERRAIN_H
 
-#include"T3Engine/entity/entity.h"
+#include"entity.h"
 
 class Terrain:public Entity
 {

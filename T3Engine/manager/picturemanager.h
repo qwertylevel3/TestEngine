@@ -2,7 +2,7 @@
 #define PICTUREMANAGER_H
 
 
-#include<picture.h>
+#include"picture.h"
 
 
 class PictureManager:public Singleton<PictureManager>

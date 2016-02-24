@@ -2,7 +2,7 @@
 #define SPRITE_H
 
 #include"action.h"
-#include"T3Engine/gameconfigurator.h"
+#include"gameconfigurator.h"
 
 class Sprite
 {

@@ -1,7 +1,7 @@
 #ifndef CHARACTERMANAGER_H
 #define CHARACTERMANAGER_H
 
-#include"T3Engine/entity/character/character.h"
+#include"character.h"
 
 class CharacterManager:public Singleton<CharacterManager>
 {

@@ -28,13 +28,14 @@ void Character::update()
 {
     Entity::update();
 
-    if(skillIndex!=-1)
+    for(int i=0;i<skillList.size();i++)
     {
-        if(skillList[skillIndex])
+        if(skillList[i]->isRunning())
         {
-            skillList[skillIndex]->run();
+            skillList[i]->run();
         }
     }
+
 }
 
 Character *Character::clone()
@@ -56,37 +57,34 @@ void Character::startCommand(InputModule::Command c)
             || c==InputModule::left
             || c==InputModule::right)
     {
-        //skillIndexCount++;
-        skillIndex=0;
-        skillList[skillIndex]->setCount(skillList[skillIndex]->getCount()+1);
-        skillList[skillIndex]->start(c);
+        skillList[0]->incCount();
+        skillList[0]->start(c);
     }
     if(c==InputModule::A_C)
     {
-        //skillIndexCount++;
-        skillIndex=1;
-        skillList[skillIndex]->setCount(skillList[skillIndex]->getCount()+1);
-        skillList[skillIndex]->start(c);
+        skillList[1]->incCount();
+        skillList[1]->start(c);
     }
 }
 
 void Character::endCommand(InputModule::Command c)
 {
-    if(skillIndex!=-1)
+    if(c==InputModule::up
+            || c==InputModule::down
+            || c==InputModule::left
+            || c==InputModule::right)
     {
-        skillList[skillIndex]->end(c);
-
-        skillList[skillIndex]->setCount(skillList[skillIndex]->getCount()-1);
-
-        if(skillList[skillIndex]->getCount()==0)
-        {
-            skillIndex=-1;
-        }
+        //skillIndexCount++;
+        skillList[0]->end(c);
+        skillList[0]->decCount();
     }
-//    if(--skillIndexCount==0)
-//    {
-//        skillIndex=-1;
-//    }
+    if(c==InputModule::A_C)
+    {
+        //skillIndexCount++;
+        skillList[1]->end(c);
+        skillList[1]->decCount();
+    }
+
 }
 float Character::getSpeed() const
 {

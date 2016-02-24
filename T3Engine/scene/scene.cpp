@@ -58,18 +58,7 @@ void Scene::update()
     {
         decorationBox[i]->update();
     }
-    characterBox[0]->setAlpha(0.5);
     collision();
-}
-
-void Scene::load(const QString &filename)
-{
-
-}
-
-void Scene::unload()
-{
-
 }
 
 void Scene::collision()

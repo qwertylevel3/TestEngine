@@ -16,4 +16,26 @@ void Skill::setCount(int value)
     count = value;
 }
 
+void Skill::incCount()
+{
+    count++;
+}
+
+void Skill::decCount()
+{
+    count--;
+}
+
+bool Skill::isRunning()
+{
+    if(count==0)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
 
