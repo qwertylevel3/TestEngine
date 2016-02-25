@@ -77,3 +77,8 @@ void ClockManager::clear(int clockId)
 {
     clockBox[clockId].clear();
 }
+
+void ClockManager::deleteClock(int clockId)
+{
+    clockBox.remove(clockId);
+}

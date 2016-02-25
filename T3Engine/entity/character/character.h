@@ -11,6 +11,7 @@ class Character:public Entity
 {
 public:
     Character(const QString& spriteName);
+    virtual ~Character();
 
     void update();
     Character* clone();
@@ -61,6 +62,9 @@ public:
     void setOrientation(const Orientation::ORIENTATION &value);
 
 
+    int getHeartRate() const;
+    void setHeartRate(int value);
+
 protected:
     void initSkill();
     void initParamater();
@@ -85,7 +89,10 @@ protected:
     float speed;
 
     Orientation::ORIENTATION orientation;
+    Orientation::ORIENTATION lastOrientation;
     QList<Skill*> skillList;
+    int heartId;
+    int heartRate;
 };
 
 #endif // CHARACTER_H

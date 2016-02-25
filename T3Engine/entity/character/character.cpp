@@ -2,6 +2,7 @@
 #include"inputmodule.h"
 #include"move.h"
 #include"shoot.h"
+#include"clockmanager.h"
 
 
 Character::Character(const QString &spriteName)
@@ -9,6 +10,13 @@ Character::Character(const QString &spriteName)
 {
     initParamater();
     initSkill();
+    heartId=ClockManager::instance()->genClock();
+    ClockManager::instance()->setClockInterval(heartId,heartRate);
+}
+
+Character::~Character()
+{
+    ClockManager::instance()->deleteClock(heartId);
 }
 
 void Character::update()
@@ -25,6 +33,8 @@ Character *Character::clone()
     newCharacter->setMP(this->MP);
     newCharacter->setCurrentHP(this->HP);
     newCharacter->setCurrentMP(this->MP);
+    newCharacter->setSpeed(this->speed);
+    newCharacter->setHeartRate(this->heartRate);
 
     return newCharacter;
 }
@@ -146,6 +156,7 @@ void Character::initParamater()
     currentMP=0;
     speed=0.01;
     orientation=Orientation::down;
+    lastOrientation=Orientation::down;
 }
 
 void Character::runSkill()
@@ -223,31 +234,136 @@ void Character::startA_C(InputModule::Command c)
 }
 
 //end command.......
-
 void Character::endUp(InputModule::Command c)
 {
     skillList[0]->end(c);
+    if(skillList[2]->isRunning())
+    {
+        setOrientation(Orientation::left);
+    }
+    else if(skillList[3]->isRunning())
+    {
+        setOrientation(Orientation::right);
+    }
+    else if(!ClockManager::instance()->isAlarm(heartId))
+    {
+        if(lastOrientation==Orientation::left)
+        {
+            setOrientation(Orientation::upLeft);
+        }
+        if(lastOrientation==Orientation::right)
+        {
+            setOrientation(Orientation::upRight);
+        }
+    }
+    if(lastOrientation!=Orientation::up)
+    {
+        ClockManager::instance()->clear(heartId);
+    }
+    lastOrientation=Orientation::up;
 }
 
 void Character::endDown(InputModule::Command c)
 {
     skillList[1]->end(c);
+    if(skillList[2]->isRunning())
+    {
+        setOrientation(Orientation::left);
+    }
+    else if(skillList[3]->isRunning())
+    {
+        setOrientation(Orientation::right);
+    }
+    else if(!ClockManager::instance()->isAlarm(heartId))
+    {
+        if(lastOrientation==Orientation::left)
+        {
+            setOrientation(Orientation::downLeft);
+        }
+        if(lastOrientation==Orientation::right)
+        {
+            setOrientation(Orientation::downRight);
+        }
+
+    }
+    if(lastOrientation!=Orientation::down)
+    {
+        ClockManager::instance()->clear(heartId);
+    }
+    lastOrientation=Orientation::down;
 }
 
 void Character::endLeft(InputModule::Command c)
 {
     skillList[2]->end(c);
+    if(skillList[0]->isRunning())
+    {
+        setOrientation(Orientation::up);
+    }
+    else if(skillList[1]->isRunning())
+    {
+        setOrientation(Orientation::down);
+    }
+    else if(!ClockManager::instance()->isAlarm(heartId))
+    {
+        if(lastOrientation==Orientation::up)
+        {
+            setOrientation(Orientation::upLeft);
+        }
+        if(lastOrientation==Orientation::down)
+        {
+            setOrientation(Orientation::downLeft);
+        }
+
+    }
+    if(lastOrientation!=Orientation::left)
+    {
+        ClockManager::instance()->clear(heartId);
+    }
+
+    lastOrientation=Orientation::left;
 }
 
 void Character::endRight(InputModule::Command c)
 {
     skillList[3]->end(c);
+    if(skillList[0]->isRunning())
+    {
+        setOrientation(Orientation::up);
+    }
+    else if(skillList[1]->isRunning())
+    {
+        setOrientation(Orientation::down);
+    }
+    else if(!ClockManager::instance()->isAlarm(heartId))
+    {
+        if(lastOrientation==Orientation::up)
+        {
+            setOrientation(Orientation::upRight);
+        }
+        if(lastOrientation==Orientation::down)
+        {
+            setOrientation(Orientation::downRight);
+        }
+    }
+    if(lastOrientation!=Orientation::right)
+    {
+        ClockManager::instance()->clear(heartId);
+    }
+    lastOrientation=Orientation::right;
 }
 
 void Character::endA_C(InputModule::Command c)
 {
     skillList[4]->end(c);
 }
+int Character::getHeartRate() const
+{
+    return heartRate;
+}
 
-
+void Character::setHeartRate(int value)
+{
+    heartRate = value;
+}
 

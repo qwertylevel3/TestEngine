@@ -12,7 +12,7 @@ class Entity
 public:
     Entity();
     Entity(const QString& spriteName);
-    ~Entity();
+    virtual ~Entity();
 
 
     virtual void startCommand(InputModule::Command c);

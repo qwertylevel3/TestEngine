@@ -18,9 +18,8 @@ protected:
     int tick;
 };
 
-class ClockManager:public QObject,public Singleton<ClockManager>
+class ClockManager:public Singleton<ClockManager>
 {
-    Q_OBJECT
 public:
     ClockManager();
 
@@ -31,6 +30,7 @@ public:
     bool setClockInterval(int clockId,int interval);
     bool isAlarm(int clockId);
     void clear(int clockId);
+    void deleteClock(int clockId);
 protected:
     QMap<int,Clock> clockBox;
     int totalClockNumber;

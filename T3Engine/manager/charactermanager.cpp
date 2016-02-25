@@ -67,6 +67,9 @@ Character *CharacterManager::makeCharacter()
     reader.readNextStartElement();//<speed>
     float speed=reader.readElementText().toFloat();
 
+    reader.readNextStartElement();//<heartRate>
+    int heartRate=reader.readElementText().toInt();
+
     reader.readNextStartElement();//</Character>
 
     Character* character=new Character(spriteName);
@@ -76,6 +79,7 @@ Character *CharacterManager::makeCharacter()
     character->setCurrentHP(currentHP);
     character->setCurrentMP(currentMP);
     character->setSpeed(speed);
+    character->setHeartRate(heartRate);
     return character;
 }
 
