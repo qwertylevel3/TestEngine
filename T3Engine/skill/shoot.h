@@ -11,6 +11,13 @@ public:
     void end(InputModule::Command c);
     void run();
 
+    int getInterval() const;
+    void setInterval(int value);
+
+protected:
+    void shootBullet();
+    int clockId;
+    int interval;
 };
 
 #endif // SHOOT_H

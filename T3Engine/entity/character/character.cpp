@@ -33,60 +33,23 @@ void Character::startCommand(InputModule::Command c)
 {
     if(c==InputModule::up)
     {
-        skillList[0]->start(c);
-        orientation=Orientation::up;
-        if(skillList[2]->isRunning())
-        {
-            orientation=Orientation::upLeft;
-        }
-        else if(skillList[3]->isRunning())
-        {
-            orientation=Orientation::upRight;
-        }
+        startUp(c);
     }
     if(c==InputModule::down)
     {
-        skillList[1]->start(c);
-        orientation=Orientation::down;
-        if(skillList[2]->isRunning())
-        {
-            orientation=Orientation::downLeft;
-        }
-        if(skillList[3]->isRunning())
-        {
-            orientation=Orientation::downRight;
-        }
-
+        startDown(c);
     }
     if(c==InputModule::left)
     {
-        skillList[2]->start(c);
-        orientation=Orientation::left;
-        if(skillList[0]->isRunning())
-        {
-            orientation=Orientation::upLeft;
-        }
-        else if(skillList[1]->isRunning())
-        {
-            orientation=Orientation::downLeft;
-        }
+        startLeft(c);
     }
     if(c==InputModule::right)
     {
-        skillList[3]->start(c);
-        orientation=Orientation::right;
-        if(skillList[0]->isRunning())
-        {
-            orientation=Orientation::upRight;
-        }
-        if(skillList[1]->isRunning())
-        {
-            orientation=Orientation::downRight;
-        }
+        startRight(c);
     }
     if(c==InputModule::A_C)
     {
-        skillList[4]->start(c);
+        startA_C(c);
     }
 }
 
@@ -94,23 +57,23 @@ void Character::endCommand(InputModule::Command c)
 {
     if(c==InputModule::up)
     {
-        skillList[0]->end(c);
+        endUp(c);
     }
     if(c==InputModule::down)
     {
-        skillList[1]->end(c);
+        endDown(c);
     }
     if(c==InputModule::left)
     {
-        skillList[2]->end(c);
+        endLeft(c);
     }
     if(c==InputModule::right)
     {
-        skillList[3]->end(c);
+        endRight(c);
     }
     if(c==InputModule::A_C)
     {
-        skillList[4]->end(c);
+        endA_C(c);
     }
 
 }
@@ -131,15 +94,27 @@ Orientation::ORIENTATION Character::getOrientation() const
 void Character::setOrientation(const Orientation::ORIENTATION &value)
 {
     orientation = value;
-}
-Orientation::ORIENTATION Character::getMoveOrientation() const
-{
-    return moveOrientation;
-}
-
-void Character::setMoveOrientation(const Orientation::ORIENTATION &value)
-{
-    moveOrientation = value;
+    switch(orientation)
+    {
+    case Orientation::up:
+    case Orientation::upLeft:
+    case Orientation::upRight:
+        setCurrentAction(3);
+        break;
+    case Orientation::down:
+    case Orientation::downLeft:
+    case Orientation::downRight:
+        setCurrentAction(0);
+        break;
+    case Orientation::left:
+        setCurrentAction(1);
+        break;
+    case Orientation::right:
+        setCurrentAction(2);
+        break;
+    default:
+        break;
+    }
 }
 
 void Character::initSkill()
@@ -159,6 +134,7 @@ void Character::initSkill()
     skillList.push_back(moveRight);
 
     Shoot* shoot=new Shoot(this);
+    shoot->setInterval(15);
     skillList.push_back(shoot);
 }
 
@@ -169,7 +145,6 @@ void Character::initParamater()
     currentHP=0;
     currentMP=0;
     speed=0.01;
-    moveOrientation=Orientation::empty;
     orientation=Orientation::down;
 }
 
@@ -182,6 +157,96 @@ void Character::runSkill()
             skillList[i]->run();
         }
     }
+}
+
+//start command.......
+
+void Character::startUp(InputModule::Command c)
+{
+    skillList[0]->start(c);
+    setOrientation(Orientation::up);
+    if(skillList[2]->isRunning())
+    {
+        setOrientation(Orientation::upLeft);
+    }
+    else if(skillList[3]->isRunning())
+    {
+        setOrientation(Orientation::upRight);
+    }
+}
+
+void Character::startDown(InputModule::Command c)
+{
+    skillList[1]->start(c);
+    setOrientation(Orientation::down);
+    if(skillList[2]->isRunning())
+    {
+        setOrientation(Orientation::downLeft);
+    }
+    if(skillList[3]->isRunning())
+    {
+        setOrientation(Orientation::downRight);
+    }
+}
+
+void Character::startLeft(InputModule::Command c)
+{
+    skillList[2]->start(c);
+    setOrientation(Orientation::left);
+    if(skillList[0]->isRunning())
+    {
+        setOrientation(Orientation::upLeft);
+    }
+    else if(skillList[1]->isRunning())
+    {
+        setOrientation(Orientation::downLeft);
+    }
+}
+
+void Character::startRight(InputModule::Command c)
+{
+    skillList[3]->start(c);
+    setOrientation(Orientation::right);
+    if(skillList[0]->isRunning())
+    {
+        setOrientation(Orientation::upRight);
+    }
+    if(skillList[1]->isRunning())
+    {
+        setOrientation(Orientation::downRight);
+    }
+}
+
+void Character::startA_C(InputModule::Command c)
+{
+    skillList[4]->start(c);
+}
+
+//end command.......
+
+void Character::endUp(InputModule::Command c)
+{
+    skillList[0]->end(c);
+}
+
+void Character::endDown(InputModule::Command c)
+{
+    skillList[1]->end(c);
+}
+
+void Character::endLeft(InputModule::Command c)
+{
+    skillList[2]->end(c);
+}
+
+void Character::endRight(InputModule::Command c)
+{
+    skillList[3]->end(c);
+}
+
+void Character::endA_C(InputModule::Command c)
+{
+    skillList[4]->end(c);
 }
 
 

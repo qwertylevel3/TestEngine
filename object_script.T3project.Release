@@ -26,6 +26,8 @@ INPUT(
 ./release\orientation.o
 ./release\picture.o
 ./release\picturetext.o
+./release\clockmanager.o
 ./release\qrc_shader.o
 ./release\moc_inputmodule.o
+./release\moc_clockmanager.o
 );

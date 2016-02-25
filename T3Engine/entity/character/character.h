@@ -60,13 +60,24 @@ public:
     Orientation::ORIENTATION getOrientation() const;
     void setOrientation(const Orientation::ORIENTATION &value);
 
-    Orientation::ORIENTATION getMoveOrientation() const;
-    void setMoveOrientation(const Orientation::ORIENTATION &value);
 
 protected:
     void initSkill();
     void initParamater();
     void runSkill();
+
+    void startUp(InputModule::Command c);
+    void startDown(InputModule::Command c);
+    void startLeft(InputModule::Command c);
+    void startRight(InputModule::Command c);
+    void startA_C(InputModule::Command c);
+
+    void endUp(InputModule::Command c);
+    void endDown(InputModule::Command c);
+    void endLeft(InputModule::Command c);
+    void endRight(InputModule::Command c);
+    void endA_C(InputModule::Command c);
+
     int HP;
     int MP;
     int currentHP;
@@ -74,9 +85,7 @@ protected:
     float speed;
 
     Orientation::ORIENTATION orientation;
-    Orientation::ORIENTATION moveOrientation;
     QList<Skill*> skillList;
-
 };
 
 #endif // CHARACTER_H

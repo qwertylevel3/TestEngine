@@ -10,6 +10,7 @@
 #include"decorationmanager.h"
 #include"bulletmanager.h"
 #include"scenemanager.h"
+#include"clockmanager.h"
 
 T3Engine::T3Engine(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -43,6 +44,9 @@ void T3Engine::init()
     DecorationManager::instance()->init();
     BulletManager::instance()->init();
     SceneManager::instance()->init();
+
+    ClockManager::instance()->init();
+
 }
 
 void T3Engine::timerEvent(QTimerEvent *e)
@@ -86,6 +90,8 @@ void T3Engine::gameLoop()
     m_frame++;
 
     scene->update();
+
+    ClockManager::instance()->update();
 }
 
 void T3Engine::keyPressEvent(QKeyEvent *e)

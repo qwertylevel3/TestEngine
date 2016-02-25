@@ -54,7 +54,8 @@ SOURCES += main.cpp\
     T3Engine/manager/scenemanager.cpp \
     T3Engine/orientation.cpp \
     T3Engine/sprite/picture.cpp \
-    T3Engine/sprite/picturetext.cpp
+    T3Engine/sprite/picturetext.cpp \
+    T3Engine/manager/clockmanager.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -84,7 +85,8 @@ HEADERS  += \
     T3Engine/orientation.h \
     stable.h \
     T3Engine/sprite/picture.h \
-    T3Engine/sprite/picturetext.h
+    T3Engine/sprite/picturetext.h \
+    T3Engine/manager/clockmanager.h
 
 RESOURCES += \
     shader.qrc

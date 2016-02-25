@@ -1,18 +1,37 @@
 #include "shoot.h"
 #include"bulletmanager.h"
 #include"scenemanager.h"
+#include"clockmanager.h"
 
 
 Shoot::Shoot(Character *e)
     :Skill(e)
 {
-
+    clockId=ClockManager::instance()->genClock();
 }
 
 void Shoot::start(InputModule::Command c)
 {
     Skill::start(c);
 
+}
+
+void Shoot::end(InputModule::Command c)
+{
+    Skill::end(c);
+}
+
+void Shoot::run()
+{
+    if(ClockManager::instance()->isAlarm(clockId))
+    {
+        ClockManager::instance()->clear(clockId);
+        shootBullet();
+    }
+}
+
+void Shoot::shootBullet()
+{
     Bullet* bullet=BulletManager::instance()->getBullet("bullet");
     bullet->setZoomX(0.2);
     bullet->setZoomY(0.2);
@@ -26,14 +45,14 @@ void Shoot::start(InputModule::Command c)
 
     scene->addBulletToBox(bullet);
 }
-
-void Shoot::end(InputModule::Command c)
+int Shoot::getInterval() const
 {
-    Skill::end(c);
+    return interval;
 }
 
-void Shoot::run()
+void Shoot::setInterval(int value)
 {
-
+    interval = value;
+    ClockManager::instance()->setClockInterval(clockId,value);
 }
 
