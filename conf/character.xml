@@ -9,7 +9,7 @@
 		<CurrentHP>100</CurrentHP>
 		<CurrentMP>100</CurrentMP>
 		<Speed>0.01</Speed>
-		<HeartRate>14</HeartRate>
+		<HeartRate>100</HeartRate>
 	</Character>
 </CharacterBox>
 

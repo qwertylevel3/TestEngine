@@ -27,12 +27,23 @@ void Clock::setInterval(int value)
     interval = value;
     clear();
 }
+int Clock::getTick() const
+{
+    return tick;
+}
+
+void Clock::setTick(int value)
+{
+    tick = value;
+}
+
 
 //clockManager......
 
 ClockManager::ClockManager()
 {
     totalClockNumber=0;
+    MAXClock=999;
 }
 
 void ClockManager::init()
@@ -42,17 +53,40 @@ void ClockManager::init()
 
 void ClockManager::update()
 {
-    for(int i=0;i<totalClockNumber;i++)
+    int count=0;
+    for(int i=0;i<MAXClock;i++)
     {
-        clockBox[i].update();
+        if(clockBox.contains(i))
+        {
+            clockBox[i].update();
+            if(++count==totalClockNumber)
+            {
+                return;
+            }
+        }
     }
 }
 
 int ClockManager::genClock()
 {
     Clock* c=new Clock;
-    clockBox.insert(totalClockNumber++,*c);
-    return totalClockNumber-1;
+    int index=0;
+    for(;index<MAXClock;index++)
+    {
+        if(!clockBox.contains(index))
+        {
+            clockBox.insert(index,*c);
+            totalClockNumber++;
+            break;
+        }
+    }
+    if(index>=MAXClock)
+    {
+        qDebug()<<"clock out of range"<<endl;
+        delete c;
+        return -1;
+    }
+    return index;
 }
 
 bool ClockManager::setClockInterval(int clockId, int interval)
@@ -81,4 +115,10 @@ void ClockManager::clear(int clockId)
 void ClockManager::deleteClock(int clockId)
 {
     clockBox.remove(clockId);
+    totalClockNumber--;
+}
+
+int ClockManager::getTick(int clockId)
+{
+    return clockBox[clockId].getTick();
 }

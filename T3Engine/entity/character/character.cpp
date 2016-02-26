@@ -23,6 +23,7 @@ void Character::update()
 {
     Entity::update();
     runSkill();
+    //qDebug()<<ClockManager::instance()->getTick(heartId)<<endl;
 }
 
 Character *Character::clone()
@@ -245,22 +246,6 @@ void Character::endUp(InputModule::Command c)
     {
         setOrientation(Orientation::right);
     }
-    else if(!ClockManager::instance()->isAlarm(heartId))
-    {
-        if(lastOrientation==Orientation::left)
-        {
-            setOrientation(Orientation::upLeft);
-        }
-        if(lastOrientation==Orientation::right)
-        {
-            setOrientation(Orientation::upRight);
-        }
-    }
-    if(lastOrientation!=Orientation::up)
-    {
-        ClockManager::instance()->clear(heartId);
-    }
-    lastOrientation=Orientation::up;
 }
 
 void Character::endDown(InputModule::Command c)
@@ -274,23 +259,6 @@ void Character::endDown(InputModule::Command c)
     {
         setOrientation(Orientation::right);
     }
-    else if(!ClockManager::instance()->isAlarm(heartId))
-    {
-        if(lastOrientation==Orientation::left)
-        {
-            setOrientation(Orientation::downLeft);
-        }
-        if(lastOrientation==Orientation::right)
-        {
-            setOrientation(Orientation::downRight);
-        }
-
-    }
-    if(lastOrientation!=Orientation::down)
-    {
-        ClockManager::instance()->clear(heartId);
-    }
-    lastOrientation=Orientation::down;
 }
 
 void Character::endLeft(InputModule::Command c)
@@ -299,29 +267,12 @@ void Character::endLeft(InputModule::Command c)
     if(skillList[0]->isRunning())
     {
         setOrientation(Orientation::up);
+
     }
     else if(skillList[1]->isRunning())
     {
         setOrientation(Orientation::down);
     }
-    else if(!ClockManager::instance()->isAlarm(heartId))
-    {
-        if(lastOrientation==Orientation::up)
-        {
-            setOrientation(Orientation::upLeft);
-        }
-        if(lastOrientation==Orientation::down)
-        {
-            setOrientation(Orientation::downLeft);
-        }
-
-    }
-    if(lastOrientation!=Orientation::left)
-    {
-        ClockManager::instance()->clear(heartId);
-    }
-
-    lastOrientation=Orientation::left;
 }
 
 void Character::endRight(InputModule::Command c)
@@ -335,22 +286,6 @@ void Character::endRight(InputModule::Command c)
     {
         setOrientation(Orientation::down);
     }
-    else if(!ClockManager::instance()->isAlarm(heartId))
-    {
-        if(lastOrientation==Orientation::up)
-        {
-            setOrientation(Orientation::upRight);
-        }
-        if(lastOrientation==Orientation::down)
-        {
-            setOrientation(Orientation::downRight);
-        }
-    }
-    if(lastOrientation!=Orientation::right)
-    {
-        ClockManager::instance()->clear(heartId);
-    }
-    lastOrientation=Orientation::right;
 }
 
 void Character::endA_C(InputModule::Command c)

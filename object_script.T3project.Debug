@@ -29,5 +29,4 @@ INPUT(
 ./debug\clockmanager.o
 ./debug\qrc_shader.o
 ./debug\moc_inputmodule.o
-./debug\moc_clockmanager.o
 );
