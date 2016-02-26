@@ -7,9 +7,11 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    //GameConfigurator::instance()->init();
+    GameConfigurator::instance()->init();
 
-    //T3Engine::instance()->show();
+    T3Engine::instance()->show();
+    T3Engine::instance()->hide();
+
     SpriteCreator spriteCreator;
     spriteCreator.show();
 

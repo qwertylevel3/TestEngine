@@ -8,8 +8,7 @@ SpriteManager::SpriteManager()
 }
 
 void SpriteManager::init()
-{
-    QString fileName=GameConfigurator::instance()->getSpriteConfigFileName();
+{    QString fileName=GameConfigurator::instance()->getSpriteConfigFileName();
 
     QString path=QDir::currentPath()+QDir::separator()+fileName;
 
@@ -44,6 +43,32 @@ Sprite *SpriteManager::getSprite(const QString &spriteName)
     Sprite* t=spriteBox[spriteName];
     Sprite* s=t->clone();
     return s;
+}
+
+void SpriteManager::write()
+{
+//    QString fileName=GameConfigurator::instance()->getSpriteConfigFileName();
+//    QString path=QDir::currentPath()+QDir::separator()+fileName;
+//    QFile file(path);
+//
+//    //todo...
+//
+//    if (!file.open(QFile::WriteOnly | QFile::Text))
+//    {
+//        qDebug()<<"can not open "<<fileName<<" to write."<<endl;
+//        return ;
+//    }
+//    writer.setDevice(&file);
+//    writer.setAutoFormatting(true);
+//    writer.writeStartDocument();
+//    writer.writeStartElement("SpriteBox");
+//
+//    for(int i=0;i<spriteBox.size();i++)
+//    {
+//
+//    }
+//
+//    file.close();
 }
 
 Sprite *SpriteManager::makeSprite()

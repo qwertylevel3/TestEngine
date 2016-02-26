@@ -1,17 +1,12 @@
 #include "spritecreator.h"
 #include"stable.h"
+#include"spritemanager.h"
+#include"picturemanager.h"
 
 SpriteCreator::SpriteCreator(QWidget *parent) : QMainWindow(parent)
 {
-
-    createActions();
-    createMenus();
-
-    tabWidget=new QTabWidget(this);
-
-    this->setCentralWidget(tabWidget);
-
-    setWindowState(Qt::WindowMaximized);
+    initManager();
+    makeUI();
 }
 
 
@@ -72,6 +67,12 @@ void SpriteCreator::complete()
 
 }
 
+void SpriteCreator::initManager()
+{
+    PictureManager::instance()->init();
+    SpriteManager::instance()->init();
+}
+
 void SpriteCreator::createActions()
 {
     openAction=new QAction(tr("&Open"),this);
@@ -95,3 +96,89 @@ void SpriteCreator::createMenus()
     fileMenu->addAction(exitAction);
 
 }
+
+void SpriteCreator::makeUI()
+{
+    createActions();
+    createMenus();
+
+    makeSpriteList();
+    makeTotalSpriteLabel();
+    makeButton();
+
+    QWidget* mainWidget=new QWidget();
+
+    QHBoxLayout* hLayout=new QHBoxLayout();
+    QVBoxLayout* vLayout=new QVBoxLayout();
+
+    vLayout->addLayout(totalNumberLayout);
+    vLayout->addLayout(buttonLayout);
+
+    hLayout->addWidget(listArea);
+    hLayout->addLayout(vLayout);
+
+    mainWidget->setLayout(hLayout);
+
+    setCentralWidget(mainWidget);
+    setWindowState(Qt::WindowMaximized);
+}
+
+void SpriteCreator::makeSpriteList()
+{
+    listArea=new QScrollArea();
+    QWidget* listWidget=new QWidget();
+
+    QVBoxLayout* layout=new QVBoxLayout();
+
+    QMap<QString,Sprite* > spriteBox=SpriteManager::instance()->getSpriteBox();
+    QMap<QString,Sprite*>::const_iterator i = spriteBox.constBegin();
+    while (i != spriteBox.constEnd()) {
+        QCommandLinkButton* button=new QCommandLinkButton();
+        button->setText(i.key());
+        layout->addWidget(button);
+
+        ++i;
+    }
+    listWidget->setLayout(layout);
+    listArea->setWidget(listWidget);
+
+}
+
+void SpriteCreator::makeTotalSpriteLabel()
+{
+    totalNumberLayout=new QVBoxLayout();
+    QLabel* totalNumberLabel=new QLabel();
+    totalNumberLabel->setText("sprite总数:");
+    QPlainTextEdit* totalNumberTextEdit=new QPlainTextEdit();
+    int totalNumber=SpriteManager::instance()->getTotalSpriteNumber();
+
+
+    totalNumberTextEdit->setPlainText(QString(totalNumber));
+
+    totalNumberLayout->addWidget(totalNumberLabel);
+    totalNumberLayout->addWidget(totalNumberTextEdit);
+}
+
+void SpriteCreator::makeButton()
+{
+    buttonLayout=new QVBoxLayout();
+    QPushButton* chooseButton=new QPushButton();
+    chooseButton->setText("修改Sprite");
+    QPushButton* newSpriteButton=new QPushButton();
+    newSpriteButton->setText("新建Sprite");
+    QPushButton* quitButton=new QPushButton();
+    quitButton->setText("退出");
+
+    buttonLayout->addWidget(chooseButton);
+    buttonLayout->addWidget(newSpriteButton);
+    buttonLayout->addWidget(quitButton);
+
+    connect(quitButton,SIGNAL(clicked(bool)),this,SLOT(close()));
+}
+
+
+
+
+
+
+

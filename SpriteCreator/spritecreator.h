@@ -13,18 +13,24 @@ public slots:
 
     void complete();
 private:
+    void initManager();
     void createActions();
     void createMenus();
+    void makeUI();
 
-    bool parseXsd(const QString& fileName);
-
+    void makeSpriteList();
+    void makeTotalSpriteLabel();
+    void makeButton();
+    
     QMenu* fileMenu;
 
     QAction* openAction;
     QAction* exitAction;
 
-    QTabWidget* tabWidget;
 
+    QScrollArea* listArea;
+    QVBoxLayout* totalNumberLayout;
+    QVBoxLayout* buttonLayout;
 };
 
 #endif // SPRITECREATOR_H

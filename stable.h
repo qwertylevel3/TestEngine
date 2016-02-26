@@ -25,6 +25,13 @@
 #include<QDebug>
 #include<QDir>
 #include<QImageReader>
+#include<QXmlStreamWriter>
+#include<QCommandLinkButton>
+#include<QLabel>
+#include<QWidget>
+#include<QLayout>
+#include<QPlainTextEdit>
+#include<QScrollArea>
 
 
 //qt_opengl
