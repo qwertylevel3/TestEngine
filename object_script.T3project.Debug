@@ -27,6 +27,8 @@ INPUT(
 ./debug\picture.o
 ./debug\picturetext.o
 ./debug\clockmanager.o
+./debug\spritecreator.o
 ./debug\qrc_shader.o
 ./debug\moc_inputmodule.o
+./debug\moc_spritecreator.o
 );

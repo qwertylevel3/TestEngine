@@ -27,6 +27,8 @@ INPUT(
 ./release\picture.o
 ./release\picturetext.o
 ./release\clockmanager.o
+./release\spritecreator.o
 ./release\qrc_shader.o
 ./release\moc_inputmodule.o
+./release\moc_spritecreator.o
 );

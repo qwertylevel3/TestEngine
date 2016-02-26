@@ -3,9 +3,15 @@
 
 
 //qt...
+#include<QFileDialog>
+#include<QAction>
+#include<QMenu>
+#include<QMenuBar>
+#include<QMessageBox>
+#include<QApplication>
 #include<QtGui/QWindow>
 #include<QtCore/QCoreApplication>
-
+#include<QMainWindow>
 #include<QTimer>
 #include<QColor>
 #include<QFont>

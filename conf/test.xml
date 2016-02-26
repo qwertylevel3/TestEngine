@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SpriteBox>
-	<TotalSpriteNumber>7</TotalSpriteNumber>
+	<TotalSpriteNumber>8</TotalSpriteNumber>
 	<Sprite>
 		<SpriteName>test</SpriteName>
 		<TotalActionNumber>4</TotalActionNumber>
@@ -499,6 +499,72 @@
 							<w>47</w>
 							<h>51</h>
 						</rect>
+					</rectBox>
+				</Frame>
+			</FrameBox>
+		</Action>
+	</Sprite>
+	<Sprite>
+		<SpriteName>targetCircle</SpriteName>
+		<TotalActionNumber>1</TotalActionNumber>
+		<width>48</width>
+		<height>48</height>
+		
+		<Action>
+			<ActionName>targetCircle</ActionName>
+			<FrameDelay>5</FrameDelay>
+			<FrameTotal>4</FrameTotal>
+			<IsRepeat>true</IsRepeat>
+			<RepeatStart>0</RepeatStart>
+			<RepeatOver>3</RepeatOver>
+			
+			<FrameBox>
+				<Frame>
+					<PictureName>\resource\decoration\target.png</PictureName>
+					<x>0</x>
+					<y>0</y>
+					<dx>48</dx>
+					<dy>48</dy>
+
+					<rectBox>
+						<rectNumber>0</rectNumber>
+
+					</rectBox>
+				</Frame>
+				<Frame>
+					<PictureName>\resource\decoration\target.png</PictureName>
+					<x>48</x>
+					<y>0</y>
+					<dx>48</dx>
+					<dy>48</dy>
+
+					<rectBox>
+						<rectNumber>0</rectNumber>
+
+					</rectBox>
+				</Frame>
+				<Frame>
+					<PictureName>\resource\decoration\target.png</PictureName>
+					<x>96</x>
+					<y>0</y>
+					<dx>48</dx>
+					<dy>48</dy>
+
+					<rectBox>
+						<rectNumber>0</rectNumber>
+
+					</rectBox>
+				</Frame>
+				<Frame>
+					<PictureName>\resource\decoration\target.png</PictureName>
+					<x>144</x>
+					<y>0</y>
+					<dx>48</dx>
+					<dy>48</dy>
+
+					<rectBox>
+						<rectNumber>0</rectNumber>
+
 					</rectBox>
 				</Frame>
 			</FrameBox>

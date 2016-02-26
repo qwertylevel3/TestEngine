@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DecorationBox>
-	<TotalDecorationNumber>3</TotalDecorationNumber>
+	<TotalDecorationNumber>4</TotalDecorationNumber>
 	<Decoration>
 		<Name>tree1</Name>
 		<SpriteName>tree1</SpriteName>
@@ -12,5 +12,9 @@
 	<Decoration>
 		<Name>textFrame</Name>
 		<SpriteName>textFrame</SpriteName>
+	</Decoration>
+	<Decoration>
+		<Name>targetCircle</Name>
+		<SpriteName>targetCircle</SpriteName>
 	</Decoration>
 </DecorationBox>

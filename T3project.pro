@@ -27,6 +27,7 @@ INCLUDEPATH += $$PWD\T3Engine\scene\
 INCLUDEPATH += $$PWD\T3Engine\skill\
 INCLUDEPATH += $$PWD\T3Engine\sprite\
 INCLUDEPATH += $$PWD\T3Engine\
+INCLUDEPATH += $$PWD\SpriteCreator\
 
 SOURCES += main.cpp\
     T3Engine/scene/scene.cpp \
@@ -55,7 +56,8 @@ SOURCES += main.cpp\
     T3Engine/orientation.cpp \
     T3Engine/sprite/picture.cpp \
     T3Engine/sprite/picturetext.cpp \
-    T3Engine/manager/clockmanager.cpp
+    T3Engine/manager/clockmanager.cpp \
+    SpriteCreator/spritecreator.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -86,7 +88,8 @@ HEADERS  += \
     stable.h \
     T3Engine/sprite/picture.h \
     T3Engine/sprite/picturetext.h \
-    T3Engine/manager/clockmanager.h
+    T3Engine/manager/clockmanager.h \
+    SpriteCreator/spritecreator.h
 
 RESOURCES += \
     shader.qrc
