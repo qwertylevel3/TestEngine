@@ -28,6 +28,11 @@ void SpriteCreator::open()
 
 }
 
+void SpriteCreator::save()
+{
+
+}
+
 void SpriteCreator::complete()
 {
  //    InputIDDialog dialog(this);
@@ -86,15 +91,20 @@ void SpriteCreator::createActions()
     exitAction->setStatusTip(tr("退出"));
     connect(exitAction,SIGNAL(triggered(bool)),this,SLOT(close()));
 
+    saveAction=new QAction(tr("&Save"),this);
+    saveAction->setShortcut(tr("Ctrl+S"));
+    saveAction->setStatusTip(tr("保存"));
+    connect(saveAction,SIGNAL(triggered(bool)),this,SLOT(save()));
+
 }
 
 void SpriteCreator::createMenus()
 {
     fileMenu=menuBar()->addMenu(tr("&File"));
     fileMenu->addAction(openAction);
+    fileMenu->addAction(saveAction);
     fileMenu->addSeparator();
     fileMenu->addAction(exitAction);
-
 }
 
 void SpriteCreator::makeUI()
@@ -112,6 +122,7 @@ void SpriteCreator::makeUI()
     QVBoxLayout* vLayout=new QVBoxLayout();
 
     vLayout->addLayout(totalNumberLayout);
+    vLayout->addStretch();
     vLayout->addLayout(buttonLayout);
 
     hLayout->addWidget(listArea);
@@ -146,14 +157,14 @@ void SpriteCreator::makeSpriteList()
 
 void SpriteCreator::makeTotalSpriteLabel()
 {
-    totalNumberLayout=new QVBoxLayout();
+    totalNumberLayout=new QHBoxLayout();
     QLabel* totalNumberLabel=new QLabel();
     totalNumberLabel->setText("sprite总数:");
-    QPlainTextEdit* totalNumberTextEdit=new QPlainTextEdit();
+    QTextEdit* totalNumberTextEdit=new QTextEdit();
     int totalNumber=SpriteManager::instance()->getTotalSpriteNumber();
-
-
-    totalNumberTextEdit->setPlainText(QString(totalNumber));
+    totalNumberTextEdit->setText(QString::number(totalNumber));
+    totalNumberTextEdit->setMaximumHeight(25);
+    totalNumberTextEdit->setEnabled(false);
 
     totalNumberLayout->addWidget(totalNumberLabel);
     totalNumberLayout->addWidget(totalNumberTextEdit);

@@ -10,6 +10,7 @@ public:
     explicit SpriteCreator(QWidget *parent = 0);
 public slots:
     void open();
+    void save();
 
     void complete();
 private:
@@ -26,10 +27,11 @@ private:
 
     QAction* openAction;
     QAction* exitAction;
+    QAction* saveAction;
 
 
     QScrollArea* listArea;
-    QVBoxLayout* totalNumberLayout;
+    QHBoxLayout* totalNumberLayout;
     QVBoxLayout* buttonLayout;
 };
 

@@ -2,13 +2,14 @@
 #define GAMECONFIGURATOR_H
 
 #include"singleton.h"
+#include"stable.h"
 
 class GameConfigurator :public Singleton<GameConfigurator>
 {
 public:
     GameConfigurator();
 
-    void init();
+    void init(const QString& fileName);
 
     float getScale(){return scale;}
     int getWindowWidth(){return windowWidth;}
@@ -103,6 +104,10 @@ protected:
     QString decorationConfigFileName;
     QString bulletConfigFileName;
     QString SceneConfigFileName;
+
+    QXmlStreamReader reader;
+    void makeParameter();
+    void parseXml(const QString& fileName);
 };
 
 #endif // GAMECONFIGURATOR_H

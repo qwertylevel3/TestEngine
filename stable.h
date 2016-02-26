@@ -30,7 +30,7 @@
 #include<QLabel>
 #include<QWidget>
 #include<QLayout>
-#include<QPlainTextEdit>
+#include<QTextEdit>
 #include<QScrollArea>
 
 
