@@ -17,39 +17,49 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QScrollArea" name="scrollArea">
-       <property name="widgetResizable">
-        <bool>true</bool>
+      <widget class="QLabel" name="pictureLabel">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>200</height>
+        </size>
        </property>
-       <widget class="QWidget" name="scrollAreaWidgetContents">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>231</width>
-          <height>217</height>
-         </rect>
-        </property>
-        <widget class="QLabel" name="pictureLabel">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>20</y>
-           <width>211</width>
-           <height>191</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </widget>
+       <property name="text">
+        <string/>
+       </property>
       </widget>
      </item>
      <item>
       <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="pictureWidthLabel">
+         <property name="text">
+          <string>原图宽：</string>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="1">
         <widget class="QTextEdit" name="pictureWidthTextEdit">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="pictureHeightLabel">
+         <property name="text">
+          <string>原图高：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QTextEdit" name="pictureHeightTextEdit">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -68,35 +78,25 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="pictureHeightLabel">
-         <property name="text">
-          <string>原图高：</string>
-         </property>
-        </widget>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="hShardNumberSpinBox"/>
        </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="pictureWidthLabel">
+       <item row="3" column="0">
+        <widget class="QLabel" name="vShardNumberLabel">
          <property name="text">
-          <string>原图宽：</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QTextEdit" name="pictureHeightTextEdit">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>25</height>
-          </size>
+          <string>垂直切分：</string>
          </property>
         </widget>
        </item>
        <item row="3" column="1">
         <widget class="QSpinBox" name="vShardNumberSpinBox"/>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="afterShardWidthLabel">
+         <property name="text">
+          <string>切分后宽：</string>
+         </property>
+        </widget>
        </item>
        <item row="4" column="1">
         <widget class="QTextEdit" name="afterShardWidthTextEdit">
@@ -108,23 +108,6 @@
            <width>16777215</width>
            <height>25</height>
           </size>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QSpinBox" name="hShardNumberSpinBox"/>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="afterShardWidthLabel">
-         <property name="text">
-          <string>切分后宽：</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="vShardNumberLabel">
-         <property name="text">
-          <string>垂直切分：</string>
          </property>
         </widget>
        </item>
@@ -231,6 +214,11 @@
     </layout>
    </item>
   </layout>
+  <zorder>pictureLabel</zorder>
+  <zorder>pictureLabel</zorder>
+  <zorder></zorder>
+  <zorder>pictureLabel</zorder>
+  <zorder></zorder>
  </widget>
  <resources/>
  <connections>

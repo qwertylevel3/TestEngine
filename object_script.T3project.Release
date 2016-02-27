@@ -29,7 +29,9 @@ INPUT(
 ./release\clockmanager.o
 ./release\spritecreator.o
 ./release\openglwidget.o
+./release\spritegeneraldialog.o
 ./release\qrc_shader.o
 ./release\moc_inputmodule.o
 ./release\moc_spritecreator.o
+./release\moc_spritegeneraldialog.o
 );

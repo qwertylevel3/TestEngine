@@ -2,6 +2,7 @@
 #include"stable.h"
 #include"spritemanager.h"
 #include"picturemanager.h"
+#include"spritegeneraldialog.h"
 
 SpriteButton::SpriteButton(QWidget *parent) : QCommandLinkButton(parent)
 {
@@ -22,19 +23,15 @@ SpriteCreator::SpriteCreator(QWidget *parent) : QMainWindow(parent)
 
 void SpriteCreator::open()
 {
-        QString fileName=QFileDialog::getOpenFileName(this,
-                                                  tr("打开xsd文件"),".",
-                                                  tr("xsd files(*.xsd)"));
-
-//    if(!fileName.isEmpty())
-//    {
-//        if(!parseXsd(fileName))
-//        {
-//            QMessageBox::warning(this,tr("Error"),
-//                                 tr("The file parse fail"),
-//                                 QMessageBox::Ok);
-//        }
-//    }
+    QString fileName=QFileDialog::getOpenFileName(this,
+                                                  tr("打开png图片"),".",
+                                                  tr("png files(*.png)"));
+    if(!fileName.isEmpty())
+    {
+        SpriteGeneralDialog dialog(this);
+        dialog.setPictureName(fileName);
+        dialog.exec();
+    }
 
 }
 
@@ -57,8 +54,7 @@ void SpriteCreator::editSprite()
 
 void SpriteCreator::newSprite()
 {
-    qDebug()<<"new sprite"<<endl;
-
+    open();
 }
 
 void SpriteCreator::complete()
@@ -105,7 +101,7 @@ void SpriteCreator::createActions()
     openAction=new QAction(tr("&Open"),this);
     openAction->setIcon(QIcon(":/resource/open.png"));
     openAction->setShortcut(QKeySequence::Open);
-    openAction->setStatusTip(tr("打开xml文件"));
+    openAction->setStatusTip(tr("打开图片"));
     connect(openAction,SIGNAL(triggered(bool)),this,SLOT(open()));
 
     exitAction=new QAction(tr("&Exit"),this);
@@ -117,7 +113,6 @@ void SpriteCreator::createActions()
     saveAction->setShortcut(tr("Ctrl+S"));
     saveAction->setStatusTip(tr("保存"));
     connect(saveAction,SIGNAL(triggered(bool)),this,SLOT(save()));
-
 }
 
 void SpriteCreator::createMenus()
