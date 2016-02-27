@@ -7,10 +7,11 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    GameConfigurator::instance()->init("conf/spriteCreator.xml");
+    //GameConfigurator::instance()->init("conf/spriteCreator.xml");
+    GameConfigurator::instance()->init("conf/config.xml");
 
     T3Engine::instance()->show();
-    T3Engine::instance()->hide();
+    //T3Engine::instance()->hide();
 
     SpriteCreator spriteCreator;
     spriteCreator.show();

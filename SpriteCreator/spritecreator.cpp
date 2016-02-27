@@ -45,8 +45,20 @@ void SpriteCreator::save()
 
 void SpriteCreator::setSprite(const QString &spriteName)
 {
+    currentSpriteName=spriteName;
     Sprite* sprite=SpriteManager::instance()->getSprite(spriteName);
     openglWidget->setSprite(sprite);
+}
+
+void SpriteCreator::editSprite()
+{
+
+}
+
+void SpriteCreator::newSprite()
+{
+    qDebug()<<"new sprite"<<endl;
+
 }
 
 void SpriteCreator::complete()
@@ -134,7 +146,6 @@ void SpriteCreator::makeUI()
 
     vLayout->addLayout(totalNumberLayout);
     openglWidget=new OpenglWidget(this);
-    openglWidget->resize(400,400);
     vLayout->addWidget(openglWidget);
     //vLayout->addStretch();
     vLayout->addLayout(buttonLayout);
@@ -192,8 +203,14 @@ void SpriteCreator::makeButton()
     buttonLayout=new QVBoxLayout();
     QPushButton* chooseButton=new QPushButton();
     chooseButton->setText("修改Sprite");
+
+    connect(chooseButton,SIGNAL(clicked(bool)),this,SLOT(editSprite()));
+
     QPushButton* newSpriteButton=new QPushButton();
     newSpriteButton->setText("新建Sprite");
+
+    connect(newSpriteButton,SIGNAL(clicked(bool)),this,SLOT(newSprite()));
+
     QPushButton* quitButton=new QPushButton();
     quitButton->setText("退出");
 

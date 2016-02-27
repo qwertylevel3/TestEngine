@@ -58,7 +58,8 @@ SOURCES += main.cpp\
     T3Engine/sprite/picturetext.cpp \
     T3Engine/manager/clockmanager.cpp \
     SpriteCreator/spritecreator.cpp \
-    SpriteCreator/openglwidget.cpp
+    SpriteCreator/openglwidget.cpp \
+    SpriteCreator/spritegeneraldialog.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -91,7 +92,11 @@ HEADERS  += \
     T3Engine/sprite/picturetext.h \
     T3Engine/manager/clockmanager.h \
     SpriteCreator/spritecreator.h \
-    SpriteCreator/openglwidget.h
+    SpriteCreator/openglwidget.h \
+    SpriteCreator/spritegeneraldialog.h
 
 RESOURCES += \
     shader.qrc
+
+FORMS += \
+    SpriteCreator/spritegeneraldialog.ui

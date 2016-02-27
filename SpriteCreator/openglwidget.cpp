@@ -50,6 +50,7 @@ void OpenglWidget::paintGL()
     if(sprite)
     {
         sprite->draw();
+        sprite->drawRect();
     }
 
 }

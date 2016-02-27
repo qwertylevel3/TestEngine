@@ -26,7 +26,8 @@ public slots:
     void save();
 
     void setSprite(const QString& spriteName);
-
+    void editSprite();
+    void newSprite();
     void complete();
 private:
     void createActions();
@@ -48,6 +49,8 @@ private:
     QScrollArea* listArea;
     QHBoxLayout* totalNumberLayout;
     QVBoxLayout* buttonLayout;
+
+    QString currentSpriteName;
 };
 
 #endif // SPRITECREATOR_H
