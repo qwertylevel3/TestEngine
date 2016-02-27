@@ -22,19 +22,9 @@ protected:
     void keyReleaseEvent(QKeyEvent *e);
 private:
     QBasicTimer timer;
-    bool m_update_pending;
-    bool m_animating;
 
     QMatrix4x4 projection;
 
-    QOpenGLContext *m_context;
-
-    GLuint m_posAttr;
-    GLuint m_colAttr;
-    GLuint m_matrixUniform;
-    int xRot;
-    int yRot;
-    int zRot;
 
     int m_frame;
 

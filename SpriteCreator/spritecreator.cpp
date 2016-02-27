@@ -122,7 +122,9 @@ void SpriteCreator::makeUI()
     QVBoxLayout* vLayout=new QVBoxLayout();
 
     vLayout->addLayout(totalNumberLayout);
-    vLayout->addStretch();
+    openglWidget=new OpenglWidget(this);
+    vLayout->addWidget(openglWidget);
+    //vLayout->addStretch();
     vLayout->addLayout(buttonLayout);
 
     hLayout->addWidget(listArea);
@@ -131,7 +133,7 @@ void SpriteCreator::makeUI()
     mainWidget->setLayout(hLayout);
 
     setCentralWidget(mainWidget);
-    setWindowState(Qt::WindowMaximized);
+    //setWindowState(Qt::WindowMaximized);
 }
 
 void SpriteCreator::makeSpriteList()

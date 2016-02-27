@@ -162,10 +162,17 @@ bool Scene::isCollision(QRectF a, QRectF b)
     return false;
 }
 
-void Scene::addEntityToLayerBox(Entity *entity)
+bool Scene::addEntityToLayerBox(Entity *entity)
 {
     entity->setScene(this);
+    int z=-entity->getZ();
+    if(z>GameConfigurator::instance()->getPaintFar() ||
+            z<GameConfigurator::instance()->getPaintNear())
+    {
+        return false;
+    }
     layerBox[-(entity->getZ())].append(entity);
+    return true;
 }
 int Scene::getHeight() const
 {
@@ -190,24 +197,33 @@ void Scene::setWidth(int value)
 
 void Scene::addCharacterToBox(Character *character)
 {
-    characterBox.append(character);
-    addEntityToLayerBox(character);
+    if(addEntityToLayerBox(character))
+    {
+        characterBox.append(character);
+
+    }
 }
 
 void Scene::addTerrainToBox(Terrain *terrain)
 {
-    terrainBox.append(terrain);
-    addEntityToLayerBox(terrain);
+    if(addEntityToLayerBox(terrain))
+    {
+        terrainBox.append(terrain);
+    }
 }
 
 void Scene::addDecorationToBox(Decoration *decoration)
 {
-    decorationBox.append(decoration);
-    addEntityToLayerBox(decoration);
+    if(addEntityToLayerBox(decoration))
+    {
+        decorationBox.append(decoration);
+    }
 }
 
 void Scene::addBulletToBox(Bullet *bullet)
 {
-    bulletBox.append(bullet);
-    addEntityToLayerBox(bullet);
+    if(addEntityToLayerBox(bullet))
+    {
+        bulletBox.append(bullet);
+    }
 }

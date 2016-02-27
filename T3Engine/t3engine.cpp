@@ -14,9 +14,6 @@
 
 T3Engine::T3Engine(QWidget *parent)
     : QOpenGLWidget(parent)
-    , m_update_pending(false)
-    , m_animating(false)
-    , m_context(0)
 {
     this->setFormat(GameConfigurator::instance()->getQSurfaceFormat());
 
@@ -115,8 +112,6 @@ void T3Engine::paintGL()
 
     ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
     scene->draw();
-    //scene->drawRect();
-
 }
 
 void T3Engine::resizeGL(int w, int h)

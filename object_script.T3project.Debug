@@ -28,6 +28,7 @@ INPUT(
 ./debug\picturetext.o
 ./debug\clockmanager.o
 ./debug\spritecreator.o
+./debug\openglwidget.o
 ./debug\qrc_shader.o
 ./debug\moc_inputmodule.o
 ./debug\moc_spritecreator.o

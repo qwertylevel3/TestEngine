@@ -36,7 +36,7 @@ public:
     void setName(const QString &value);
 
 protected:
-    void addEntityToLayerBox(Entity* entity);
+    bool addEntityToLayerBox(Entity* entity);
 
     QList<Character*> characterBox;
     QList<Terrain*> terrainBox;

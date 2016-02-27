@@ -11,8 +11,7 @@
 	<TerrainConfigFileName>conf/terrain.xml</TerrainConfigFileName>
 	<DecorationConfigFileName>conf/decoration.xml</DecorationConfigFileName>
 	<BulletConfigFileName>conf/bullet.xml</BulletConfigFileName>
-	<SceneConfigFileName>conf/scene.xml</SceneConfigFileName>
-
+	<SceneConfigFileName>conf/spriteCreatorScene.xml</SceneConfigFileName>
 </Config>
 
 

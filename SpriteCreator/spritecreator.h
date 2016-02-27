@@ -2,6 +2,7 @@
 #define SPRITECREATOR_H
 
 #include"stable.h"
+#include"openglwidget.h"
 
 class SpriteCreator : public QMainWindow
 {
@@ -29,6 +30,7 @@ private:
     QAction* exitAction;
     QAction* saveAction;
 
+    OpenglWidget* openglWidget;
 
     QScrollArea* listArea;
     QHBoxLayout* totalNumberLayout;
