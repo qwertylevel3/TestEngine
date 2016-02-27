@@ -1,12 +1,16 @@
 #include "openglwidget.h"
 #include"gameconfigurator.h"
 #include"shadermanager.h"
+#include"picturemanager.h"
+#include"spritemanager.h"
 
 OpenglWidget::OpenglWidget(QWidget *parent)
     :QOpenGLWidget(parent)
 {
     this->setFormat(GameConfigurator::instance()->getQSurfaceFormat());
     sprite=0;
+
+
 }
 
 OpenglWidget::~OpenglWidget()
@@ -14,10 +18,24 @@ OpenglWidget::~OpenglWidget()
 
 }
 
+void OpenglWidget::setSprite(Sprite *sp)
+{
+    if(sprite)
+    {
+        delete sprite;
+    }
+    sprite=sp;
+}
+
 void OpenglWidget::timerEvent(QTimerEvent *e)
 {
     Q_UNUSED(e)
     update();
+
+    if(sprite)
+    {
+        sprite->update();
+    }
 }
 
 void OpenglWidget::paintGL()
@@ -66,6 +84,14 @@ void OpenglWidget::initializeGL()
 
     ShaderManager::instance()->init();
 
+    initManager();
+
     timer.start(12,this);
 
+}
+
+void OpenglWidget::initManager()
+{
+    PictureManager::instance()->init();
+    SpriteManager::instance()->init();
 }

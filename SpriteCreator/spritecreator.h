@@ -4,6 +4,18 @@
 #include"stable.h"
 #include"openglwidget.h"
 
+
+class SpriteButton: public QCommandLinkButton
+{
+    Q_OBJECT
+public:
+    SpriteButton(QWidget* parent=0);
+signals:
+    void spriteName(const QString& name);
+public slots:
+    void sendSpriteName();
+};
+
 class SpriteCreator : public QMainWindow
 {
     Q_OBJECT
@@ -13,9 +25,10 @@ public slots:
     void open();
     void save();
 
+    void setSprite(const QString& spriteName);
+
     void complete();
 private:
-    void initManager();
     void createActions();
     void createMenus();
     void makeUI();

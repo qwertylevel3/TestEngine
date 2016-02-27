@@ -3,9 +3,19 @@
 #include"spritemanager.h"
 #include"picturemanager.h"
 
+SpriteButton::SpriteButton(QWidget *parent) : QCommandLinkButton(parent)
+{
+    connect(this,SIGNAL(clicked(bool)),this,SLOT(sendSpriteName()));
+}
+
+void SpriteButton::sendSpriteName()
+{
+    emit spriteName(this->text());
+}
+
+
 SpriteCreator::SpriteCreator(QWidget *parent) : QMainWindow(parent)
 {
-    initManager();
     makeUI();
 }
 
@@ -31,6 +41,12 @@ void SpriteCreator::open()
 void SpriteCreator::save()
 {
 
+}
+
+void SpriteCreator::setSprite(const QString &spriteName)
+{
+    Sprite* sprite=SpriteManager::instance()->getSprite(spriteName);
+    openglWidget->setSprite(sprite);
 }
 
 void SpriteCreator::complete()
@@ -72,12 +88,6 @@ void SpriteCreator::complete()
 
 }
 
-void SpriteCreator::initManager()
-{
-    PictureManager::instance()->init();
-    SpriteManager::instance()->init();
-}
-
 void SpriteCreator::createActions()
 {
     openAction=new QAction(tr("&Open"),this);
@@ -112,28 +122,31 @@ void SpriteCreator::makeUI()
     createActions();
     createMenus();
 
-    makeSpriteList();
-    makeTotalSpriteLabel();
-    makeButton();
 
     QWidget* mainWidget=new QWidget();
 
     QHBoxLayout* hLayout=new QHBoxLayout();
     QVBoxLayout* vLayout=new QVBoxLayout();
 
+
+    makeTotalSpriteLabel();
+    makeButton();
+
     vLayout->addLayout(totalNumberLayout);
     openglWidget=new OpenglWidget(this);
+    openglWidget->resize(400,400);
     vLayout->addWidget(openglWidget);
     //vLayout->addStretch();
     vLayout->addLayout(buttonLayout);
 
+    makeSpriteList();
     hLayout->addWidget(listArea);
     hLayout->addLayout(vLayout);
 
     mainWidget->setLayout(hLayout);
 
     setCentralWidget(mainWidget);
-    //setWindowState(Qt::WindowMaximized);
+    setWindowState(Qt::WindowMaximized);
 }
 
 void SpriteCreator::makeSpriteList()
@@ -146,9 +159,11 @@ void SpriteCreator::makeSpriteList()
     QMap<QString,Sprite* > spriteBox=SpriteManager::instance()->getSpriteBox();
     QMap<QString,Sprite*>::const_iterator i = spriteBox.constBegin();
     while (i != spriteBox.constEnd()) {
-        QCommandLinkButton* button=new QCommandLinkButton();
+        SpriteButton* button=new SpriteButton();
         button->setText(i.key());
         layout->addWidget(button);
+
+        connect(button,SIGNAL(spriteName(QString)),this,SLOT(setSprite(QString)));
 
         ++i;
     }
