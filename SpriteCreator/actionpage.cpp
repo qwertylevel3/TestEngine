@@ -15,6 +15,36 @@ ActionPage::~ActionPage()
     delete ui;
 }
 
+QString ActionPage::getActionName()
+{
+    return ui->nameTextEdit->toPlainText();
+}
+
+int ActionPage::getFrameDelay()
+{
+    return ui->frameDelaySpinBox->value();
+}
+
+int ActionPage::getFrameTotal()
+{
+    return ui->frameDelaySpinBox->value();
+}
+
+bool ActionPage::getIsRepeat()
+{
+    return ui->isRepeatCheckBox->isChecked();
+}
+
+int ActionPage::getRepeatStart()
+{
+    return ui->repeatStartSpinBox->value();
+}
+
+int ActionPage::getRepeatOver()
+{
+    return ui->repeatOverSpinBox->value();
+}
+
 int ActionPage::getFrameX(int index)
 {
     return static_cast<FramePage*>(ui->tabWidget->widget(index))->getFrameX();
@@ -33,6 +63,11 @@ int ActionPage::getFrameDX(int index)
 int ActionPage::getFrameDY(int index)
 {
     return static_cast<FramePage*>(ui->tabWidget->widget(index))->getFrameDy();
+}
+
+int ActionPage::getFrameTotal(int index)
+{
+    return static_cast<FramePage*>(ui->tabWidget->widget(index))->getTotalRectNumber();
 }
 
 QList<QRect> ActionPage::getFrameRect(int index)

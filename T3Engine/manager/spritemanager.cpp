@@ -171,7 +171,6 @@ Frame *SpriteManager::makeFrame()
 
     Frame* frame=new Frame(pictureName,rect);
 
-
     reader.readNextStartElement();//<rectBox>
 
     reader.readNextStartElement();//<rectNumber>

@@ -25,6 +25,7 @@ public:
     int getFrameY(int index);
     int getFrameDX(int index);
     int getFrameDY(int index);
+    int getFrameTotal(int index);
     QList<QRect> getFrameRect(int index);
 private slots:
     void setFramePage(int n);

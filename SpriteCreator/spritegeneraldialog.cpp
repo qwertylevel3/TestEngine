@@ -20,8 +20,9 @@ SpriteGeneralDialog::~SpriteGeneralDialog()
     delete ui;
 }
 
-void SpriteGeneralDialog::setPictureName(const QString &pictureName)
+void SpriteGeneralDialog::setPictureName(const QString &p)
 {
+    pictureName=p;
     pixmap=new QPixmap(pictureName);
     ui->pictureLabel->setScaledContents(true);
 
@@ -97,3 +98,8 @@ void SpriteGeneralDialog::cutH()
     ui->afterShardWidthTextEdit->setText(QString::number(p->width()/hNumber));
     ui->pictureLabel->setPixmap(*p);
 }
+QString SpriteGeneralDialog::getPictureName() const
+{
+    return pictureName;
+}
+

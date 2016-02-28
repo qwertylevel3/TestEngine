@@ -7,6 +7,7 @@
 
 SpriteButton::SpriteButton(QWidget *parent) : QCommandLinkButton(parent)
 {
+
     connect(this,SIGNAL(clicked(bool)),this,SLOT(sendSpriteName()));
 }
 
@@ -18,10 +19,10 @@ void SpriteButton::sendSpriteName()
 
 SpriteCreator::SpriteCreator(QWidget *parent) : QMainWindow(parent)
 {
+    generalDialog=0;
+    detailDialog=0;
     makeUI();
 }
-
-
 
 void SpriteCreator::save()
 {
@@ -47,20 +48,30 @@ void SpriteCreator::newSprite()
                                                   tr("png files(*.png)"));
     if(!fileName.isEmpty())
     {
-        SpriteGeneralDialog generalDialog(this);
-        generalDialog.setPictureName(fileName);
-        generalDialog.exec();
+        if(generalDialog!=0)
+        {
+            delete generalDialog;
+        }
+        generalDialog = new SpriteGeneralDialog(this);
 
-        SpriteDetailDialog detailDialog(this);
-        detailDialog.setSpriteName(generalDialog.getSpriteName());
-        detailDialog.setTotalActionNumber(generalDialog.getSpriteTotalActionNumber());
-        detailDialog.setSpriteWidth(generalDialog.getSpriteWidth());
-        detailDialog.setSpriteHeight(generalDialog.getSpriteHeight());
+        //TODO....pictureName
 
-        detailDialog.exec();
+        generalDialog->setPictureName(fileName);
+        if(generalDialog->exec())
+        {
+            detailDialog = new SpriteDetailDialog(this);
+            detailDialog->setTotalActionNumber(generalDialog->getSpriteTotalActionNumber());
+
+            if(detailDialog->exec())
+            {
+                Sprite* sprite=makeNewSpriteInstance();
+                SpriteManager::instance()->addSprite(sprite->getName(),sprite);
+
+                updateSpriteList();
+            }
+
+        }
     }
-
-
 }
 
 void SpriteCreator::complete()
@@ -138,8 +149,8 @@ void SpriteCreator::makeUI()
 
     QWidget* mainWidget=new QWidget();
 
-    QHBoxLayout* hLayout=new QHBoxLayout();
-    QVBoxLayout* vLayout=new QVBoxLayout();
+    hLayout=new QHBoxLayout();
+    vLayout=new QVBoxLayout();
 
 
     makeTotalSpriteLabel();
@@ -220,6 +231,72 @@ void SpriteCreator::makeButton()
     buttonLayout->addWidget(quitButton);
 
     connect(quitButton,SIGNAL(clicked(bool)),this,SLOT(close()));
+}
+
+void SpriteCreator::updateSpriteList()
+{
+    hLayout->removeWidget(listArea);
+    hLayout->removeItem(vLayout);
+    delete listArea;
+    makeSpriteList();
+    hLayout->addWidget(listArea);
+    hLayout->addLayout(vLayout);
+
+}
+
+Sprite *SpriteCreator::makeNewSpriteInstance()
+{
+    Sprite* sprite=new Sprite();
+    sprite->setName(generalDialog->getSpriteName());
+    sprite->setTotalActionNumber(generalDialog->getSpriteTotalActionNumber());
+    sprite->setWidth(generalDialog->getSpriteWidth());
+    sprite->setHeight(generalDialog->getSpriteHeight());
+
+    for(int i=0;i<sprite->getTotalActionNumber();i++)
+    {
+        Action* action=makeNewSpriteActionInstance(i);
+        sprite->addAction(action);
+    }
+    return sprite;
+}
+
+Action* SpriteCreator::makeNewSpriteActionInstance(int index)
+{
+    Action* action=new Action();
+
+    action->setName(detailDialog->getActionName(index));
+    action->setFrameDelay(detailDialog->getFrameDelay(index));
+    action->setFrameTotal(detailDialog->getFrameTotal(index));
+    action->setRepeat(detailDialog->getIsRepeat(index));
+    action->setRepeatStart(detailDialog->getRepeatStart(index));
+    action->setRepeatOver(detailDialog->getRepeatOver(index));
+
+    for(int i=0;i<action->getFrameTotal();i++)
+    {
+        Frame* frame=makeNewSpriteFrameInstance(index,i);
+        action->addFrame(frame);
+    }
+    return action;
+
+}
+
+Frame *SpriteCreator::makeNewSpriteFrameInstance(int actionIndex, int frameIndex)
+{
+    int x=detailDialog->getFrameX(actionIndex,frameIndex);
+    int y=detailDialog->getFrameY(actionIndex,frameIndex);
+    int dx=detailDialog->getFrameDX(actionIndex,frameIndex);
+    int dy=detailDialog->getFrameDY(actionIndex,frameIndex);
+
+    QRect rect(x,y,dx,dy);
+    Frame* frame=new Frame(generalDialog->getPictureName(),rect);
+
+    QList<QRect> list=detailDialog->getFrameRect(actionIndex,frameIndex);
+    for(int i=0;i<list.size();i++)
+    {
+        frame->addRect(list[i]);
+    }
+
+    return frame;
 }
 
 

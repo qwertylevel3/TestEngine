@@ -13,12 +13,14 @@ class SpriteGeneralDialog : public QDialog
 public:
     explicit SpriteGeneralDialog(QWidget *parent = 0);
     ~SpriteGeneralDialog();
-    void setPictureName(const QString& pictureName);
+    void setPictureName(const QString& p);
     void paintEvent(QPaintEvent* event);
     QString getSpriteName();
     int getSpriteTotalActionNumber();
     int getSpriteWidth();
     int getSpriteHeight();
+
+    QString getPictureName() const;
 
 private slots:
     void cutV();
@@ -26,6 +28,7 @@ private slots:
 private:
     Ui::SpriteGeneralDialog *ui;
     QPixmap* pixmap;
+    QString pictureName;
 };
 
 #endif // SPRITEGENERALDIALOG_H

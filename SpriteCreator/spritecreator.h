@@ -3,7 +3,8 @@
 
 #include"stable.h"
 #include"openglwidget.h"
-
+#include"spritegeneraldialog.h"
+#include"spritedetaildialog.h"
 
 class SpriteButton: public QCommandLinkButton
 {
@@ -36,6 +37,12 @@ private:
     void makeSpriteList();
     void makeTotalSpriteLabel();
     void makeButton();
+    void updateSpriteList();
+
+
+    Sprite* makeNewSpriteInstance();
+    Action* makeNewSpriteActionInstance(int index);
+    Frame* makeNewSpriteFrameInstance(int actionIndex,int frameIndex);
     
     QMenu* fileMenu;
 
@@ -50,6 +57,11 @@ private:
     QVBoxLayout* buttonLayout;
 
     QString currentSpriteName;
+
+    SpriteGeneralDialog *generalDialog;
+    SpriteDetailDialog *detailDialog;
+    QHBoxLayout* hLayout;
+    QVBoxLayout* vLayout;
 };
 
 #endif // SPRITECREATOR_H
