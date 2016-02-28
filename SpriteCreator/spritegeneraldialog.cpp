@@ -35,6 +35,26 @@ void SpriteGeneralDialog::paintEvent(QPaintEvent *event)
     QDialog::paintEvent(event);
 }
 
+QString SpriteGeneralDialog::getSpriteName()
+{
+    return ui->spriteNameTextEdit->toPlainText();
+}
+
+int SpriteGeneralDialog::getSpriteTotalActionNumber()
+{
+    return ui->totalActionNumberSpinBox->value();
+}
+
+int SpriteGeneralDialog::getSpriteWidth()
+{
+    return ui->spriteWidthSpinBox->value();
+}
+
+int SpriteGeneralDialog::getSpriteHeight()
+{
+    return ui->spriteHeightSpinBox->value();
+}
+
 void SpriteGeneralDialog::cutV()
 {
     QPainter painter;

@@ -30,8 +30,16 @@ INPUT(
 ./debug\spritecreator.o
 ./debug\openglwidget.o
 ./debug\spritegeneraldialog.o
+./debug\spritedetaildialog.o
+./debug\actionpage.o
+./debug\framepage.o
+./debug\rectpage.o
 ./debug\qrc_shader.o
 ./debug\moc_inputmodule.o
 ./debug\moc_spritecreator.o
 ./debug\moc_spritegeneraldialog.o
+./debug\moc_spritedetaildialog.o
+./debug\moc_actionpage.o
+./debug\moc_framepage.o
+./debug\moc_rectpage.o
 );

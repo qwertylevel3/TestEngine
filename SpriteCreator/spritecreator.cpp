@@ -3,6 +3,7 @@
 #include"spritemanager.h"
 #include"picturemanager.h"
 #include"spritegeneraldialog.h"
+#include"spritedetaildialog.h"
 
 SpriteButton::SpriteButton(QWidget *parent) : QCommandLinkButton(parent)
 {
@@ -21,19 +22,6 @@ SpriteCreator::SpriteCreator(QWidget *parent) : QMainWindow(parent)
 }
 
 
-void SpriteCreator::open()
-{
-    QString fileName=QFileDialog::getOpenFileName(this,
-                                                  tr("打开png图片"),".",
-                                                  tr("png files(*.png)"));
-    if(!fileName.isEmpty())
-    {
-        SpriteGeneralDialog dialog(this);
-        dialog.setPictureName(fileName);
-        dialog.exec();
-    }
-
-}
 
 void SpriteCreator::save()
 {
@@ -54,7 +42,25 @@ void SpriteCreator::editSprite()
 
 void SpriteCreator::newSprite()
 {
-    open();
+    QString fileName=QFileDialog::getOpenFileName(this,
+                                                  tr("打开png图片"),".",
+                                                  tr("png files(*.png)"));
+    if(!fileName.isEmpty())
+    {
+        SpriteGeneralDialog generalDialog(this);
+        generalDialog.setPictureName(fileName);
+        generalDialog.exec();
+
+        SpriteDetailDialog detailDialog(this);
+        detailDialog.setSpriteName(generalDialog.getSpriteName());
+        detailDialog.setTotalActionNumber(generalDialog.getSpriteTotalActionNumber());
+        detailDialog.setSpriteWidth(generalDialog.getSpriteWidth());
+        detailDialog.setSpriteHeight(generalDialog.getSpriteHeight());
+
+        detailDialog.exec();
+    }
+
+
 }
 
 void SpriteCreator::complete()
@@ -98,11 +104,11 @@ void SpriteCreator::complete()
 
 void SpriteCreator::createActions()
 {
-    openAction=new QAction(tr("&Open"),this);
-    openAction->setIcon(QIcon(":/resource/open.png"));
-    openAction->setShortcut(QKeySequence::Open);
-    openAction->setStatusTip(tr("打开图片"));
-    connect(openAction,SIGNAL(triggered(bool)),this,SLOT(open()));
+//    openAction=new QAction(tr("&Open"),this);
+//    openAction->setIcon(QIcon(":/resource/open.png"));
+//    openAction->setShortcut(QKeySequence::Open);
+//    openAction->setStatusTip(tr("打开图片"));
+//    connect(openAction,SIGNAL(triggered(bool)),this,SLOT(open()));
 
     exitAction=new QAction(tr("&Exit"),this);
     exitAction->setShortcut(tr("Ctrl+Q"));
@@ -118,7 +124,7 @@ void SpriteCreator::createActions()
 void SpriteCreator::createMenus()
 {
     fileMenu=menuBar()->addMenu(tr("&File"));
-    fileMenu->addAction(openAction);
+//    fileMenu->addAction(openAction);
     fileMenu->addAction(saveAction);
     fileMenu->addSeparator();
     fileMenu->addAction(exitAction);

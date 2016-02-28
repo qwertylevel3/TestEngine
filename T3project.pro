@@ -60,7 +60,10 @@ SOURCES += main.cpp\
     SpriteCreator/spritecreator.cpp \
     SpriteCreator/openglwidget.cpp \
     SpriteCreator/spritegeneraldialog.cpp \
-    SpriteCreator/spritedetaildialog.cpp
+    SpriteCreator/spritedetaildialog.cpp \
+    SpriteCreator/actionpage.cpp \
+    SpriteCreator/framepage.cpp \
+    SpriteCreator/rectpage.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -95,11 +98,17 @@ HEADERS  += \
     SpriteCreator/spritecreator.h \
     SpriteCreator/openglwidget.h \
     SpriteCreator/spritegeneraldialog.h \
-    SpriteCreator/spritedetaildialog.h
+    SpriteCreator/spritedetaildialog.h \
+    SpriteCreator/actionpage.h \
+    SpriteCreator/framepage.h \
+    SpriteCreator/rectpage.h
 
 RESOURCES += \
     shader.qrc
 
 FORMS += \
     SpriteCreator/spritegeneraldialog.ui \
-    SpriteCreator/spritedetaildialog.ui
+    SpriteCreator/spritedetaildialog.ui \
+    SpriteCreator/actionpage.ui \
+    SpriteCreator/framepage.ui \
+    SpriteCreator/rectpage.ui

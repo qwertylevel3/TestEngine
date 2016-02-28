@@ -15,6 +15,10 @@ public:
     ~SpriteGeneralDialog();
     void setPictureName(const QString& pictureName);
     void paintEvent(QPaintEvent* event);
+    QString getSpriteName();
+    int getSpriteTotalActionNumber();
+    int getSpriteWidth();
+    int getSpriteHeight();
 
 private slots:
     void cutV();

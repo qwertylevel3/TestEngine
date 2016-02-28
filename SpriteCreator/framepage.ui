@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FramePage</class>
+ <widget class="QWidget" name="FramePage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>473</width>
+    <height>306</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1">
+    <widget class="QSpinBox" name="xSpinBox"/>
+   </item>
+   <item row="1" column="1">
+    <widget class="QSpinBox" name="ySpinBox"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="dyLabel">
+     <property name="text">
+      <string>dy：</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QSpinBox" name="dySpinBox"/>
+   </item>
+   <item row="0" column="2" rowspan="5">
+    <widget class="QTabWidget" name="tabWidget">
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Tab 1</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Tab 2</string>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="yLabel">
+     <property name="text">
+      <string>y:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="dxLabel">
+     <property name="text">
+      <string>dx：</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="totalRectLabel">
+     <property name="text">
+      <string>总Rect数：</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QSpinBox" name="totalRectNumberSpinBox"/>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="xLabel">
+     <property name="text">
+      <string>x:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QSpinBox" name="dxSpinBox"/>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

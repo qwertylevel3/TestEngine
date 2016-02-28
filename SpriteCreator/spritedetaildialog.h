@@ -15,8 +15,17 @@ public:
     explicit SpriteDetailDialog(QWidget *parent = 0);
     ~SpriteDetailDialog();
 
+    void setTotalActionNumber(int value);
+    void setSpriteWidth(int value);
+    void setSpriteHeight(int value);
+    void setSpriteName(const QString &value);
+
 private:
     Ui::SpriteDetailDialog *ui;
+    QString spriteName;
+    int totalActionNumber;
+    int spriteWidth;
+    int spriteHeight;
 };
 
 #endif // SPRITEDETAILDIALOG_H

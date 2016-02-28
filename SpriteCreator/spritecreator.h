@@ -22,7 +22,6 @@ class SpriteCreator : public QMainWindow
 public:
     explicit SpriteCreator(QWidget *parent = 0);
 public slots:
-    void open();
     void save();
 
     void setSprite(const QString& spriteName);
