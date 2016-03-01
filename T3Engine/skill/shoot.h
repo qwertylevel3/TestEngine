@@ -13,7 +13,6 @@ public:
 
     int getInterval() const;
     void setInterval(int value);
-
 protected:
     void shootBullet();
     int clockId;

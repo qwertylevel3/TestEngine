@@ -17,7 +17,6 @@ Scene::Scene()
         QList<Entity*>* box =new QList<Entity*>;
         layerBox.append(*box);
     }
-
 }
 
 Scene::~Scene()
@@ -67,18 +66,6 @@ void Scene::collision()
     {
         for(int j=0;j<bulletBox.size();j++)
         {
-//            if(i!=j)
-//            {
-//                if(isCollision(characterBox[i],characterBox[j]))
-//                {
-//                    qDebug()<<"collision!"<<endl;
-//
-//                }
-//                else
-//                {
-//                    qDebug()<<"....."<<endl;
-//                }
-//            }
             if(isCollision(characterBox[i],bulletBox[j]))
             {
                 //qDebug()<<"collision"<<endl;

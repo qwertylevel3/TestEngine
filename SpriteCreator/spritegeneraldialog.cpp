@@ -20,10 +20,10 @@ SpriteGeneralDialog::~SpriteGeneralDialog()
     delete ui;
 }
 
-void SpriteGeneralDialog::setPictureName(const QString &p)
+void SpriteGeneralDialog::setPicturePath(const QString &p)
 {
-    pictureName=p;
-    pixmap=new QPixmap(pictureName);
+    picturePath=p;
+    pixmap=new QPixmap(picturePath);
     ui->pictureLabel->setScaledContents(true);
 
     ui->pictureLabel->setPixmap(*pixmap);
@@ -98,8 +98,19 @@ void SpriteGeneralDialog::cutH()
     ui->afterShardWidthTextEdit->setText(QString::number(p->width()/hNumber));
     ui->pictureLabel->setPixmap(*p);
 }
+QString SpriteGeneralDialog::getPicturePath() const
+{
+    return picturePath;
+}
+
 QString SpriteGeneralDialog::getPictureName() const
 {
+
+    int len=picturePath.length()-QDir::currentPath().length();
+    QString pictureName=picturePath.right(len);
+
     return pictureName;
+
+
 }
 

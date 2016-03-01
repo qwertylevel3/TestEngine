@@ -10,6 +10,8 @@
 class Character:public Entity
 {
 public:
+    enum TYPE{PLAYER,ENEMY,FRIEND};
+
     Character(const QString& spriteName);
     virtual ~Character();
 
@@ -65,6 +67,10 @@ public:
     int getHeartRate() const;
     void setHeartRate(int value);
 
+    TYPE getType() const;
+    void setType(const TYPE &value);
+    void setType(const QString& value);
+
 protected:
     void initSkill();
     void initParamater();
@@ -93,6 +99,8 @@ protected:
     QList<Skill*> skillList;
     int heartId;
     int heartRate;
+
+    TYPE type;
 };
 
 #endif // CHARACTER_H

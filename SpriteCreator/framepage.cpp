@@ -8,6 +8,7 @@ FramePage::FramePage(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setRectPage(0);
     connect(ui->totalRectNumberSpinBox,SIGNAL(valueChanged(int)),this,SLOT(setRectPage(int)));
 }
 

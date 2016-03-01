@@ -55,8 +55,12 @@ void SpriteCreator::newSprite()
         generalDialog = new SpriteGeneralDialog(this);
 
         //TODO....pictureName
+       // int len=fileName.length()-QDir::currentPath().length();
+       // QString pictureName=pictureName=fileName.right(len);
 
-        generalDialog->setPictureName(fileName);
+
+
+        generalDialog->setPicturePath(fileName);
         if(generalDialog->exec())
         {
             detailDialog = new SpriteDetailDialog(this);
@@ -68,6 +72,8 @@ void SpriteCreator::newSprite()
                 SpriteManager::instance()->addSprite(sprite->getName(),sprite);
 
                 updateSpriteList();
+
+                qDebug()<<SpriteManager::instance()->getTotalSpriteNumber()<<endl;
             }
 
         }
@@ -286,8 +292,8 @@ Frame *SpriteCreator::makeNewSpriteFrameInstance(int actionIndex, int frameIndex
     int y=detailDialog->getFrameY(actionIndex,frameIndex);
     int dx=detailDialog->getFrameDX(actionIndex,frameIndex);
     int dy=detailDialog->getFrameDY(actionIndex,frameIndex);
-
     QRect rect(x,y,dx,dy);
+
     Frame* frame=new Frame(generalDialog->getPictureName(),rect);
 
     QList<QRect> list=detailDialog->getFrameRect(actionIndex,frameIndex);
@@ -298,10 +304,3 @@ Frame *SpriteCreator::makeNewSpriteFrameInstance(int actionIndex, int frameIndex
 
     return frame;
 }
-
-
-
-
-
-
-

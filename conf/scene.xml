@@ -28,6 +28,7 @@
 			<TotalCharacterNumber>1</TotalCharacterNumber>
 			<Character>
 				<CharacterName>test</CharacterName>
+				<Type>FRIEND</Type>
 				<x>1</x>
 				<y>-0.6</y>
 				<z>-5</z>

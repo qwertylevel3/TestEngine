@@ -292,6 +292,36 @@ void Character::endA_C(InputModule::Command c)
 {
     skillList[4]->end(c);
 }
+Character::TYPE Character::getType() const
+{
+    return type;
+}
+
+void Character::setType(const TYPE &value)
+{
+    type = value;
+}
+
+void Character::setType(const QString &value)
+{
+    if(value=="PLAYER")
+    {
+        type=PLAYER;
+    }
+    else if(value=="ENEMY")
+    {
+        type=ENEMY;
+    }
+    else if(value=="FRIEND")
+    {
+        type=FRIEND;
+    }
+    else
+    {
+        qDebug()<<value<<" unknow character type"<<endl;
+    }
+}
+
 int Character::getHeartRate() const
 {
     return heartRate;

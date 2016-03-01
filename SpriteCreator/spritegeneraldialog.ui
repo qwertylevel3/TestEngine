@@ -212,7 +212,6 @@
   </layout>
   <zorder>pictureLabel</zorder>
   <zorder></zorder>
-  <zorder></zorder>
   <zorder>cancelButton1</zorder>
   <zorder>okButton</zorder>
   <zorder>verticalSpacer</zorder>

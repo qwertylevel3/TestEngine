@@ -173,6 +173,9 @@ void SceneManager::makeCharacter(Scene *scene)
         reader.readNextStartElement();//<CharacterName>
         QString characterName=reader.readElementText();
 
+        reader.readNextStartElement();//<type>
+        QString type=reader.readElementText();
+
         reader.readNextStartElement();//<x>
         float x=reader.readElementText().toFloat();
 
@@ -182,10 +185,12 @@ void SceneManager::makeCharacter(Scene *scene)
         reader.readNextStartElement();//<z>
         float z=reader.readElementText().toFloat();
 
+
         Character* character=CharacterManager::instance()->getCharacter(characterName);
         character->setX(x);
         character->setY(y);
         character->setZ(z);
+        character->setType(type);
 
         scene->addCharacterToBox(character);
 
@@ -214,6 +219,7 @@ void SceneManager::makePlayer(Scene *scene)
     player->setX(x);
     player->setY(y);
     player->setZ(z);
+    player->setType("PLAYER");
 
     InputModule::instance()->setEntity(player);
 
