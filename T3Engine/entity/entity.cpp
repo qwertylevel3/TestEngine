@@ -12,6 +12,9 @@ Entity::Entity(const QString &spriteName)
     localY=0;
     localZ=0;
     parent=0;
+
+    state=ALIVE;
+    remainTime=-1;
 }
 
 Entity::~Entity()
@@ -32,6 +35,18 @@ void Entity::endCommand(InputModule::Command c)
     Q_UNUSED(c)
 }
 
+void Entity::updateRemainTime()
+{
+    if(remainTime>0)
+    {
+        remainTime--;
+    }
+    if(remainTime==0)
+    {
+        state=DEAD;
+    }
+}
+
 void Entity::draw()
 {
     sprite->draw();
@@ -45,6 +60,8 @@ void Entity::drawRect()
 void Entity::update()
 {
     sprite->update();
+    updateRemainTime();
+
 }
 
 void Entity::moveX(float dx)
@@ -120,6 +137,26 @@ void Entity::setScene(Scene *value)
 {
     scene = value;
 }
+Entity::STATE Entity::getState() const
+{
+    return state;
+}
+
+void Entity::setState(const STATE &value)
+{
+    state = value;
+}
+int Entity::getRemainTime() const
+{
+    return remainTime;
+}
+
+void Entity::setRemainTime(int value)
+{
+    remainTime = value;
+}
+
+
 
 
 

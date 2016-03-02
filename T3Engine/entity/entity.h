@@ -10,6 +10,7 @@ class Scene;
 class Entity
 {
 public:
+    enum STATE{ALIVE,DEAD};
     Entity();
     Entity(const QString& spriteName);
     virtual ~Entity();
@@ -17,6 +18,8 @@ public:
 
     virtual void startCommand(InputModule::Command c);
     virtual void endCommand(InputModule::Command c);
+
+    void updateRemainTime();
 
     void setName(const QString& n){name=n;}
     void setSprite(const QString& n);
@@ -103,6 +106,12 @@ public:
     Scene *getScene() const;
     void setScene(Scene *value);
 
+    STATE getState() const;
+    void setState(const STATE &value);
+
+    int getRemainTime() const;
+    void setRemainTime(int value);
+
 protected:
     QString name;
     QString spriteName;
@@ -115,7 +124,9 @@ protected:
     float localZ;
 
     Scene* scene;
+    STATE state;
 
+    int remainTime;
 };
 
 inline

@@ -35,6 +35,9 @@ public:
     QString getName() const;
     void setName(const QString &value);
 
+    Character *getPlayer() const;
+    void setPlayer(Character *value);
+
 protected:
     bool addEntityToLayerBox(Entity* entity);
 
@@ -42,6 +45,8 @@ protected:
     QList<Terrain*> terrainBox;
     QList<Decoration*> decorationBox;
     QList<Bullet*> bulletBox;
+
+    Character* player;
 
     QList<QList<Entity*> > layerBox;
 

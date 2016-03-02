@@ -41,6 +41,7 @@ void Shoot::shootBullet()
     bullet->setZ(character->getZ());
 
     bullet->setOrientation(character->getOrientation());
+    bullet->setRemainTime(100);
     Scene* scene=SceneManager::instance()->getScene("init");
 
     scene->addBulletToBox(bullet);

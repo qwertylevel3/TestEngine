@@ -30,7 +30,8 @@ void Scene::draw()
     {
         for(int j=0;j<layerBox[i].size();j++)
         {
-            layerBox[i][j]->draw();
+            if(layerBox[i][j]->getState()==Entity::ALIVE)
+                layerBox[i][j]->draw();
         }
     }
 }
@@ -41,6 +42,7 @@ void Scene::drawBackground()
 
 void Scene::update()
 {
+    player->update();
     for(int i=0;i<bulletBox.size();i++)
     {
         bulletBox[i]->update();
@@ -62,6 +64,13 @@ void Scene::update()
 
 void Scene::collision()
 {
+    for(int i=0;i<bulletBox.size();i++)
+    {
+        if(isCollision(player,bulletBox[i]))
+        {
+            //TODO
+        }
+    }
     for(int i=0;i<characterBox.size();i++)
     {
         for(int j=0;j<bulletBox.size();j++)
@@ -161,6 +170,17 @@ bool Scene::addEntityToLayerBox(Entity *entity)
     layerBox[-(entity->getZ())].append(entity);
     return true;
 }
+Character *Scene::getPlayer() const
+{
+    return player;
+}
+
+void Scene::setPlayer(Character *value)
+{
+    player = value;
+    addEntityToLayerBox(player);
+}
+
 int Scene::getHeight() const
 {
     return height;
@@ -187,7 +207,6 @@ void Scene::addCharacterToBox(Character *character)
     if(addEntityToLayerBox(character))
     {
         characterBox.append(character);
-
     }
 }
 

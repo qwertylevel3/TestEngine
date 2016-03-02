@@ -63,7 +63,8 @@ SOURCES += main.cpp\
     SpriteCreator/spritedetaildialog.cpp \
     SpriteCreator/actionpage.cpp \
     SpriteCreator/framepage.cpp \
-    SpriteCreator/rectpage.cpp
+    SpriteCreator/rectpage.cpp \
+    T3Engine/skill/focus.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -101,7 +102,8 @@ HEADERS  += \
     SpriteCreator/spritedetaildialog.h \
     SpriteCreator/actionpage.h \
     SpriteCreator/framepage.h \
-    SpriteCreator/rectpage.h
+    SpriteCreator/rectpage.h \
+    T3Engine/skill/focus.h
 
 RESOURCES += \
     shader.qrc

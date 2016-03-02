@@ -223,6 +223,6 @@ void SceneManager::makePlayer(Scene *scene)
 
     InputModule::instance()->setEntity(player);
 
-    scene->addCharacterToBox(player);
+    scene->setPlayer(player);
     reader.readNextStartElement();//</player>
 }
