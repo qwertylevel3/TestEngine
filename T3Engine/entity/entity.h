@@ -20,6 +20,7 @@ public:
     virtual void endCommand(InputModule::Command c);
 
     void updateRemainTime();
+    bool isAlive();
 
     void setName(const QString& n){name=n;}
     void setSprite(const QString& n);

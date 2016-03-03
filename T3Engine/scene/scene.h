@@ -19,6 +19,8 @@ public:
     void update();
 
     void collision();
+    void detectPlayerCollision();
+    void detectCharacterCollision();
     bool isCollision(Entity *a, Entity *b);
     bool isCollision(QRectF a,QRectF b);
     

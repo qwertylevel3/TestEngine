@@ -47,6 +47,11 @@ void Entity::updateRemainTime()
     }
 }
 
+bool Entity::isAlive()
+{
+    return state==ALIVE?true:false;
+}
+
 void Entity::draw()
 {
     sprite->draw();

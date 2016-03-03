@@ -42,47 +42,75 @@ void Scene::drawBackground()
 
 void Scene::update()
 {
-    player->update();
-    for(int i=0;i<bulletBox.size();i++)
+    for(int i=GameConfigurator::instance()->getPaintFar();
+        i>=GameConfigurator::instance()->getPaintNear();i--)
     {
-        bulletBox[i]->update();
+        for(int j=0;j<layerBox[i].size();j++)
+        {
+            if(layerBox[i][j]->isAlive())
+                layerBox[i][j]->update();
+        }
     }
-    for(int i=0;i<characterBox.size();i++)
-    {
-        characterBox[i]->update();
-    }
-    for(int i=0;i<terrainBox.size();i++)
-    {
-        terrainBox[i]->update();
-    }
-    for(int i=0;i<decorationBox.size();i++)
-    {
-        decorationBox[i]->update();
-    }
+//    player->update();
+//    for(int i=0;i<bulletBox.size();i++)
+//    {
+//        bulletBox[i]->update();
+//    }
+//    for(int i=0;i<characterBox.size();i++)
+//    {
+//        characterBox[i]->update();
+//    }
+//    for(int i=0;i<terrainBox.size();i++)
+//    {
+//        terrainBox[i]->update();
+//    }
+//    for(int i=0;i<decorationBox.size();i++)
+//    {
+//        decorationBox[i]->update();
+//    }
     collision();
 }
 
 void Scene::collision()
 {
-    for(int i=0;i<bulletBox.size();i++)
+    detectPlayerCollision();
+    detectCharacterCollision();
+}
+
+void Scene::detectPlayerCollision()
+{
+     for(int i=0;i<bulletBox.size();i++)
     {
-        if(isCollision(player,bulletBox[i]))
+        if(player->isAlive() && bulletBox[i]->isAlive())
         {
-            //TODO
+            if(isCollision(player,bulletBox[i]))
+            {
+                //TODO
+            }
         }
+
     }
+}
+
+void Scene::detectCharacterCollision()
+{
+
     for(int i=0;i<characterBox.size();i++)
     {
         for(int j=0;j<bulletBox.size();j++)
         {
-            if(isCollision(characterBox[i],bulletBox[j]))
+            if(characterBox[i]->isAlive() && bulletBox[j]->isAlive())
             {
-                //qDebug()<<"collision"<<endl;
+                if(isCollision(characterBox[i],bulletBox[j]))
+                {
+                    //qDebug()<<"collision"<<endl;
+                }
+                else
+                {
+                    //qDebug()<<"...."<<endl;
+                }
             }
-            else
-            {
-                //qDebug()<<"...."<<endl;
-            }
+
         }
     }
 }
