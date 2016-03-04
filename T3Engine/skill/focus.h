@@ -3,6 +3,8 @@
 
 #include"skill.h"
 
+class Decoration;
+
 class Focus:public Skill
 {
 public:
@@ -10,7 +12,8 @@ public:
     void start(InputModule::Command c);
     void end(InputModule::Command c);
     void run();
-
+protected:
+    Decoration* focus;
 };
 
 #endif // FOCUS_H

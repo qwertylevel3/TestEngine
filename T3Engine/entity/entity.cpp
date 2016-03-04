@@ -45,10 +45,14 @@ void Entity::updateRemainTime()
     if(remainTime==0)
     {
         state=DEAD;
-        for(int i=0;i<childList.size();i++)
-        {
-            childList[i]->setState(DEAD);
+
+        QMap<QString, Entity*>::const_iterator i = childBox.constBegin();
+        while (i != childBox.constEnd()) {
+            //cout << i.key() << ": " << i.value() << endl;
+            i.value()->setState(DEAD);
+            ++i;
         }
+
     }
 }
 
@@ -62,9 +66,11 @@ void Entity::draw()
     if(isAlive())
     {
         sprite->draw();
-        for(int i=0;i<childList.size();i++)
+        QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
+        while(i!=childBox.constEnd())
         {
-            childList[i]->draw();
+            i.value()->draw();
+            i++;
         }
         for(int i=0;i<moduleList.size();i++)
         {
@@ -83,9 +89,11 @@ void Entity::update()
 {
     sprite->update();
     updateRemainTime();
-    for(int i=0;i<childList.size();i++)
+    QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
+    while(i!=childBox.constEnd())
     {
-        childList[i]->update();
+        i.value()->draw();
+        i++;
     }
     for(int i=0;i<moduleList.size();i++)
     {
@@ -106,46 +114,61 @@ void Entity::moveY(float dy)
 void Entity::setX(float x)
 {
     sprite->setX(x);
-    for(int i=0;i<childList.size();i++)
+    QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
+    while(i!=childBox.constEnd())
     {
-        childList[i]->setX(x+childList[i]->getLocalX());
+        i.value()->setX(x+i.value()->getLocalX());
+        i++;
     }
 }
 
 void Entity::setY(float y)
 {
     sprite->setY(y);
-    for(int i=0;i<childList.size();i++)
+    QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
+    while(i!=childBox.constEnd())
     {
-        childList[i]->setY(y+childList[i]->getLocalY());
+        i.value()->setY(y+i.value()->getLocalY());
+        i++;
     }
 }
 
 void Entity::setZ(float z)
 {
     sprite->setZ(z);
-    for(int i=0;i<childList.size();i++)
+    QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
+    while(i!=childBox.constEnd())
     {
-        childList[i]->setZ(z+childList[i]->getLocalZ());
+        i.value()->setZ(z+i.value()->getLocalZ());
+        i++;
     }
 }
 
 void Entity::setZoomX(float z)
 {
     sprite->setZoomX(z);
-    for(int i=0;i<childList.size();i++)
+    QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
+    while(i!=childBox.constEnd())
     {
-        childList[i]->setZoomX(z);
+        i.value()->setZoomX(z);
+        i++;
     }
 }
 
 void Entity::setZoomY(float z)
 {
     sprite->setZoomY(z);
-    for(int i=0;i<childList.size();i++)
+    QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
+    while(i!=childBox.constEnd())
     {
-        childList[i]->setZoomY(z);
+        i.value()->setZoomY(z);
+        i++;
     }
+}
+
+Entity *Entity::getChild(QString name)
+{
+    return childBox[name];
 }
 
 Entity *Entity::getParent() const

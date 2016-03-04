@@ -1,6 +1,7 @@
 #include "focus.h"
 #include"decorationmanager.h"
 #include"scenemanager.h"
+#include"decoration.h"
 
 Focus::Focus(Character* c)
     :Skill(c)
@@ -12,7 +13,9 @@ Focus::Focus(Character* c)
 
 void Focus::start(InputModule::Command c)
 {
-    Decoration* focus=DecorationManager::instance()->getDecoration("targetCircle");
+    focus=DecorationManager::instance()->getDecoration("targetCircle");
+
+
 }
 
 void Focus::end(InputModule::Command c)

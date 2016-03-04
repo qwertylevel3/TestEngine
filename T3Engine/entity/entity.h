@@ -46,7 +46,7 @@ public:
         return sprite->getAlpha();
     }
 
-    void addChild(Entity* childEntity);
+    void addChild(QString name,Entity* childEntity);
     void setX(float x);
     void setY(float y);
     void setZ(float z);
@@ -66,7 +66,7 @@ public:
     void setLocalZ(float z);
 
     void setCurrentAction(int index);
-    void setChildCurrentAction(int childIndex,int index);
+    void setChildCurrentAction(QString name,int index);
     void setTotalActionNumber(int t){sprite->setTotalActionNumber(t);}
     void setZoomX(float z);
     void setZoomY(float z);
@@ -78,7 +78,7 @@ public:
     void setRotateY(float y){sprite->setRotateY(y);}
     void setRotateZ(float z){sprite->setRotateZ(z);}
 
-    QList<Entity*>& getChild(){return childList;}
+    Entity* getChild(QString name);
     float getX(){return sprite->getX();}
     float getY(){return sprite->getY();}
     float getZ(){return sprite->getZ();}
@@ -120,7 +120,8 @@ protected:
 
     Sprite* sprite;
     Entity* parent;
-    QList<Entity*> childList;
+ //   QList<Entity*> childList;
+    QMap<QString , Entity* > childBox;
     float localX;
     float localY;
     float localZ;
@@ -150,11 +151,10 @@ void Entity::setText(const QString &text)
 }
 
 inline
-void Entity::addChild(Entity *childEntity)
+void Entity::addChild(QString name, Entity *childEntity)
 {
-    childList.append(childEntity);
+    childBox.insert(name,childEntity);
     childEntity->setParent(this);
-
 
     childEntity->setX(this->getX());
     childEntity->setY(this->getY());
@@ -166,8 +166,8 @@ void Entity::addChild(Entity *childEntity)
 
     childEntity->setZoomX(this->getZoomX());
     childEntity->setZoomY(this->getZoomY());
-
 }
+
 
 inline
 void Entity::setRepeatX(int value)
@@ -267,10 +267,11 @@ void Entity::setCurrentAction(int index)
 }
 
 inline
-void Entity::setChildCurrentAction(int childIndex, int index)
+void Entity::setChildCurrentAction(QString name, int index)
 {
-    childList[childIndex]->setCurrentAction(index);
+    childBox[name]->setCurrentAction(index);
 }
+
 
 inline
 float Entity::getLocalX()
