@@ -35,6 +35,8 @@ void Focus::start(InputModule::Command c)
         focus=DecorationManager::instance()->getDecoration("targetCircle");
         characterBox[focusIndex]->addChild("focus",focus);
         focus->setWidth(characterBox[focusIndex]->getWidth());
+
+        character->setFocusIndex(focusIndex);
     }
 }
 

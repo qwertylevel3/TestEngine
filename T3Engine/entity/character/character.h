@@ -71,6 +71,9 @@ public:
     void setType(const TYPE &value);
     void setType(const QString& value);
 
+    int getFocusIndex() const;
+    void setFocusIndex(int value);
+
 protected:
     void initSkill();
     void initParamater();
@@ -103,6 +106,8 @@ protected:
     int heartRate;
 
     TYPE type;
+
+    int focusIndex;
 };
 
 #endif // CHARACTER_H

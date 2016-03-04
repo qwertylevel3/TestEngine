@@ -13,6 +13,7 @@ Character::Character(const QString &spriteName)
     initSkill();
     heartId=ClockManager::instance()->genClock();
     ClockManager::instance()->setClockInterval(heartId,heartRate);
+    focusIndex=-1;
 }
 
 Character::~Character()
@@ -313,6 +314,16 @@ void Character::endB_C(InputModule::Command c)
 {
     skillBox["focus"]->end(c);
 }
+int Character::getFocusIndex() const
+{
+    return focusIndex;
+}
+
+void Character::setFocusIndex(int value)
+{
+    focusIndex = value;
+}
+
 Character::TYPE Character::getType() const
 {
     return type;

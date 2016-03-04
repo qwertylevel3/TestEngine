@@ -2,6 +2,7 @@
 #include"bulletmanager.h"
 #include"scenemanager.h"
 #include"clockmanager.h"
+#include"math.h"
 
 
 Shoot::Shoot(Character *e)
@@ -23,6 +24,10 @@ void Shoot::end(InputModule::Command c)
 
 void Shoot::run()
 {
+    if(character->getFocusIndex()==-1)
+    {
+        return;
+    }
     if(ClockManager::instance()->isAlarm(clockId))
     {
         ClockManager::instance()->clear(clockId);
@@ -40,11 +45,27 @@ void Shoot::shootBullet()
     bullet->setY(character->getY());
     bullet->setZ(character->getZ());
 
-    bullet->setOrientation(character->getOrientation());
     bullet->setRemainTime(100);
-    Scene* scene=SceneManager::instance()->getScene("init");
+    float x1=character->getX();
+    float y1=character->getY();
 
-    scene->addBulletToBox(bullet);
+    int focusIndex=character->getFocusIndex();
+
+    float x2=character->getScene()->getCharacterBox()[focusIndex]->getX();
+    float y2=character->getScene()->getCharacterBox()[focusIndex]->getY();
+
+    float dx=x2-x1;
+    float dy=y2-y1;
+
+    float dv=sqrt(dx*dx+dy*dy);
+
+    float directionX=dx/dv;
+    float directionY=dy/dv;
+
+    bullet->setDirectionX(directionX);
+    bullet->setDirectionY(directionY);
+
+    character->getScene()->addBulletToBox(bullet);
 }
 int Shoot::getInterval() const
 {

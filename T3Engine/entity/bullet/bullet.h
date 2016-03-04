@@ -17,16 +17,21 @@ public:
     float getDamage() const;
     void setDamage(float value);
 
-    Orientation::ORIENTATION getOrientation() const;
-    void setOrientation(const Orientation::ORIENTATION &value);
-
     Character *getShooter() const;
     void setShooter(Character *value);
+
+    float getDirectionX() const;
+    void setDirectionX(float value);
+
+    float getDirectionY() const;
+    void setDirectionY(float value);
 
 protected:
     float speed;
     float damage;
-    Orientation::ORIENTATION orientation;
+
+    float directionX;
+    float directionY;
 
     Character* shooter;
 };
