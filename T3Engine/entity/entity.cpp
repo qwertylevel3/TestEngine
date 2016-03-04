@@ -52,7 +52,6 @@ void Entity::updateRemainTime()
             i.value()->setState(DEAD);
             ++i;
         }
-
     }
 }
 
@@ -92,7 +91,7 @@ void Entity::update()
     QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
     while(i!=childBox.constEnd())
     {
-        i.value()->draw();
+        i.value()->update();
         i++;
     }
     for(int i=0;i<moduleList.size();i++)
@@ -109,6 +108,12 @@ void Entity::moveX(float dx)
 void Entity::moveY(float dy)
 {
     setY(getY()+dy);
+}
+
+void Entity::removeChild(QString name)
+{
+//    delete childBox[name];
+    childBox.remove(name);
 }
 
 void Entity::setX(float x)

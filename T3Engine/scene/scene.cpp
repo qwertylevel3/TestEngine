@@ -196,6 +196,11 @@ bool Scene::addEntityToLayerBox(Entity *entity)
     layerBox[-(entity->getZ())].append(entity);
     return true;
 }
+QList<Character *> & Scene::getCharacterBox()
+{
+    return characterBox;
+}
+
 Character *Scene::getPlayer() const
 {
     return player;

@@ -47,6 +47,7 @@ public:
     }
 
     void addChild(QString name,Entity* childEntity);
+    void removeChild(QString name);
     void setX(float x);
     void setY(float y);
     void setZ(float z);

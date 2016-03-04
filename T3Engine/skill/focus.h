@@ -13,7 +13,10 @@ public:
     void end(InputModule::Command c);
     void run();
 protected:
+    int chooseFocusCharacter();
     Decoration* focus;
+
+    int focusIndex;
 };
 
 #endif // FOCUS_H

@@ -25,11 +25,18 @@
 			</Decoration>
 		</DecorationBox>
 		<CharacterBox>
-			<TotalCharacterNumber>1</TotalCharacterNumber>
+			<TotalCharacterNumber>2</TotalCharacterNumber>
 			<Character>
 				<CharacterName>test</CharacterName>
 				<Type>FRIEND</Type>
 				<x>1</x>
+				<y>-0.6</y>
+				<z>-5</z>
+			</Character>
+			<Character>
+				<CharacterName>test</CharacterName>
+				<Type>FRIEND</Type>
+				<x>-1</x>
 				<y>-0.6</y>
 				<z>-5</z>
 			</Character>

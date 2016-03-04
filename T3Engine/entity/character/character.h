@@ -81,12 +81,14 @@ protected:
     void startLeft(InputModule::Command c);
     void startRight(InputModule::Command c);
     void startA_C(InputModule::Command c);
+    void startB_C(InputModule::Command c);
 
     void endUp(InputModule::Command c);
     void endDown(InputModule::Command c);
     void endLeft(InputModule::Command c);
     void endRight(InputModule::Command c);
     void endA_C(InputModule::Command c);
+    void endB_C(InputModule::Command c);
 
     int HP;
     int MP;

@@ -40,6 +40,8 @@ public:
     Character *getPlayer() const;
     void setPlayer(Character *value);
 
+    QList<Character *>& getCharacterBox();
+
 protected:
     bool addEntityToLayerBox(Entity* entity);
 

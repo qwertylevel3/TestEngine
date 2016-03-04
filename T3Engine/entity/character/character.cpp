@@ -2,6 +2,7 @@
 #include"inputmodule.h"
 #include"move.h"
 #include"shoot.h"
+#include"focus.h"
 #include"clockmanager.h"
 
 
@@ -62,6 +63,10 @@ void Character::startCommand(InputModule::Command c)
     {
         startA_C(c);
     }
+    if(c==InputModule::B_C)
+    {
+        startB_C(c);
+    }
 }
 
 void Character::endCommand(InputModule::Command c)
@@ -85,6 +90,10 @@ void Character::endCommand(InputModule::Command c)
     if(c==InputModule::A_C)
     {
         endA_C(c);
+    }
+    if(c==InputModule::B_C)
+    {
+        endB_C(c);
     }
 }
 float Character::getSpeed() const
@@ -146,6 +155,9 @@ void Character::initSkill()
     Shoot* shoot=new Shoot(this);
     shoot->setInterval(15);
     skillBox.insert("shoot",shoot);
+
+    Focus* focus=new Focus(this);
+    skillBox.insert("focus",focus);
 }
 
 void Character::initParamater()
@@ -172,7 +184,6 @@ void Character::runSkill()
 }
 
 //start command.......
-
 void Character::startUp(InputModule::Command c)
 {
     skillBox["moveUp"]->start(c);
@@ -234,6 +245,11 @@ void Character::startA_C(InputModule::Command c)
     skillBox["shoot"]->start(c);
 }
 
+void Character::startB_C(InputModule::Command c)
+{
+    skillBox["focus"]->start(c);
+}
+
 //end command.......
 void Character::endUp(InputModule::Command c)
 {
@@ -291,6 +307,11 @@ void Character::endRight(InputModule::Command c)
 void Character::endA_C(InputModule::Command c)
 {
     skillBox["shoot"]->end(c);
+}
+
+void Character::endB_C(InputModule::Command c)
+{
+    skillBox["focus"]->end(c);
 }
 Character::TYPE Character::getType() const
 {
