@@ -35,6 +35,7 @@ INPUT(
 ./debug\framepage.o
 ./debug\rectpage.o
 ./debug\focus.o
+./debug\module.o
 ./debug\qrc_shader.o
 ./debug\moc_inputmodule.o
 ./debug\moc_spritecreator.o

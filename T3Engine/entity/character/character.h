@@ -96,7 +96,7 @@ protected:
 
     Orientation::ORIENTATION orientation;
     Orientation::ORIENTATION lastOrientation;
-    QList<Skill*> skillList;
+    QMap<QString,Skill*> skillBox;
     int heartId;
     int heartRate;
 

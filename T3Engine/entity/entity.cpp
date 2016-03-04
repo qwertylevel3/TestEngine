@@ -1,6 +1,7 @@
 #include "entity.h"
 #include"inputmodule.h"
 #include"scene.h"
+#include"module.h"
 
 
 Entity::Entity(const QString &spriteName)
@@ -44,6 +45,10 @@ void Entity::updateRemainTime()
     if(remainTime==0)
     {
         state=DEAD;
+        for(int i=0;i<childList.size();i++)
+        {
+            childList[i]->setState(DEAD);
+        }
     }
 }
 
@@ -54,7 +59,19 @@ bool Entity::isAlive()
 
 void Entity::draw()
 {
-    sprite->draw();
+    if(isAlive())
+    {
+        sprite->draw();
+        for(int i=0;i<childList.size();i++)
+        {
+            childList[i]->draw();
+        }
+        for(int i=0;i<moduleList.size();i++)
+        {
+            moduleList[i]->draw();
+        }
+    }
+
 }
 
 void Entity::drawRect()
@@ -66,7 +83,14 @@ void Entity::update()
 {
     sprite->update();
     updateRemainTime();
-
+    for(int i=0;i<childList.size();i++)
+    {
+        childList[i]->update();
+    }
+    for(int i=0;i<moduleList.size();i++)
+    {
+        moduleList[i]->update();
+    }
 }
 
 void Entity::moveX(float dx)
@@ -82,45 +106,45 @@ void Entity::moveY(float dy)
 void Entity::setX(float x)
 {
     sprite->setX(x);
-    for(int i=0;i<child.size();i++)
+    for(int i=0;i<childList.size();i++)
     {
-        child[i]->setX(x+child[i]->getLocalX());
+        childList[i]->setX(x+childList[i]->getLocalX());
     }
 }
 
 void Entity::setY(float y)
 {
     sprite->setY(y);
-    for(int i=0;i<child.size();i++)
+    for(int i=0;i<childList.size();i++)
     {
-        child[i]->setY(y+child[i]->getLocalY());
+        childList[i]->setY(y+childList[i]->getLocalY());
     }
 }
 
 void Entity::setZ(float z)
 {
     sprite->setZ(z);
-    for(int i=0;i<child.size();i++)
+    for(int i=0;i<childList.size();i++)
     {
-        child[i]->setZ(z+child[i]->getLocalZ());
+        childList[i]->setZ(z+childList[i]->getLocalZ());
     }
 }
 
 void Entity::setZoomX(float z)
 {
     sprite->setZoomX(z);
-    for(int i=0;i<child.size();i++)
+    for(int i=0;i<childList.size();i++)
     {
-        child[i]->setZoomX(z);
+        childList[i]->setZoomX(z);
     }
 }
 
 void Entity::setZoomY(float z)
 {
     sprite->setZoomY(z);
-    for(int i=0;i<child.size();i++)
+    for(int i=0;i<childList.size();i++)
     {
-        child[i]->setZoomY(z);
+        childList[i]->setZoomY(z);
     }
 }
 

@@ -21,14 +21,14 @@ INCLUDEPATH += $$PWD\T3Engine\entity\
 INCLUDEPATH += $$PWD\T3Engine\entity\bullet\
 INCLUDEPATH += $$PWD\T3Engine\entity\character\
 INCLUDEPATH += $$PWD\T3Engine\entity\decoration\
-INCLUDEPATH += $$PWD\T3Engine\entity\terrain
+INCLUDEPATH += $$PWD\T3Engine\entity\terrain\
+INCLUDEPATH += $$PWD\T3Engine\entity\module\
 INCLUDEPATH += $$PWD\T3Engine\manager\
 INCLUDEPATH += $$PWD\T3Engine\scene\
 INCLUDEPATH += $$PWD\T3Engine\skill\
 INCLUDEPATH += $$PWD\T3Engine\sprite\
 INCLUDEPATH += $$PWD\T3Engine\
 INCLUDEPATH += $$PWD\SpriteCreator\
-INCLUDEPATH += $$PWD\T3Engine\module\
 
 SOURCES += main.cpp\
     T3Engine/scene/scene.cpp \
@@ -66,7 +66,7 @@ SOURCES += main.cpp\
     SpriteCreator/framepage.cpp \
     SpriteCreator/rectpage.cpp \
     T3Engine/skill/focus.cpp \
-    T3Engine/module/module.cpp
+    T3Engine/entity/module/module.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -106,7 +106,7 @@ HEADERS  += \
     SpriteCreator/framepage.h \
     SpriteCreator/rectpage.h \
     T3Engine/skill/focus.h \
-    T3Engine/module/module.h
+    T3Engine/entity/module/module.h
 
 RESOURCES += \
     shader.qrc

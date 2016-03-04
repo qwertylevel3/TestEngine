@@ -30,8 +30,7 @@ void Scene::draw()
     {
         for(int j=0;j<layerBox[i].size();j++)
         {
-            if(layerBox[i][j]->getState()==Entity::ALIVE)
-                layerBox[i][j]->draw();
+            layerBox[i][j]->draw();
         }
     }
 }
@@ -47,27 +46,26 @@ void Scene::update()
     {
         for(int j=0;j<layerBox[i].size();j++)
         {
-            if(layerBox[i][j]->isAlive())
-                layerBox[i][j]->update();
+            layerBox[i][j]->update();
         }
     }
-//    player->update();
-//    for(int i=0;i<bulletBox.size();i++)
-//    {
-//        bulletBox[i]->update();
-//    }
-//    for(int i=0;i<characterBox.size();i++)
-//    {
-//        characterBox[i]->update();
-//    }
-//    for(int i=0;i<terrainBox.size();i++)
-//    {
-//        terrainBox[i]->update();
-//    }
-//    for(int i=0;i<decorationBox.size();i++)
-//    {
-//        decorationBox[i]->update();
-//    }
+    //    player->update();
+    //    for(int i=0;i<bulletBox.size();i++)
+    //    {
+    //        bulletBox[i]->update();
+    //    }
+    //    for(int i=0;i<characterBox.size();i++)
+    //    {
+    //        characterBox[i]->update();
+    //    }
+    //    for(int i=0;i<terrainBox.size();i++)
+    //    {
+    //        terrainBox[i]->update();
+    //    }
+    //    for(int i=0;i<decorationBox.size();i++)
+    //    {
+    //        decorationBox[i]->update();
+    //    }
     collision();
 }
 
@@ -79,7 +77,7 @@ void Scene::collision()
 
 void Scene::detectPlayerCollision()
 {
-     for(int i=0;i<bulletBox.size();i++)
+    for(int i=0;i<bulletBox.size();i++)
     {
         if(player->isAlive() && bulletBox[i]->isAlive())
         {
@@ -151,10 +149,10 @@ bool Scene::isCollision(Entity* a,Entity* b)
             bRect.setY(bRecty);
             bRect.setWidth(bRectwidth*2*b->getZoomX());
             bRect.setHeight(bRectheight*2*b->getZoomY());
-//            bRect.setX(bRectx);
-//            bRect.setY(bRecty);
-//            bRect.setWidth(bRectwidth);
-//            bRect.setHeight(bRectheight);
+            //            bRect.setX(bRectx);
+            //            bRect.setY(bRecty);
+            //            bRect.setWidth(bRectwidth);
+            //            bRect.setHeight(bRectheight);
 
 
             //发现接触

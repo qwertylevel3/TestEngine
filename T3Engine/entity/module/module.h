@@ -6,6 +6,8 @@ class Module
 {
 public:
     Module();
+    virtual void update();
+    virtual void draw();
 };
 
 #endif // MODULE_H

@@ -4,8 +4,8 @@
 	<DrawRect>1</DrawRect>
 	<PaintNear>3</PaintNear>
 	<PaintFar>20</PaintFar>
-	<WindowWidth>800</WindowWidth>
-	<WindowHeight>600</WindowHeight>
+	<WindowWidth>1000</WindowWidth>
+	<WindowHeight>700</WindowHeight>
 	<SpriteConfigFileName>conf/test.xml</SpriteConfigFileName>
 	<CharacterConfigFileName>conf/character.xml</CharacterConfigFileName>
 	<TerrainConfigFileName>conf/terrain.xml</TerrainConfigFileName>

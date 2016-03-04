@@ -6,6 +6,7 @@
 #include"inputmodule.h"
 
 class Scene;
+class Module;
 
 class Entity
 {
@@ -77,7 +78,7 @@ public:
     void setRotateY(float y){sprite->setRotateY(y);}
     void setRotateZ(float z){sprite->setRotateZ(z);}
 
-    QList<Entity*>& getChild(){return child;}
+    QList<Entity*>& getChild(){return childList;}
     float getX(){return sprite->getX();}
     float getY(){return sprite->getY();}
     float getZ(){return sprite->getZ();}
@@ -119,7 +120,7 @@ protected:
 
     Sprite* sprite;
     Entity* parent;
-    QList<Entity*> child;
+    QList<Entity*> childList;
     float localX;
     float localY;
     float localZ;
@@ -128,6 +129,7 @@ protected:
     STATE state;
 
     int remainTime;
+    QList<Module*> moduleList;
 };
 
 inline
@@ -150,7 +152,7 @@ void Entity::setText(const QString &text)
 inline
 void Entity::addChild(Entity *childEntity)
 {
-    child.append(childEntity);
+    childList.append(childEntity);
     childEntity->setParent(this);
 
 
@@ -267,7 +269,7 @@ void Entity::setCurrentAction(int index)
 inline
 void Entity::setChildCurrentAction(int childIndex, int index)
 {
-    child[childIndex]->setCurrentAction(index);
+    childList[childIndex]->setCurrentAction(index);
 }
 
 inline

@@ -86,7 +86,6 @@ void Character::endCommand(InputModule::Command c)
     {
         endA_C(c);
     }
-
 }
 float Character::getSpeed() const
 {
@@ -139,14 +138,14 @@ void Character::initSkill()
     Move* moveRight=new Move(this);
     moveRight->setOrientation(Orientation::right);
 
-    skillList.push_back(moveUp);
-    skillList.push_back(moveDown);
-    skillList.push_back(moveLeft);
-    skillList.push_back(moveRight);
+    skillBox.insert("moveUp",moveUp);
+    skillBox.insert("moveDown",moveDown);
+    skillBox.insert("moveLeft",moveLeft);
+    skillBox.insert("moveRight",moveRight);
 
     Shoot* shoot=new Shoot(this);
     shoot->setInterval(15);
-    skillList.push_back(shoot);
+    skillBox.insert("shoot",shoot);
 }
 
 void Character::initParamater()
@@ -162,12 +161,13 @@ void Character::initParamater()
 
 void Character::runSkill()
 {
-    for(int i=0;i<skillList.size();i++)
-    {
-        if(skillList[i]->isRunning())
+    QMap<QString, Skill*>::const_iterator i = skillBox.constBegin();
+    while (i != skillBox.constEnd()) {
+        if(i.value()->isRunning())
         {
-            skillList[i]->run();
+            i.value()->run();
         }
+        ++i;
     }
 }
 
@@ -175,13 +175,13 @@ void Character::runSkill()
 
 void Character::startUp(InputModule::Command c)
 {
-    skillList[0]->start(c);
+    skillBox["moveUp"]->start(c);
     setOrientation(Orientation::up);
-    if(skillList[2]->isRunning())
+    if(skillBox["moveLeft"]->isRunning())
     {
         setOrientation(Orientation::upLeft);
     }
-    else if(skillList[3]->isRunning())
+    else if(skillBox["moveRight"]->isRunning())
     {
         setOrientation(Orientation::upRight);
     }
@@ -189,13 +189,13 @@ void Character::startUp(InputModule::Command c)
 
 void Character::startDown(InputModule::Command c)
 {
-    skillList[1]->start(c);
+    skillBox["moveDown"]->start(c);
     setOrientation(Orientation::down);
-    if(skillList[2]->isRunning())
+    if(skillBox["moveLeft"]->isRunning())
     {
         setOrientation(Orientation::downLeft);
     }
-    if(skillList[3]->isRunning())
+    if(skillBox["moveRight"]->isRunning())
     {
         setOrientation(Orientation::downRight);
     }
@@ -203,13 +203,13 @@ void Character::startDown(InputModule::Command c)
 
 void Character::startLeft(InputModule::Command c)
 {
-    skillList[2]->start(c);
+    skillBox["moveLeft"]->start(c);
     setOrientation(Orientation::left);
-    if(skillList[0]->isRunning())
+    if(skillBox["moveUp"]->isRunning())
     {
         setOrientation(Orientation::upLeft);
     }
-    else if(skillList[1]->isRunning())
+    else if(skillBox["moveDown"]->isRunning())
     {
         setOrientation(Orientation::downLeft);
     }
@@ -217,13 +217,13 @@ void Character::startLeft(InputModule::Command c)
 
 void Character::startRight(InputModule::Command c)
 {
-    skillList[3]->start(c);
+    skillBox["moveRight"]->start(c);
     setOrientation(Orientation::right);
-    if(skillList[0]->isRunning())
+    if(skillBox["moveUp"]->isRunning())
     {
         setOrientation(Orientation::upRight);
     }
-    if(skillList[1]->isRunning())
+    if(skillBox["moveDown"]->isRunning())
     {
         setOrientation(Orientation::downRight);
     }
@@ -231,18 +231,18 @@ void Character::startRight(InputModule::Command c)
 
 void Character::startA_C(InputModule::Command c)
 {
-    skillList[4]->start(c);
+    skillBox["shoot"]->start(c);
 }
 
 //end command.......
 void Character::endUp(InputModule::Command c)
 {
-    skillList[0]->end(c);
-    if(skillList[2]->isRunning())
+    skillBox["moveUp"]->end(c);
+    if(skillBox["moveLeft"]->isRunning())
     {
         setOrientation(Orientation::left);
     }
-    else if(skillList[3]->isRunning())
+    else if(skillBox["moveRight"]->isRunning())
     {
         setOrientation(Orientation::right);
     }
@@ -250,12 +250,12 @@ void Character::endUp(InputModule::Command c)
 
 void Character::endDown(InputModule::Command c)
 {
-    skillList[1]->end(c);
-    if(skillList[2]->isRunning())
+    skillBox["moveDown"]->end(c);
+    if(skillBox["moveLeft"]->isRunning())
     {
         setOrientation(Orientation::left);
     }
-    else if(skillList[3]->isRunning())
+    else if(skillBox["moveDown"]->isRunning())
     {
         setOrientation(Orientation::right);
     }
@@ -263,13 +263,13 @@ void Character::endDown(InputModule::Command c)
 
 void Character::endLeft(InputModule::Command c)
 {
-    skillList[2]->end(c);
-    if(skillList[0]->isRunning())
+    skillBox["moveLeft"]->end(c);
+    if(skillBox["moveUp"]->isRunning())
     {
         setOrientation(Orientation::up);
 
     }
-    else if(skillList[1]->isRunning())
+    if(skillBox["moveDown"]->isRunning())
     {
         setOrientation(Orientation::down);
     }
@@ -277,12 +277,12 @@ void Character::endLeft(InputModule::Command c)
 
 void Character::endRight(InputModule::Command c)
 {
-    skillList[3]->end(c);
-    if(skillList[0]->isRunning())
+    skillBox["moveRight"]->end(c);
+    if(skillBox["moveUp"]->isRunning())
     {
         setOrientation(Orientation::up);
     }
-    else if(skillList[1]->isRunning())
+    if(skillBox["moveDown"]->isRunning())
     {
         setOrientation(Orientation::down);
     }
@@ -290,7 +290,7 @@ void Character::endRight(InputModule::Command c)
 
 void Character::endA_C(InputModule::Command c)
 {
-    skillList[4]->end(c);
+    skillBox["shoot"]->end(c);
 }
 Character::TYPE Character::getType() const
 {
