@@ -69,6 +69,13 @@ void Frame::drawRect()
                                  picturePoint->getY()+float(rects[i].y())/scale,//*picturePoint->getHeight())/scale,
                                  -1);
 
+        //rotate...
+
+        rectPoint->rotate(picturePoint->getAngle(),
+                          picturePoint->getAx(),
+                          picturePoint->getAy(),
+                          picturePoint->getAz());
+
         rectPoint->draw();
     }
 }

@@ -141,6 +141,46 @@ void Picture::setName(const QString &imagePath)
     int len=imagePath.length()-QDir::currentPath().length();
     name=imagePath.right(len);
 }
+float Picture::getAz() const
+{
+    return az;
+}
+
+void Picture::setAz(float value)
+{
+    az = value;
+}
+
+float Picture::getAy() const
+{
+    return ay;
+}
+
+void Picture::setAy(float value)
+{
+    ay = value;
+}
+
+float Picture::getAx() const
+{
+    return ax;
+}
+
+void Picture::setAx(float value)
+{
+    ax = value;
+}
+
+float Picture::getAngle() const
+{
+    return angle;
+}
+
+void Picture::setAngle(float value)
+{
+    angle = value;
+}
+
 float Picture::getAlpha() const
 {
     return alpha;

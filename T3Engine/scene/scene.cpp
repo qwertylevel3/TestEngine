@@ -5,6 +5,7 @@
 #include"decorationmanager.h"
 #include"inputmodule.h"
 #include"bulletmanager.h"
+#include"obb.h"
 
 Scene::Scene()
 {
@@ -71,11 +72,12 @@ void Scene::update()
 
 void Scene::collision()
 {
-    detectPlayerCollision();
-    detectCharacterCollision();
+    detectPlayerBulletCollision();
+    detectCharacterBulletCollision();
+    detectPlayerCharacterCollision();
 }
 
-void Scene::detectPlayerCollision()
+void Scene::detectPlayerBulletCollision()
 {
     for(int i=0;i<bulletBox.size();i++)
     {
@@ -90,7 +92,7 @@ void Scene::detectPlayerCollision()
     }
 }
 
-void Scene::detectCharacterCollision()
+void Scene::detectCharacterBulletCollision()
 {
 
     for(int i=0;i<characterBox.size();i++)
@@ -109,6 +111,24 @@ void Scene::detectCharacterCollision()
                 }
             }
 
+        }
+    }
+}
+
+void Scene::detectPlayerCharacterCollision()
+{
+    for(int i=0;i<characterBox.size();i++)
+    {
+        if(player->isAlive() && characterBox[i]->isAlive())
+        {
+            if(isCollision(player,characterBox[i]))
+            {
+                qDebug()<<"collision"<<endl;
+            }
+            else
+            {
+                qDebug()<<"....."<<endl;
+            }
         }
     }
 }
@@ -154,9 +174,11 @@ bool Scene::isCollision(Entity* a,Entity* b)
             //            bRect.setWidth(bRectwidth);
             //            bRect.setHeight(bRectheight);
 
+            OBB obb1(QPointF(aRect.x(),aRect.y()),aRect.width(),aRect.height(),a->getRotateAngle());
+            OBB obb2(QPointF(bRect.x(),bRect.y()),bRect.width(),bRect.height(),b->getRotateAngle());
 
             //发现接触
-            if(isCollision(aRect,bRect))
+            if(detector.isCollision(obb1,obb2))
             {
                 return true;
             }

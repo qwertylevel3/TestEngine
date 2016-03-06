@@ -79,6 +79,18 @@ public:
     float getAlpha() const;
     void setAlpha(float value);
 
+    float getAngle() const;
+    void setAngle(float value);
+
+    float getAx() const;
+    void setAx(float value);
+
+    float getAy() const;
+    void setAy(float value);
+
+    float getAz() const;
+    void setAz(float value);
+
 private:
     void initFaceGeometry();
     void allocateBuffer();

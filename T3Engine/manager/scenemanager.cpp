@@ -221,6 +221,9 @@ void SceneManager::makePlayer(Scene *scene)
     player->setZ(z);
     player->setType("PLAYER");
 
+    //player->setRotateAngle(45);
+    //player->setRotateZ(1);
+
     InputModule::instance()->setEntity(player);
 
     scene->setPlayer(player);

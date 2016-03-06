@@ -36,6 +36,8 @@ INPUT(
 ./release\rectpage.o
 ./release\focus.o
 ./release\module.o
+./release\collisiondetector.o
+./release\obb.o
 ./release\qrc_shader.o
 ./release\moc_inputmodule.o
 ./release\moc_spritecreator.o

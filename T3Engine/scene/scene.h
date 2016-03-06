@@ -5,6 +5,7 @@
 #include"character.h"
 #include"terrain.h"
 #include"bullet.h"
+#include"collisiondetector.h"
 
 
 class Scene
@@ -19,8 +20,9 @@ public:
     void update();
 
     void collision();
-    void detectPlayerCollision();
-    void detectCharacterCollision();
+    void detectPlayerBulletCollision();
+    void detectCharacterBulletCollision();
+    void detectPlayerCharacterCollision();
     bool isCollision(Entity *a, Entity *b);
     bool isCollision(QRectF a,QRectF b);
     
@@ -56,6 +58,8 @@ protected:
 
     int width;
     int height;
+
+    CollisionDetector detector;
 };
 
 #endif // SCENE_H
