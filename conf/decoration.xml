@@ -10,8 +10,8 @@
 		<SpriteName>shadow</SpriteName>
 	</Decoration>
 	<Decoration>
-		<Name>textFrame</Name>
-		<SpriteName>textFrame</SpriteName>
+		<Name>dialog</Name>
+		<SpriteName>dialog</SpriteName>
 	</Decoration>
 	<Decoration>
 		<Name>targetCircle</Name>

@@ -10,19 +10,14 @@
 			<TotalTerrainNumber>0</TotalTerrainNumber>
 		</TerrainBox>
 		<DecorationBox>
-			<TotalDecorationNumber>2</TotalDecorationNumber>
+			<TotalDecorationNumber>1</TotalDecorationNumber>
 			<Decoration>
 				<DecorationName>tree1</DecorationName>
 				<x>0</x>
 				<y>-0.5</y>
 				<z>-4</z>
 			</Decoration>
-			<Decoration>
-				<DecorationName>targetCircle</DecorationName>
-				<x>0</x>
-				<y>0</y>
-				<z>-4</z>
-			</Decoration>
+
 		</DecorationBox>
 		<CharacterBox>
 			<TotalCharacterNumber>2</TotalCharacterNumber>

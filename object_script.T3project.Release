@@ -38,6 +38,11 @@ INPUT(
 ./release\module.o
 ./release\collisiondetector.o
 ./release\obb.o
+./release\trigger.o
+./release\condition.o
+./release\event.o
+./release\timeupcondition.o
+./release\dialogueevent.o
 ./release\qrc_shader.o
 ./release\moc_inputmodule.o
 ./release\moc_spritecreator.o

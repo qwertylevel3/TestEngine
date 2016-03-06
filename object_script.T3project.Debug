@@ -38,6 +38,11 @@ INPUT(
 ./debug\module.o
 ./debug\collisiondetector.o
 ./debug\obb.o
+./debug\trigger.o
+./debug\condition.o
+./debug\event.o
+./debug\timeupcondition.o
+./debug\dialogueevent.o
 ./debug\qrc_shader.o
 ./debug\moc_inputmodule.o
 ./debug\moc_spritecreator.o

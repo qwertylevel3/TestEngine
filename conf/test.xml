@@ -441,13 +441,13 @@
 		</Action>
 	</Sprite>
 	<Sprite>
-		<SpriteName>textFrame</SpriteName>
+		<SpriteName>dialog</SpriteName>
 		<TotalActionNumber>1</TotalActionNumber>
 		<width>400</width>
-		<height>173</height>
+		<height>200</height>
 		
 		<Action>
-			<ActionName>textFrame</ActionName>
+			<ActionName>dialog</ActionName>
 			<FrameDelay>100</FrameDelay>
 			<FrameTotal>1</FrameTotal>
 			<IsRepeat>false</IsRepeat>
@@ -456,11 +456,11 @@
 			
 			<FrameBox>
 				<Frame>
-					<PictureName>\resource\decoration\textFrame.png</PictureName>
+					<PictureName>\resource\decoration\dialog.png</PictureName>
 					<x>1</x>
 					<y>1</y>
 					<dx>400</dx>
-					<dy>173</dy>
+					<dy>200</dy>
 
 					<rectBox>
 						<rectNumber>0</rectNumber>

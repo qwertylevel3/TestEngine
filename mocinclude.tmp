@@ -29,6 +29,15 @@
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/T3Engine/sprite
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/++
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/T3Engine/trigger
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/T3Engine/trigger/condition
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/T3Engine/trigger/event
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/T3Engine
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH

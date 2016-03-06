@@ -6,6 +6,10 @@
 #include"terrain.h"
 #include"bullet.h"
 #include"collisiondetector.h"
+#include"trigger.h"
+#include"timeupcondition.h"
+#include"dialogueevent.h"
+
 
 
 class Scene
@@ -60,6 +64,8 @@ protected:
     int height;
 
     CollisionDetector detector;
+
+    QList<Trigger*> triggerList;
 };
 
 #endif // SCENE_H

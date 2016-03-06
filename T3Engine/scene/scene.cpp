@@ -18,10 +18,34 @@ Scene::Scene()
         QList<Entity*>* box =new QList<Entity*>;
         layerBox.append(*box);
     }
+
+    TimeUpCondition* condition=new TimeUpCondition;
+    condition->setTime(3000);
+
+    DialogueEvent* event=new DialogueEvent;
+
+    Trigger* trigger=new Trigger();
+    trigger->setCondition(condition);
+    trigger->setEvent(event);
+
+    triggerList.push_back(trigger);
 }
 
 Scene::~Scene()
 {
+    characterBox.clear();
+    terrainBox.clear();
+    decorationBox.clear();
+    bulletBox.clear();
+
+    for(int i=0;i<layerBox.size();i++)
+    {
+        for(int j=0;j<layerBox[i].size();j++)
+        {
+            delete layerBox[i][j];
+        }
+        layerBox[i].clear();
+    }
 }
 
 void Scene::draw()
@@ -42,6 +66,16 @@ void Scene::drawBackground()
 
 void Scene::update()
 {
+    for(int i=0;i<triggerList.size();i++)
+    {
+        if(triggerList[i]->judge())
+        {
+            triggerList[i]->run();
+            delete triggerList[i];
+            triggerList.removeAt(i);
+        }
+    }
+
     for(int i=GameConfigurator::instance()->getPaintFar();
         i>=GameConfigurator::instance()->getPaintNear();i--)
     {
@@ -123,11 +157,11 @@ void Scene::detectPlayerCharacterCollision()
         {
             if(isCollision(player,characterBox[i]))
             {
-                qDebug()<<"collision"<<endl;
+                //qDebug()<<"collision"<<endl;
             }
             else
             {
-                qDebug()<<"....."<<endl;
+                //qDebug()<<"....."<<endl;
             }
         }
     }

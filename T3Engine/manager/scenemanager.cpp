@@ -223,6 +223,8 @@ void SceneManager::makePlayer(Scene *scene)
 
     //player->setRotateAngle(45);
     //player->setRotateZ(1);
+    //player->setZoomX(2);
+    //player->setZoomY(2);
 
     InputModule::instance()->setEntity(player);
 

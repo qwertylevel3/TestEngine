@@ -3,7 +3,7 @@
 PictureText::PictureText()
 {
     textColor=Qt::white;
-    textAlignment=Qt::AlignCenter;
+    textAlignment=Qt::AlignLeft;
     textFont=QFont("Arial", 30);
 }
 

@@ -27,6 +27,9 @@ INCLUDEPATH += $$PWD\T3Engine\manager\
 INCLUDEPATH += $$PWD\T3Engine\scene\
 INCLUDEPATH += $$PWD\T3Engine\skill\
 INCLUDEPATH += $$PWD\T3Engine\sprite\
+INCLUDEPATH ++ $$PWD\T3Engine\trigger\
+INCLUDEPATH += $$PWD\T3Engine\trigger\condition\
+INCLUDEPATH += $$PWD\T3Engine\trigger\event\
 INCLUDEPATH += $$PWD\T3Engine\
 INCLUDEPATH += $$PWD\SpriteCreator\
 
@@ -68,7 +71,12 @@ SOURCES += main.cpp\
     T3Engine/skill/focus.cpp \
     T3Engine/entity/module/module.cpp \
     T3Engine/scene/collisiondetector.cpp \
-    T3Engine/scene/obb.cpp
+    T3Engine/scene/obb.cpp \
+    T3Engine/trigger/trigger.cpp \
+    T3Engine/trigger/condition/condition.cpp \
+    T3Engine/trigger/event/event.cpp \
+    T3Engine/trigger/condition/timeupcondition.cpp \
+    T3Engine/trigger/event/dialogueevent.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -110,7 +118,12 @@ HEADERS  += \
     T3Engine/skill/focus.h \
     T3Engine/entity/module/module.h \
     T3Engine/scene/collisiondetector.h \
-    T3Engine/scene/obb.h
+    T3Engine/scene/obb.h \
+    T3Engine/trigger/trigger.h \
+    T3Engine/trigger/condition/condition.h \
+    T3Engine/trigger/event/event.h \
+    T3Engine/trigger/condition/timeupcondition.h \
+    T3Engine/trigger/event/dialogueevent.h
 
 RESOURCES += \
     shader.qrc
