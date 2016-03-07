@@ -15,9 +15,14 @@
 				<DecorationName>tree1</DecorationName>
 				<x>0</x>
 				<y>-0.5</y>
-				<z>-4</z>
+				<z>-10</z>
 			</Decoration>
-
+<!-- 			<Decoration>
+				<DecorationName>dialog</DecorationName>
+				<x>0</x>
+				<y>-1.3</y>
+				<z>-4</z>
+			</Decoration> -->
 		</DecorationBox>
 		<CharacterBox>
 			<TotalCharacterNumber>2</TotalCharacterNumber>
@@ -26,21 +31,21 @@
 				<Type>FRIEND</Type>
 				<x>1</x>
 				<y>-0.6</y>
-				<z>-6</z>
+				<z>-10</z>
 			</Character>
 			<Character>
 				<CharacterName>test</CharacterName>
 				<Type>FRIEND</Type>
 				<x>-1</x>
 				<y>-0.6</y>
-				<z>-6</z>
+				<z>-10</z>
 			</Character>
 		</CharacterBox>
 		<Player>
 			<PlayerName>test</PlayerName>
 			<x>1</x>
 			<y>-0.4</y>
-			<z>-5</z>
+			<z>-10</z>
 		</Player>
 	</Scene>
 </SceneBox>

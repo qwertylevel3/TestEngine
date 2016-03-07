@@ -11,6 +11,7 @@ class Module;
 class Entity
 {
 public:
+    static bool compareY(Entity* a,Entity* b);
     enum STATE{ALIVE,DEAD};
     Entity();
     Entity(const QString& spriteName);

@@ -78,7 +78,7 @@ void SceneManager::makeBackground(Scene *scene)
     terrain->setRepeatX(int(scene->getWidth()/w));
     terrain->setRepeatY(int(scene->getHeight()/h));
 
-    terrain->setZ(-10);
+    terrain->setZ(-20);
 
     scene->addTerrainToBox(terrain);
 
@@ -225,6 +225,7 @@ void SceneManager::makePlayer(Scene *scene)
     //player->setRotateZ(1);
     //player->setZoomX(2);
     //player->setZoomY(2);
+    //player->setAlpha(0.5);
 
     InputModule::instance()->setEntity(player);
 

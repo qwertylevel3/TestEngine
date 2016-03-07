@@ -53,6 +53,12 @@ void Scene::draw()
     for(int i=GameConfigurator::instance()->getPaintFar();
         i>=GameConfigurator::instance()->getPaintNear();i--)
     {
+        if(i==10)
+        {
+            QList<Entity*> temp=layerBox[i];
+            qSort(layerBox[i].begin(),layerBox[i].end(),Entity::compareY);
+        }
+
         for(int j=0;j<layerBox[i].size();j++)
         {
             layerBox[i][j]->draw();

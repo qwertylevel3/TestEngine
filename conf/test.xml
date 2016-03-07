@@ -443,7 +443,7 @@
 	<Sprite>
 		<SpriteName>dialog</SpriteName>
 		<TotalActionNumber>1</TotalActionNumber>
-		<width>400</width>
+		<width>600</width>
 		<height>200</height>
 		
 		<Action>
@@ -459,7 +459,7 @@
 					<PictureName>\resource\decoration\dialog.png</PictureName>
 					<x>1</x>
 					<y>1</y>
-					<dx>400</dx>
+					<dx>600</dx>
 					<dy>200</dy>
 
 					<rectBox>

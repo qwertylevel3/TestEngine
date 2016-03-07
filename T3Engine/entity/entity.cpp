@@ -4,6 +4,15 @@
 #include"module.h"
 
 
+bool Entity::compareY(Entity *a, Entity *b)
+{
+
+    float ya=a->getY()-a->getHeight()/GameConfigurator::instance()->getScale();
+    float yb=b->getY()-b->getHeight()/GameConfigurator::instance()->getScale();
+    return ya>yb;
+
+}
+
 Entity::Entity(const QString &spriteName)
 {
     this->spriteName=spriteName;
