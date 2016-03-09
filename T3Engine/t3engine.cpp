@@ -11,6 +11,8 @@
 #include"bulletmanager.h"
 #include"scenemanager.h"
 #include"clockmanager.h"
+#include"facemanager.h"
+#include"dialogmanager.h"
 
 T3Engine::T3Engine(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -40,7 +42,11 @@ void T3Engine::init()
     TerrainManager::instance()->init();
     DecorationManager::instance()->init();
     BulletManager::instance()->init();
+    FaceManager::instance()->init();
+
     SceneManager::instance()->init();
+    DialogManager::instance()->init();
+
 
     ClockManager::instance()->init();
 

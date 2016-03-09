@@ -23,7 +23,9 @@ INCLUDEPATH += $$PWD\T3Engine\entity\character\
 INCLUDEPATH += $$PWD\T3Engine\entity\decoration\
 INCLUDEPATH += $$PWD\T3Engine\entity\terrain\
 INCLUDEPATH += $$PWD\T3Engine\entity\module\
+INCLUDEPATH += $$PWD\T3Engine\dialog\
 INCLUDEPATH += $$PWD\T3Engine\manager\
+INCLUDEPATH += $$PWD\T3Engine\manager\entity\
 INCLUDEPATH += $$PWD\T3Engine\scene\
 INCLUDEPATH += $$PWD\T3Engine\skill\
 INCLUDEPATH += $$PWD\T3Engine\sprite\
@@ -47,14 +49,10 @@ SOURCES += main.cpp\
     T3Engine/t3engine.cpp \
     T3Engine/entity/decoration/decoration.cpp \
     T3Engine/entity/terrain/terrain.cpp \
-    T3Engine/manager/charactermanager.cpp \
-    T3Engine/manager/terrainmanager.cpp \
-    T3Engine/manager/decorationmanager.cpp \
     T3Engine/inputmodule.cpp \
     T3Engine/skill/skill.cpp \
     T3Engine/skill/move.cpp \
     T3Engine/entity/bullet/bullet.cpp \
-    T3Engine/manager/bulletmanager.cpp \
     T3Engine/skill/shoot.cpp \
     T3Engine/manager/scenemanager.cpp \
     T3Engine/orientation.cpp \
@@ -76,7 +74,16 @@ SOURCES += main.cpp\
     T3Engine/trigger/condition/condition.cpp \
     T3Engine/trigger/event/event.cpp \
     T3Engine/trigger/condition/timeupcondition.cpp \
-    T3Engine/trigger/event/dialogueevent.cpp
+    T3Engine/trigger/event/dialogueevent.cpp \
+    T3Engine/manager/entity/bulletmanager.cpp \
+    T3Engine/manager/entity/charactermanager.cpp \
+    T3Engine/manager/entity/decorationmanager.cpp \
+    T3Engine/manager/entity/terrainmanager.cpp \
+    T3Engine/dialog/dialog.cpp \
+    T3Engine/dialog/face.cpp \
+    T3Engine/dialog/sentence.cpp \
+    T3Engine/manager/facemanager.cpp \
+    T3Engine/manager/dialogmanager.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -93,14 +100,10 @@ HEADERS  += \
     T3Engine/t3engine.h \
     T3Engine/entity/decoration/decoration.h \
     T3Engine/entity/terrain/terrain.h \
-    T3Engine/manager/charactermanager.h \
-    T3Engine/manager/terrainmanager.h \
-    T3Engine/manager/decorationmanager.h \
     T3Engine/inputmodule.h \
     T3Engine/skill/skill.h \
     T3Engine/skill/move.h \
     T3Engine/entity/bullet/bullet.h \
-    T3Engine/manager/bulletmanager.h \
     T3Engine/skill/shoot.h \
     T3Engine/manager/scenemanager.h \
     T3Engine/orientation.h \
@@ -123,7 +126,16 @@ HEADERS  += \
     T3Engine/trigger/condition/condition.h \
     T3Engine/trigger/event/event.h \
     T3Engine/trigger/condition/timeupcondition.h \
-    T3Engine/trigger/event/dialogueevent.h
+    T3Engine/trigger/event/dialogueevent.h \
+    T3Engine/manager/entity/bulletmanager.h \
+    T3Engine/manager/entity/charactermanager.h \
+    T3Engine/manager/entity/decorationmanager.h \
+    T3Engine/manager/entity/terrainmanager.h \
+    T3Engine/dialog/dialog.h \
+    T3Engine/dialog/face.h \
+    T3Engine/dialog/sentence.h \
+    T3Engine/manager/facemanager.h \
+    T3Engine/manager/dialogmanager.h
 
 RESOURCES += \
     shader.qrc

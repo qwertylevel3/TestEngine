@@ -30,7 +30,7 @@ public:
 
     virtual void draw();
     virtual void update();
-    virtual Entity* clone()=0;
+    virtual Entity* clone();
 
     void setText(const QString& text);
 

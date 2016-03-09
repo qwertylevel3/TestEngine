@@ -8,7 +8,7 @@ class InputModule:public QObject,public Singleton<InputModule>
 {
     Q_OBJECT
 public:
-    enum Command{empty,up,down,left,right,A_C,B_C,C_C,D_C,E_C,F_C};
+    enum Command{empty,up,down,left,right,A_C,B_C,C_C,D_C,E_C,F_C,enter};
 
     InputModule();
     ~InputModule();

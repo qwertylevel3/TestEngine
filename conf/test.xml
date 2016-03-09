@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SpriteBox>
-	<TotalSpriteNumber>8</TotalSpriteNumber>
+	<TotalSpriteNumber>9</TotalSpriteNumber>
 	<Sprite>
 		<SpriteName>test</SpriteName>
 		<TotalActionNumber>4</TotalActionNumber>
@@ -565,6 +565,36 @@
 					<rectBox>
 						<rectNumber>0</rectNumber>
 
+					</rectBox>
+				</Frame>
+			</FrameBox>
+		</Action>
+	</Sprite>
+	<Sprite>
+		<SpriteName>testFace</SpriteName>
+		<TotalActionNumber>1</TotalActionNumber>
+		<width>300</width>
+		<height>360</height>
+		
+		<Action>
+			<ActionName>testFace</ActionName>
+			<FrameDelay>100</FrameDelay>
+			<FrameTotal>1</FrameTotal>
+			<IsRepeat>false</IsRepeat>
+			<RepeatStart>0</RepeatStart>
+			<RepeatOver>0</RepeatOver>
+			
+			<FrameBox>
+				<Frame>
+					<PictureName>\resource\face\testFace.png</PictureName>
+					<x>0</x>
+					<y>0</y>
+					<dx>300</dx>
+					<dy>360</dy>
+
+					<rectBox>
+						<rectNumber>0</rectNumber>
+						
 					</rectBox>
 				</Frame>
 			</FrameBox>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FaceBox>
+	<TotalFaceNumber>1</TotalFaceNumber>
+	<Face>
+		<Name>testFace</Name>
+		<SpriteName>testFace</SpriteName>
+	</Face>
+</FaceBox>

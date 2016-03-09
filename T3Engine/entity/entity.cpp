@@ -33,6 +33,13 @@ Entity::~Entity()
     {
         delete sprite;
     }
+    QMap<QString, Entity*>::const_iterator i = childBox.constBegin();
+    while (i != childBox.constEnd()) {
+        //cout << i.key() << ": " << i.value() << endl;
+        delete (i.value());
+        ++i;
+    }
+    childBox.clear();
 }
 
 void Entity::startCommand(InputModule::Command c)
@@ -107,6 +114,11 @@ void Entity::update()
     {
         moduleList[i]->update();
     }
+}
+
+Entity *Entity::clone()
+{
+    return new Entity(this->spriteName);
 }
 
 void Entity::moveX(float dx)

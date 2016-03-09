@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DialogBox>
+	<TotalDialogNumber>1</TotalDialogNumber>
+	<Dialog>
+		<DialogName>init</DialogName>
+		<SpriteName>dialog</SpriteName>
+		<sentenceNumber>1</sentenceNumber>
+		<Sentence>		
+			<face>testFace</face>
+			<word>Lilith: welcome!</word>
+		</Sentence>
+
+	</Dialog>
+</DialogBox>

@@ -9,8 +9,7 @@
 #include"trigger.h"
 #include"timeupcondition.h"
 #include"dialogueevent.h"
-
-
+#include"dialog.h"
 
 class Scene
 {
@@ -48,6 +47,11 @@ public:
 
     QList<Character *>& getCharacterBox();
 
+    void switchFocusToPlayer();
+    void switchFocusToDialog(Dialog* dialog);
+
+    void addDialogToScene(Dialog* dialog);
+
 protected:
     bool addEntityToLayerBox(Entity* entity);
 
@@ -66,6 +70,7 @@ protected:
     CollisionDetector detector;
 
     QList<Trigger*> triggerList;
+
 };
 
 #endif // SCENE_H

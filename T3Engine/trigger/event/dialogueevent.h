@@ -4,6 +4,7 @@
 #include"event.h"
 #include"scene.h"
 #include"decoration.h"
+#include"dialog.h"
 
 class DialogueEvent:public Event
 {
@@ -11,10 +12,12 @@ public:
     DialogueEvent();
     virtual void run();
     void setScene(Scene *value);
-    void addContent(QString content);
+
+    void setDialogName(const QString &value);
+
 protected:
     Scene* scene;
-    QList<QString> dialogueContent;
+    QString dialogName;
 };
 
 #endif // DIALOGUEEVENT_H

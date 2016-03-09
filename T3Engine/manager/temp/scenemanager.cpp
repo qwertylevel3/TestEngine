@@ -4,7 +4,6 @@
 #include"terrainmanager.h"
 #include"decorationmanager.h"
 #include"inputmodule.h"
-#include"facemanager.h"
 
 SceneManager::SceneManager()
 {

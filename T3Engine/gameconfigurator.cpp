@@ -18,13 +18,33 @@ void GameConfigurator::init(const QString& fileName)
 }
 QString GameConfigurator::getSceneConfigFileName() const
 {
-    return SceneConfigFileName;
+    return sceneConfigFileName;
 }
 
 void GameConfigurator::setSceneConfigFileName(const QString &value)
 {
-    SceneConfigFileName = value;
+    sceneConfigFileName = value;
 }
+QString GameConfigurator::getFaceConfigFileName() const
+{
+    return faceConfigFileName;
+}
+
+void GameConfigurator::setFaceConfigFileName(const QString &value)
+{
+    faceConfigFileName = value;
+}
+QString GameConfigurator::getDialogConfigFileName() const
+{
+    return dialogConfigFileName;
+}
+
+void GameConfigurator::setDialogConfigFileName(const QString &value)
+{
+    dialogConfigFileName = value;
+}
+
+
 
 void GameConfigurator::makeParameter()
 {
@@ -62,7 +82,13 @@ void GameConfigurator::makeParameter()
     bulletConfigFileName=reader.readElementText();
 
     reader.readNextStartElement();//<sceneConfigFileName>
-    SceneConfigFileName=reader.readElementText();
+    sceneConfigFileName=reader.readElementText();
+
+    reader.readNextStartElement();//<FaceConfigFileName>
+    faceConfigFileName=reader.readElementText();
+
+    reader.readNextStartElement();//<DialogConfigFileName>
+    dialogConfigFileName=reader.readElementText();
 }
 
 void GameConfigurator::parseXml(const QString &fileName)

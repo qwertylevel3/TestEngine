@@ -19,10 +19,13 @@ Scene::Scene()
         layerBox.append(*box);
     }
 
+
     TimeUpCondition* condition=new TimeUpCondition;
     condition->setTime(3000);
 
     DialogueEvent* event=new DialogueEvent;
+    event->setScene(this);
+    event->setDialogName("init");
 
     Trigger* trigger=new Trigger();
     trigger->setCondition(condition);
@@ -261,6 +264,21 @@ bool Scene::addEntityToLayerBox(Entity *entity)
 QList<Character *> & Scene::getCharacterBox()
 {
     return characterBox;
+}
+
+void Scene::switchFocusToPlayer()
+{
+    InputModule::instance()->setEntity(player);
+}
+
+void Scene::switchFocusToDialog(Dialog *dialog)
+{
+    InputModule::instance()->setEntity(dialog);
+}
+
+void Scene::addDialogToScene(Dialog *dialog)
+{
+    addEntityToLayerBox(dialog);
 }
 
 Character *Scene::getPlayer() const

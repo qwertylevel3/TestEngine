@@ -13,6 +13,7 @@ InputModule::InputModule()
     keyMap[Qt::Key_G]=D_C;
     keyMap[Qt::Key_R]=E_C;
     keyMap[Qt::Key_Y]=F_C;
+    keyMap[Qt::Key_Enter]=enter;
     getInput=true;
     entity=0;
 }

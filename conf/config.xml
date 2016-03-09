@@ -12,6 +12,8 @@
 	<DecorationConfigFileName>conf/decoration.xml</DecorationConfigFileName>
 	<BulletConfigFileName>conf/bullet.xml</BulletConfigFileName>
 	<SceneConfigFileName>conf/scene.xml</SceneConfigFileName>
+	<FaceConfigFileName>conf/face.xml</FaceConfigFileName>
+	<DialogConfigFileName>conf/dialog.xml</DecorationConfigFileName>
 </Config>
 
 

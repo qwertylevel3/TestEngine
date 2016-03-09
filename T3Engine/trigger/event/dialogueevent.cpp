@@ -1,4 +1,5 @@
 #include "dialogueevent.h"
+#include"dialogmanager.h"
 
 DialogueEvent::DialogueEvent()
 {
@@ -7,16 +8,20 @@ DialogueEvent::DialogueEvent()
 
 void DialogueEvent::run()
 {
-    qDebug()<<"run"<<endl;
+    DialogManager::instance()->getDialog(dialogName)->setScene(scene);
+    scene->switchFocusToDialog(DialogManager::instance()->getDialog(dialogName));
+    scene->addDialogToScene(DialogManager::instance()->getDialog(dialogName));
+
 }
+
 void DialogueEvent::setScene(Scene *value)
 {
     scene = value;
 }
-
-void DialogueEvent::addContent(QString content)
+void DialogueEvent::setDialogName(const QString &value)
 {
-    dialogueContent.push_back(content);
+    dialogName = value;
 }
+
 
 
