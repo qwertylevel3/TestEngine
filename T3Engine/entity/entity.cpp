@@ -92,7 +92,6 @@ void Entity::draw()
             moduleList[i]->draw();
         }
     }
-
 }
 
 void Entity::drawRect()

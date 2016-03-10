@@ -37,7 +37,7 @@ InputModule::Command InputModule::getCommand()
     {
         return commandStack.top();
     }
-    return empty;
+    return enter;
 }
 
 InputModule::Command InputModule::popCommand()
@@ -46,7 +46,7 @@ InputModule::Command InputModule::popCommand()
     {
         return commandStack.pop();
     }
-    return empty;
+    return enter;
 }
 
 void InputModule::setEntity(Entity *e)

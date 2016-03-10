@@ -7,33 +7,35 @@ Dialog::Dialog(const QString &spriteName)
 {
     currentSentence=0;
     this->setZ(-5);
+    this->setY(-1.4);
 }
 
 void Dialog::startCommand(InputModule::Command c)
 {
-    if(currentSentence==sentenceList.size())
-    {
-        this->setState(DEAD);
-        scene->switchFocusToPlayer();
-        return;
-    }
     if(c==InputModule::enter)
     {
         currentSentence++;
+        if(currentSentence>=sentenceList.size())
+        {
+            this->setState(DEAD);
+
+            scene->switchFocusToPlayer();
+            return;
+        }
     }
 }
 
 void Dialog::draw()
 {
-    this->setText(sentenceList[currentSentence]->getWord());
-
-    Entity::draw();
 
     QString currentFace=sentenceList[currentSentence]->getFace();
     Face* face=FaceManager::instance()->getFace(currentFace);
-    face->setZ(-5);
-
+    face->setZ(-6);
     face->draw();
+
+    this->setText(sentenceList[currentSentence]->getWord());
+    Entity::draw();
+
 }
 
 void Dialog::addSentence(Sentence *sentence)

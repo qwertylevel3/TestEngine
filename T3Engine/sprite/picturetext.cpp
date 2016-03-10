@@ -9,7 +9,10 @@ PictureText::PictureText()
 
 void PictureText::writeToImage(QImage &image)
 {
-    textRect=QRect(0,0,image.width(),image.height());
+    textRect=QRect(image.width()/10,
+                   image.height()/8,
+                   image.width()-image.width()/10,
+                   image.height()-image.height()/8);
 
     QPainter p;
 

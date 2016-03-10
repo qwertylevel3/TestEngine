@@ -58,13 +58,13 @@ void Scene::draw()
     {
         if(i==10)
         {
-            QList<Entity*> temp=layerBox[i];
             qSort(layerBox[i].begin(),layerBox[i].end(),Entity::compareY);
         }
 
         for(int j=0;j<layerBox[i].size();j++)
         {
-            layerBox[i][j]->draw();
+            if(layerBox[i][j]->isAlive())
+                layerBox[i][j]->draw();
         }
     }
 }
@@ -90,7 +90,8 @@ void Scene::update()
     {
         for(int j=0;j<layerBox[i].size();j++)
         {
-            layerBox[i][j]->update();
+            if(layerBox[i][j]->isAlive())
+                layerBox[i][j]->update();
         }
     }
     //    player->update();
