@@ -79,19 +79,19 @@ protected:
     void initParamater();
     void runSkill();
 
-    void startUp(InputModule::Command c);
-    void startDown(InputModule::Command c);
-    void startLeft(InputModule::Command c);
-    void startRight(InputModule::Command c);
-    void startA_C(InputModule::Command c);
-    void startB_C(InputModule::Command c);
+    void startUp();
+    void startDown();
+    void startLeft();
+    void startRight();
+    void startA_C();
+    void startB_C();
 
-    void endUp(InputModule::Command c);
-    void endDown(InputModule::Command c);
-    void endLeft(InputModule::Command c);
-    void endRight(InputModule::Command c);
-    void endA_C(InputModule::Command c);
-    void endB_C(InputModule::Command c);
+    void endUp();
+    void endDown();
+    void endLeft();
+    void endRight();
+    void endA_C();
+    void endB_C();
 
     int HP;
     int MP;

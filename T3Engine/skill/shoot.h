@@ -7,8 +7,8 @@ class Shoot:public Skill
 {
 public:
     Shoot(Character *e);
-    void start(InputModule::Command c);
-    void end(InputModule::Command c);
+    void start();
+    void end();
     void run();
 
     int getInterval() const;

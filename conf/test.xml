@@ -342,7 +342,39 @@
 		</Sprite>
 	</BulletSprite>
 	<DecorationSprite>
-		<TotalSpriteNumber>3</TotalSpriteNumber>
+		<TotalSpriteNumber>4</TotalSpriteNumber>
+		<Sprite>
+			<SpriteName>scarecrow</SpriteName>
+			<TotalActionNumber>1</TotalActionNumber>
+			<width>32</width>
+			<height>32</height>
+			<Action>
+				<ActionName>act1</ActionName>
+				<FrameDelay>100</FrameDelay>
+				<FrameTotal>1</FrameTotal>
+				<IsRepeat>true</IsRepeat>
+				<RepeatStart>0</RepeatStart>
+				<RepeatOver>0</RepeatOver>
+				<FrameBox>
+					<Frame>
+						<PictureName>\resource\decoration\decoration.png</PictureName>
+						<x>0</x>
+						<y>0</y>
+						<dx>32</dx>
+						<dy>32</dy>
+						<rectBox>
+							<rectNumber>1</rectNumber>
+							<rect>
+								<x>0</x>
+								<y>-16</y>
+								<w>16</w>
+								<h>16</h>
+							</rect>
+						</rectBox>
+					</Frame>
+				</FrameBox>
+			</Action>
+		</Sprite>
 		<Sprite>
 			<SpriteName>targetCircle</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
@@ -440,8 +472,8 @@
 				<FrameBox>
 					<Frame>
 						<PictureName>\resource\decoration\decoration1.png</PictureName>
-						<x>160</x>
-						<y>128</y>
+						<x>120</x>
+						<y>100</y>
 						<dx>32</dx>
 						<dy>64</dy>
 						<rectBox>

@@ -10,10 +10,16 @@
 			<TotalTerrainNumber>0</TotalTerrainNumber>
 		</TerrainBox>
 		<DecorationBox>
-			<TotalDecorationNumber>1</TotalDecorationNumber>
+			<TotalDecorationNumber>2</TotalDecorationNumber>
 			<Decoration>
 				<DecorationName>tree1</DecorationName>
 				<x>0</x>
+				<y>-0.5</y>
+				<z>-10</z>
+			</Decoration>
+			<Decoration>
+				<DecorationName>scarecrow</DecorationName>
+				<x>1</x>
 				<y>-0.5</y>
 				<z>-10</z>
 			</Decoration>
@@ -25,14 +31,7 @@
 			</Decoration> -->
 		</DecorationBox>
 		<CharacterBox>
-			<TotalCharacterNumber>2</TotalCharacterNumber>
-			<Character>
-				<CharacterName>test</CharacterName>
-				<Type>FRIEND</Type>
-				<x>1</x>
-				<y>-0.6</y>
-				<z>-10</z>
-			</Character>
+			<TotalCharacterNumber>1</TotalCharacterNumber>
 			<Character>
 				<CharacterName>test</CharacterName>
 				<Type>FRIEND</Type>

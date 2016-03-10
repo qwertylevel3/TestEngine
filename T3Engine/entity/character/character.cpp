@@ -46,27 +46,27 @@ void Character::startCommand(InputModule::Command c)
 {
     if(c==InputModule::up)
     {
-        startUp(c);
+        startUp();
     }
     if(c==InputModule::down)
     {
-        startDown(c);
+        startDown();
     }
     if(c==InputModule::left)
     {
-        startLeft(c);
+        startLeft();
     }
     if(c==InputModule::right)
     {
-        startRight(c);
+        startRight();
     }
     if(c==InputModule::A_C)
     {
-        startA_C(c);
+        startA_C();
     }
     if(c==InputModule::B_C)
     {
-        startB_C(c);
+        startB_C();
     }
 }
 
@@ -74,27 +74,27 @@ void Character::endCommand(InputModule::Command c)
 {
     if(c==InputModule::up)
     {
-        endUp(c);
+        endUp();
     }
     if(c==InputModule::down)
     {
-        endDown(c);
+        endDown();
     }
     if(c==InputModule::left)
     {
-        endLeft(c);
+        endLeft();
     }
     if(c==InputModule::right)
     {
-        endRight(c);
+        endRight();
     }
     if(c==InputModule::A_C)
     {
-        endA_C(c);
+        endA_C();
     }
     if(c==InputModule::B_C)
     {
-        endB_C(c);
+        endB_C();
     }
 }
 float Character::getSpeed() const
@@ -185,9 +185,9 @@ void Character::runSkill()
 }
 
 //start command.......
-void Character::startUp(InputModule::Command c)
+void Character::startUp()
 {
-    skillBox["moveUp"]->start(c);
+    skillBox["moveUp"]->start();
     setOrientation(Orientation::up);
     if(skillBox["moveLeft"]->isRunning())
     {
@@ -199,9 +199,9 @@ void Character::startUp(InputModule::Command c)
     }
 }
 
-void Character::startDown(InputModule::Command c)
+void Character::startDown()
 {
-    skillBox["moveDown"]->start(c);
+    skillBox["moveDown"]->start();
     setOrientation(Orientation::down);
     if(skillBox["moveLeft"]->isRunning())
     {
@@ -213,9 +213,9 @@ void Character::startDown(InputModule::Command c)
     }
 }
 
-void Character::startLeft(InputModule::Command c)
+void Character::startLeft()
 {
-    skillBox["moveLeft"]->start(c);
+    skillBox["moveLeft"]->start();
     setOrientation(Orientation::left);
     if(skillBox["moveUp"]->isRunning())
     {
@@ -227,9 +227,9 @@ void Character::startLeft(InputModule::Command c)
     }
 }
 
-void Character::startRight(InputModule::Command c)
+void Character::startRight()
 {
-    skillBox["moveRight"]->start(c);
+    skillBox["moveRight"]->start();
     setOrientation(Orientation::right);
     if(skillBox["moveUp"]->isRunning())
     {
@@ -241,20 +241,20 @@ void Character::startRight(InputModule::Command c)
     }
 }
 
-void Character::startA_C(InputModule::Command c)
+void Character::startA_C()
 {
-    skillBox["shoot"]->start(c);
+    skillBox["shoot"]->start();
 }
 
-void Character::startB_C(InputModule::Command c)
+void Character::startB_C()
 {
-    skillBox["focus"]->start(c);
+    skillBox["focus"]->start();
 }
 
 //end command.......
-void Character::endUp(InputModule::Command c)
+void Character::endUp()
 {
-    skillBox["moveUp"]->end(c);
+    skillBox["moveUp"]->end();
     if(skillBox["moveLeft"]->isRunning())
     {
         setOrientation(Orientation::left);
@@ -265,9 +265,9 @@ void Character::endUp(InputModule::Command c)
     }
 }
 
-void Character::endDown(InputModule::Command c)
+void Character::endDown()
 {
-    skillBox["moveDown"]->end(c);
+    skillBox["moveDown"]->end();
     if(skillBox["moveLeft"]->isRunning())
     {
         setOrientation(Orientation::left);
@@ -278,9 +278,9 @@ void Character::endDown(InputModule::Command c)
     }
 }
 
-void Character::endLeft(InputModule::Command c)
+void Character::endLeft()
 {
-    skillBox["moveLeft"]->end(c);
+    skillBox["moveLeft"]->end();
     if(skillBox["moveUp"]->isRunning())
     {
         setOrientation(Orientation::up);
@@ -292,9 +292,9 @@ void Character::endLeft(InputModule::Command c)
     }
 }
 
-void Character::endRight(InputModule::Command c)
+void Character::endRight()
 {
-    skillBox["moveRight"]->end(c);
+    skillBox["moveRight"]->end();
     if(skillBox["moveUp"]->isRunning())
     {
         setOrientation(Orientation::up);
@@ -305,14 +305,14 @@ void Character::endRight(InputModule::Command c)
     }
 }
 
-void Character::endA_C(InputModule::Command c)
+void Character::endA_C()
 {
-    skillBox["shoot"]->end(c);
+    skillBox["shoot"]->end();
 }
 
-void Character::endB_C(InputModule::Command c)
+void Character::endB_C()
 {
-    skillBox["focus"]->end(c);
+    skillBox["focus"]->end();
 }
 int Character::getFocusIndex() const
 {

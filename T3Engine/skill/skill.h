@@ -9,8 +9,8 @@ class Skill
 {
 public:
     Skill(Character* c);
-    virtual void start(InputModule::Command c);
-    virtual void end(InputModule::Command c);
+    virtual void start();
+    virtual void end();
     virtual void run();
     int getCount() const;
     void setCount(int value);

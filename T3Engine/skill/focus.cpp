@@ -12,9 +12,8 @@ Focus::Focus(Character* c)
 
 
 
-void Focus::start(InputModule::Command c)
+void Focus::start()
 {
-    Q_UNUSED(c)
 
     Scene* currentScene=character->getScene();
     QList<Character*>& characterBox=currentScene->getCharacterBox();
@@ -40,9 +39,9 @@ void Focus::start(InputModule::Command c)
     }
 }
 
-void Focus::end(InputModule::Command c)
+void Focus::end()
 {
-    Q_UNUSED(c)
+
 }
 
 void Focus::run()

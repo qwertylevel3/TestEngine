@@ -9,6 +9,7 @@
 
 Scene::Scene()
 {
+    pause=false;
     width=GameConfigurator::instance()->getWindowWidth();
     height=GameConfigurator::instance()->getWindowHeight();
     for(int i=0;
@@ -35,10 +36,11 @@ Scene::Scene()
 
 Scene::~Scene()
 {
-    characterBox.clear();
-    terrainBox.clear();
-    decorationBox.clear();
-    bulletBox.clear();
+    characterList.clear();
+    terrainList.clear();
+    decorationList.clear();
+    bulletList.clear();
+    dialogList.clear();
 
     for(int i=0;i<layerBox.size();i++)
     {
@@ -83,33 +85,48 @@ void Scene::update()
             triggerList.removeAt(i);
         }
     }
-
-    for(int i=GameConfigurator::instance()->getPaintFar();
-        i>=GameConfigurator::instance()->getPaintNear();i--)
+    if(!pause)
     {
-        for(int j=0;j<layerBox[i].size();j++)
+        if(player->isAlive())
         {
-            if(layerBox[i][j]->isAlive())
-                layerBox[i][j]->update();
+            player->update();
+        }
+        for(int i=0;i<bulletList.size();i++)
+        {
+            if(bulletList[i]->isAlive())
+            {
+                bulletList[i]->update();
+            }
+        }
+        for(int i=0;i<characterList.size();i++)
+        {
+            if(characterList[i]->isAlive())
+            {
+                characterList[i]->update();
+            }
+        }
+        for(int i=0;i<terrainList.size();i++)
+        {
+            if(terrainList[i]->isAlive())
+            {
+                terrainList[i]->update();
+            }
+        }
+        for(int i=0;i<decorationList.size();i++)
+        {
+            if(decorationList[i]->isAlive())
+            {
+                decorationList[i]->update();
+            }
         }
     }
-    //    player->update();
-    //    for(int i=0;i<bulletBox.size();i++)
-    //    {
-    //        bulletBox[i]->update();
-    //    }
-    //    for(int i=0;i<characterBox.size();i++)
-    //    {
-    //        characterBox[i]->update();
-    //    }
-    //    for(int i=0;i<terrainBox.size();i++)
-    //    {
-    //        terrainBox[i]->update();
-    //    }
-    //    for(int i=0;i<decorationBox.size();i++)
-    //    {
-    //        decorationBox[i]->update();
-    //    }
+    for(int i=0;i<dialogList.size();i++)
+    {
+        if(dialogList[i]->isAlive())
+        {
+            dialogList[i]->update();
+        }
+    }
     collision();
 }
 
@@ -122,11 +139,11 @@ void Scene::collision()
 
 void Scene::detectPlayerBulletCollision()
 {
-    for(int i=0;i<bulletBox.size();i++)
+    for(int i=0;i<bulletList.size();i++)
     {
-        if(player->isAlive() && bulletBox[i]->isAlive())
+        if(player->isAlive() && bulletList[i]->isAlive())
         {
-            if(isCollision(player,bulletBox[i]))
+            if(isCollision(player,bulletList[i]))
             {
                 //TODO
             }
@@ -138,13 +155,13 @@ void Scene::detectPlayerBulletCollision()
 void Scene::detectCharacterBulletCollision()
 {
 
-    for(int i=0;i<characterBox.size();i++)
+    for(int i=0;i<characterList.size();i++)
     {
-        for(int j=0;j<bulletBox.size();j++)
+        for(int j=0;j<bulletList.size();j++)
         {
-            if(characterBox[i]->isAlive() && bulletBox[j]->isAlive())
+            if(characterList[i]->isAlive() && bulletList[j]->isAlive())
             {
-                if(isCollision(characterBox[i],bulletBox[j]))
+                if(isCollision(characterList[i],bulletList[j]))
                 {
                     //qDebug()<<"collision"<<endl;
                 }
@@ -160,11 +177,11 @@ void Scene::detectCharacterBulletCollision()
 
 void Scene::detectPlayerCharacterCollision()
 {
-    for(int i=0;i<characterBox.size();i++)
+    for(int i=0;i<characterList.size();i++)
     {
-        if(player->isAlive() && characterBox[i]->isAlive())
+        if(player->isAlive() && characterList[i]->isAlive())
         {
-            if(isCollision(player,characterBox[i]))
+            if(isCollision(player,characterList[i]))
             {
                 //qDebug()<<"collision"<<endl;
             }
@@ -261,9 +278,19 @@ bool Scene::addEntityToLayerBox(Entity *entity)
     layerBox[-(entity->getZ())].append(entity);
     return true;
 }
+bool Scene::getPause() const
+{
+    return pause;
+}
+
+void Scene::setPause(bool value)
+{
+    pause = value;
+}
+
 QList<Character *> & Scene::getCharacterBox()
 {
-    return characterBox;
+    return characterList;
 }
 
 void Scene::switchFocusToPlayer()
@@ -278,7 +305,10 @@ void Scene::switchFocusToDialog(Dialog *dialog)
 
 void Scene::addDialogToScene(Dialog *dialog)
 {
-    addEntityToLayerBox(dialog);
+    if(addEntityToLayerBox(dialog))
+    {
+        dialogList.push_back(dialog);
+    }
 }
 
 Character *Scene::getPlayer() const
@@ -317,7 +347,7 @@ void Scene::addCharacterToBox(Character *character)
 {
     if(addEntityToLayerBox(character))
     {
-        characterBox.append(character);
+        characterList.append(character);
     }
 }
 
@@ -325,7 +355,7 @@ void Scene::addTerrainToBox(Terrain *terrain)
 {
     if(addEntityToLayerBox(terrain))
     {
-        terrainBox.append(terrain);
+        terrainList.append(terrain);
     }
 }
 
@@ -333,7 +363,7 @@ void Scene::addDecorationToBox(Decoration *decoration)
 {
     if(addEntityToLayerBox(decoration))
     {
-        decorationBox.append(decoration);
+        decorationList.append(decoration);
     }
 }
 
@@ -341,6 +371,6 @@ void Scene::addBulletToBox(Bullet *bullet)
 {
     if(addEntityToLayerBox(bullet))
     {
-        bulletBox.append(bullet);
+        bulletList.append(bullet);
     }
 }

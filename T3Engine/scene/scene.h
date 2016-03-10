@@ -52,13 +52,17 @@ public:
 
     void addDialogToScene(Dialog* dialog);
 
+    bool getPause() const;
+    void setPause(bool value);
+
 protected:
     bool addEntityToLayerBox(Entity* entity);
 
-    QList<Character*> characterBox;
-    QList<Terrain*> terrainBox;
-    QList<Decoration*> decorationBox;
-    QList<Bullet*> bulletBox;
+    QList<Character*> characterList;
+    QList<Terrain*> terrainList;
+    QList<Decoration*> decorationList;
+    QList<Bullet*> bulletList;
+    QList<Dialog*> dialogList;
 
     Character* player;
 
@@ -71,6 +75,7 @@ protected:
 
     QList<Trigger*> triggerList;
 
+    bool pause;
 };
 
 #endif // SCENE_H

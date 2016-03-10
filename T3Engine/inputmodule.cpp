@@ -14,7 +14,21 @@ InputModule::InputModule()
     keyMap[Qt::Key_R]=E_C;
     keyMap[Qt::Key_Y]=F_C;
     keyMap[Qt::Key_Enter]=enter;
+
+    runningList[up]=false;
+    runningList[down]=false;
+    runningList[left]=false;
+    runningList[right]=false;
+    runningList[A_C]=false;
+    runningList[B_C]=false;
+    runningList[C_C]=false;
+    runningList[D_C]=false;
+    runningList[E_C]=false;
+    runningList[F_C]=false;
+    runningList[enter]=false;
+
     getInput=true;
+
     entity=0;
 }
 
@@ -51,6 +65,10 @@ InputModule::Command InputModule::popCommand()
 
 void InputModule::setEntity(Entity *e)
 {
+    if(entity)
+    {
+        shutdownAllCommand();
+    }
     entity=e;
 }
 
@@ -64,6 +82,7 @@ void InputModule::keyPressEvent(QKeyEvent *e)
     //this->input(e->key());
     if(entity)
     {
+        runningList[keyMap[e->key()]]=true;
         entity->startCommand(keyMap[e->key()]);
     }
 }
@@ -77,6 +96,20 @@ void InputModule::keyReleaseEvent(QKeyEvent *e)
     }
     if(entity)
     {
+        runningList[keyMap[e->key()]]=false;
         entity->endCommand(keyMap[e->key()]);
+    }
+}
+
+void InputModule::shutdownAllCommand()
+{
+    QMap<Command,bool>::const_iterator i=runningList.constBegin();
+    while(i!=runningList.constEnd())
+    {
+        if(i.value())
+        {
+            entity->endCommand(i.key());
+        }
+        i++;
     }
 }

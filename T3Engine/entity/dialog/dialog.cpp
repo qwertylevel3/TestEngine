@@ -27,8 +27,8 @@ void Dialog::startCommand(InputModule::Command c)
         if(currentSentence>=sentenceList.size())
         {
             this->setState(DEAD);
-
             scene->switchFocusToPlayer();
+            scene->setPause(false);
             return;
         }
     }

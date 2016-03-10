@@ -8,14 +8,14 @@ Move::Move(Character *c)
     count=-1;
 }
 
-void Move::start(InputModule::Command c)
+void Move::start()
 {
-    Skill::start(c);
+    Skill::start();
 }
 
-void Move::end(InputModule::Command c)
+void Move::end()
 {
-    Skill::end(c);
+    Skill::end();
 }
 
 void Move::run()

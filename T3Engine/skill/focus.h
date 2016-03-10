@@ -9,8 +9,8 @@ class Focus:public Skill
 {
 public:
     Focus(Character* c);
-    void start(InputModule::Command c);
-    void end(InputModule::Command c);
+    void start();
+    void end();
     void run();
 protected:
     int chooseFocusCharacter();

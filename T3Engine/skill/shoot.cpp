@@ -11,15 +11,15 @@ Shoot::Shoot(Character *e)
     clockId=ClockManager::instance()->genClock();
 }
 
-void Shoot::start(InputModule::Command c)
+void Shoot::start()
 {
-    Skill::start(c);
+    Skill::start();
 
 }
 
-void Shoot::end(InputModule::Command c)
+void Shoot::end()
 {
-    Skill::end(c);
+    Skill::end();
 }
 
 void Shoot::run()

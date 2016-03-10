@@ -8,8 +8,8 @@ class Move:public Skill
 {
 public:
     Move(Character* c);
-    void start(InputModule::Command c);
-    void end(InputModule::Command c);
+    void start();
+    void end();
     void run();
 
     Orientation::ORIENTATION getOrientation() const;

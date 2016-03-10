@@ -4,7 +4,7 @@
 	<DrawRect>0</DrawRect>
 	<PaintNear>3</PaintNear>
 	<PaintFar>20</PaintFar>
-	<WindowWidth>1000</WindowWidth>
+	<WindowWidth>700</WindowWidth>
 	<WindowHeight>700</WindowHeight>
 	<SpriteConfigFileName>conf/test.xml</SpriteConfigFileName>
 	<CharacterConfigFileName>conf/character.xml</CharacterConfigFileName>
@@ -13,7 +13,7 @@
 	<BulletConfigFileName>conf/bullet.xml</BulletConfigFileName>
 	<SceneConfigFileName>conf/scene.xml</SceneConfigFileName>
 	<FaceConfigFileName>conf/face.xml</FaceConfigFileName>
-	<DialogConfigFileName>conf/dialog.xml</DecorationConfigFileName>
+	<DialogConfigFileName>conf/dialog.xml</DialogConfigFileName>
 </Config>
 
 

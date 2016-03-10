@@ -12,6 +12,7 @@ void DialogueEvent::run()
     dialog->setScene(scene);
     scene->switchFocusToDialog(dialog);
     scene->addDialogToScene(dialog);
+    scene->setPause(true);
 }
 
 void DialogueEvent::setScene(Scene *value)
