@@ -10,15 +10,13 @@ public:
     void init();
 
     Face* getFace(const QString& faceName);
-    void addFace(const QString& faceName,Face* face)
-    {
-        faceBox.insert(faceName,face);
-    }
+    void addFace(const QString& faceName,Face* face);
 
 protected:
     QMap<QString,Face*> faceBox;
     QXmlStreamReader reader;
 
     Face* makeFace();
+};
 
 #endif // FACEMANAGER_H

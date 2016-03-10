@@ -128,6 +128,8 @@ private:
     int repeatX;//重复次数(重复一次，绘制两次)
     int repeatY;
     float alpha;
+
+    QImage* tempImage;
 };
 
 

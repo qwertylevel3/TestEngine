@@ -19,7 +19,6 @@ Scene::Scene()
         layerBox.append(*box);
     }
 
-
     TimeUpCondition* condition=new TimeUpCondition;
     condition->setTime(3000);
 

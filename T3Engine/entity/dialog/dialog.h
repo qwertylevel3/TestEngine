@@ -8,9 +8,11 @@ class Dialog:public Entity
 {
 public:
     Dialog(const QString& spriteName);
+    ~Dialog();
 
     virtual void startCommand(InputModule::Command c);
     virtual void draw();
+    Dialog* clone();
 
     void addSentence(Sentence *sentence);
 

@@ -4,15 +4,15 @@ PictureText::PictureText()
 {
     textColor=Qt::white;
     textAlignment=Qt::AlignLeft;
-    textFont=QFont("Arial", 30);
+    textFont=QFont("Arial", 20);
 }
 
 void PictureText::writeToImage(QImage &image)
 {
-    textRect=QRect(image.width()/10,
-                   image.height()/8,
-                   image.width()-image.width()/10,
-                   image.height()-image.height()/8);
+    textRect=QRect(image.width()/12,
+                   image.height()/5,
+                   image.width()-image.width()/12,
+                   image.height()-image.height()/5);
 
     QPainter p;
 
@@ -67,9 +67,4 @@ void PictureText::setContent(const QString &value)
 {
     content = value;
 }
-
-
-
-
-
 

@@ -9,6 +9,7 @@ Picture::Picture(const QString &imagePath)
     : indexBuf(QOpenGLBuffer::IndexBuffer)
 {
     initializeOpenGLFunctions();
+    initParameter();
 
     // Generate 2 VBOs
     arrayBuf.create();
@@ -21,7 +22,6 @@ Picture::Picture(const QString &imagePath)
     loadImage(imagePath);
     setTextures(image);
 
-    initParameter();
 }
 
 Picture::~Picture()
@@ -83,6 +83,7 @@ void Picture::updateArrayBuffer()
 
 void Picture::initParameter()
 {
+    texture=0;
     zoomX=1;
     zoomY=1;
     x=y=z=0;
@@ -104,6 +105,7 @@ void Picture::initParameter()
     matrix.setToIdentity();
 
 
+    tempImage=0;
 }
 
 void Picture::updateVertexData()
@@ -246,6 +248,10 @@ void Picture::rotate(float angle, float a_x, float a_y, float a_z)
 
 void Picture::setTextures(QImage img)
 {
+    if(texture!=0)
+    {
+        delete texture;
+    }
     texture = new QOpenGLTexture(QOpenGLTexture::Target2D);
     texture->setFormat(QOpenGLTexture::RGBA8U);
     texture->setData(img.mirrored());
@@ -262,12 +268,17 @@ void Picture::setTextures(QImage img)
 
 void Picture::setText(const QString &content)
 {
-    QImage tempImage=image;
+    if(tempImage!=0)
+    {
+        delete tempImage;
+    }
+    tempImage=new QImage;
+    *tempImage=image;
 
     text.setContent(content);
-    text.writeToImage(tempImage);
+    text.writeToImage(*tempImage);
 
-    setTextures(tempImage);
+    setTextures(*tempImage);
 }
 
 

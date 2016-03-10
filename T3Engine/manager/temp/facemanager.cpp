@@ -39,6 +39,11 @@ Face *FaceManager::getFace(const QString &faceName)
     return faceBox[faceName];
 }
 
+void FaceManager::addFace(const QString &faceName, Face *face)
+{
+    faceBox.insert(faceName,face);
+}
+
 Face *FaceManager::makeFace()
 {
     reader.readNextStartElement();//<Face>
@@ -51,7 +56,7 @@ Face *FaceManager::makeFace()
 
     reader.readNextStartElement();//</Face>
 
-    Face* face=new face(spriteName);
+    Face* face=new Face(spriteName);
     face->setName(name);
     return face;
 }

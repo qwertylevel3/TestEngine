@@ -8,10 +8,10 @@ DialogueEvent::DialogueEvent()
 
 void DialogueEvent::run()
 {
-    DialogManager::instance()->getDialog(dialogName)->setScene(scene);
-    scene->switchFocusToDialog(DialogManager::instance()->getDialog(dialogName));
-    scene->addDialogToScene(DialogManager::instance()->getDialog(dialogName));
-
+    Dialog* dialog=DialogManager::instance()->getDialog(dialogName);
+    dialog->setScene(scene);
+    scene->switchFocusToDialog(dialog);
+    scene->addDialogToScene(dialog);
 }
 
 void DialogueEvent::setScene(Scene *value)

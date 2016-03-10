@@ -10,6 +10,15 @@ Dialog::Dialog(const QString &spriteName)
     this->setY(-1.4);
 }
 
+Dialog::~Dialog()
+{
+    for(int i=0;i<sentenceList.size();i++)
+    {
+        delete sentenceList[i];
+    }
+    sentenceList.clear();
+}
+
 void Dialog::startCommand(InputModule::Command c)
 {
     if(c==InputModule::enter)
@@ -27,7 +36,6 @@ void Dialog::startCommand(InputModule::Command c)
 
 void Dialog::draw()
 {
-
     QString currentFace=sentenceList[currentSentence]->getFace();
     Face* face=FaceManager::instance()->getFace(currentFace);
     face->setZ(-6);
@@ -36,6 +44,21 @@ void Dialog::draw()
     this->setText(sentenceList[currentSentence]->getWord());
     Entity::draw();
 
+}
+
+Dialog* Dialog::clone()
+{
+    Dialog* newDialog=new Dialog(this->spriteName);
+
+    for(int i=0;i<sentenceList.size();i++)
+    {
+        Sentence * sentence=new Sentence();
+        sentence->setFace(sentenceList[i]->getFace());
+        sentence->setWord(sentenceList[i]->getWord());
+        newDialog->addSentence(sentence);
+    }
+
+    return newDialog;
 }
 
 void Dialog::addSentence(Sentence *sentence)

@@ -46,8 +46,8 @@ INPUT(
 ./release\dialog.o
 ./release\face.o
 ./release\sentence.o
-./release\facemanager.o
 ./release\dialogmanager.o
+./release\facemanager.o
 ./release\qrc_shader.o
 ./release\moc_inputmodule.o
 ./release\moc_spritecreator.o

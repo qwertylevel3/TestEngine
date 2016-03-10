@@ -23,7 +23,7 @@ INCLUDEPATH += $$PWD\T3Engine\entity\character\
 INCLUDEPATH += $$PWD\T3Engine\entity\decoration\
 INCLUDEPATH += $$PWD\T3Engine\entity\terrain\
 INCLUDEPATH += $$PWD\T3Engine\entity\module\
-INCLUDEPATH += $$PWD\T3Engine\dialog\
+INCLUDEPATH += $$PWD\T3Engine\entity\dialog\
 INCLUDEPATH += $$PWD\T3Engine\manager\
 INCLUDEPATH += $$PWD\T3Engine\manager\entity\
 INCLUDEPATH += $$PWD\T3Engine\scene\
@@ -79,11 +79,11 @@ SOURCES += main.cpp\
     T3Engine/manager/entity/charactermanager.cpp \
     T3Engine/manager/entity/decorationmanager.cpp \
     T3Engine/manager/entity/terrainmanager.cpp \
-    T3Engine/dialog/dialog.cpp \
-    T3Engine/dialog/face.cpp \
-    T3Engine/dialog/sentence.cpp \
-    T3Engine/manager/facemanager.cpp \
-    T3Engine/manager/dialogmanager.cpp
+    T3Engine/entity/dialog/dialog.cpp \
+    T3Engine/entity/dialog/face.cpp \
+    T3Engine/entity/dialog/sentence.cpp \
+    T3Engine/manager/entity/dialogmanager.cpp \
+    T3Engine/manager/entity/facemanager.cpp
 
 HEADERS  += \
     T3Engine/scene/scene.h \
@@ -131,11 +131,11 @@ HEADERS  += \
     T3Engine/manager/entity/charactermanager.h \
     T3Engine/manager/entity/decorationmanager.h \
     T3Engine/manager/entity/terrainmanager.h \
-    T3Engine/dialog/dialog.h \
-    T3Engine/dialog/face.h \
-    T3Engine/dialog/sentence.h \
-    T3Engine/manager/facemanager.h \
-    T3Engine/manager/dialogmanager.h
+    T3Engine/entity/dialog/dialog.h \
+    T3Engine/entity/dialog/face.h \
+    T3Engine/entity/dialog/sentence.h \
+    T3Engine/manager/entity/dialogmanager.h \
+    T3Engine/manager/entity/facemanager.h
 
 RESOURCES += \
     shader.qrc
