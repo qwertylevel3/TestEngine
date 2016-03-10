@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SceneBox>
 	<TotalSceneNumber>1</TotalSceneNumber>
+	
 	<Scene>
 		<Name>init</Name>
+		<width>1000</width>
+		<height>1000</height>
 		<Background>
 			<BackgroundName>grass_0</BackgroundName>
 		</Background>
@@ -14,13 +17,13 @@
 			<Decoration>
 				<DecorationName>tree1</DecorationName>
 				<x>0</x>
-				<y>-0.5</y>
+				<y>-100</y>
 				<z>-10</z>
 			</Decoration>
 			<Decoration>
 				<DecorationName>scarecrow</DecorationName>
 				<x>1</x>
-				<y>-0.5</y>
+				<y>-10</y>
 				<z>-10</z>
 			</Decoration>
 <!-- 			<Decoration>
@@ -35,15 +38,15 @@
 			<Character>
 				<CharacterName>test</CharacterName>
 				<Type>FRIEND</Type>
-				<x>-1</x>
-				<y>-0.6</y>
+				<x>250</x>
+				<y>-60</y>
 				<z>-10</z>
 			</Character>
 		</CharacterBox>
 		<Player>
 			<PlayerName>test</PlayerName>
-			<x>1</x>
-			<y>-0.4</y>
+			<x>100</x>
+			<y>-40</y>
 			<z>-10</z>
 		</Player>
 	</Scene>

@@ -50,7 +50,16 @@ void SceneManager::makeScene()
     reader.readNextStartElement();//<name>
     QString name=reader.readElementText();
 
+    reader.readNextStartElement();//<width>
+    int width=reader.readElementText().toInt();
+
+    reader.readNextStartElement();//<height>
+    int height=reader.readElementText().toInt();
+
     Scene* tempScene=new Scene();
+
+    tempScene->setWidth(width);
+    tempScene->setHeight(height);
 
     makeBackground(tempScene);
     makeTerrain(tempScene);

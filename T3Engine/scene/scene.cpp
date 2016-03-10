@@ -10,8 +10,6 @@
 Scene::Scene()
 {
     pause=false;
-    width=GameConfigurator::instance()->getWindowWidth();
-    height=GameConfigurator::instance()->getWindowHeight();
     for(int i=0;
         i<=GameConfigurator::instance()->getPaintFar();i++)
     {

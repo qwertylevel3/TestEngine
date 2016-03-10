@@ -167,7 +167,7 @@ void Character::initParamater()
     MP=0;
     currentHP=0;
     currentMP=0;
-    speed=0.01;
+    speed=10;
     orientation=Orientation::down;
     lastOrientation=Orientation::down;
 }
