@@ -22,20 +22,13 @@ void SpriteManager::init()
     }
     reader.setDevice(&file);
 
-    reader.readNextStartElement();//spriteBox;
+    reader.readNextStartElement();//<spriteBox>;
 
-    reader.readNextStartElement();//<totalSpriteNumber>
-    int totalSpriteNumber=reader.readElementText().toInt();
-
-    for(int i=0;i<totalSpriteNumber;i++)
+    for(int i=0;i<6;i++)
     {
-
-        Sprite* sprite=makeSprite();
-
-        this->addSprite(sprite->getName(),sprite);
-
-        reader.readNextStartElement();
+        makeDifSprite();
     }
+    reader.readNextStartElement();//</spriteBox>
     file.close();
 }
 
@@ -69,8 +62,25 @@ void SpriteManager::write()
 //
 //    }
 //
-//    file.close();
+    //    file.close();
 }
+
+void SpriteManager::makeDifSprite()
+{
+    reader.readNextStartElement();//<....Sprite>
+
+    reader.readNextStartElement();//<TotalSpriteNumber>
+    int number=reader.readElementText().toInt();
+
+    for(int i=0;i<number;i++)
+    {
+        Sprite* sprite=makeSprite();
+        addSprite(sprite->getName(),sprite);
+    }
+
+    reader.readNextStartElement();//</....Sprite>
+}
+
 
 Sprite *SpriteManager::makeSprite()
 {
@@ -99,6 +109,8 @@ Sprite *SpriteManager::makeSprite()
         Action* action=makeAction();
         sprite->addAction(action);
     }
+
+    reader.readNextStartElement();//</sprite>
 
     return sprite;
 }

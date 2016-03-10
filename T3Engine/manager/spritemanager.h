@@ -29,6 +29,8 @@ public:
     }
 
 protected:
+    void makeDifSprite();
+
     QMap<QString,Sprite*> spriteBox;
 
     QXmlStreamReader reader;
