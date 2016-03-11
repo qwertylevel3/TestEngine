@@ -14,7 +14,6 @@ Shoot::Shoot(Character *e)
 void Shoot::start()
 {
     Skill::start();
-
 }
 
 void Shoot::end()
@@ -37,7 +36,6 @@ void Shoot::run()
 
 void Shoot::shootBullet()
 {
-
     int focusIndex=character->getFocusIndex();
 
     Character* focusCharacter=character->getScene()->getCharacterBox()[focusIndex];
