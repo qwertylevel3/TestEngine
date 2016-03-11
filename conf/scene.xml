@@ -37,7 +37,7 @@
 			<TotalCharacterNumber>1</TotalCharacterNumber>
 			<Character>
 				<CharacterName>test</CharacterName>
-				<Type>FRIEND</Type>
+				<Type>ENEMY</Type>
 				<x>250</x>
 				<y>-60</y>
 				<z>-10</z>

@@ -173,6 +173,7 @@ void Character::initParamater()
     speed=10;
     orientation=Orientation::down;
     lastOrientation=Orientation::down;
+    invincible=false;
 }
 
 void Character::runSkill()
@@ -317,6 +318,16 @@ void Character::endB_C()
 {
     skillBox["focus"]->end();
 }
+bool Character::getInvincible() const
+{
+    return invincible;
+}
+
+void Character::setInvincible(bool value)
+{
+    invincible = value;
+}
+
 int Character::getFocusIndex() const
 {
     return focusIndex;
@@ -325,6 +336,26 @@ int Character::getFocusIndex() const
 void Character::setFocusIndex(int value)
 {
     focusIndex = value;
+}
+
+void Character::getDamage(float damage)
+{
+    if(!invincible)
+    {
+        if(currentHP-damage<=0)
+        {
+            dead();
+        }
+        else
+        {
+            currentHP-=damage;
+        }
+    }
+}
+
+void Character::dead()
+{
+    this->setState(DEAD);
 }
 
 Character::TYPE Character::getType() const

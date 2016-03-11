@@ -65,6 +65,8 @@ void Shoot::shootBullet()
     bullet->setDirectionX(directionX);
     bullet->setDirectionY(directionY);
 
+    bullet->setShooter(character);
+
     character->getScene()->addBulletToBox(bullet);
 }
 int Shoot::getInterval() const

@@ -117,10 +117,6 @@ void Entity::update()
         this->setX(this->getX()+dx);
         this->setY(this->getY()+dy);
     }
-    else
-    {
-        moveAble=true;
-    }
     dx=0;
     dy=0;
 }

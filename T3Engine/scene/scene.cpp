@@ -155,7 +155,6 @@ void Scene::detectPlayerBulletCollision()
 
 void Scene::detectCharacterBulletCollision()
 {
-
     for(int i=0;i<characterList.size();i++)
     {
         for(int j=0;j<bulletList.size();j++)
@@ -165,6 +164,18 @@ void Scene::detectCharacterBulletCollision()
                 if(isCollision(characterList[i],bulletList[j]))
                 {
                     //qDebug()<<"collision"<<endl;
+                    if(characterList[i]->getType()==Character::ENEMY
+                            &&( bulletList[j]->getShooter()->getType()==Character::PLAYER
+                            || bulletList[j]->getShooter()->getType()==Character::FRIEND))
+                    {
+                        characterList[i]->getDamage(bulletList[i]->getDamage());
+                    }
+                    else if((characterList[i]->getType()==Character::PLAYER
+                            || characterList[i]->getType()==Character::FRIEND)
+                            && bulletList[j]->getShooter()->getType()==Character::ENEMY)
+                    {
+                        characterList[i]->getDamage(bulletList[i]->getDamage());
+                    }
                 }
                 else
                 {
@@ -226,7 +237,6 @@ void Scene::detectPlayerDecorationCollision()
                 //qDebug()<<"..."<<endl;
             }
         }
-
     }
 }
 

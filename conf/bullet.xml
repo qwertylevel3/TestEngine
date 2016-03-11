@@ -5,6 +5,6 @@
 		<Name>bullet</Name>
 		<SpriteName>bullet</SpriteName>
 		<speed>10</speed>
-		<damage>5</damage>
+		<damage>20</damage>
 	</Bullet>
 </BulletBox>

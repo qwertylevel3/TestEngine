@@ -74,6 +74,11 @@ public:
     int getFocusIndex() const;
     void setFocusIndex(int value);
 
+    void getDamage(float damage);
+    void dead();
+    bool getInvincible() const;
+    void setInvincible(bool value);
+
 protected:
     void initSkill();
     void initParamater();
@@ -98,6 +103,7 @@ protected:
     int currentHP;
     int currentMP;
     float speed;
+    bool invincible;
 
     Orientation::ORIENTATION orientation;
     Orientation::ORIENTATION lastOrientation;
