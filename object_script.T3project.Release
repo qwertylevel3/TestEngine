@@ -31,7 +31,6 @@ INPUT(
 ./release\framepage.o
 ./release\rectpage.o
 ./release\focus.o
-./release\module.o
 ./release\collisiondetector.o
 ./release\obb.o
 ./release\trigger.o

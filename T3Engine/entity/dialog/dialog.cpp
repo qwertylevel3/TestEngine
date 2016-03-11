@@ -7,7 +7,7 @@ Dialog::Dialog(const QString &spriteName)
 {
     currentSentence=0;
     this->setZ(-5);
-    this->setY(-1.4);
+    this->setY(-200);
 }
 
 Dialog::~Dialog()
@@ -39,6 +39,7 @@ void Dialog::draw()
     QString currentFace=sentenceList[currentSentence]->getFace();
     Face* face=FaceManager::instance()->getFace(currentFace);
     face->setZ(-6);
+    face->setY(100);
     face->draw();
 
     this->setText(sentenceList[currentSentence]->getWord());

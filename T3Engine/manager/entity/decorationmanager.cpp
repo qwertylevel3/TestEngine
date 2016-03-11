@@ -52,10 +52,18 @@ Decoration *DecorationManager::makeDecoration()
     reader.readNextStartElement();//<SpriteName>
     QString spriteName=reader.readElementText();
 
+    reader.readNextStartElement();//<collisionAble>
+    bool collisionAble=reader.readElementText().toInt()==0?false:true;
+
+    reader.readNextStartElement();//<destractiable>
+    bool destractiable=reader.readElementText().toInt()==0?false:true;
+
     reader.readNextStartElement();//</Decoration>
 
     Decoration* decoration=new Decoration(spriteName);
     decoration->setName(name);
+    decoration->setCollisionAble(collisionAble);
+    decoration->setCollisionAble(destractiable);
     return decoration;
 }
 

@@ -6,7 +6,6 @@
 #include"inputmodule.h"
 
 class Scene;
-class Module;
 
 class Entity
 {
@@ -116,6 +115,21 @@ public:
     int getRemainTime() const;
     void setRemainTime(int value);
 
+    bool getCollisionAble() const;
+    void setCollisionAble(bool value);
+
+    bool getDestructible() const;
+    void setDestructible(bool value);
+
+    bool getMoveAble() const;
+    void setMoveAble(bool value);
+
+    float getDx() const;
+    void setDx(float value);
+
+    float getDy() const;
+    void setDy(float value);
+
 protected:
     QString name;
     QString spriteName;
@@ -132,7 +146,13 @@ protected:
     STATE state;
 
     int remainTime;
-    QList<Module*> moduleList;
+
+    bool collisionAble;//可碰撞
+    bool destructible;//可破坏
+    bool moveAble;
+
+    float dx;
+    float dy;
 };
 
 inline

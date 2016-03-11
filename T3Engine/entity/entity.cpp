@@ -1,7 +1,6 @@
 #include "entity.h"
 #include"inputmodule.h"
 #include"scene.h"
-#include"module.h"
 
 
 bool Entity::compareY(Entity *a, Entity *b)
@@ -25,6 +24,12 @@ Entity::Entity(const QString &spriteName)
 
     state=ALIVE;
     remainTime=-1;
+
+    collisionAble=false;
+    destructible=false;
+    moveAble=true;
+    dx=0;
+    dy=0;
 }
 
 Entity::~Entity()
@@ -87,10 +92,6 @@ void Entity::draw()
             i.value()->draw();
             i++;
         }
-        for(int i=0;i<moduleList.size();i++)
-        {
-            moduleList[i]->draw();
-        }
     }
 }
 
@@ -109,10 +110,19 @@ void Entity::update()
         i.value()->update();
         i++;
     }
-    for(int i=0;i<moduleList.size();i++)
+
+    //TODO............
+    if(getMoveAble())
     {
-        moduleList[i]->update();
+        this->setX(this->getX()+dx);
+        this->setY(this->getY()+dy);
     }
+    else
+    {
+        moveAble=true;
+    }
+    dx=0;
+    dy=0;
 }
 
 Entity *Entity::clone()
@@ -122,12 +132,14 @@ Entity *Entity::clone()
 
 void Entity::moveX(float dx)
 {
-    setX(getX()+dx);
+//    setX(getX()+dx);
+    this->dx=dx;
 }
 
 void Entity::moveY(float dy)
 {
-    setY(getY()+dy);
+//    setY(getY()+dy);
+    this->dy=dy;
 }
 
 void Entity::removeChild(QString name)
@@ -232,6 +244,57 @@ void Entity::setRemainTime(int value)
 {
     remainTime = value;
 }
+bool Entity::getCollisionAble() const
+{
+    return collisionAble;
+}
+
+void Entity::setCollisionAble(bool value)
+{
+    collisionAble = value;
+}
+bool Entity::getDestructible() const
+{
+    return destructible;
+}
+
+void Entity::setDestructible(bool value)
+{
+    destructible = value;
+}
+bool Entity::getMoveAble() const
+{
+    return moveAble;
+}
+
+void Entity::setMoveAble(bool value)
+{
+    moveAble = value;
+}
+float Entity::getDx() const
+{
+    return dx;
+}
+
+void Entity::setDx(float value)
+{
+    dx = value;
+}
+float Entity::getDy() const
+{
+    return dy;
+}
+
+void Entity::setDy(float value)
+{
+    dy = value;
+}
+
+
+
+
+
+
 
 
 

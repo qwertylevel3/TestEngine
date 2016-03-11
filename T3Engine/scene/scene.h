@@ -26,6 +26,9 @@ public:
     void detectPlayerBulletCollision();
     void detectCharacterBulletCollision();
     void detectPlayerCharacterCollision();
+    //todo
+    void detectCharacterDecorationCollision();
+    void detectPlayerDecorationCollision();
     bool isCollision(Entity *a, Entity *b);
     bool isCollision(QRectF a,QRectF b);
     

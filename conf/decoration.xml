@@ -4,21 +4,31 @@
 	<Decoration>
 		<Name>scarecrow</Name>
 		<SpriteName>scarecrow</SpriteName>
+		<collisionAble>1</collisionAble>
+		<destructible>1</destructible>
 	</Decoration>
 	<Decoration>
 		<Name>tree1</Name>
 		<SpriteName>tree1</SpriteName>
+		<collisionAble>1</collisionAble>
+		<destructible>1</destructible>
 	</Decoration>
 	<Decoration>
 		<Name>shadow</Name>
 		<SpriteName>shadow</SpriteName>
+		<collisionAble>0</collisionAble>
+		<destructible>0</destructible>
 	</Decoration>
 	<Decoration>
 		<Name>dialog</Name>
 		<SpriteName>dialog</SpriteName>
+		<collisionAble>0</collisionAble>
+		<destructible>0</destructible>
 	</Decoration>
 	<Decoration>
 		<Name>targetCircle</Name>
 		<SpriteName>targetCircle</SpriteName>
+		<collisionAble>0</collisionAble>
+		<destructible>0</destructible>
 	</Decoration>
 </DecorationBox>

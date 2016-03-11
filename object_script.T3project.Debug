@@ -31,7 +31,6 @@ INPUT(
 ./debug\framepage.o
 ./debug\rectpage.o
 ./debug\focus.o
-./debug\module.o
 ./debug\collisiondetector.o
 ./debug\obb.o
 ./debug\trigger.o

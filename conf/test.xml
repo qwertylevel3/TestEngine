@@ -573,8 +573,8 @@
 		<Sprite>
 			<SpriteName>dialog</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
-			<width>600</width>
-			<height>200</height>
+			<width>1000</width>
+			<height>300</height>
 			<Action>
 				<ActionName>dialog</ActionName>
 				<FrameDelay>100</FrameDelay>
@@ -587,8 +587,8 @@
 						<PictureName>\resource\decoration\dialog.png</PictureName>
 						<x>1</x>
 						<y>1</y>
-						<dx>600</dx>
-						<dy>200</dy>
+						<dx>1000</dx>
+						<dy>300</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>

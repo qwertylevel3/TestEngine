@@ -67,7 +67,6 @@ SOURCES += main.cpp\
     SpriteCreator/framepage.cpp \
     SpriteCreator/rectpage.cpp \
     T3Engine/skill/focus.cpp \
-    T3Engine/entity/module/module.cpp \
     T3Engine/scene/collisiondetector.cpp \
     T3Engine/scene/obb.cpp \
     T3Engine/trigger/trigger.cpp \
@@ -119,7 +118,6 @@ HEADERS  += \
     SpriteCreator/framepage.h \
     SpriteCreator/rectpage.h \
     T3Engine/skill/focus.h \
-    T3Engine/entity/module/module.h \
     T3Engine/scene/collisiondetector.h \
     T3Engine/scene/obb.h \
     T3Engine/trigger/trigger.h \

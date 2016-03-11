@@ -3,7 +3,6 @@
 Decoration::Decoration(const QString &spriteName)
     :Entity(spriteName)
 {
-
 }
 
 Decoration *Decoration::clone()
@@ -13,5 +12,15 @@ Decoration *Decoration::clone()
 
     return newDecoration;
 }
+int Decoration::getHP() const
+{
+    return HP;
+}
+
+void Decoration::setHP(int value)
+{
+    HP = value;
+}
+
 
 

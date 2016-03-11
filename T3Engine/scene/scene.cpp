@@ -19,7 +19,7 @@ Scene::Scene()
     }
 
     TimeUpCondition* condition=new TimeUpCondition;
-    condition->setTime(3000);
+    condition->setTime(300000);
 
     DialogueEvent* event=new DialogueEvent;
     event->setScene(this);
@@ -83,6 +83,7 @@ void Scene::update()
             triggerList.removeAt(i);
         }
     }
+    collision();
     if(!pause)
     {
         if(player->isAlive())
@@ -125,7 +126,8 @@ void Scene::update()
             dialogList[i]->update();
         }
     }
-    collision();
+
+//    qDebug()<<characterList.size()<<endl;
 }
 
 void Scene::collision()
@@ -133,6 +135,7 @@ void Scene::collision()
     detectPlayerBulletCollision();
     detectCharacterBulletCollision();
     detectPlayerCharacterCollision();
+    detectPlayerDecorationCollision();
 }
 
 void Scene::detectPlayerBulletCollision()
@@ -191,6 +194,42 @@ void Scene::detectPlayerCharacterCollision()
     }
 }
 
+void Scene::detectCharacterDecorationCollision()
+{
+
+}
+
+void Scene::detectPlayerDecorationCollision()
+{
+    for(int i=0;i<decorationList.size();i++)
+    {
+        if(player->isAlive() && decorationList[i]->isAlive())
+        {
+            if(isCollision(player,decorationList[i]))
+            {
+                //TODO
+                //qDebug()<<"collision"<<endl;
+                //player->setMoveAble(false);
+                player->setDx(-player->getDx());
+                if(isCollision(player,decorationList[i]))
+                {
+                    player->setDx(-player->getDx());
+                    player->setDy(-player->getDy());
+                    if(isCollision(player,decorationList[i]))
+                    {
+                        player->setDx(-player->getDx());
+                    }
+                }
+            }
+            else
+            {
+                //qDebug()<<"..."<<endl;
+            }
+        }
+
+    }
+}
+
 bool Scene::isCollision(Entity* a,Entity* b)
 {
     QList<QRectF> aRectList=a->getCurrentRects();
@@ -202,10 +241,11 @@ bool Scene::isCollision(Entity* a,Entity* b)
         {
             QRectF aRect=a->getCurrentRects()[i];
 
-            float aRectx=aRect.x()+a->getX()*GameConfigurator::instance()->getScale();
-            float aRecty=aRect.y()+a->getY()*GameConfigurator::instance()->getScale();
+            float aRectx=aRect.x()+(a->getX()+a->getDx())*GameConfigurator::instance()->getScale();
+            float aRecty=aRect.y()+(a->getY()+a->getDy())*GameConfigurator::instance()->getScale();
             float aRectwidth=aRect.width();
             float aRectheight=aRect.height();
+
 
             //aRect里保存的是矩形的中点和宽高，不是左上角点
             aRect.setX(aRectx);
@@ -215,11 +255,11 @@ bool Scene::isCollision(Entity* a,Entity* b)
 
             QRectF bRect=b->getCurrentRects()[j];
 
-            float bRectx=bRect.x()+b->getX()*GameConfigurator::instance()->getScale();
+            float bRectx=bRect.x()+b->getX()*GameConfigurator::instance()->getScale()+b->getDx();
             //qDebug()<<bRectx<<endl;
             //qDebug()<<GameConfigurator::instance()->getScale()<<endl;
             //qDebug()<<bRectx<<endl;
-            float bRecty=bRect.y()+b->getY()*GameConfigurator::instance()->getScale();
+            float bRecty=bRect.y()+b->getY()*GameConfigurator::instance()->getScale()+b->getDy();
             float bRectwidth=bRect.width();
             float bRectheight=bRect.height();
 

@@ -14,6 +14,8 @@ Character::Character(const QString &spriteName)
     heartId=ClockManager::instance()->genClock();
     ClockManager::instance()->setClockInterval(heartId,heartRate);
     focusIndex=-1;
+    setCollisionAble(true);
+    setDestructible(true);
 }
 
 Character::~Character()
@@ -23,6 +25,7 @@ Character::~Character()
 
 void Character::update()
 {
+
     Entity::update();
     runSkill();
     //qDebug()<<ClockManager::instance()->getTick(heartId)<<endl;
