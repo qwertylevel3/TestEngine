@@ -34,11 +34,18 @@
 			</Decoration> -->
 		</DecorationBox>
 		<CharacterBox>
-			<TotalCharacterNumber>1</TotalCharacterNumber>
+			<TotalCharacterNumber>2</TotalCharacterNumber>
 			<Character>
 				<CharacterName>test</CharacterName>
 				<Type>ENEMY</Type>
 				<x>250</x>
+				<y>-60</y>
+				<z>-10</z>
+			</Character>
+			<Character>
+				<CharacterName>test</CharacterName>
+				<Type>ENEMY</Type>
+				<x>-250</x>
 				<y>-60</y>
 				<z>-10</z>
 			</Character>

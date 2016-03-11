@@ -21,9 +21,6 @@ void Focus::start()
     if(focusIndex!=-1)
     {
         characterBox[focusIndex]->removeChild("focus");
-    }
-    if(focus)
-    {
         delete focus;
     }
 

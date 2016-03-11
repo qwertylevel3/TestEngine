@@ -37,6 +37,15 @@ void Shoot::run()
 
 void Shoot::shootBullet()
 {
+
+    int focusIndex=character->getFocusIndex();
+
+    Character* focusCharacter=character->getScene()->getCharacterBox()[focusIndex];
+    if(focusCharacter->getState()==Character::DEAD)
+    {
+        return;
+    }
+
     Bullet* bullet=BulletManager::instance()->getBullet("bullet");
     bullet->setZoomX(0.2);
     bullet->setZoomY(0.2);
@@ -49,10 +58,9 @@ void Shoot::shootBullet()
     float x1=character->getX();
     float y1=character->getY();
 
-    int focusIndex=character->getFocusIndex();
 
-    float x2=character->getScene()->getCharacterBox()[focusIndex]->getX();
-    float y2=character->getScene()->getCharacterBox()[focusIndex]->getY();
+    float x2=focusCharacter->getX();
+    float y2=focusCharacter->getY();
 
     float dx=x2-x1;
     float dy=y2-y1;
