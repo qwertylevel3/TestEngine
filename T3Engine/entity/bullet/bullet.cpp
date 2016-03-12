@@ -69,4 +69,9 @@ void Bullet::setDirectionY(float value)
     directionY = value;
 }
 
+void Bullet::boom()
+{
+    this->setState(Entity::DEAD);
+}
+
 

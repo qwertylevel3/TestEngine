@@ -5,7 +5,7 @@
 		<TotalSpriteNumber>1</TotalSpriteNumber>
 		<Sprite>
 			<SpriteName>test</SpriteName>
-			<TotalActionNumber>4</TotalActionNumber>
+			<TotalActionNumber>8</TotalActionNumber>
 			<width>32</width>
 			<height>48</height>
 			<Action>
@@ -289,6 +289,110 @@
 					<Frame>
 						<PictureName>\resource\character\test.png</PictureName>
 						<x>96</x>
+						<y>0</y>
+						<dx>32</dx>
+						<dy>48</dy>
+						<rectBox>
+							<rectNumber>1</rectNumber>
+							<rect>
+								<x>0</x>
+								<y>0</y>
+								<w>20</w>
+								<h>30</h>
+							</rect>
+						</rectBox>
+					</Frame>
+				</FrameBox>
+			</Action>
+			<Action>
+				<ActionName>readydown</ActionName>
+				<FrameDelay>6</FrameDelay>
+				<FrameTotal>1</FrameTotal>
+				<IsRepeat>true</IsRepeat>
+				<RepeatStart>0</RepeatStart>
+				<RepeatOver>0</RepeatOver>
+				<FrameBox>
+					<Frame>
+						<PictureName>\resource\character\test.png</PictureName>
+						<x>0</x>
+						<y>144</y>
+						<dx>32</dx>
+						<dy>48</dy>
+						<rectBox>
+							<rectNumber>1</rectNumber>
+							<rect>
+								<x>0</x>
+								<y>0</y>
+								<w>20</w>
+								<h>30</h>
+							</rect>
+						</rectBox>
+					</Frame>
+				</FrameBox>
+			</Action>
+			<Action>
+				<ActionName>readyleft</ActionName>
+				<FrameDelay>6</FrameDelay>
+				<FrameTotal>1</FrameTotal>
+				<IsRepeat>true</IsRepeat>
+				<RepeatStart>0</RepeatStart>
+				<RepeatOver>0</RepeatOver>
+				<FrameBox>
+					<Frame>
+						<PictureName>\resource\character\test.png</PictureName>
+						<x>0</x>
+						<y>96</y>
+						<dx>32</dx>
+						<dy>48</dy>
+						<rectBox>
+							<rectNumber>1</rectNumber>
+							<rect>
+								<x>0</x>
+								<y>0</y>
+								<w>20</w>
+								<h>30</h>
+							</rect>
+						</rectBox>
+					</Frame>
+				</FrameBox>
+			</Action>
+			<Action>
+				<ActionName>readyright</ActionName>
+				<FrameDelay>6</FrameDelay>
+				<FrameTotal>1</FrameTotal>
+				<IsRepeat>true</IsRepeat>
+				<RepeatStart>0</RepeatStart>
+				<RepeatOver>0</RepeatOver>
+				<FrameBox>
+					<Frame>
+						<PictureName>\resource\character\test.png</PictureName>
+						<x>0</x>
+						<y>48</y>
+						<dx>32</dx>
+						<dy>48</dy>
+						<rectBox>
+							<rectNumber>1</rectNumber>
+							<rect>
+								<x>0</x>
+								<y>0</y>
+								<w>20</w>
+								<h>30</h>
+							</rect>
+						</rectBox>
+					</Frame>
+				</FrameBox>
+			</Action>
+			<Action>
+				<ActionName>readyup</ActionName>
+				<FrameDelay>6</FrameDelay>
+				<FrameTotal>1</FrameTotal>
+				<IsRepeat>true</IsRepeat>
+				<RepeatStart>0</RepeatStart>
+				<RepeatOver>0</RepeatOver>
+				<FrameBox>
+					<Frame>
+						<PictureName>\resource\character\test.png</PictureName>
+						<x>0</x>
 						<y>0</y>
 						<dx>32</dx>
 						<dy>48</dy>

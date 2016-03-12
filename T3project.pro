@@ -26,7 +26,7 @@ INCLUDEPATH += $$PWD\T3Engine\entity\module\
 INCLUDEPATH += $$PWD\T3Engine\entity\dialog\
 INCLUDEPATH += $$PWD\T3Engine\manager\
 INCLUDEPATH += $$PWD\T3Engine\manager\entity\
-INCLUDEPATH += $$PWD\T3Engine\scene\
+INCLUDEPATH += $$PWD\T3Engine\world\
 INCLUDEPATH += $$PWD\T3Engine\skill\
 INCLUDEPATH += $$PWD\T3Engine\sprite\
 INCLUDEPATH ++ $$PWD\T3Engine\trigger\
@@ -36,7 +36,6 @@ INCLUDEPATH += $$PWD\T3Engine\
 INCLUDEPATH += $$PWD\SpriteCreator\
 
 SOURCES += main.cpp\
-    T3Engine/scene/scene.cpp \
     T3Engine/sprite/frame.cpp \
     T3Engine/manager/shadermanager.cpp \
     T3Engine/sprite/action.cpp \
@@ -67,8 +66,6 @@ SOURCES += main.cpp\
     SpriteCreator/framepage.cpp \
     SpriteCreator/rectpage.cpp \
     T3Engine/skill/focus.cpp \
-    T3Engine/scene/collisiondetector.cpp \
-    T3Engine/scene/obb.cpp \
     T3Engine/trigger/trigger.cpp \
     T3Engine/trigger/condition/condition.cpp \
     T3Engine/trigger/event/event.cpp \
@@ -82,10 +79,13 @@ SOURCES += main.cpp\
     T3Engine/entity/dialog/face.cpp \
     T3Engine/entity/dialog/sentence.cpp \
     T3Engine/manager/entity/dialogmanager.cpp \
-    T3Engine/manager/entity/facemanager.cpp
+    T3Engine/manager/entity/facemanager.cpp \
+    T3Engine/world/collisiondetector.cpp \
+    T3Engine/world/obb.cpp \
+    T3Engine/world/scene.cpp \
+    T3Engine/world/world.cpp
 
 HEADERS  += \
-    T3Engine/scene/scene.h \
     T3Engine/sprite/frame.h \
     T3Engine/manager/shadermanager.h \
     T3Engine/sprite/action.h \
@@ -118,8 +118,6 @@ HEADERS  += \
     SpriteCreator/framepage.h \
     SpriteCreator/rectpage.h \
     T3Engine/skill/focus.h \
-    T3Engine/scene/collisiondetector.h \
-    T3Engine/scene/obb.h \
     T3Engine/trigger/trigger.h \
     T3Engine/trigger/condition/condition.h \
     T3Engine/trigger/event/event.h \
@@ -133,7 +131,11 @@ HEADERS  += \
     T3Engine/entity/dialog/face.h \
     T3Engine/entity/dialog/sentence.h \
     T3Engine/manager/entity/dialogmanager.h \
-    T3Engine/manager/entity/facemanager.h
+    T3Engine/manager/entity/facemanager.h \
+    T3Engine/world/collisiondetector.h \
+    T3Engine/world/obb.h \
+    T3Engine/world/scene.h \
+    T3Engine/world/world.h
 
 RESOURCES += \
     shader.qrc

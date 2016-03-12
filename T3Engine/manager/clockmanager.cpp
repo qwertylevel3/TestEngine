@@ -43,7 +43,7 @@ void Clock::setTick(int value)
 ClockManager::ClockManager()
 {
     totalClockNumber=0;
-    MAXClock=999;
+    MAXClock=99999;
 }
 
 void ClockManager::init()

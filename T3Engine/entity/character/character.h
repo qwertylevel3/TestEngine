@@ -61,8 +61,8 @@ public:
     void setSpeed(float value);
 
     Orientation::ORIENTATION getOrientation() const;
-    void setOrientation(const Orientation::ORIENTATION &value);
-
+    void setMoveOrientation(const Orientation::ORIENTATION &value);
+    void setReadyOrientation(const Orientation::ORIENTATION &value);
 
     int getHeartRate() const;
     void setHeartRate(int value);

@@ -26,6 +26,8 @@ public:
     float getDirectionY() const;
     void setDirectionY(float value);
 
+    void boom();
+
 protected:
     float speed;
     float damage;
