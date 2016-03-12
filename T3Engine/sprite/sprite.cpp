@@ -16,7 +16,7 @@ Sprite::Sprite()
     height=0.1;
     alpha=1.0;
 
-    currentAction=0;
+    currentAction="";
     totalActionNumber=0;
 }
 
@@ -24,15 +24,18 @@ Sprite *Sprite::clone()
 {
     Sprite* newSp=new Sprite();
     newSp->setName(this->name);
-    newSp->setCurrentAction(0);
+    newSp->setCurrentAction(this->getCurrentActionName());
     newSp->setTotalActionNumber(this->totalActionNumber);
     newSp->setWidth(width);
     newSp->setHeight(height);
 
-    for(int i=0;i<this->actionBox.size();i++)
+
+    QMap<QString,Action*>::const_iterator i=actionBox.constBegin();
+    while(i!=actionBox.constEnd())
     {
-        Action* a=actionBox[i]->clone();
+        Action* a=i.value()->clone();
         newSp->addAction(a);
+        i++;
     }
 
     return newSp;
@@ -77,3 +80,14 @@ void Sprite::setAlpha(float value)
 }
 
 
+
+
+void Sprite::addAction(Action *value)
+{
+    actionBox.insert(value->getName(),value);
+}
+
+void Sprite::setCurrentAction(const QString &actionName)
+{
+    currentAction=actionName;
+}

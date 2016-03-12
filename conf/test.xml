@@ -9,7 +9,111 @@
 			<width>32</width>
 			<height>48</height>
 			<Action>
-				<ActionName>walkdown</ActionName>
+				<ActionName>readyDown</ActionName>
+				<FrameDelay>6</FrameDelay>
+				<FrameTotal>1</FrameTotal>
+				<IsRepeat>true</IsRepeat>
+				<RepeatStart>0</RepeatStart>
+				<RepeatOver>0</RepeatOver>
+				<FrameBox>
+					<Frame>
+						<PictureName>\resource\character\test.png</PictureName>
+						<x>0</x>
+						<y>144</y>
+						<dx>32</dx>
+						<dy>48</dy>
+						<rectBox>
+							<rectNumber>1</rectNumber>
+							<rect>
+								<x>0</x>
+								<y>0</y>
+								<w>20</w>
+								<h>30</h>
+							</rect>
+						</rectBox>
+					</Frame>
+				</FrameBox>
+			</Action>
+			<Action>
+				<ActionName>readyLeft</ActionName>
+				<FrameDelay>6</FrameDelay>
+				<FrameTotal>1</FrameTotal>
+				<IsRepeat>true</IsRepeat>
+				<RepeatStart>0</RepeatStart>
+				<RepeatOver>0</RepeatOver>
+				<FrameBox>
+					<Frame>
+						<PictureName>\resource\character\test.png</PictureName>
+						<x>0</x>
+						<y>96</y>
+						<dx>32</dx>
+						<dy>48</dy>
+						<rectBox>
+							<rectNumber>1</rectNumber>
+							<rect>
+								<x>0</x>
+								<y>0</y>
+								<w>20</w>
+								<h>30</h>
+							</rect>
+						</rectBox>
+					</Frame>
+				</FrameBox>
+			</Action>
+			<Action>
+				<ActionName>readyRight</ActionName>
+				<FrameDelay>6</FrameDelay>
+				<FrameTotal>1</FrameTotal>
+				<IsRepeat>true</IsRepeat>
+				<RepeatStart>0</RepeatStart>
+				<RepeatOver>0</RepeatOver>
+				<FrameBox>
+					<Frame>
+						<PictureName>\resource\character\test.png</PictureName>
+						<x>0</x>
+						<y>48</y>
+						<dx>32</dx>
+						<dy>48</dy>
+						<rectBox>
+							<rectNumber>1</rectNumber>
+							<rect>
+								<x>0</x>
+								<y>0</y>
+								<w>20</w>
+								<h>30</h>
+							</rect>
+						</rectBox>
+					</Frame>
+				</FrameBox>
+			</Action>
+			<Action>
+				<ActionName>readyUp</ActionName>
+				<FrameDelay>6</FrameDelay>
+				<FrameTotal>1</FrameTotal>
+				<IsRepeat>true</IsRepeat>
+				<RepeatStart>0</RepeatStart>
+				<RepeatOver>0</RepeatOver>
+				<FrameBox>
+					<Frame>
+						<PictureName>\resource\character\test.png</PictureName>
+						<x>0</x>
+						<y>0</y>
+						<dx>32</dx>
+						<dy>48</dy>
+						<rectBox>
+							<rectNumber>1</rectNumber>
+							<rect>
+								<x>0</x>
+								<y>0</y>
+								<w>20</w>
+								<h>30</h>
+							</rect>
+						</rectBox>
+					</Frame>
+				</FrameBox>
+			</Action>
+			<Action>
+				<ActionName>moveDown</ActionName>
 				<FrameDelay>6</FrameDelay>
 				<FrameTotal>4</FrameTotal>
 				<IsRepeat>true</IsRepeat>
@@ -83,7 +187,7 @@
 				</FrameBox>
 			</Action>
 			<Action>
-				<ActionName>walkleft</ActionName>
+				<ActionName>moveLeft</ActionName>
 				<FrameDelay>6</FrameDelay>
 				<FrameTotal>4</FrameTotal>
 				<IsRepeat>true</IsRepeat>
@@ -157,7 +261,7 @@
 				</FrameBox>
 			</Action>
 			<Action>
-				<ActionName>walkright</ActionName>
+				<ActionName>moveRight</ActionName>
 				<FrameDelay>6</FrameDelay>
 				<FrameTotal>4</FrameTotal>
 				<IsRepeat>true</IsRepeat>
@@ -231,7 +335,7 @@
 				</FrameBox>
 			</Action>
 			<Action>
-				<ActionName>walkup</ActionName>
+				<ActionName>moveUp</ActionName>
 				<FrameDelay>6</FrameDelay>
 				<FrameTotal>4</FrameTotal>
 				<IsRepeat>true</IsRepeat>
@@ -289,110 +393,6 @@
 					<Frame>
 						<PictureName>\resource\character\test.png</PictureName>
 						<x>96</x>
-						<y>0</y>
-						<dx>32</dx>
-						<dy>48</dy>
-						<rectBox>
-							<rectNumber>1</rectNumber>
-							<rect>
-								<x>0</x>
-								<y>0</y>
-								<w>20</w>
-								<h>30</h>
-							</rect>
-						</rectBox>
-					</Frame>
-				</FrameBox>
-			</Action>
-			<Action>
-				<ActionName>readydown</ActionName>
-				<FrameDelay>6</FrameDelay>
-				<FrameTotal>1</FrameTotal>
-				<IsRepeat>true</IsRepeat>
-				<RepeatStart>0</RepeatStart>
-				<RepeatOver>0</RepeatOver>
-				<FrameBox>
-					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
-						<x>0</x>
-						<y>144</y>
-						<dx>32</dx>
-						<dy>48</dy>
-						<rectBox>
-							<rectNumber>1</rectNumber>
-							<rect>
-								<x>0</x>
-								<y>0</y>
-								<w>20</w>
-								<h>30</h>
-							</rect>
-						</rectBox>
-					</Frame>
-				</FrameBox>
-			</Action>
-			<Action>
-				<ActionName>readyleft</ActionName>
-				<FrameDelay>6</FrameDelay>
-				<FrameTotal>1</FrameTotal>
-				<IsRepeat>true</IsRepeat>
-				<RepeatStart>0</RepeatStart>
-				<RepeatOver>0</RepeatOver>
-				<FrameBox>
-					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
-						<x>0</x>
-						<y>96</y>
-						<dx>32</dx>
-						<dy>48</dy>
-						<rectBox>
-							<rectNumber>1</rectNumber>
-							<rect>
-								<x>0</x>
-								<y>0</y>
-								<w>20</w>
-								<h>30</h>
-							</rect>
-						</rectBox>
-					</Frame>
-				</FrameBox>
-			</Action>
-			<Action>
-				<ActionName>readyright</ActionName>
-				<FrameDelay>6</FrameDelay>
-				<FrameTotal>1</FrameTotal>
-				<IsRepeat>true</IsRepeat>
-				<RepeatStart>0</RepeatStart>
-				<RepeatOver>0</RepeatOver>
-				<FrameBox>
-					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
-						<x>0</x>
-						<y>48</y>
-						<dx>32</dx>
-						<dy>48</dy>
-						<rectBox>
-							<rectNumber>1</rectNumber>
-							<rect>
-								<x>0</x>
-								<y>0</y>
-								<w>20</w>
-								<h>30</h>
-							</rect>
-						</rectBox>
-					</Frame>
-				</FrameBox>
-			</Action>
-			<Action>
-				<ActionName>readyup</ActionName>
-				<FrameDelay>6</FrameDelay>
-				<FrameTotal>1</FrameTotal>
-				<IsRepeat>true</IsRepeat>
-				<RepeatStart>0</RepeatStart>
-				<RepeatOver>0</RepeatOver>
-				<FrameBox>
-					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
-						<x>0</x>
 						<y>0</y>
 						<dx>32</dx>
 						<dy>48</dy>

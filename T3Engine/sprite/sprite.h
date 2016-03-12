@@ -3,6 +3,7 @@
 
 #include"action.h"
 #include"gameconfigurator.h"
+#include"stable.h"
 
 class Sprite
 {
@@ -19,11 +20,11 @@ public:
         actionBox[currentAction]->setText(text);
     }
 
-    void addAction(Action* action){actionBox.append(action);}
+    void addAction(Action* value);
     void setX(float x){this->x=x;}
     void setY(float y){this->y=y;}
     void setZ(float z){this->z=z;}
-    void setCurrentAction(int index);
+    void setCurrentAction(const QString& actionName);
     void setName(const QString& n){name=n;}
     void setTotalActionNumber(int n){totalActionNumber=n;}
     void setZoomX(float z){zoomX=z;}
@@ -37,7 +38,7 @@ public:
     float getX(){return x;}
     float getY(){return y;}
     float getZ(){return z;}
-    int getCurrentActionIndex(){return currentAction;}
+    QString getCurrentActionName(){return currentAction;}
     QList<QRectF>& getCurrentRects();
     QString getName(){return name;}
     int getTotalActionNumber(){return totalActionNumber;}
@@ -48,7 +49,7 @@ public:
     float getRotateX(){return ax;}
     float getRotateY(){return ay;}
     float getRotateZ(){return az;}
-    Action* getAction(int index){return actionBox.at(index);}
+    Action* getAction(const QString& actionName){return actionBox[actionName];}
 
     float getWidth() const
     {
@@ -92,7 +93,7 @@ public:
 protected:
     QString name;
 
-    int currentAction;
+    QString currentAction;
     int totalActionNumber;
 
     float zoomX;//放缩
@@ -111,14 +112,10 @@ protected:
     float alpha;
     QString text;
 
-    QList<Action*> actionBox;
+//    QList<Action*> actionBox;
+    QMap<QString,Action*> actionBox;
 };
 
-inline
-void Sprite::setCurrentAction(int index)
-{
-    currentAction=index;
-}
 
 inline
 QList<QRectF> &Sprite::getCurrentRects()

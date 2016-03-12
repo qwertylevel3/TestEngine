@@ -238,6 +238,10 @@ Sprite *SpriteManager::makeSprite()
     {
         Action* action=makeAction();
         sprite->addAction(action);
+        if(i==0)
+        {
+            sprite->setCurrentAction(action->getName());
+        }
     }
 
     reader.readNextStartElement();//</sprite>

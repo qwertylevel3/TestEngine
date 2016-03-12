@@ -177,6 +177,11 @@ void Entity::setZ(float z)
     }
 }
 
+void Entity::setCurrentAction(const QString &actionName)
+{
+    sprite->setCurrentAction(actionName);
+}
+
 void Entity::setZoomX(float z)
 {
     sprite->setZoomX(z);

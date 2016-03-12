@@ -66,8 +66,8 @@ public:
     void setLocalY(float y);
     void setLocalZ(float z);
 
-    void setCurrentAction(int index);
-    void setChildCurrentAction(QString name,int index);
+    void setCurrentAction(const QString& actionName);
+    void setChildCurrentAction(QString name,const QString& actionName);
     void setTotalActionNumber(int t){sprite->setTotalActionNumber(t);}
     void setZoomX(float z);
     void setZoomY(float z);
@@ -88,7 +88,6 @@ public:
     float getLocalY();
     float getLocalZ();
 
-    int getCurrentActionIndex(){return sprite->getCurrentActionIndex();}
     QList<QRectF>& getCurrentRects(){return sprite->getCurrentRects();}
     int getTotalActionNumber(){return sprite->getTotalActionNumber();}
     float getZoomX(){return sprite->getZoomX();}
@@ -282,16 +281,11 @@ void Entity::setLocalZ(float z)
     }
 }
 
-inline
-void Entity::setCurrentAction(int index)
-{
-    sprite->setCurrentAction(index);
-}
 
 inline
-void Entity::setChildCurrentAction(QString name, int index)
+void Entity::setChildCurrentAction(QString name, const QString &actionName)
 {
-    childBox[name]->setCurrentAction(index);
+    childBox[name]->setCurrentAction(actionName);
 }
 
 
