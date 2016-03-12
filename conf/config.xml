@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
 	<Scale>2</Scale>
-	<DrawRect>0</DrawRect>
+	<DrawRect>1</DrawRect>
 	<PaintNear>3</PaintNear>
 	<PaintFar>20</PaintFar>
 	<WindowWidth>1000</WindowWidth>

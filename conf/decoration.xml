@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DecorationBox>
-	<TotalDecorationNumber>5</TotalDecorationNumber>
+	<TotalDecorationNumber>7</TotalDecorationNumber>
 	<Decoration>
 		<Name>scarecrow</Name>
 		<SpriteName>scarecrow</SpriteName>
+		<collisionAble>1</collisionAble>
+		<destructible>1</destructible>
+	</Decoration>
+	<Decoration>
+		<Name>holeAutumn</Name>
+		<SpriteName>holeAutumn</SpriteName>
+		<collisionAble>1</collisionAble>
+		<destructible>0</destructible>
+	</Decoration>
+	<Decoration>
+		<Name>woodAutumn</Name>
+		<SpriteName>woodAutumn</SpriteName>
 		<collisionAble>1</collisionAble>
 		<destructible>1</destructible>
 	</Decoration>
