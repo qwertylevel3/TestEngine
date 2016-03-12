@@ -19,7 +19,7 @@ Scene::Scene()
     }
 
     TimeUpCondition* condition=new TimeUpCondition;
-    condition->setTime(300000);
+    condition->setTime(3000);
 
     DialogueEvent* event=new DialogueEvent;
     event->setScene(this);

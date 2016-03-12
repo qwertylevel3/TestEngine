@@ -3,7 +3,7 @@
 Terrain::Terrain(const QString &spriteName)
     :Entity(spriteName)
 {
-
+    sprite=SpriteManager::instance()->getTerrainSprite(spriteName);
 }
 
 Terrain *Terrain::clone()

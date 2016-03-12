@@ -342,7 +342,7 @@
 		</Sprite>
 	</BulletSprite>
 	<DecorationSprite>
-		<TotalSpriteNumber>6</TotalSpriteNumber>
+		<TotalSpriteNumber>57</TotalSpriteNumber>
 		<Sprite>
 			<SpriteName>scarecrow</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
@@ -761,7 +761,7 @@
 				</FrameBox>
 			</Action>
 		</Sprite>
-				<Sprite>
+		<Sprite>
 			<SpriteName>crossWinter</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
@@ -856,7 +856,7 @@
 					</Frame>
 				</FrameBox>
 			</Action>
-		</Sprite>		
+		</Sprite>
 		<Sprite>
 			<SpriteName>boardWinter1</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
@@ -1114,7 +1114,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>tree3Small</SpriteName>
+			<SpriteName>tree2Small</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1146,7 +1146,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>tree4Small</SpriteName>
+			<SpriteName>tree3Small</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1245,7 +1245,7 @@
 			<SpriteName>tree0</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
-			<height>32</height>
+			<height>64</height>
 			<Action>
 				<ActionName>act1</ActionName>
 				<FrameDelay>100</FrameDelay>
@@ -1277,7 +1277,7 @@
 			<SpriteName>tree1</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
-			<height>32</height>
+			<height>64</height>
 			<Action>
 				<ActionName>act1</ActionName>
 				<FrameDelay>100</FrameDelay>
@@ -1309,7 +1309,7 @@
 			<SpriteName>tree2</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
-			<height>32</height>
+			<height>64</height>
 			<Action>
 				<ActionName>act1</ActionName>
 				<FrameDelay>100</FrameDelay>
@@ -1341,7 +1341,7 @@
 			<SpriteName>tree3</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
-			<height>32</height>
+			<height>64</height>
 			<Action>
 				<ActionName>act1</ActionName>
 				<FrameDelay>100</FrameDelay>
@@ -1373,7 +1373,7 @@
 			<SpriteName>cirrus</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
-			<height>32</height>
+			<height>64</height>
 			<Action>
 				<ActionName>act1</ActionName>
 				<FrameDelay>100</FrameDelay>
@@ -1422,7 +1422,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1449,7 +1448,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1476,7 +1474,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1503,7 +1500,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1530,7 +1526,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1557,7 +1552,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1584,7 +1578,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1611,7 +1604,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1638,7 +1630,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1665,7 +1656,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1692,7 +1682,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1719,14 +1708,13 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>mushroom</SpriteName>
+			<SpriteName>mushroom1</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1746,7 +1734,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1773,7 +1760,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1800,7 +1786,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1827,7 +1812,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1854,7 +1838,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1881,7 +1864,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1908,7 +1890,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1935,7 +1916,6 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
@@ -1962,22 +1942,11 @@
 						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
-
 						</rectBox>
 					</Frame>
 				</FrameBox>
 			</Action>
 		</Sprite>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		<Sprite>
 			<SpriteName>targetCircle</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
@@ -2053,32 +2022,6 @@
 						<y>352</y>
 						<dx>32</dx>
 						<dy>32</dy>
-						<rectBox>
-							<rectNumber>0</rectNumber>
-						</rectBox>
-					</Frame>
-				</FrameBox>
-			</Action>
-		</Sprite>
-		<Sprite>
-			<SpriteName>tree1</SpriteName>
-			<TotalActionNumber>1</TotalActionNumber>
-			<width>32</width>
-			<height>64</height>
-			<Action>
-				<ActionName>tree1</ActionName>
-				<FrameDelay>100</FrameDelay>
-				<FrameTotal>1</FrameTotal>
-				<IsRepeat>true</IsRepeat>
-				<RepeatStart>0</RepeatStart>
-				<RepeatOver>0</RepeatOver>
-				<FrameBox>
-					<Frame>
-						<PictureName>\resource\decoration\decoration1.png</PictureName>
-						<x>120</x>
-						<y>100</y>
-						<dx>32</dx>
-						<dy>64</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>

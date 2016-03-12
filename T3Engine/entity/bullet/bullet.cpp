@@ -3,6 +3,7 @@
 Bullet::Bullet(const QString &spriteName)
     :Entity(spriteName)
 {
+    sprite=SpriteManager::instance()->getBulletSprite(spriteName);
 }
 
 Bullet *Bullet::clone()

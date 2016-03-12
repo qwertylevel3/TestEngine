@@ -24,10 +24,14 @@ void SpriteManager::init()
 
     reader.readNextStartElement();//<spriteBox>;
 
-    for(int i=0;i<6;i++)
-    {
-        makeDifSprite();
-    }
+    makeCharacterSprite();
+    makeBulletSprite();
+    makeDecorationSprite();
+    makeTerrainSprite();
+    makeFaceSprite();
+    makeDialogSprite();
+
+
     reader.readNextStartElement();//</spriteBox>
     file.close();
 }
@@ -37,6 +41,36 @@ Sprite *SpriteManager::getSprite(const QString &spriteName)
     Sprite* t=spriteBox[spriteName];
     Sprite* s=t->clone();
     return s;
+}
+
+Sprite *SpriteManager::getCharacterSprite(const QString &spriteName)
+{
+    return characterSpriteBox[spriteName]->clone();
+}
+
+Sprite *SpriteManager::getTerrainSprite(const QString &spriteName)
+{
+    return terrainSpriteBox[spriteName]->clone();
+}
+
+Sprite *SpriteManager::getDecorationSprite(const QString &spriteName)
+{
+    return decorationSpriteBox[spriteName]->clone();
+}
+
+Sprite *SpriteManager::getDialogSprite(const QString &spriteName)
+{
+    return dialogSpriteBox[spriteName]->clone();
+}
+
+Sprite *SpriteManager::getFaceSprite(const QString &spriteName)
+{
+    return faceSpriteBox[spriteName]->clone();
+}
+
+Sprite *SpriteManager::getBulletSprite(const QString &spriteName)
+{
+    return bulletSpriteBox[spriteName]->clone();
 }
 
 void SpriteManager::write()
@@ -76,6 +110,102 @@ void SpriteManager::makeDifSprite()
     {
         Sprite* sprite=makeSprite();
         addSprite(sprite->getName(),sprite);
+    }
+
+    reader.readNextStartElement();//</....Sprite>
+}
+
+void SpriteManager::makeCharacterSprite()
+{
+    reader.readNextStartElement();//<....Sprite>
+
+    reader.readNextStartElement();//<TotalSpriteNumber>
+    int number=reader.readElementText().toInt();
+
+    for(int i=0;i<number;i++)
+    {
+        Sprite* sprite=makeSprite();
+        characterSpriteBox.insert(sprite->getName(),sprite);
+    }
+
+    reader.readNextStartElement();//</....Sprite>
+}
+
+void SpriteManager::makeBulletSprite()
+{
+     reader.readNextStartElement();//<....Sprite>
+
+    reader.readNextStartElement();//<TotalSpriteNumber>
+    int number=reader.readElementText().toInt();
+
+    for(int i=0;i<number;i++)
+    {
+        Sprite* sprite=makeSprite();
+        bulletSpriteBox.insert(sprite->getName(),sprite);
+    }
+
+    reader.readNextStartElement();//</....Sprite>
+}
+
+void SpriteManager::makeDecorationSprite()
+{
+    reader.readNextStartElement();//<....Sprite>
+
+    reader.readNextStartElement();//<TotalSpriteNumber>
+    int number=reader.readElementText().toInt();
+
+    for(int i=0;i<number;i++)
+    {
+        Sprite* sprite=makeSprite();
+        decorationSpriteBox.insert(sprite->getName(),sprite);
+    }
+
+    reader.readNextStartElement();//</....Sprite>
+}
+
+void SpriteManager::makeDialogSprite()
+{
+    reader.readNextStartElement();//<....Sprite>
+
+    reader.readNextStartElement();//<TotalSpriteNumber>
+    int number=reader.readElementText().toInt();
+
+    for(int i=0;i<number;i++)
+    {
+        Sprite* sprite=makeSprite();
+        dialogSpriteBox.insert(sprite->getName(),sprite);
+    }
+
+    reader.readNextStartElement();//</....Sprite>
+}
+
+void SpriteManager::makeFaceSprite()
+{
+    reader.readNextStartElement();//<....Sprite>
+
+    reader.readNextStartElement();//<TotalSpriteNumber>
+    int number=reader.readElementText().toInt();
+
+    for(int i=0;i<number;i++)
+    {
+        Sprite* sprite=makeSprite();
+        faceSpriteBox.insert(sprite->getName(),sprite);
+    }
+
+    reader.readNextStartElement();//</....Sprite>
+}
+
+void SpriteManager::makeTerrainSprite()
+{
+    reader.readNextStartElement();//<....Sprite>
+
+    reader.readNextStartElement();//<TotalSpriteNumber>
+    int number=reader.readElementText().toInt();
+
+    for(int i=0;i<number;i++)
+    {
+        Sprite* sprite=makeSprite();
+        terrainSpriteBox.insert(sprite->getName(),sprite);
     }
 
     reader.readNextStartElement();//</....Sprite>

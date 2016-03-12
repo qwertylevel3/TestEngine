@@ -3,7 +3,7 @@
 Face::Face(const QString &spriteName)
     :Entity(spriteName)
 {
-
+    sprite=SpriteManager::instance()->getFaceSprite(spriteName);
 }
 
 

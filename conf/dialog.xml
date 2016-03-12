@@ -7,7 +7,11 @@
 		<sentenceNumber>1</sentenceNumber>
 		<Sentence>		
 			<face>testFace</face>
-			<word>Lilith: welcome!</word>
+			<word>
+			Test: welcome!
+			说明：wasd移动，F选择射击焦点，T射击
+			请按回车继续。。。
+			</word>
 		</Sentence>
 
 	</Dialog>

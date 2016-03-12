@@ -3,6 +3,7 @@
 Decoration::Decoration(const QString &spriteName)
     :Entity(spriteName)
 {
+    sprite=SpriteManager::instance()->getDecorationSprite(spriteName);
 }
 
 Decoration *Decoration::clone()
