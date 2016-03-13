@@ -349,25 +349,25 @@ void WorldCreator::createStatusBar()
 
 void WorldCreator::createDockWindow()
 {
-//    backgroundWidget=new TerrainPanel(this);
-//    characterWidget=new CharacterPanel(this);
-//    decorationWidget=new DecorationPanel(this);
-//
-//
-//    backgroundDockWidget=new QDockWidget(tr("terrain"));
-//    backgroundDockWidget->setObjectName("terrain");
-//    backgroundDockWidget->setWidget(terrainWidget);
-//    addDockWidget(Qt::RightDockWidgetArea,backgroundDockWidget);
-//
-//    characterDockWidget=new QDockWidget(tr("character"));
-//    characterDockWidget->setObjectName("character");
-//    characterDockWidget->setWidget(characterWidget);
-//    addDockWidget(Qt::RightDockWidgetArea,characterDockWidget);
-//
-//    decorationDockWidget=new QDockWidget(tr("decoration"));
-//    decorationDockWidget->setObjectName("decoration");
-//    decorationDockWidget->setWidget(decorationWidget);
-//    addDockWidget(Qt::RightDockWidgetArea,decorationDockWidget);
+    backgroundWidget=new BackgroundWidget(this);
+    characterWidget=new CharacterWidget(this);
+    decorationWidget=new DecorationWidget(this);
+
+
+    backgroundDockWidget=new QDockWidget(tr("background"));
+    backgroundDockWidget->setObjectName("background");
+    backgroundDockWidget->setWidget(backgroundWidget);
+    addDockWidget(Qt::RightDockWidgetArea,backgroundDockWidget);
+
+    characterDockWidget=new QDockWidget(tr("character"));
+    characterDockWidget->setObjectName("character");
+    characterDockWidget->setWidget(characterWidget);
+    addDockWidget(Qt::RightDockWidgetArea,characterDockWidget);
+
+    decorationDockWidget=new QDockWidget(tr("decoration"));
+    decorationDockWidget->setObjectName("decoration");
+    decorationDockWidget->setWidget(decorationWidget);
+    addDockWidget(Qt::RightDockWidgetArea,decorationDockWidget);
 }
 
 void WorldCreator::readSettings()
