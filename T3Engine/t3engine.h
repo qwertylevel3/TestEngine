@@ -5,7 +5,7 @@
 #include"scene.h"
 #include"inputmodule.h"
 
-class T3Engine:public QOpenGLWidget,public QOpenGLFunctions,public Singleton<T3Engine>
+class T3Engine:public QOpenGLWidget,public QOpenGLFunctions//,public Singleton<T3Engine>
 {
 public:
     T3Engine(QWidget* parent = 0);
@@ -20,7 +20,7 @@ protected:
     void gameLoop();
     void keyPressEvent(QKeyEvent *e);
     void keyReleaseEvent(QKeyEvent *e);
-private:
+
     QBasicTimer timer;
 
     QMatrix4x4 projection;

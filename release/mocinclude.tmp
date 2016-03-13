@@ -49,6 +49,9 @@
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/SpriteCreator
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/WorldCreator
 -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include
 -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets
 -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui

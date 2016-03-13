@@ -48,6 +48,8 @@ INPUT(
 ./debug\obb.o
 ./debug\scene.o
 ./debug\world.o
+./debug\worldcreator.o
+./debug\worldopenglwidget.o
 ./debug\qrc_shader.o
 ./debug\moc_inputmodule.o
 ./debug\moc_spritecreator.o
@@ -56,4 +58,5 @@ INPUT(
 ./debug\moc_actionpage.o
 ./debug\moc_framepage.o
 ./debug\moc_rectpage.o
+./debug\moc_worldcreator.o
 );

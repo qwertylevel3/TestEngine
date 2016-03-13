@@ -326,7 +326,7 @@ void Character::endLeft()
         setMoveOrientation(Orientation::up);
 
     }
-    if(skillBox["moveDown"]->isRunning())
+    else if(skillBox["moveDown"]->isRunning())
     {
         setMoveOrientation(Orientation::down);
     }
@@ -343,7 +343,7 @@ void Character::endRight()
     {
         setMoveOrientation(Orientation::up);
     }
-    if(skillBox["moveDown"]->isRunning())
+    else if(skillBox["moveDown"]->isRunning())
     {
         setMoveOrientation(Orientation::down);
     }

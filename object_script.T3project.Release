@@ -48,6 +48,8 @@ INPUT(
 ./release\obb.o
 ./release\scene.o
 ./release\world.o
+./release\worldcreator.o
+./release\worldopenglwidget.o
 ./release\qrc_shader.o
 ./release\moc_inputmodule.o
 ./release\moc_spritecreator.o
@@ -56,4 +58,5 @@ INPUT(
 ./release\moc_actionpage.o
 ./release\moc_framepage.o
 ./release\moc_rectpage.o
+./release\moc_worldcreator.o
 );

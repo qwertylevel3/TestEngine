@@ -34,6 +34,7 @@ INCLUDEPATH += $$PWD\T3Engine\trigger\condition\
 INCLUDEPATH += $$PWD\T3Engine\trigger\event\
 INCLUDEPATH += $$PWD\T3Engine\
 INCLUDEPATH += $$PWD\SpriteCreator\
+INCLUDEPATH += $$PWD\WorldCreator\
 
 SOURCES += main.cpp\
     T3Engine/sprite/frame.cpp \
@@ -83,7 +84,9 @@ SOURCES += main.cpp\
     T3Engine/world/collisiondetector.cpp \
     T3Engine/world/obb.cpp \
     T3Engine/world/scene.cpp \
-    T3Engine/world/world.cpp
+    T3Engine/world/world.cpp \
+    WorldCreator/worldcreator.cpp \
+    WorldCreator/worldopenglwidget.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -135,7 +138,9 @@ HEADERS  += \
     T3Engine/world/collisiondetector.h \
     T3Engine/world/obb.h \
     T3Engine/world/scene.h \
-    T3Engine/world/world.h
+    T3Engine/world/world.h \
+    WorldCreator/worldcreator.h \
+    WorldCreator/worldopenglwidget.h
 
 RESOURCES += \
     shader.qrc
