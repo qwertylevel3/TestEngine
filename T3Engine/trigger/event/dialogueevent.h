@@ -10,13 +10,12 @@ class DialogueEvent:public Event
 {
 public:
     DialogueEvent();
+    virtual void config(QXmlStreamReader* reader);
     virtual void run();
-    void setScene(Scene *value);
 
     void setDialogName(const QString &value);
 
 protected:
-    Scene* scene;
     QString dialogName;
 };
 

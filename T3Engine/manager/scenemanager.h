@@ -17,6 +17,8 @@ protected:
     void makeDecoration(Scene* scene);
     void makeCharacter(Scene* scene);
     void makePlayer(Scene* scene);
+    void makeTriggerBox(Scene* scene);
+    void makeTrigger(Scene* scene);
 
     QMap<QString,Scene*> sceneBox;
     QXmlStreamReader reader;

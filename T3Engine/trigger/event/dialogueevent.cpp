@@ -6,6 +6,16 @@ DialogueEvent::DialogueEvent()
 
 }
 
+void DialogueEvent::config(QXmlStreamReader *reader)
+{
+    reader->readNextStartElement();//<config>
+
+    reader->readNextStartElement();//<dialogName>
+    this->setDialogName(reader->readElementText());
+
+    reader->readNextStartElement();//</config>
+}
+
 void DialogueEvent::run()
 {
     Dialog* dialog=DialogManager::instance()->getDialog(dialogName);
@@ -15,10 +25,6 @@ void DialogueEvent::run()
     scene->setPause(true);
 }
 
-void DialogueEvent::setScene(Scene *value)
-{
-    scene = value;
-}
 void DialogueEvent::setDialogName(const QString &value)
 {
     dialogName = value;

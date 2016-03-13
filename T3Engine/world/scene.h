@@ -26,7 +26,7 @@ public:
     void detectPlayerBulletCollision();
     void detectCharacterBulletCollision();
     void detectPlayerCharacterCollision();
-    //todo
+
     void detectCharacterDecorationCollision();
     void detectPlayerDecorationCollision();
     bool isCollision(Entity *a, Entity *b);
@@ -36,6 +36,8 @@ public:
     void addTerrainToBox(Terrain* terrain);
     void addDecorationToBox(Decoration* decoration);
     void addBulletToBox(Bullet* bullet);
+    void addTrigger(Trigger* trigger);
+
     int getWidth() const;
     void setWidth(int value);
 

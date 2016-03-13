@@ -18,19 +18,6 @@ Scene::Scene()
         layerBox.append(*box);
     }
 
-    TimeUpCondition* condition=new TimeUpCondition;
-    condition->setTime(3000);
-
-    DialogueEvent* event=new DialogueEvent;
-    event->setScene(this);
-    event->setDialogName("init");
-
-    Trigger* trigger=new Trigger();
-    trigger->setCondition(condition);
-    trigger->setEvent(event);
-
-    triggerList.push_back(trigger);
-
 //    for(int i=0;i<1;i++)
 //    {
 //        for(int j=0;j<1;j++)
@@ -437,4 +424,9 @@ void Scene::addBulletToBox(Bullet *bullet)
     {
         bulletList.append(bullet);
     }
+}
+
+void Scene::addTrigger(Trigger *trigger)
+{
+    triggerList.append(trigger);
 }

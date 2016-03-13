@@ -9,6 +9,7 @@ class TimeUpCondition:public Condition
 public:
     TimeUpCondition();
     virtual bool judge();
+    virtual void config(QXmlStreamReader *reader);
     void setTime(int ms);
 protected:
     QTime time;

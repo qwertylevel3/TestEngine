@@ -110,5 +110,22 @@
 			<y>-40</y>
 			<z>-10</z>
 		</Player>
+		<TriggerBox>
+			<TotalTriggerNumber>1</TotalTriggerNumber>
+			<Trigger>
+				<Condition>
+					<ConditionType>TimeUp</ConditionType>
+					<config>
+						<time>3000</time>
+					</config>
+				</Condition>
+				<Event>
+					<EventType>dialog</EventType>
+					<config>
+						<dialogName>init</dialogName>
+					</config>
+				</Event>
+			</Trigger>
+		</TriggerBox>
 	</Scene>
 </SceneBox>

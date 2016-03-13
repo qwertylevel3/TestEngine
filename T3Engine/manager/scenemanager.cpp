@@ -5,6 +5,9 @@
 #include"decorationmanager.h"
 #include"inputmodule.h"
 #include"facemanager.h"
+#include"condition.h"
+#include"event.h"
+#include"trigger.h"
 
 SceneManager::SceneManager()
 {
@@ -66,6 +69,7 @@ void SceneManager::makeScene()
     makeDecoration(tempScene);
     makeCharacter(tempScene);
     makePlayer(tempScene);
+    makeTriggerBox(tempScene);
 
     sceneBox.insert(name,tempScene);
 }
@@ -241,4 +245,59 @@ void SceneManager::makePlayer(Scene *scene)
 
     scene->setPlayer(player);
     reader.readNextStartElement();//</player>
+}
+
+void SceneManager::makeTriggerBox(Scene *scene)
+{
+    reader.readNextStartElement();//<TriggerBox>
+
+    reader.readNextStartElement();//<TotalTriggerNumber>
+    int totalTriggerNumber=reader.readElementText().toInt();
+
+    for(int i=0;i<totalTriggerNumber;i++)
+    {
+        makeTrigger(scene);
+    }
+
+    reader.readNextStartElement();//</TriggerBox>
+}
+
+void SceneManager::makeTrigger(Scene *scene)
+{
+    reader.readNextStartElement();//<Trigger>
+
+    reader.readNextStartElement();//<condition>
+
+    reader.readNextStartElement();//<conditionType>
+    QString conditionType=reader.readElementText();
+
+    Condition* condition=Condition::getCondition(conditionType);
+    condition->setScene(scene);
+    condition->config(&reader);
+
+
+    reader.readNextStartElement();//</condition>
+
+    //.....
+
+    reader.readNextStartElement();//<event>
+
+    reader.readNextStartElement();//<eventType>
+    QString eventType=reader.readElementText();
+
+    Event* event=Event::getEvent(eventType);
+    event->setScene(scene);
+    event->config(&reader);
+
+
+
+    reader.readNextStartElement();//</event>
+
+    reader.readNextStartElement();//</Trigger>
+
+    Trigger* trigger=new Trigger();
+    trigger->setCondition(condition);
+    trigger->setEvent(event);
+
+    scene->addTrigger(trigger);
 }
