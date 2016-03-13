@@ -1,4 +1,4 @@
-#include "scenemanager.h"
+#include "worldmanager.h"
 #include"stable.h"
 #include"charactermanager.h"
 #include"terrainmanager.h"
@@ -9,14 +9,14 @@
 #include"event.h"
 #include"trigger.h"
 
-SceneManager::SceneManager()
+WorldManager::WorldManager()
 {
 
 }
 
-void SceneManager::init()
+void WorldManager::init()
 {
-    QString fileName=GameConfigurator::instance()->getSceneConfigFileName();
+    QString fileName=GameConfigurator::instance()->getWorldConfigFileName();
     QString path=QDir::currentPath()+QDir::separator()+fileName;
 
     QFile file(path);
@@ -28,25 +28,37 @@ void SceneManager::init()
     }
     reader.setDevice(&file);
 
-    reader.readNextStartElement();//<SceneBox>
+    world=new World();
+
+    reader.readNextStartElement();//<worldBox>
+
+    reader.readNextStartElement();//<worldName>
+    world->setName(reader.readElementText());
+
+
     reader.readNextStartElement();//<TotalSceneNumber>
     int totalSceneNumber=reader.readElementText().toInt();
 
     for(int i=0;i<totalSceneNumber;i++)
     {
-        makeScene();
+        Scene* scene=makeScene();
+        world->addScene(scene);
+        if(i==0)
+        {
+            world->switchScene(scene->getName());
+        }
     }
 
     file.close();
 }
 
-Scene *SceneManager::getScene(const QString &sceneName)
+World *WorldManager::getWorld()
 {
-    return sceneBox.value(sceneName);
+    return world;
 }
 
 
-void SceneManager::makeScene()
+Scene *WorldManager::makeScene()
 {
     reader.readNextStartElement();//<scene>
 
@@ -61,6 +73,7 @@ void SceneManager::makeScene()
 
     Scene* tempScene=new Scene();
 
+    tempScene->setName(name);
     tempScene->setWidth(width);
     tempScene->setHeight(height);
 
@@ -71,10 +84,10 @@ void SceneManager::makeScene()
     makePlayer(tempScene);
     makeTriggerBox(tempScene);
 
-    sceneBox.insert(name,tempScene);
+    return tempScene;
 }
 
-void SceneManager::makeBackground(Scene *scene)
+void WorldManager::makeBackground(Scene *scene)
 {
     reader.readNextStartElement();//<Background>
 
@@ -99,7 +112,7 @@ void SceneManager::makeBackground(Scene *scene)
     reader.readNextStartElement();//</Background>
 }
 
-void SceneManager::makeTerrain(Scene *scene)
+void WorldManager::makeTerrain(Scene *scene)
 {
     reader.readNextStartElement();//<TerrainBox>
 
@@ -135,7 +148,7 @@ void SceneManager::makeTerrain(Scene *scene)
     reader.readNextStartElement();//</TerrainBox>
 }
 
-void SceneManager::makeDecoration(Scene *scene)
+void WorldManager::makeDecoration(Scene *scene)
 {
     reader.readNextStartElement();//<DecorationBox>
 
@@ -173,7 +186,7 @@ void SceneManager::makeDecoration(Scene *scene)
 
 }
 
-void SceneManager::makeCharacter(Scene *scene)
+void WorldManager::makeCharacter(Scene *scene)
 {
     reader.readNextStartElement();//<CharacterBox>
 
@@ -213,7 +226,7 @@ void SceneManager::makeCharacter(Scene *scene)
     reader.readNextStartElement();//<characterBox>
 }
 
-void SceneManager::makePlayer(Scene *scene)
+void WorldManager::makePlayer(Scene *scene)
 {
     reader.readNextStartElement();//<Player>
 
@@ -247,7 +260,7 @@ void SceneManager::makePlayer(Scene *scene)
     reader.readNextStartElement();//</player>
 }
 
-void SceneManager::makeTriggerBox(Scene *scene)
+void WorldManager::makeTriggerBox(Scene *scene)
 {
     reader.readNextStartElement();//<TriggerBox>
 
@@ -262,7 +275,7 @@ void SceneManager::makeTriggerBox(Scene *scene)
     reader.readNextStartElement();//</TriggerBox>
 }
 
-void SceneManager::makeTrigger(Scene *scene)
+void WorldManager::makeTrigger(Scene *scene)
 {
     reader.readNextStartElement();//<Trigger>
 

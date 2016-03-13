@@ -338,6 +338,16 @@ void Scene::setPause(bool value)
 {
     pause = value;
 }
+QString Scene::getName() const
+{
+    return name;
+}
+
+void Scene::setName(const QString &value)
+{
+    name = value;
+}
+
 
 QList<Character *> & Scene::getCharacterBox()
 {

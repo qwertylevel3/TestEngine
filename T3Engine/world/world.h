@@ -10,8 +10,13 @@ public:
     World();
     void update();
     void draw();
-    void switchScene(QString sceneName);
+    void switchScene(const QString& sceneName);
+    QString getName() const;
+    void setName(const QString &value);
+    void addScene(Scene* scene);
+
 protected:
+    QString name;
     QMap<QString ,Scene*> sceneBox;
     QString currentScene;
 };

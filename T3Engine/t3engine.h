@@ -2,8 +2,8 @@
 #define T3ENGINE_H
 
 #include"singleton.h"
-#include"scene.h"
 #include"inputmodule.h"
+#include"world.h"
 
 class T3Engine:public QOpenGLWidget,public QOpenGLFunctions//,public Singleton<T3Engine>
 {
@@ -28,7 +28,8 @@ protected:
 
     int m_frame;
 
-    Scene* scene;
+
+    World* world;
 
     //Frame* frame;
 

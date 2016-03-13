@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
-<SceneBox>
+<world>
+	<worldName>test</worldName>
 	<TotalSceneNumber>1</TotalSceneNumber>
 	<Scene>
 		<Name>init</Name>
@@ -128,4 +129,4 @@
 			</Trigger>
 		</TriggerBox>
 	</Scene>
-</SceneBox>
+</world>

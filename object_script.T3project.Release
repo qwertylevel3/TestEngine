@@ -17,7 +17,6 @@ INPUT(
 ./release\move.o
 ./release\bullet.o
 ./release\shoot.o
-./release\scenemanager.o
 ./release\orientation.o
 ./release\picture.o
 ./release\picturetext.o
@@ -50,7 +49,12 @@ INPUT(
 ./release\world.o
 ./release\worldcreator.o
 ./release\worldopenglwidget.o
+./release\backgroundwidget.o
+./release\decorationwidget.o
+./release\characterwidget.o
+./release\worldmanager.o
 ./release\qrc_shader.o
+./release\qrc_images.o
 ./release\moc_inputmodule.o
 ./release\moc_spritecreator.o
 ./release\moc_spritegeneraldialog.o
@@ -59,4 +63,7 @@ INPUT(
 ./release\moc_framepage.o
 ./release\moc_rectpage.o
 ./release\moc_worldcreator.o
+./release\moc_backgroundwidget.o
+./release\moc_decorationwidget.o
+./release\moc_characterwidget.o
 );

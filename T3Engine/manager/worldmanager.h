@@ -1,17 +1,17 @@
-#ifndef SCENEMANAGER_H
-#define SCENEMANAGER_H
+#ifndef WORLDMANAGER_H
+#define WORLDMANAGER_H
 
-#include"scene.h"
+#include"world.h"
 
-class SceneManager:public Singleton<SceneManager>
+class WorldManager:public Singleton<WorldManager>
 {
 public:
-    SceneManager();
+    WorldManager();
     void init();
 
-    Scene* getScene(const QString& sceneName);
+    World* getWorld();
 protected:
-    void makeScene();
+    Scene* makeScene();
     void makeBackground(Scene* scene);
     void makeTerrain(Scene* scene);
     void makeDecoration(Scene* scene);
@@ -20,8 +20,9 @@ protected:
     void makeTriggerBox(Scene* scene);
     void makeTrigger(Scene* scene);
 
-    QMap<QString,Scene*> sceneBox;
+
+    World* world;
     QXmlStreamReader reader;
 };
 
-#endif // SCENEMANAGER_H
+#endif // WORLDMANAGER_H

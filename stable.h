@@ -32,6 +32,9 @@
 #include<QLayout>
 #include<QTextEdit>
 #include<QScrollArea>
+#include<QInputDialog>
+#include<QDockWidget>
+#include<QToolBar>
 
 
 //qt_opengl

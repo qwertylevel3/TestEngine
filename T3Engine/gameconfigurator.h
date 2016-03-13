@@ -96,6 +96,9 @@ public:
     QString getDialogConfigFileName() const;
     void setDialogConfigFileName(const QString &value);
 
+    QString getWorldConfigFileName() const;
+    void setWorldConfigFileName(const QString &value);
+
 protected:
     float scale;//绘制时缩放比例,值越大越小。。
     bool drawRect;
@@ -109,7 +112,8 @@ protected:
     QString terrainConfigFileName;
     QString decorationConfigFileName;
     QString bulletConfigFileName;
-    QString sceneConfigFileName;
+    QString worldConfigFileName;
+    //QString sceneConfigFileName;
     QString faceConfigFileName;
     QString dialogConfigFileName;
 

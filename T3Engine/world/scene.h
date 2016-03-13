@@ -44,9 +44,6 @@ public:
     int getHeight() const;
     void setHeight(int value);
 
-    QString getName() const;
-    void setName(const QString &value);
-
     Character *getPlayer() const;
     void setPlayer(Character *value);
 
@@ -60,7 +57,11 @@ public:
     bool getPause() const;
     void setPause(bool value);
 
+    QString getName() const;
+    void setName(const QString &value);
+
 protected:
+    QString name;
     bool addEntityToLayerBox(Entity* entity);
 
     QList<Character*> characterList;

@@ -54,7 +54,6 @@ SOURCES += main.cpp\
     T3Engine/skill/move.cpp \
     T3Engine/entity/bullet/bullet.cpp \
     T3Engine/skill/shoot.cpp \
-    T3Engine/manager/scenemanager.cpp \
     T3Engine/orientation.cpp \
     T3Engine/sprite/picture.cpp \
     T3Engine/sprite/picturetext.cpp \
@@ -86,7 +85,11 @@ SOURCES += main.cpp\
     T3Engine/world/scene.cpp \
     T3Engine/world/world.cpp \
     WorldCreator/worldcreator.cpp \
-    WorldCreator/worldopenglwidget.cpp
+    WorldCreator/worldopenglwidget.cpp \
+    WorldCreator/backgroundwidget.cpp \
+    WorldCreator/decorationwidget.cpp \
+    WorldCreator/characterwidget.cpp \
+    T3Engine/manager/worldmanager.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -107,7 +110,6 @@ HEADERS  += \
     T3Engine/skill/move.h \
     T3Engine/entity/bullet/bullet.h \
     T3Engine/skill/shoot.h \
-    T3Engine/manager/scenemanager.h \
     T3Engine/orientation.h \
     stable.h \
     T3Engine/sprite/picture.h \
@@ -140,10 +142,15 @@ HEADERS  += \
     T3Engine/world/scene.h \
     T3Engine/world/world.h \
     WorldCreator/worldcreator.h \
-    WorldCreator/worldopenglwidget.h
+    WorldCreator/worldopenglwidget.h \
+    WorldCreator/backgroundwidget.h \
+    WorldCreator/decorationwidget.h \
+    WorldCreator/characterwidget.h \
+    T3Engine/manager/worldmanager.h
 
 RESOURCES += \
-    shader.qrc
+    shader.qrc \
+    WorldCreator/images.qrc
 
 FORMS += \
     SpriteCreator/spritegeneraldialog.ui \

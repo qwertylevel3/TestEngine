@@ -9,10 +9,10 @@
 #include"terrainmanager.h"
 #include"decorationmanager.h"
 #include"bulletmanager.h"
-#include"scenemanager.h"
 #include"clockmanager.h"
 #include"facemanager.h"
 #include"dialogmanager.h"
+#include"worldmanager.h"
 
 T3Engine::T3Engine(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -38,17 +38,19 @@ void T3Engine::init()
 
     SpriteManager::instance()->init();
 
+    ClockManager::instance()->init();
+
     CharacterManager::instance()->init();
     TerrainManager::instance()->init();
     DecorationManager::instance()->init();
     BulletManager::instance()->init();
     FaceManager::instance()->init();
 
-    SceneManager::instance()->init();
     DialogManager::instance()->init();
 
+    WorldManager::instance()->init();
 
-    ClockManager::instance()->init();
+    world=WorldManager::instance()->getWorld();
 
 }
 
@@ -85,14 +87,13 @@ void T3Engine::initializeGL()
     timer.start(12,this);
     m_frame=0;
 
-    scene=SceneManager::instance()->getScene("init");
 }
 
 void T3Engine::gameLoop()
 {
     m_frame++;
 
-    scene->update();
+    world->update();
 
     ClockManager::instance()->update();
 }
@@ -117,7 +118,7 @@ void T3Engine::paintGL()
             ->setUniformValue("mvp_matrix",projection);
 
     ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
-    scene->draw();
+    world->draw();
 }
 
 void T3Engine::resizeGL(int w, int h)

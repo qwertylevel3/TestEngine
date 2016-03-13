@@ -17,7 +17,6 @@ INPUT(
 ./debug\move.o
 ./debug\bullet.o
 ./debug\shoot.o
-./debug\scenemanager.o
 ./debug\orientation.o
 ./debug\picture.o
 ./debug\picturetext.o
@@ -50,7 +49,12 @@ INPUT(
 ./debug\world.o
 ./debug\worldcreator.o
 ./debug\worldopenglwidget.o
+./debug\backgroundwidget.o
+./debug\decorationwidget.o
+./debug\characterwidget.o
+./debug\worldmanager.o
 ./debug\qrc_shader.o
+./debug\qrc_images.o
 ./debug\moc_inputmodule.o
 ./debug\moc_spritecreator.o
 ./debug\moc_spritegeneraldialog.o
@@ -59,4 +63,7 @@ INPUT(
 ./debug\moc_framepage.o
 ./debug\moc_rectpage.o
 ./debug\moc_worldcreator.o
+./debug\moc_backgroundwidget.o
+./debug\moc_decorationwidget.o
+./debug\moc_characterwidget.o
 );

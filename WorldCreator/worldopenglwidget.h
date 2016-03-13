@@ -7,6 +7,8 @@ class WorldOpenglWidget:public T3Engine
 {
 public:
     WorldOpenglWidget(QWidget* parent=0);
+protected:
+
 };
 
 #endif // WORLDOPENGLWIDGET_H

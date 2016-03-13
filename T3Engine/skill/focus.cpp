@@ -1,7 +1,8 @@
 #include "focus.h"
 #include"decorationmanager.h"
-#include"scenemanager.h"
 #include"decoration.h"
+#include"character.h"
+#include"scene.h"
 
 Focus::Focus(Character* c)
     :Skill(c)

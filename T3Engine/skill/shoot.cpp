@@ -1,7 +1,7 @@
 #include "shoot.h"
 #include"bulletmanager.h"
-#include"scenemanager.h"
 #include"clockmanager.h"
+#include"scene.h"
 #include"math.h"
 
 
