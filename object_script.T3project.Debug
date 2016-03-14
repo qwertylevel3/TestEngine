@@ -53,6 +53,8 @@ INPUT(
 ./debug\decorationwidget.o
 ./debug\characterwidget.o
 ./debug\worldmanager.o
+./debug\background.o
+./debug\backgroundmanager.o
 ./debug\qrc_shader.o
 ./debug\qrc_images.o
 ./debug\moc_inputmodule.o

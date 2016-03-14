@@ -8,6 +8,7 @@
 #include"condition.h"
 #include"event.h"
 #include"trigger.h"
+#include"backgroundmanager.h"
 
 WorldManager::WorldManager()
 {
@@ -94,20 +95,20 @@ void WorldManager::makeBackground(Scene *scene)
     reader.readNextStartElement();//<backgroundName>
     QString backgroundName=reader.readElementText();
 
-    Terrain* terrain=TerrainManager::instance()->getTerrain(backgroundName);
+    Background* BK=BackgroundManager::instance()->getBackground(backgroundName);
 
-    float w=terrain->getWidth();
-    float h=terrain->getHeight();
+    float w=BK->getWidth();
+    float h=BK->getHeight();
 
-    terrain->setWidth(scene->getWidth());
-    terrain->setHeight(scene->getHeight());
+    BK->setWidth(scene->getWidth());
+    BK->setHeight(scene->getHeight());
 
-    terrain->setRepeatX(int(scene->getWidth()/w));
-    terrain->setRepeatY(int(scene->getHeight()/h));
+    BK->setRepeatX(int(scene->getWidth()/w));
+    BK->setRepeatY(int(scene->getHeight()/h));
 
-    terrain->setZ(-20);
+    BK->setZ(-20);
 
-    scene->addTerrainToBox(terrain);
+    scene->setBackground(BK);
 
     reader.readNextStartElement();//</Background>
 }

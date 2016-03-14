@@ -10,6 +10,7 @@
 #include"timeupcondition.h"
 #include"dialogueevent.h"
 #include"dialog.h"
+#include"background.h"
 
 class Scene
 {
@@ -37,6 +38,7 @@ public:
     void addDecorationToBox(Decoration* decoration);
     void addBulletToBox(Bullet* bullet);
     void addTrigger(Trigger* trigger);
+    void setBackground(Background* BK);
 
     int getWidth() const;
     void setWidth(int value);
@@ -71,6 +73,7 @@ protected:
     QList<Decoration*> decorationList;
     QList<Bullet*> bulletList;
     QList<Dialog*> dialogList;
+    Background* bk;
 
     Character* player;
 

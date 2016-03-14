@@ -31,9 +31,9 @@ void SpriteCreator::save()
 
 void SpriteCreator::setSprite(const QString &spriteName)
 {
-    currentSpriteName=spriteName;
-    Sprite* sprite=SpriteManager::instance()->getSprite(spriteName);
-    openglWidget->setSprite(sprite);
+//    currentSpriteName=spriteName;
+//    Sprite* sprite=SpriteManager::instance()->getSprite(spriteName);
+//    openglWidget->setSprite(sprite);
 }
 
 void SpriteCreator::editSprite()

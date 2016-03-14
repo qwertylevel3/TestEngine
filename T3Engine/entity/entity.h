@@ -24,7 +24,6 @@ public:
     bool isAlive();
 
     void setName(const QString& n){name=n;}
-    void setSprite(const QString& n);
     void drawRect();
 
     virtual void draw();
@@ -154,16 +153,6 @@ protected:
     float dy;
 };
 
-inline
-void Entity::setSprite(const QString &n)
-{
-    if(sprite)
-    {
-        delete sprite;
-    }
-    spriteName=n;
-    sprite=SpriteManager::instance()->getSprite(spriteName);
-}
 
 inline
 void Entity::setText(const QString &text)

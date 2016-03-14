@@ -24,6 +24,7 @@ INCLUDEPATH += $$PWD\T3Engine\entity\decoration\
 INCLUDEPATH += $$PWD\T3Engine\entity\terrain\
 INCLUDEPATH += $$PWD\T3Engine\entity\module\
 INCLUDEPATH += $$PWD\T3Engine\entity\dialog\
+INCLUDEPATH += $$PWD\T3Engine\entity\background\
 INCLUDEPATH += $$PWD\T3Engine\manager\
 INCLUDEPATH += $$PWD\T3Engine\manager\entity\
 INCLUDEPATH += $$PWD\T3Engine\world\
@@ -89,7 +90,9 @@ SOURCES += main.cpp\
     WorldCreator/backgroundwidget.cpp \
     WorldCreator/decorationwidget.cpp \
     WorldCreator/characterwidget.cpp \
-    T3Engine/manager/worldmanager.cpp
+    T3Engine/manager/worldmanager.cpp \
+    T3Engine/entity/background/background.cpp \
+    T3Engine/manager/entity/backgroundmanager.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -146,7 +149,9 @@ HEADERS  += \
     WorldCreator/backgroundwidget.h \
     WorldCreator/decorationwidget.h \
     WorldCreator/characterwidget.h \
-    T3Engine/manager/worldmanager.h
+    T3Engine/manager/worldmanager.h \
+    T3Engine/entity/background/background.h \
+    T3Engine/manager/entity/backgroundmanager.h
 
 RESOURCES += \
     shader.qrc \

@@ -11,6 +11,7 @@
 	<TerrainConfigFileName>conf/terrain.xml</TerrainConfigFileName>
 	<DecorationConfigFileName>conf/decoration.xml</DecorationConfigFileName>
 	<BulletConfigFileName>conf/bullet.xml</BulletConfigFileName>
+	<BackgroundConfigFileName>conf/background.xml</BackgroundConfigFileName>
 	<worldConfigFileName>conf/testWorld.xml</worldConfigFileName>
 	<FaceConfigFileName>conf/face.xml</FaceConfigFileName>
 	<DialogConfigFileName>conf/dialog.xml</DialogConfigFileName>

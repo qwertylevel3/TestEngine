@@ -44,6 +44,16 @@ void GameConfigurator::setWorldConfigFileName(const QString &value)
 {
     worldConfigFileName = value;
 }
+QString GameConfigurator::getBackgroundConfigFileName() const
+{
+    return backgroundConfigFileName;
+}
+
+void GameConfigurator::setBackgroundConfigFileName(const QString &value)
+{
+    backgroundConfigFileName = value;
+}
+
 
 
 
@@ -82,6 +92,9 @@ void GameConfigurator::makeParameter()
 
     reader.readNextStartElement();//<bulletConfigFileName>
     bulletConfigFileName=reader.readElementText();
+
+    reader.readNextStartElement();//<backgroundConfigFileName>
+    backgroundConfigFileName=reader.readElementText();
 
     reader.readNextStartElement();//<worldConfigFileName>
     worldConfigFileName=reader.readElementText();

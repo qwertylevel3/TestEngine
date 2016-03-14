@@ -99,6 +99,9 @@ public:
     QString getWorldConfigFileName() const;
     void setWorldConfigFileName(const QString &value);
 
+    QString getBackgroundConfigFileName() const;
+    void setBackgroundConfigFileName(const QString &value);
+
 protected:
     float scale;//绘制时缩放比例,值越大越小。。
     bool drawRect;
@@ -116,6 +119,7 @@ protected:
     //QString sceneConfigFileName;
     QString faceConfigFileName;
     QString dialogConfigFileName;
+    QString backgroundConfigFileName;
 
     QXmlStreamReader reader;
     void makeParameter();

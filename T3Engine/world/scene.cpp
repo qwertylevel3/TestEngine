@@ -476,3 +476,11 @@ void Scene::addTrigger(Trigger *trigger)
 {
     triggerList.append(trigger);
 }
+
+void Scene::setBackground(Background *BK)
+{
+    if(addEntityToLayerBox(BK))
+    {
+        bk=BK;
+    }
+}

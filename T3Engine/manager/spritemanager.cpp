@@ -27,7 +27,7 @@ void SpriteManager::init()
     makeCharacterSprite();
     makeBulletSprite();
     makeDecorationSprite();
-    makeTerrainSprite();
+    makeBackgroundSprite();
     makeFaceSprite();
     makeDialogSprite();
 
@@ -36,12 +36,6 @@ void SpriteManager::init()
     file.close();
 }
 
-Sprite *SpriteManager::getSprite(const QString &spriteName)
-{
-    Sprite* t=spriteBox[spriteName];
-    Sprite* s=t->clone();
-    return s;
-}
 
 Sprite *SpriteManager::getCharacterSprite(const QString &spriteName)
 {
@@ -71,6 +65,11 @@ Sprite *SpriteManager::getFaceSprite(const QString &spriteName)
 Sprite *SpriteManager::getBulletSprite(const QString &spriteName)
 {
     return bulletSpriteBox[spriteName]->clone();
+}
+
+Sprite *SpriteManager::getBackgroundSprite(const QString &spriteName)
+{
+    return backgroundSpriteBox[spriteName]->clone();
 }
 
 void SpriteManager::write()
@@ -206,6 +205,22 @@ void SpriteManager::makeTerrainSprite()
     {
         Sprite* sprite=makeSprite();
         terrainSpriteBox.insert(sprite->getName(),sprite);
+    }
+
+    reader.readNextStartElement();//</....Sprite>
+}
+
+void SpriteManager::makeBackgroundSprite()
+{
+    reader.readNextStartElement();//<....Sprite>
+
+    reader.readNextStartElement();//<TotalSpriteNumber>
+    int number=reader.readElementText().toInt();
+
+    for(int i=0;i<number;i++)
+    {
+        Sprite* sprite=makeSprite();
+        backgroundSpriteBox.insert(sprite->getName(),sprite);
     }
 
     reader.readNextStartElement();//</....Sprite>

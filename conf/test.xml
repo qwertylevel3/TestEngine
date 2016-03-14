@@ -2134,7 +2134,7 @@
 			</Action>
 		</Sprite>
 	</DecorationSprite>
-	<TerrainSprite>
+	<BackgroundSprite>
 		<TotalSpriteNumber>16</TotalSpriteNumber>
 		<Sprite>
 			<SpriteName>stone0</SpriteName>
@@ -2552,7 +2552,7 @@
 				</FrameBox>
 			</Action>
 		</Sprite>
-	</TerrainSprite>
+	</BackgroundSprite>
 	<FaceSprite>
 		<TotalSpriteNumber>1</TotalSpriteNumber>
 		<Sprite>

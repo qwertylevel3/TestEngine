@@ -10,13 +10,13 @@ public:
     SpriteManager();
     void init();
 
-    Sprite* getSprite(const QString& spriteName);
     Sprite* getCharacterSprite(const QString& spriteName);
     Sprite* getTerrainSprite(const QString& spriteName);
     Sprite* getDecorationSprite(const QString& spriteName);
     Sprite* getDialogSprite(const QString& spriteName);
     Sprite* getFaceSprite(const QString& spriteName);
     Sprite* getBulletSprite(const QString& spriteName);
+    Sprite* getBackgroundSprite(const QString& spriteName);
 
     void addSprite(const QString& spriteName,Sprite* sp)
     {
@@ -43,6 +43,7 @@ protected:
     void makeDialogSprite();
     void makeFaceSprite();
     void makeTerrainSprite();
+    void makeBackgroundSprite();
 
     QMap<QString,Sprite*> spriteBox;
 
@@ -52,6 +53,7 @@ protected:
     QMap<QString,Sprite*> dialogSpriteBox;
     QMap<QString,Sprite*> faceSpriteBox;
     QMap<QString,Sprite*> terrainSpriteBox;
+    QMap<QString,Sprite*> backgroundSpriteBox;
 
     QXmlStreamReader reader;
     QXmlStreamWriter writer;
