@@ -12,6 +12,7 @@ public:
 
     Decoration* getDecoration(const QString& decorationName);
     void addDecoration(const QString& decorationName,Decoration* decoration){decorationBox.insert(decorationName,decoration);}
+    QMap<QString,Decoration*>& getDecorationBox();
 protected:
     QMap<QString,Decoration*> decorationBox;
     QXmlStreamReader reader;

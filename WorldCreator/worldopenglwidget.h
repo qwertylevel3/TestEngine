@@ -12,6 +12,8 @@ protected:
     void mousePressEvent(QMouseEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
 
+
+
     QPoint winCoodtoOpenglCood(const QPoint& winP);
     QPoint openglCoodtoWinCood(const QPoint& openglP);
 

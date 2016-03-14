@@ -11,8 +11,9 @@ int main(int argc, char *argv[])
     //GameConfigurator::instance()->init("conf/spriteCreator.xml");
     GameConfigurator::instance()->init("conf/config.xml");
 
-    //T3Engine engine;
-    //engine.show();
+    T3Engine engine;
+    engine.show();
+    engine.hide();
 
     WorldCreator worldCreator;
     worldCreator.show();

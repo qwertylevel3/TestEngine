@@ -4,7 +4,7 @@ WorldOpenglWidget::WorldOpenglWidget(QWidget* parent)
     :T3Engine(parent)
 {
     this->setDebug(true);
-
+    this->setFixedSize(QWIDGETSIZE_MAX,QWIDGETSIZE_MAX);
     chooseEntity=0;
 }
 

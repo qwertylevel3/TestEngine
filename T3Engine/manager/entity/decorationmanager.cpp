@@ -41,6 +41,11 @@ Decoration *DecorationManager::getDecoration(const QString &decorationName)
     return decorationBox[decorationName]->clone();
 }
 
+QMap<QString, Decoration *> &DecorationManager::getDecorationBox()
+{
+    return decorationBox;
+}
+
 
 Decoration *DecorationManager::makeDecoration()
 {

@@ -41,6 +41,11 @@ Character *CharacterManager::getCharacter(const QString &characterName)
     return characterBox[characterName]->clone();
 }
 
+QMap<QString, Character *> &CharacterManager::getCharacterBox()
+{
+    return characterBox;
+}
+
 
 Character *CharacterManager::makeCharacter()
 {

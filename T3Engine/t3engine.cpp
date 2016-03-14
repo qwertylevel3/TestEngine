@@ -152,12 +152,17 @@ void T3Engine::resizeGL(int w, int h)
     //projection.perspective(fov, aspect, zNear, zFar);
    // projection.ortho(-2.5,2.5,-2,2,0,
    //                  GameConfigurator::instance()->getPaintFar());
-    projection.ortho(-GameConfigurator::instance()->getWindowWidth()/2,
-                     GameConfigurator::instance()->getWindowWidth()/2,
-                     -GameConfigurator::instance()->getWindowHeight()/2,
-                     GameConfigurator::instance()->getWindowHeight()/2,
-                     0,
-                     GameConfigurator::instance()->getPaintFar());
+   // projection.ortho(-GameConfigurator::instance()->getWindowWidth()/2,
+   //                  GameConfigurator::instance()->getWindowWidth()/2,
+   //                  -GameConfigurator::instance()->getWindowHeight()/2,
+   //                  GameConfigurator::instance()->getWindowHeight()/2,
+   //                  0,
+   //                  GameConfigurator::instance()->getPaintFar());
+    projection.ortho(-this->width()/2,
+                     this->width()/2,
+                     -this->height()/2,
+                     this->height()/2,
+                     0,GameConfigurator::instance()->getPaintFar());
 
 }
 

@@ -1,9 +1,10 @@
 #ifndef DECORATIONWIDGET_H
 #define DECORATIONWIDGET_H
 
+#include"stable.h"
 #include <QWidget>
 
-class DecorationWidget : public QWidget
+class DecorationWidget : public QScrollArea
 {
     Q_OBJECT
 public:

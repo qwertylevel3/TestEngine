@@ -2,8 +2,9 @@
 #define CHARACTERWIDGET_H
 
 #include <QWidget>
+#include"stable.h"
 
-class CharacterWidget : public QWidget
+class CharacterWidget : public QScrollArea
 {
     Q_OBJECT
 public:

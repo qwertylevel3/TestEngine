@@ -11,6 +11,7 @@ public:
 
     Character* getCharacter(const QString& characterName);
     void addCharacter(const QString& characterName,Character* character){characterBox.insert(characterName,character);}
+    QMap<QString,Character*>& getCharacterBox();
 protected:
     QMap<QString,Character*> characterBox;
     QXmlStreamReader reader;
