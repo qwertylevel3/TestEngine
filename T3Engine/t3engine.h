@@ -12,6 +12,9 @@ public:
     ~T3Engine();
 
     void init();
+    bool getDebug() const;
+    void setDebug(bool value);
+
 protected:
     void timerEvent(QTimerEvent *e) Q_DECL_OVERRIDE;
     void paintGL() Q_DECL_OVERRIDE;
@@ -32,6 +35,8 @@ protected:
     World* world;
 
     //Frame* frame;
+
+    bool debug;
 
 };
 

@@ -15,10 +15,14 @@ public:
     void setName(const QString &value);
     void addScene(Scene* scene);
 
+    Entity* selectEntity(const QPoint& p);
+
 protected:
     QString name;
     QMap<QString ,Scene*> sceneBox;
     QString currentScene;
+
+
 };
 
 #endif // WORLD_H

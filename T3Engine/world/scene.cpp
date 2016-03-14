@@ -348,6 +348,42 @@ void Scene::setName(const QString &value)
     name = value;
 }
 
+Entity *Scene::selectEntity(const QPoint &p)
+{
+    Entity * selectedEntity=0;
+    for(int i=0;i<characterList.size();i++)
+    {
+        QRect r(characterList[i]->getX()-characterList[i]->getWidth()/2,
+                characterList[i]->getY()-characterList[i]->getHeight()/2,
+                characterList[i]->getWidth(),
+                characterList[i]->getHeight());
+        if(r.contains(p))
+        {
+            if(!selectedEntity
+                      ||  characterList[i]->getZ()>selectedEntity->getZ())
+            {
+                 selectedEntity=characterList[i];
+            }
+        }
+    }
+    for(int i=0;i<decorationList.size();i++)
+    {
+        QRect r(decorationList[i]->getX()-decorationList[i]->getWidth()/2,
+                decorationList[i]->getY()-decorationList[i]->getHeight()/2,
+                decorationList[i]->getWidth(),
+                decorationList[i]->getHeight());
+        if(r.contains(p))
+        {
+            if(!selectedEntity
+                      ||  decorationList[i]->getZ()>selectedEntity->getZ())
+            {
+                 selectedEntity=decorationList[i];
+            }
+        }
+    }
+    return selectedEntity;
+}
+
 
 QList<Character *> & Scene::getCharacterBox()
 {

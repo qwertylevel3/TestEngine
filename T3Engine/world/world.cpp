@@ -34,3 +34,8 @@ void World::addScene(Scene *scene)
     sceneBox.insert(scene->getName(),scene);
 }
 
+Entity *World::selectEntity(const QPoint &p)
+{
+    return sceneBox[currentScene]->selectEntity(p);
+}
+

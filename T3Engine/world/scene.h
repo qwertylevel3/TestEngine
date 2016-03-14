@@ -60,6 +60,8 @@ public:
     QString getName() const;
     void setName(const QString &value);
 
+    Entity* selectEntity(const QPoint& p);
+
 protected:
     QString name;
     bool addEntityToLayerBox(Entity* entity);
