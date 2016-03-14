@@ -6,6 +6,7 @@ WorldOpenglWidget::WorldOpenglWidget(QWidget* parent)
     this->setDebug(true);
     this->setFixedSize(QWIDGETSIZE_MAX,QWIDGETSIZE_MAX);
     chooseEntity=0;
+    //setAcceptDrops(true);
 }
 
 void WorldOpenglWidget::mouseMoveEvent(QMouseEvent *e)

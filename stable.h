@@ -35,6 +35,7 @@
 #include<QInputDialog>
 #include<QDockWidget>
 #include<QToolBar>
+#include<QListWidget>
 
 
 //qt_opengl

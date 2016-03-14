@@ -44,6 +44,11 @@ void BackgroundManager::addBackground(Background *bk)
     backgroundBox.insert(bk->getName(),bk);
 }
 
+QMap<QString, Background *> &BackgroundManager::getBackgroundBox()
+{
+    return backgroundBox;
+}
+
 Background *BackgroundManager::makeBackground()
 {
     reader.readNextStartElement();//<Background>

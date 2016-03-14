@@ -3,7 +3,7 @@
 
 #include"stable.h"
 
-class BackgroundWidget : public QScrollArea
+class BackgroundWidget : public QListWidget
 {
     Q_OBJECT
 public:

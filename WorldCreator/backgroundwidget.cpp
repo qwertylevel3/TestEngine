@@ -1,23 +1,14 @@
 #include "backgroundwidget.h"
+#include"backgroundmanager.h"
 
-BackgroundWidget::BackgroundWidget(QWidget *parent) : QScrollArea(parent)
+BackgroundWidget::BackgroundWidget(QWidget *parent) : QListWidget(parent)
 {
-//    //QScrollArea* listArea=new QScrollArea();
-//
-//    QVBoxLayout* layout=new QVBoxLayout();
-//    QWidget* widget=new QWidget();
-//
-//    QMap<QString,Decoration* > decorationBox=DecorationManager::instance()->getDecorationBox();
-//    QMap<QString,Decoration*>::const_iterator i = decorationBox.constBegin();
-//    while (i != decorationBox.constEnd()) {
-//        QCommandLinkButton* button=new QCommandLinkButton();
-//        button->setText(i.key());
-//        layout->addWidget(button);
-//
-//        ++i;
-//    }
-//    //this->setLayout(layout);
-//    widget->setLayout(layout);
-//    this->setWidget(widget);
+    QMap<QString,Background* > backgroundBox=BackgroundManager::instance()->getBackgroundBox();
+    QMap<QString,Background*>::const_iterator i = backgroundBox.constBegin();
+    while (i != backgroundBox.constEnd()) {
+        new QListWidgetItem(i.key(),this);
+
+        ++i;
+    }
 }
 

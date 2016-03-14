@@ -11,6 +11,7 @@ public:
 
     Background* getBackground(const QString& bkName);
     void addBackground(Background* bk);
+    QMap<QString,Background*>& getBackgroundBox();
 protected:
     QMap<QString,Background*> backgroundBox;
     QXmlStreamReader reader;

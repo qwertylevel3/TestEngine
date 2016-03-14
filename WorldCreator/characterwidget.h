@@ -4,7 +4,7 @@
 #include <QWidget>
 #include"stable.h"
 
-class CharacterWidget : public QScrollArea
+class CharacterWidget : public QListWidget
 {
     Q_OBJECT
 public:
