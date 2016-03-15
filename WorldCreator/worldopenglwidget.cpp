@@ -47,6 +47,16 @@ void WorldOpenglWidget::mouseReleaseEvent(QMouseEvent *e)
     T3Engine::mouseReleaseEvent(e);
 }
 
+void WorldOpenglWidget::addDecoration(const QString &decorationName)
+{
+    world->addDecoration(decorationName);
+}
+
+void WorldOpenglWidget::addCharacter(const QString &characterName)
+{
+    world->addCharacter(characterName);
+}
+
 QPoint WorldOpenglWidget::winCoodtoOpenglCood(const QPoint &winP)
 {
     QPoint p;

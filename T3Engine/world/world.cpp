@@ -1,4 +1,7 @@
 #include "world.h"
+#include"decorationmanager.h"
+#include"charactermanager.h"
+#include"backgroundmanager.h"
 
 World::World()
 {
@@ -32,6 +35,24 @@ void World::setName(const QString &value)
 void World::addScene(Scene *scene)
 {
     sceneBox.insert(scene->getName(),scene);
+}
+
+void World::addDecoration(const QString &decorationName)
+{
+    Decoration* decoration=DecorationManager::instance()->getDecoration(decorationName);
+    decoration->setX(0);
+    decoration->setY(0);
+    decoration->setZ(-10);
+    sceneBox[currentScene]->addDecorationToBox(decoration);
+}
+
+void World::addCharacter(const QString &characterName)
+{
+    Character* character=CharacterManager::instance()->getCharacter(characterName);
+    character->setX(0);
+    character->setY(0);
+    character->setZ(-10);
+    sceneBox[currentScene]->addCharacterToBox(character);
 }
 
 Entity *World::selectEntity(const QPoint &p)

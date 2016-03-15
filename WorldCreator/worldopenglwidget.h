@@ -7,12 +7,15 @@ class WorldOpenglWidget:public T3Engine
 {
 public:
     WorldOpenglWidget(QWidget* parent=0);
+
+    void addDecoration(const QString& decorationName);
+    void addCharacter(const QString& characterName);
+
+
 protected:
     void mouseMoveEvent(QMouseEvent *e);
     void mousePressEvent(QMouseEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
-
-
 
     QPoint winCoodtoOpenglCood(const QPoint& winP);
     QPoint openglCoodtoWinCood(const QPoint& openglP);

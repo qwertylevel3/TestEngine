@@ -23,14 +23,11 @@ WorldCreator::WorldCreator(QWidget* parent)
     characterDockWidget->setVisible(true);
     decorationDockWidget->setVisible(true);
 
-    //setWindowIcon(QIcon(":/images/icon.png"));
+    setWindowIcon(QIcon(":/images/icon.png"));
     //setCurrentFile("");
 
-    //connect(world,SIGNAL(modified()),this,SLOT(worldModified()));
-    //connect(terrainWidget,SIGNAL(addSprite()),this,SLOT(worldModified()));
-    //connect(characterWidget,SIGNAL(addSprite()),this,SLOT(worldModified()));
-    //connect(decorationWidget,SIGNAL(addSprite()),this,SLOT(worldModified()));
-
+    connect(decorationWidget,SIGNAL(addDecoration(QString)),this,SLOT(addDecoration(QString)));
+    connect(characterWidget,SIGNAL(addCharacter(QString)),this,SLOT(addCharacter(QString)));
 }
 
 
@@ -134,6 +131,16 @@ void WorldCreator::openRecentFile()
 void WorldCreator::updateStatusBar()
 {
     statusLabel->setText("world update...");
+}
+
+void WorldCreator::addDecoration(QString decorationName)
+{
+    openglWidget->addDecoration(decorationName);
+}
+
+void WorldCreator::addCharacter(QString characterName)
+{
+    openglWidget->addCharacter(characterName);
 }
 
 void WorldCreator::worldModified()

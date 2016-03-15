@@ -3,7 +3,7 @@
 
 #include"stable.h"
 
-class BackgroundWidget : public QListWidget
+class BackgroundWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -12,6 +12,9 @@ public:
 signals:
 
 public slots:
+protected:
+    QListWidget* listWidget;
+    QPushButton* addButton;
 };
 
 #endif // BACKGROUNDWIDGET_H

@@ -1,7 +1,6 @@
 #ifndef WORLDCREATOR_H
 #define WORLDCREATOR_H
 
-#include <QMainWindow>
 #include<stable.h>
 #include"worldopenglwidget.h"
 #include"decorationwidget.h"
@@ -96,6 +95,8 @@ private slots:
     void openRecentFile();
     void updateStatusBar();
 
+    void addDecoration(QString decorationName);
+    void addCharacter(QString characterName);
 };
 
 #endif // WORLDCREATOR_H

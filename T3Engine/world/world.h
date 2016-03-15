@@ -15,6 +15,9 @@ public:
     void setName(const QString &value);
     void addScene(Scene* scene);
 
+    void addDecoration(const QString& decorationName);
+    void addCharacter(const QString& characterName);
+
     Entity* selectEntity(const QPoint& p);
 
 protected:
