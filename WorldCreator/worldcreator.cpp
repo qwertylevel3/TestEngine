@@ -28,6 +28,7 @@ WorldCreator::WorldCreator(QWidget* parent)
 
     connect(decorationWidget,SIGNAL(addDecoration(QString)),this,SLOT(addDecoration(QString)));
     connect(characterWidget,SIGNAL(addCharacter(QString)),this,SLOT(addCharacter(QString)));
+    connect(backgroundWidget,SIGNAL(setBackground(QString)),this,SLOT(setBackground(QString)));
 }
 
 
@@ -141,6 +142,11 @@ void WorldCreator::addDecoration(QString decorationName)
 void WorldCreator::addCharacter(QString characterName)
 {
     openglWidget->addCharacter(characterName);
+}
+
+void WorldCreator::setBackground(QString backgroundName)
+{
+    openglWidget->setBackground(backgroundName);
 }
 
 void WorldCreator::worldModified()

@@ -97,6 +97,7 @@ private slots:
 
     void addDecoration(QString decorationName);
     void addCharacter(QString characterName);
+    void setBackground(QString backgroundName);
 };
 
 #endif // WORLDCREATOR_H

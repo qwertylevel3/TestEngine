@@ -55,6 +55,12 @@ void World::addCharacter(const QString &characterName)
     sceneBox[currentScene]->addCharacterToBox(character);
 }
 
+void World::setBackground(const QString &backgroundName)
+{
+    Background* BK=BackgroundManager::instance()->getBackground(backgroundName);
+    sceneBox[currentScene]->setBackground(BK);
+}
+
 Entity *World::selectEntity(const QPoint &p)
 {
     return sceneBox[currentScene]->selectEntity(p);

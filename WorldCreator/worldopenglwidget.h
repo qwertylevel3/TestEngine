@@ -11,7 +11,7 @@ public:
     void addDecoration(const QString& decorationName);
     void addCharacter(const QString& characterName);
 
-
+    void setBackground(const QString& backgroundName);
 protected:
     void mouseMoveEvent(QMouseEvent *e);
     void mousePressEvent(QMouseEvent *e);

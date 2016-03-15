@@ -17,6 +17,7 @@ public:
 
     void addDecoration(const QString& decorationName);
     void addCharacter(const QString& characterName);
+    void setBackground(const QString& backgroundName);
 
     Entity* selectEntity(const QPoint& p);
 

@@ -4,8 +4,8 @@
 BackgroundWidget::BackgroundWidget(QWidget *parent) : QWidget(parent)
 {
     listWidget=new QListWidget();
-    addButton=new QPushButton();
-    addButton->setText("add");
+    setButton=new QPushButton();
+    setButton->setText("set");
     QVBoxLayout* layout=new QVBoxLayout();
 
     QMap<QString,Background* > backgroundBox=BackgroundManager::instance()->getBackgroundBox();
@@ -16,9 +16,19 @@ BackgroundWidget::BackgroundWidget(QWidget *parent) : QWidget(parent)
     }
 
     layout->addWidget(listWidget);
-    layout->addWidget(addButton);
+    layout->addWidget(setButton);
 
     this->setLayout(layout);
 
+    connect(setButton,SIGNAL(clicked(bool)),this,SLOT(sendSetBackground()));
+}
+
+void BackgroundWidget::sendSetBackground()
+{
+    QListWidgetItem* item=listWidget->currentItem();
+    if(item)
+    {
+        emit setBackground(item->text());
+    }
 }
 

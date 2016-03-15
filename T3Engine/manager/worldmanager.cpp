@@ -97,17 +97,6 @@ void WorldManager::makeBackground(Scene *scene)
 
     Background* BK=BackgroundManager::instance()->getBackground(backgroundName);
 
-    float w=BK->getWidth();
-    float h=BK->getHeight();
-
-    BK->setWidth(scene->getWidth());
-    BK->setHeight(scene->getHeight());
-
-    BK->setRepeatX(int(scene->getWidth()/w));
-    BK->setRepeatY(int(scene->getHeight()/h));
-
-    BK->setZ(-20);
-
     scene->setBackground(BK);
 
     reader.readNextStartElement();//</Background>

@@ -10,6 +10,7 @@
 Scene::Scene()
 {
     pause=false;
+    bk=0;
     for(int i=0;
         i<=GameConfigurator::instance()->getPaintFar();i++)
     {
@@ -53,6 +54,7 @@ Scene::~Scene()
 
 void Scene::draw()
 {
+    bk->draw();
     for(int i=GameConfigurator::instance()->getPaintFar();
         i>=GameConfigurator::instance()->getPaintNear();i--)
     {
@@ -479,8 +481,21 @@ void Scene::addTrigger(Trigger *trigger)
 
 void Scene::setBackground(Background *BK)
 {
-    if(addEntityToLayerBox(BK))
+
+    float w=BK->getWidth();
+    float h=BK->getHeight();
+
+    BK->setWidth(getWidth());
+    BK->setHeight(getHeight());
+
+    BK->setRepeatX(int(getWidth()/w));
+    BK->setRepeatY(int(getHeight()/h));
+
+    BK->setZ(-20);
+
+    if(bk)
     {
-        bk=BK;
+        delete bk;
     }
+    bk=BK;
 }

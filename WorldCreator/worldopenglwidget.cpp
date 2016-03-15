@@ -57,6 +57,11 @@ void WorldOpenglWidget::addCharacter(const QString &characterName)
     world->addCharacter(characterName);
 }
 
+void WorldOpenglWidget::setBackground(const QString &backgroundName)
+{
+    world->setBackground(backgroundName);
+}
+
 QPoint WorldOpenglWidget::winCoodtoOpenglCood(const QPoint &winP)
 {
     QPoint p;

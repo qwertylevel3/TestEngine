@@ -10,11 +10,12 @@ public:
     explicit BackgroundWidget(QWidget *parent = 0);
 
 signals:
-
+    void setBackground(QString backgroundName);
 public slots:
+    void sendSetBackground();
 protected:
     QListWidget* listWidget;
-    QPushButton* addButton;
+    QPushButton* setButton;
 };
 
 #endif // BACKGROUNDWIDGET_H
