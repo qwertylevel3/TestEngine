@@ -25,8 +25,6 @@ protected:
     QString name;
     QMap<QString ,Scene*> sceneBox;
     QString currentScene;
-
-
 };
 
 #endif // WORLD_H

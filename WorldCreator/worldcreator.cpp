@@ -72,16 +72,14 @@ void WorldCreator::open()
     if (okToContinue()) {
         QString fileName = QFileDialog::getOpenFileName(this,
                                    tr("Open World"), ".",
-                                                        tr("World files (*.wod)"));
+                                                        tr("World files (*.xml)"));
         if (!fileName.isEmpty())
         {
             loadFile(fileName);
             //curFile=world->getWorldName();
             updateDockWindow();
         }
-
     }
-
 }
 
 void WorldCreator::closeWorld()

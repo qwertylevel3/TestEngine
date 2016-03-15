@@ -23,6 +23,7 @@ T3Engine::T3Engine(QWidget *parent)
     this->setFixedSize(GameConfigurator::instance()->getWindowWidth(),
                        GameConfigurator::instance()->getWindowHeight());
     debug=false;
+    world=0;
 }
 
 T3Engine::~T3Engine()

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
+<world>
+	<worldName>test</worldName>
+	<TotalSceneNumber>1</TotalSceneNumber>
+	<Scene>
+		<Name>init</Name>
+		<width>1000</width>
+		<height>1000</height>
+		<Background>
+			<BackgroundName>grass1</BackgroundName>
+		</Background>
+		<TerrainBox>
+			<TotalTerrainNumber>0</TotalTerrainNumber>
+		</TerrainBox>
+		<DecorationBox>
+			<TotalDecorationNumber>0</TotalDecorationNumber>
+		</DecorationBox>
+		<CharacterBox>
+			<TotalCharacterNumber>0</TotalCharacterNumber>
+		</CharacterBox>
+		<Player>
+			<PlayerName>test</PlayerName>
+			<x>100</x>
+			<y>-40</y>
+			<z>-10</z>
+		</Player>
+		<TriggerBox>
+			<TotalTriggerNumber>0</TotalTriggerNumber>
+			
+		</TriggerBox>
+	</Scene>
+</world>

@@ -8,6 +8,16 @@ World::World()
 
 }
 
+World::~World()
+{
+    QMap<QString,Scene*>::const_iterator i=sceneBox.constBegin();
+    while(i!=sceneBox.constEnd())
+    {
+        delete i.value();
+    }
+    sceneBox.clear();
+}
+
 void World::update()
 {
     sceneBox[currentScene]->update();

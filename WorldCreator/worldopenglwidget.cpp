@@ -83,8 +83,6 @@ void WorldOpenglWidget::displayMousePos(QMouseEvent *e)
     qDebug()<<"mousePos"<<endl;
     qDebug()<<e->pos().x()<<endl;
     qDebug()<<e->pos().y()<<endl;
-
-
 }
 
 void WorldOpenglWidget::displayChooseEntityPos()
