@@ -121,7 +121,7 @@
 					</config>
 				</Condition>
 				<Event>
-					<EventType>dialog</EventType>
+					<EventType>Dialog</EventType>
 					<config>
 						<dialogName>init</dialogName>
 					</config>

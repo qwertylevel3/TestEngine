@@ -36,20 +36,14 @@ Scene::Scene()
 
 Scene::~Scene()
 {
-    characterList.clear();
-    terrainList.clear();
-    decorationList.clear();
-    bulletList.clear();
-    dialogList.clear();
-
     for(int i=0;i<layerBox.size();i++)
     {
         for(int j=0;j<layerBox[i].size();j++)
         {
             delete layerBox[i][j];
         }
-        layerBox[i].clear();
     }
+    delete bk;
 }
 
 void Scene::draw()
@@ -331,6 +325,8 @@ bool Scene::addEntityToLayerBox(Entity *entity)
     layerBox[-(entity->getZ())].append(entity);
     return true;
 }
+
+
 bool Scene::getPause() const
 {
     return pause;
@@ -386,8 +382,106 @@ Entity *Scene::selectEntity(const QPoint &p)
     return selectedEntity;
 }
 
+void Scene::save(QXmlStreamWriter *writer)
+{
+    writer->writeStartElement("Scene");
 
-QList<Character *> & Scene::getCharacterBox()
+    writer->writeTextElement("Name",this->name);
+    writer->writeTextElement("Width",QString::number(this->width));
+    writer->writeTextElement("Height",QString::number(this->height));
+
+    writeBackground(writer);
+    writeTerrainBox(writer);
+    writeDecorationBox(writer);
+    writeCharacterBox(writer);
+    writePlayer(writer);
+    writeTriggerBox(writer);
+
+    writer->writeEndElement();
+}
+
+void Scene::writeBackground(QXmlStreamWriter *writer)
+{
+    writer->writeStartElement("Background");
+
+    writer->writeTextElement("BackgroundName",bk->getName());
+
+    writer->writeEndElement();
+}
+
+void Scene::writeTerrainBox(QXmlStreamWriter *writer)
+{
+    writer->writeStartElement("TerrainBox");
+
+    writer->writeTextElement("TotalTerrainNumber",QString::number(terrainList.size()));
+
+    //TODO
+    //......
+
+    writer->writeEndElement();
+}
+
+void Scene::writeDecorationBox(QXmlStreamWriter *writer)
+{
+    writer->writeStartElement("DecorationBox");
+
+    writer->writeTextElement("TotalDecorationNumber",QString::number(decorationList.size()));
+
+    for(int i=0;i<decorationList.size();i++)
+    {
+        writer->writeTextElement("DecorationName",decorationList[i]->getName());
+        writer->writeTextElement("x",QString::number(decorationList[i]->getX()));
+        writer->writeTextElement("y",QString::number(decorationList[i]->getY()));
+        writer->writeTextElement("z",QString::number(decorationList[i]->getZ()));
+    }
+    writer->writeEndElement();
+}
+
+void Scene::writeCharacterBox(QXmlStreamWriter *writer)
+{
+    writer->writeStartElement("CharacterBox");
+
+    writer->writeTextElement("TotalCharacterNumber",QString::number(characterList.size()));
+
+    for(int i=0;i<characterList.size();i++)
+    {
+        writer->writeTextElement("CharacterName",characterList[i]->getName());
+        writer->writeTextElement("x",QString::number(characterList[i]->getX()));
+        writer->writeTextElement("y",QString::number(characterList[i]->getY()));
+        writer->writeTextElement("z",QString::number(characterList[i]->getZ()));
+    }
+
+    writer->writeEndElement();
+}
+
+void Scene::writePlayer(QXmlStreamWriter *writer)
+{
+    writer->writeStartElement("Player");
+
+    writer->writeTextElement("PlayerName",player->getName());
+    writer->writeTextElement("x",QString::number(player->getX()));
+    writer->writeTextElement("y",QString::number(player->getY()));
+    writer->writeTextElement("z",QString::number(player->getZ()));
+
+    writer->writeEndElement();
+}
+
+void Scene::writeTriggerBox(QXmlStreamWriter *writer)
+{
+    writer->writeStartElement("TriggerBox");
+
+    writer->writeTextElement("TotalTriggerNumber",QString::number(triggerList.size()));
+
+    for(int i=0;i<triggerList.size();i++)
+    {
+        triggerList[i]->save(writer);
+    }
+
+    writer->writeEndElement();
+}
+
+
+QList<Character *> & Scene::getCharacterList()
 {
     return characterList;
 }

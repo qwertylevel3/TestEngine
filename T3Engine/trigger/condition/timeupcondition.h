@@ -11,8 +11,10 @@ public:
     virtual bool judge();
     virtual void config(QXmlStreamReader *reader);
     void setTime(int ms);
+    void save(QXmlStreamWriter *writer);
 protected:
     QTime time;
+    int timeMs;
 };
 
 #endif // TIMEUPCONDITION_H

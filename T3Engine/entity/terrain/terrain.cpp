@@ -13,3 +13,8 @@ Terrain *Terrain::clone()
     return newTerrain;
 }
 
+Terrain::~Terrain()
+{
+
+}
+

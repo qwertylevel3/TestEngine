@@ -31,7 +31,6 @@ protected:
 
     int m_frame;
 
-
     World* world;
 
     //Frame* frame;

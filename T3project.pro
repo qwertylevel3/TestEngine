@@ -90,7 +90,6 @@ SOURCES += main.cpp\
     WorldCreator/backgroundwidget.cpp \
     WorldCreator/decorationwidget.cpp \
     WorldCreator/characterwidget.cpp \
-    T3Engine/manager/worldmanager.cpp \
     T3Engine/entity/background/background.cpp \
     T3Engine/manager/entity/backgroundmanager.cpp
 
@@ -149,7 +148,6 @@ HEADERS  += \
     WorldCreator/backgroundwidget.h \
     WorldCreator/decorationwidget.h \
     WorldCreator/characterwidget.h \
-    T3Engine/manager/worldmanager.h \
     T3Engine/entity/background/background.h \
     T3Engine/manager/entity/backgroundmanager.h
 

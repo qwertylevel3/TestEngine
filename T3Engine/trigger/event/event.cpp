@@ -13,7 +13,7 @@ Event::~Event()
 
 Event *Event::getEvent(const QString &eventType)
 {
-    if(eventType=="dialog")
+    if(eventType=="Dialog")
     {
         DialogueEvent* event=new DialogueEvent();
         return event;

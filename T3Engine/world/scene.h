@@ -11,6 +11,7 @@
 #include"dialogueevent.h"
 #include"dialog.h"
 #include"background.h"
+#include"stable.h"
 
 class Scene
 {
@@ -49,7 +50,7 @@ public:
     Character *getPlayer() const;
     void setPlayer(Character *value);
 
-    QList<Character *>& getCharacterBox();
+    QList<Character *>& getCharacterList();
 
     void switchFocusToPlayer();
     void switchFocusToDialog(Dialog* dialog);
@@ -64,6 +65,19 @@ public:
 
     Entity* selectEntity(const QPoint& p);
 
+
+    Background *getBk() const;
+
+    QList<Trigger *> getTriggerList() const;
+
+
+    void save(QXmlStreamWriter* writer);
+    void writeBackground(QXmlStreamWriter* writer);
+    void writeTerrainBox(QXmlStreamWriter* writer);
+    void writeDecorationBox(QXmlStreamWriter* writer);
+    void writeCharacterBox(QXmlStreamWriter* writer);
+    void writePlayer(QXmlStreamWriter* writer);
+    void writeTriggerBox(QXmlStreamWriter* writer);
 protected:
     QString name;
     bool addEntityToLayerBox(Entity* entity);
@@ -87,6 +101,7 @@ protected:
     QList<Trigger*> triggerList;
 
     bool pause;
+
 };
 
 #endif // SCENE_H

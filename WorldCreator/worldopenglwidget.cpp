@@ -1,4 +1,5 @@
 #include "worldopenglwidget.h"
+#include"worldmanager.h"
 
 WorldOpenglWidget::WorldOpenglWidget(QWidget* parent)
     :T3Engine(parent)
@@ -60,6 +61,19 @@ void WorldOpenglWidget::addCharacter(const QString &characterName)
 void WorldOpenglWidget::setBackground(const QString &backgroundName)
 {
     world->setBackground(backgroundName);
+}
+
+bool WorldOpenglWidget::save(const QString &fileName)
+{
+    return world->save(fileName);
+}
+
+void WorldOpenglWidget::newWorld(const QString &worldName)
+{
+    qDebug()<<"newWorld"<<endl;
+    delete world;
+    world=WorldManager::instance()->getWorld();
+    world->setName(worldName);
 }
 
 QPoint WorldOpenglWidget::winCoodtoOpenglCood(const QPoint &winP)

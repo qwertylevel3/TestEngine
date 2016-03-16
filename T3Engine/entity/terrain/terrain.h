@@ -8,6 +8,9 @@ class Terrain:public Entity
 public:
     Terrain(const QString& spriteName);
     Terrain* clone();
+
+    ~Terrain();
+
 };
 
 #endif // TERRAIN_H

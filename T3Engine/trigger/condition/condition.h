@@ -16,6 +16,7 @@ public:
     Scene *getScene() const;
     void setScene(Scene *value);
 
+    virtual void save(QXmlStreamWriter* writer)=0;
 protected:
     Scene* scene;
 };

@@ -17,7 +17,6 @@ private:
     void contextMenuEvent(QContextMenuEvent *event);
     void closeEvent(QCloseEvent *event);
 
-
     QString strippedName(const QString &fullFileName);
 
     void updateDockWindow();
@@ -35,10 +34,8 @@ private:
     bool saveFile(const QString& fileName);
     void setCurrentFile(const QString& fileName);
     void updateRecentFileActions();
-    QStringList recentFiles;
     QString curFile;
     enum {MaxRecentFiles=5};
-    QAction* recentFileActions[MaxRecentFiles];
     QAction* separatorAction;
 
     QLabel* statusLabel;
@@ -83,8 +80,6 @@ private:
     QDockWidget* backgroundDockWidget;
     QDockWidget* characterDockWidget;
     QDockWidget* decorationDockWidget;
-
-
 private slots:
     void worldModified();
     void newWorld();

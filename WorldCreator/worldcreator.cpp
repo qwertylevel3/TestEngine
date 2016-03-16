@@ -51,18 +51,14 @@ void WorldCreator::closeEvent(QCloseEvent *event)
 void WorldCreator::newWorld()
 {
     if (okToContinue()) {
-        //world->clear();
-
         bool ok;
         QString fileName = QInputDialog::getText(this, tr("create new world"),
                                              tr("world name:"), QLineEdit::Normal,
                                              QDir::home().dirName(), &ok);
         if (ok && !fileName.isEmpty())
         {
-            //world->createNewWorld(fileName);
-            //qDebug()<<world->getWorldName();
-            //setCurrentFile(world->getWorldName());
-            updateDockWindow();
+            openglWidget->newWorld(fileName);
+            setCurrentFile(fileName);
         }
     }
 }
@@ -177,12 +173,6 @@ void WorldCreator::createActions()
     closeAction->setStatusTip(tr("close the world"));
     connect(closeAction,SIGNAL(triggered()),this,SLOT(closeWorld()));
 
-    for (int i = 0; i < MaxRecentFiles; ++i) {
-        recentFileActions[i] = new QAction(this);
-        recentFileActions[i]->setVisible(false);
-        connect(recentFileActions[i], SIGNAL(triggered()),
-                this, SLOT(openRecentFile()));
-    }
 
     exitAction = new QAction(tr("E&xit"), this);
     exitAction->setShortcut(tr("Ctrl+Q"));
@@ -275,8 +265,6 @@ void WorldCreator::createMenus()
     fileMenu->addAction(openAction);
     fileMenu->addAction(saveAction);
     separatorAction = fileMenu->addSeparator();
-    for (int i = 0; i < MaxRecentFiles; ++i)
-        fileMenu->addAction(recentFileActions[i]);
     fileMenu->addSeparator();
     fileMenu->addAction(closeAction);
     fileMenu->addSeparator();
@@ -437,14 +425,14 @@ bool WorldCreator::loadFile(const QString &fileName)
 
 bool WorldCreator::saveFile(const QString &fileName)
 {
-//    if (!world->writeFile(fileName)) {
-//        statusBar()->showMessage(tr("Saving canceled"), 2000);
-//        return false;
-//    }
-//
-//    setCurrentFile(fileName);
-//    statusBar()->showMessage(tr("File saved"), 2000);
-//    return true;
+    if (!openglWidget->save(fileName)) {
+        statusBar()->showMessage(tr("Saving canceled"), 2000);
+        return false;
+    }
+
+    setCurrentFile(fileName);
+    statusBar()->showMessage(tr("File saved"), 2000);
+    return true;
 }
 
 void WorldCreator::setCurrentFile(const QString &fileName)
@@ -452,37 +440,8 @@ void WorldCreator::setCurrentFile(const QString &fileName)
     curFile = fileName;
     setWindowModified(false);
 
-    if (!curFile.isEmpty()) {
-        recentFiles.removeAll(curFile);
-        recentFiles.prepend(curFile);
-        updateRecentFileActions();
-    }
-
     setWindowTitle(tr("%1[*] - %2").arg(curFile)
                                    .arg(tr("World")));
-}
-
-void WorldCreator::updateRecentFileActions()
-{
-    QMutableStringListIterator i(recentFiles);
-    while (i.hasNext()) {
-        if (!QFile::exists(i.next()))
-            i.remove();
-    }
-
-    for (int j = 0; j < MaxRecentFiles; ++j) {
-        if (j < recentFiles.count()) {
-            QString text = tr("&%1 %2")
-                           .arg(j + 1)
-                           .arg(strippedName(recentFiles[j]));
-            recentFileActions[j]->setText(text);
-            recentFileActions[j]->setData(recentFiles[j]);
-            recentFileActions[j]->setVisible(true);
-        } else {
-            recentFileActions[j]->setVisible(false);
-        }
-    }
-    separatorAction->setVisible(!recentFiles.isEmpty());
 }
 
 QString WorldCreator::strippedName(const QString &fullFileName)

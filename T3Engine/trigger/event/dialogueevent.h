@@ -15,6 +15,7 @@ public:
 
     void setDialogName(const QString &value);
 
+    void save(QXmlStreamWriter *writer);
 protected:
     QString dialogName;
 };

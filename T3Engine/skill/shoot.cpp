@@ -38,7 +38,7 @@ void Shoot::shootBullet()
 {
     int focusIndex=character->getFocusIndex();
 
-    Character* focusCharacter=character->getScene()->getCharacterBox()[focusIndex];
+    Character* focusCharacter=character->getScene()->getCharacterList()[focusIndex];
     if(focusCharacter->getState()==Character::DEAD)
     {
         return;

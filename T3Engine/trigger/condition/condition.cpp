@@ -25,6 +25,7 @@ Condition *Condition::getCondition(const QString &type)
         return NULL;
     }
 }
+
 Scene *Condition::getScene() const
 {
     return scene;

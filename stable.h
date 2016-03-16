@@ -36,6 +36,7 @@
 #include<QDockWidget>
 #include<QToolBar>
 #include<QListWidget>
+#include<QStatusBar>
 
 
 //qt_opengl

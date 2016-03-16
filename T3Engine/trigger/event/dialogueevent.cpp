@@ -30,5 +30,19 @@ void DialogueEvent::setDialogName(const QString &value)
     dialogName = value;
 }
 
+void DialogueEvent::save(QXmlStreamWriter *writer)
+{
+    writer->writeStartElement("Event");
+
+    writer->writeTextElement("EventType","Dialog");
+    writer->writeStartElement("Config");
+
+    writer->writeTextElement("DialogName",dialogName);
+
+    writer->writeEndElement();
+
+    writer->writeEndElement();
+}
+
 
 

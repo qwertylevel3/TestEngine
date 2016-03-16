@@ -29,5 +29,15 @@ void Trigger::setEvent(Event *value)
     event = value;
 }
 
+void Trigger::save(QXmlStreamWriter *writer)
+{
+    writer->writeStartElement("Trigger");
+
+    condition->save(writer);
+    event->save(writer);
+
+    writer->writeEndElement();
+}
+
 
 

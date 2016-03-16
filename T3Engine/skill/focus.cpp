@@ -17,7 +17,7 @@ void Focus::start()
 {
 
     Scene* currentScene=character->getScene();
-    QList<Character*>& characterBox=currentScene->getCharacterBox();
+    QList<Character*>& characterBox=currentScene->getCharacterList();
 
     if(focusIndex!=-1)
     {
@@ -50,7 +50,7 @@ void Focus::run()
 int Focus::chooseFocusCharacter()
 {
     Scene* currentScene=character->getScene();
-    QList<Character*>& characterBox=currentScene->getCharacterBox();
+    QList<Character*>& characterBox=currentScene->getCharacterList();
 
     if(characterBox.isEmpty())
     {

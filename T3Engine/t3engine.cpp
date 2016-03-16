@@ -52,10 +52,8 @@ void T3Engine::init()
 
     DialogManager::instance()->init();
 
-    WorldManager::instance()->init();
-
-    world=WorldManager::instance()->getWorld();
-
+    world=new World();
+    world->init();
 }
 
 void T3Engine::timerEvent(QTimerEvent *e)

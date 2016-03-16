@@ -9,6 +9,8 @@ class World
 public:
     World();
     ~World();
+    void init();
+
     void update();
     void draw();
     void switchScene(const QString& sceneName);
@@ -22,10 +24,31 @@ public:
 
     Entity* selectEntity(const QPoint& p);
 
+    int getTotalSceneNumber();
+
+    QMap<QString, Scene *> getSceneBox() const;
+
+    bool save(const QString& fileName);
 protected:
     QString name;
     QMap<QString ,Scene*> sceneBox;
     QString currentScene;
+
+    QXmlStreamWriter writer;
+
+
+    Scene* makeScene();
+    void makeBackground(Scene* scene);
+    void makeTerrain(Scene* scene);
+    void makeDecoration(Scene* scene);
+    void makeCharacter(Scene* scene);
+    void makePlayer(Scene* scene);
+    void makeTriggerBox(Scene* scene);
+    void makeTrigger(Scene* scene);
+
+    void saveWorld(const QString& fileName);
+
+    QXmlStreamReader reader;
 };
 
 #endif // WORLD_H

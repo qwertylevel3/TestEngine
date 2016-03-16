@@ -52,7 +52,6 @@ INPUT(
 ./release\backgroundwidget.o
 ./release\decorationwidget.o
 ./release\characterwidget.o
-./release\worldmanager.o
 ./release\background.o
 ./release\backgroundmanager.o
 ./release\qrc_shader.o

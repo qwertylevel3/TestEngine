@@ -12,6 +12,9 @@ public:
     void addCharacter(const QString& characterName);
 
     void setBackground(const QString& backgroundName);
+
+    bool save(const QString& fileName);
+    void newWorld(const QString& worldName);
 protected:
     void mouseMoveEvent(QMouseEvent *e);
     void mousePressEvent(QMouseEvent *e);

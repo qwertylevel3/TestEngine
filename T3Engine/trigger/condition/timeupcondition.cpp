@@ -24,5 +24,20 @@ void TimeUpCondition::setTime(int ms)
 {
     time=QTime::currentTime();
     time=time.addMSecs(ms);
+    timeMs=ms;
+}
+
+void TimeUpCondition::save(QXmlStreamWriter *writer)
+{
+    writer->writeStartElement("Condition");
+
+    writer->writeStartElement("ConditionType","TimeUp");
+    writer->writeStartElement("Config");
+
+    writer->writeTextElement("Time",QString::number(timeMs));
+
+    writer->writeEndElement();
+
+    writer->writeEndElement();
 }
 
