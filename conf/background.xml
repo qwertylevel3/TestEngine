@@ -3,67 +3,67 @@
 <BackgroundBox>
 	<TotalBKNumber>16</TotalBKNumber>
 	<Background>
-		<Name>stone0</Name>
-		<SpriteName>stone0</SpriteName>
+		<Name>stone0BK</Name>
+		<SpriteName>stone0BK</SpriteName>
 	</Background>
 	<Background>
-		<Name>cloth</Name>
-		<SpriteName>cloth</SpriteName>
+		<Name>clothBK</Name>
+		<SpriteName>clothBK</SpriteName>
 	</Background>
 	<Background>
-		<Name>mud</Name>
-		<SpriteName>mud</SpriteName>
+		<Name>mudBK</Name>
+		<SpriteName>mudBK</SpriteName>
 	</Background>
 	<Background>
-		<Name>mudRed</Name>
-		<SpriteName>mudRed</SpriteName>
+		<Name>mudRedBK</Name>
+		<SpriteName>mudRedBK</SpriteName>
 	</Background>
 	<Background>
-		<Name>grassSummer</Name>
-		<SpriteName>grassSummer</SpriteName>
+		<Name>grassSummerBK</Name>
+		<SpriteName>grassSummerBK</SpriteName>
 	</Background>
 	<Background>
-		<Name>grassAutumn</Name>
-		<SpriteName>grassAutumn</SpriteName>
+		<Name>grassAutumnBK</Name>
+		<SpriteName>grassAutumnBK</SpriteName>
 	</Background>
 	<Background>
-		<Name>grassSpring</Name>
-		<SpriteName>grassSpring</SpriteName>
+		<Name>grassSpringBK</Name>
+		<SpriteName>grassSpringBK</SpriteName>
 	</Background>
 	<Background>
-		<Name>grassWinter</Name>
-		<SpriteName>grassWinter</SpriteName>
+		<Name>grassWinterBK</Name>
+		<SpriteName>grassWinterBK</SpriteName>
 	</Background>
 	<Background>
-		<Name>grass0</Name>
-		<SpriteName>grass0</SpriteName>
+		<Name>grass0BK</Name>
+		<SpriteName>grass0BK</SpriteName>
 	</Background>
 	<Background>
-		<Name>sand0</Name>
-		<SpriteName>sand0</SpriteName>
+		<Name>sand0BK</Name>
+		<SpriteName>sand0BK</SpriteName>
 	</Background>
 	<Background>
-		<Name>sand1</Name>
-		<SpriteName>sand1</SpriteName>
+		<Name>sand1BK</Name>
+		<SpriteName>sand1BK</SpriteName>
 	</Background>
 	<Background>
-		<Name>snow0</Name>
-		<SpriteName>snow0</SpriteName>
+		<Name>snow0BK</Name>
+		<SpriteName>snow0BK</SpriteName>
 	</Background>
 	<Background>
-		<Name>grass1</Name>
-		<SpriteName>grass1</SpriteName>
+		<Name>grass1BK</Name>
+		<SpriteName>grass1BK</SpriteName>
 	</Background>
 	<Background>
-		<Name>stone1</Name>
-		<SpriteName>stone1</SpriteName>
+		<Name>stone1BK</Name>
+		<SpriteName>stone1BK</SpriteName>
 	</Background>
 	<Background>
-		<Name>sand2</Name>
-		<SpriteName>sand2</SpriteName>
+		<Name>sand2BK</Name>
+		<SpriteName>sand2BK</SpriteName>
 	</Background>
 	<Background>
-		<Name>snow1</Name>
-		<SpriteName>snow1</SpriteName>
+		<Name>snow1BK</Name>
+		<SpriteName>snow1BK</SpriteName>
 	</Background>
 </BackgroundBox>

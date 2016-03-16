@@ -5,7 +5,6 @@
 Dialog::Dialog(const QString &spriteName)
     :Entity(spriteName)
 {
-    sprite=SpriteManager::instance()->getDialogSprite(spriteName);
     currentSentence=0;
     this->setZ(-5);
     this->setY(-200);

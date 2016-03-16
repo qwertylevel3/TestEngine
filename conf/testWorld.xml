@@ -8,7 +8,7 @@
 		<width>1000</width>
 		<height>1000</height>
 		<Background>
-			<BackgroundName>grass1</BackgroundName>
+			<BackgroundName>grass1BK</BackgroundName>
 		</Background>
 		<TerrainBox>
 			<TotalTerrainNumber>0</TotalTerrainNumber>

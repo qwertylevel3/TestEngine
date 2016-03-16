@@ -14,7 +14,7 @@ public:
     void draw();
     void drawRect();
 
-    void setText(const QString& text)
+    void setText(QString text)
     {
         this->text=text;
         actionBox[currentAction]->setText(text);

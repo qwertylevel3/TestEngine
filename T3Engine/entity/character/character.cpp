@@ -9,8 +9,6 @@
 Character::Character(const QString &spriteName)
     :Entity(spriteName)
 {
-    sprite=SpriteManager::instance()->getCharacterSprite(spriteName);
-
     initParamater();
     initSkill();
     heartId=ClockManager::instance()->genClock();

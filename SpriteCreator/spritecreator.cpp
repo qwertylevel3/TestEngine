@@ -69,7 +69,7 @@ void SpriteCreator::newSprite()
             if(detailDialog->exec())
             {
                 Sprite* sprite=makeNewSpriteInstance();
-                SpriteManager::instance()->addSprite(sprite->getName(),sprite);
+                SpriteManager::instance()->addSprite(sprite);
 
                 updateSpriteList();
 

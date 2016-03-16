@@ -10,17 +10,13 @@ public:
     SpriteManager();
     void init();
 
-    Sprite* getCharacterSprite(const QString& spriteName);
-    Sprite* getTerrainSprite(const QString& spriteName);
-    Sprite* getDecorationSprite(const QString& spriteName);
-    Sprite* getDialogSprite(const QString& spriteName);
-    Sprite* getFaceSprite(const QString& spriteName);
-    Sprite* getBulletSprite(const QString& spriteName);
-    Sprite* getBackgroundSprite(const QString& spriteName);
+    Sprite* getSprite(const QString& spriteName);
 
-    void addSprite(const QString& spriteName,Sprite* sp)
+    Sprite* getCharacterSprite(const QString& spriteName);
+
+    void addSprite(Sprite* sp)
     {
-        spriteBox.insert(spriteName,sp);
+        spriteBox.insert(sp->getName(),sp);
     }
 
     QMap<QString ,Sprite*>& getSpriteBox()
@@ -37,23 +33,8 @@ public:
 
 protected:
     void makeDifSprite();
-    void makeCharacterSprite();
-    void makeBulletSprite();
-    void makeDecorationSprite();
-    void makeDialogSprite();
-    void makeFaceSprite();
-    void makeTerrainSprite();
-    void makeBackgroundSprite();
 
     QMap<QString,Sprite*> spriteBox;
-
-    QMap<QString,Sprite*> characterSpriteBox;
-    QMap<QString,Sprite*> bulletSpriteBox;
-    QMap<QString,Sprite*> decorationSpriteBox;
-    QMap<QString,Sprite*> dialogSpriteBox;
-    QMap<QString,Sprite*> faceSpriteBox;
-    QMap<QString,Sprite*> terrainSpriteBox;
-    QMap<QString,Sprite*> backgroundSpriteBox;
 
     QXmlStreamReader reader;
     QXmlStreamWriter writer;

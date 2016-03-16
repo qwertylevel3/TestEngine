@@ -3,7 +3,6 @@
 Background::Background(const QString &spriteName)
     :Entity(spriteName)
 {
-    sprite=SpriteManager::instance()->getBackgroundSprite(spriteName);
 }
 
 Background *Background::clone()

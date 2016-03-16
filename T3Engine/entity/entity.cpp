@@ -15,7 +15,7 @@ bool Entity::compareY(Entity *a, Entity *b)
 Entity::Entity(const QString &spriteName)
 {
     this->spriteName=spriteName;
-    //sprite=SpriteManager::instance()->getSprite(spriteName);
+    sprite=SpriteManager::instance()->getSprite(spriteName);
 
     localX=0;
     localY=0;

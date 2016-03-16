@@ -18,6 +18,8 @@ Sprite::Sprite()
 
     currentAction="";
     totalActionNumber=0;
+
+    text="";
 }
 
 Sprite *Sprite::clone()

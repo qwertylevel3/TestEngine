@@ -2137,7 +2137,7 @@
 	<BackgroundSprite>
 		<TotalSpriteNumber>16</TotalSpriteNumber>
 		<Sprite>
-			<SpriteName>stone0</SpriteName>
+			<SpriteName>stone0BK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2163,7 +2163,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>cloth</SpriteName>
+			<SpriteName>clothBK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2189,7 +2189,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>mud</SpriteName>
+			<SpriteName>mudBK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2215,7 +2215,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>mudRed</SpriteName>
+			<SpriteName>mudRedBK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2241,7 +2241,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>grassSummer</SpriteName>
+			<SpriteName>grassSummerBK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2267,7 +2267,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>grassAutumn</SpriteName>
+			<SpriteName>grassAutumnBK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2293,7 +2293,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>grassSpring</SpriteName>
+			<SpriteName>grassSpringBK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2319,7 +2319,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>grassWinter</SpriteName>
+			<SpriteName>grassWinterBK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2345,7 +2345,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>grass0</SpriteName>
+			<SpriteName>grass0BK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2371,7 +2371,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>sand0</SpriteName>
+			<SpriteName>sand0BK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2397,7 +2397,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>sand1</SpriteName>
+			<SpriteName>sand1BK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2423,7 +2423,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>snow0</SpriteName>
+			<SpriteName>snow0BK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2449,7 +2449,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>grass1</SpriteName>
+			<SpriteName>grass1BK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2475,7 +2475,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>stone1</SpriteName>
+			<SpriteName>stone1BK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2501,7 +2501,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>sand2</SpriteName>
+			<SpriteName>sand2BK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2527,7 +2527,7 @@
 			</Action>
 		</Sprite>
 		<Sprite>
-			<SpriteName>snow1</SpriteName>
+			<SpriteName>snow1BK</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
