@@ -12,7 +12,6 @@
 #include"clockmanager.h"
 #include"facemanager.h"
 #include"dialogmanager.h"
-#include"worldmanager.h"
 #include"backgroundmanager.h"
 
 T3Engine::T3Engine(QWidget *parent)
@@ -23,7 +22,6 @@ T3Engine::T3Engine(QWidget *parent)
     this->setFixedSize(GameConfigurator::instance()->getWindowWidth(),
                        GameConfigurator::instance()->getWindowHeight());
     debug=false;
-    world=0;
 }
 
 T3Engine::~T3Engine()
@@ -52,9 +50,10 @@ void T3Engine::init()
 
     DialogManager::instance()->init();
 
-    world=new World();
-    world->init();
+    World::instance()->init();
+
 }
+
 
 void T3Engine::timerEvent(QTimerEvent *e)
 {
@@ -98,7 +97,7 @@ void T3Engine::gameLoop()
 {
     m_frame++;
 
-    world->update();
+    World::instance()->update();
 
     ClockManager::instance()->update();
 }
@@ -133,7 +132,7 @@ void T3Engine::paintGL()
             ->setUniformValue("mvp_matrix",projection);
 
     ShaderManager::instance()->getProgram()->setUniformValue("texture", 0);
-    world->draw();
+    World::instance()->draw();
 }
 
 void T3Engine::resizeGL(int w, int h)

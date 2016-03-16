@@ -12,13 +12,7 @@ World::World()
 
 World::~World()
 {
-    QMap<QString,Scene*>::iterator i=sceneBox.begin();
-    while(i!=sceneBox.end())
-    {
-        delete i.value();
-        i++;
-    }
-    sceneBox.clear();
+    clear();
 }
 
 void World::init()
@@ -55,6 +49,17 @@ void World::init()
     }
 
     file.close();
+}
+
+void World::clear()
+{
+    QMap<QString,Scene*>::iterator i=sceneBox.begin();
+    while(i!=sceneBox.end())
+    {
+        delete i.value();
+        i++;
+    }
+    sceneBox.clear();
 }
 
 void World::update()

@@ -1,5 +1,5 @@
 #include "worldopenglwidget.h"
-#include"worldmanager.h"
+#include"world.h"
 
 WorldOpenglWidget::WorldOpenglWidget(QWidget* parent)
     :T3Engine(parent)
@@ -50,30 +50,29 @@ void WorldOpenglWidget::mouseReleaseEvent(QMouseEvent *e)
 
 void WorldOpenglWidget::addDecoration(const QString &decorationName)
 {
-    world->addDecoration(decorationName);
+    World::instance()->addDecoration(decorationName);
 }
 
 void WorldOpenglWidget::addCharacter(const QString &characterName)
 {
-    world->addCharacter(characterName);
+    World::instance()->addCharacter(characterName);
 }
 
 void WorldOpenglWidget::setBackground(const QString &backgroundName)
 {
-    world->setBackground(backgroundName);
+    World::instance()->setBackground(backgroundName);
 }
 
 bool WorldOpenglWidget::save(const QString &fileName)
 {
-    return world->save(fileName);
+    return World::instance()->save(fileName);
 }
 
 void WorldOpenglWidget::newWorld(const QString &worldName)
 {
-    qDebug()<<"newWorld"<<endl;
-    delete world;
-    world=WorldManager::instance()->getWorld();
-    world->setName(worldName);
+    World::instance()->clear();
+    World::instance()->init();
+    World::instance()->setName(worldName);
 }
 
 QPoint WorldOpenglWidget::winCoodtoOpenglCood(const QPoint &winP)
@@ -110,5 +109,5 @@ void WorldOpenglWidget::displayChooseEntityPos()
 Entity *WorldOpenglWidget::selectEntity(const QPoint &p)
 {
     //qDebug()<<winCoodtoOpenglCood(p)<<endl;
-    return world->selectEntity(winCoodtoOpenglCood(p));
+    return World::instance()->selectEntity(winCoodtoOpenglCood(p));
 }

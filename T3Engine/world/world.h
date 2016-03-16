@@ -3,13 +3,16 @@
 
 #include"scene.h"
 #include"stable.h"
+#include"singleton.h"
 
-class World
+class World:public Singleton<World>
 {
 public:
     World();
     ~World();
     void init();
+
+    void clear();
 
     void update();
     void draw();
