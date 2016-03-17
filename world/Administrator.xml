@@ -7,16 +7,84 @@
         <Width>1000</Width>
         <Height>1000</Height>
         <Background>
-            <BackgroundName>grass1BK</BackgroundName>
+            <BackgroundName>grassWinterBK</BackgroundName>
         </Background>
         <TerrainBox>
             <TotalTerrainNumber>0</TotalTerrainNumber>
         </TerrainBox>
         <DecorationBox>
-            <TotalDecorationNumber>0</TotalDecorationNumber>
+            <TotalDecorationNumber>9</TotalDecorationNumber>
+            <Decoration>
+                <DecorationName>crossWinter</DecorationName>
+                <x>72</x>
+                <y>-94</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>deadman2</DecorationName>
+                <x>159</x>
+                <y>57</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>crossWinter</DecorationName>
+                <x>-147</x>
+                <y>16</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>grass3</DecorationName>
+                <x>327</x>
+                <y>-65</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>grass2</DecorationName>
+                <x>302</x>
+                <y>-21</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>iceman</DecorationName>
+                <x>87</x>
+                <y>70</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>mushroom0</DecorationName>
+                <x>214</x>
+                <y>-61</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>mushroom0</DecorationName>
+                <x>212</x>
+                <y>9</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>steleWinter</DecorationName>
+                <x>242</x>
+                <y>84</y>
+                <z>-10</z>
+            </Decoration>
         </DecorationBox>
         <CharacterBox>
-            <TotalCharacterNumber>0</TotalCharacterNumber>
+            <TotalCharacterNumber>2</TotalCharacterNumber>
+            <Character>
+                <CharacterName>test</CharacterName>
+                <Type></Type>
+                <x>167</x>
+                <y>16</y>
+                <z>-10</z>
+            </Character>
+            <Character>
+                <CharacterName>test</CharacterName>
+                <Type></Type>
+                <x>194</x>
+                <y>132</y>
+                <z>-10</z>
+            </Character>
         </CharacterBox>
         <Player>
             <PlayerName>test</PlayerName>

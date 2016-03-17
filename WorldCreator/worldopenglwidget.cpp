@@ -68,6 +68,11 @@ bool WorldOpenglWidget::save(const QString &fileName)
     return World::instance()->save(fileName);
 }
 
+bool WorldOpenglWidget::open(const QString &path)
+{
+    return World::instance()->open(path);
+}
+
 void WorldOpenglWidget::newWorld(const QString &worldName)
 {
     World::instance()->clear();

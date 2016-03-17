@@ -15,40 +15,15 @@ World::~World()
     clear();
 }
 
-void World::init()
+bool World::init()
 {
-    QString fileName=GameConfigurator::instance()->getWorldConfigFileName();
-    QString path=QDir::currentPath()+QDir::separator()+fileName;
+    QString path=setInitPath();
+    return load(path);
+}
 
-    QFile file(path);
-
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-    {
-        qDebug()<<"can not open "<<fileName<<endl;
-        return ;
-    }
-    reader.setDevice(&file);
-
-    reader.readNextStartElement();//<worldBox>
-
-    reader.readNextStartElement();//<worldName>
-    this->setName(reader.readElementText());
-
-
-    reader.readNextStartElement();//<TotalSceneNumber>
-    int totalSceneNumber=reader.readElementText().toInt();
-
-    for(int i=0;i<totalSceneNumber;i++)
-    {
-        Scene* scene=makeScene();
-        addScene(scene);
-        if(i==0)
-        {
-            switchScene(scene->getName());
-        }
-    }
-
-    file.close();
+bool World::open(const QString &path)
+{
+    return load(path);
 }
 
 void World::clear()
@@ -131,10 +106,7 @@ QMap<QString, Scene *> World::getSceneBox() const
 
 bool World::save(const QString &fileName)
 {
-    QString path=QDir::currentPath()+QDir::separator()
-            +"world"+QDir::separator()+fileName+".xml";
-    qDebug()<<path<<endl;
-
+    QString path=setSavePath(fileName);
 
     QFile file(path);
 
@@ -167,6 +139,52 @@ bool World::save(const QString &fileName)
 
     file.close();
     return true;
+}
+
+bool World::load(const QString &path)
+{
+    QFile file(path);
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug()<<"can not open "<<path<<endl;
+        return false;
+    }
+    reader.setDevice(&file);
+
+    reader.readNextStartElement();//<worldBox>
+
+    reader.readNextStartElement();//<worldName>
+    this->setName(reader.readElementText());
+
+
+    reader.readNextStartElement();//<TotalSceneNumber>
+    int totalSceneNumber=reader.readElementText().toInt();
+
+    for(int i=0;i<totalSceneNumber;i++)
+    {
+        Scene* scene=makeScene();
+        addScene(scene);
+        if(i==0)
+        {
+            switchScene(scene->getName());
+        }
+    }
+
+    file.close();
+    return true;
+}
+
+QString World::setInitPath()
+{
+    QString fileName=GameConfigurator::instance()->getWorldConfigFileName();
+    return QDir::currentPath()+QDir::separator()+fileName;
+}
+
+QString World::setSavePath(const QString &fileName)
+{
+    return QDir::currentPath()+QDir::separator()
+            +"world"+QDir::separator()+fileName+".xml";
 }
 
 Scene *World::makeScene()

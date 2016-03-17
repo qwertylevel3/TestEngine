@@ -429,10 +429,14 @@ void Scene::writeDecorationBox(QXmlStreamWriter *writer)
 
     for(int i=0;i<decorationList.size();i++)
     {
+        writer->writeStartElement("Decoration");
+
         writer->writeTextElement("DecorationName",decorationList[i]->getName());
         writer->writeTextElement("x",QString::number(decorationList[i]->getX()));
         writer->writeTextElement("y",QString::number(decorationList[i]->getY()));
         writer->writeTextElement("z",QString::number(decorationList[i]->getZ()));
+
+        writer->writeEndElement();
     }
     writer->writeEndElement();
 }
@@ -445,10 +449,15 @@ void Scene::writeCharacterBox(QXmlStreamWriter *writer)
 
     for(int i=0;i<characterList.size();i++)
     {
+        writer->writeStartElement("Character");
+
         writer->writeTextElement("CharacterName",characterList[i]->getName());
+        writer->writeTextElement("Type",characterList[i]->typeToString(characterList[i]->getType()));
         writer->writeTextElement("x",QString::number(characterList[i]->getX()));
         writer->writeTextElement("y",QString::number(characterList[i]->getY()));
         writer->writeTextElement("z",QString::number(characterList[i]->getZ()));
+
+        writer->writeEndElement();
     }
 
     writer->writeEndElement();

@@ -30,7 +30,7 @@ private:
     void readSettings();
     void writeSettings();
     bool okToContinue();
-    bool loadFile(const QString& fileName);
+    bool openFile(const QString& path);
     bool saveFile(const QString& fileName);
     void setCurrentFile(const QString& fileName);
     void updateRecentFileActions();

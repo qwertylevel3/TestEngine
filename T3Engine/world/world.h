@@ -10,7 +10,8 @@ class World:public Singleton<World>
 public:
     World();
     ~World();
-    void init();
+    bool init();
+    bool open(const QString& path);
 
     void clear();
 
@@ -33,6 +34,10 @@ public:
 
     bool save(const QString& fileName);
 protected:
+    bool load(const QString& path);
+    QString setInitPath();
+    QString setSavePath(const QString& fileName);
+
     QString name;
     QMap<QString ,Scene*> sceneBox;
     QString currentScene;

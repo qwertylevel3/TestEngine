@@ -71,8 +71,8 @@ void WorldCreator::open()
                                                         tr("World files (*.xml)"));
         if (!fileName.isEmpty())
         {
-            loadFile(fileName);
-            //curFile=world->getWorldName();
+            openFile(fileName);
+            curFile=World::instance()->getName();
             updateDockWindow();
         }
     }
@@ -115,7 +115,7 @@ void WorldCreator::openRecentFile()
         QAction *action = qobject_cast<QAction *>(sender());
         if (action)
         {
-            loadFile(action->data().toString());
+            openFile(action->data().toString());
             //curFile=world->getWorldName();
             updateDockWindow();
         }
@@ -409,18 +409,17 @@ bool WorldCreator::okToContinue()
     return true;
 }
 
-bool WorldCreator::loadFile(const QString &fileName)
+bool WorldCreator::openFile(const QString &path)
 {
-//    if (!world->loadFile(fileName)) {
-//        statusBar()->showMessage(tr("Loading canceled"), 2000);
-//        return false;
-//    }
-//
-//    setCurrentFile(fileName);
-//    statusBar()->showMessage(tr("File loaded"), 2000);
-//
-//    this->setCentralWidget(world->getView());
-//    return true;
+    if (!openglWidget->open(path)) {
+        statusBar()->showMessage(tr("Loading canceled"), 2000);
+        return false;
+    }
+
+    setCurrentFile(World::instance()->getName());
+    statusBar()->showMessage(tr("File loaded"), 2000);
+
+    return true;
 }
 
 bool WorldCreator::saveFile(const QString &fileName)

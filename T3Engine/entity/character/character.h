@@ -68,6 +68,7 @@ public:
     void setHeartRate(int value);
 
     TYPE getType() const;
+    QString typeToString(const TYPE &value);
     void setType(const TYPE &value);
     void setType(const QString& value);
 

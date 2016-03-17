@@ -200,6 +200,7 @@ void Character::initParamater()
     orientation=Orientation::down;
     lastOrientation=Orientation::down;
     invincible=false;
+    type=FRIEND;
 }
 
 void Character::runSkill()
@@ -402,6 +403,18 @@ void Character::dead()
 
 Character::TYPE Character::getType() const
 {
+    return type;
+}
+
+QString Character::typeToString(const Character::TYPE &value)
+{
+    QString type;
+    switch(value)
+    {
+    case FRIEND:type="FRIEND";break;
+    case ENEMY:type="ENEMY";break;
+    case PLAYER:type="PLAYER";break;
+    }
     return type;
 }
 

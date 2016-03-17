@@ -14,6 +14,7 @@ public:
     void setBackground(const QString& backgroundName);
 
     bool save(const QString& fileName);
+    bool open(const QString& path);
     void newWorld(const QString& worldName);
 protected:
     void mouseMoveEvent(QMouseEvent *e);
