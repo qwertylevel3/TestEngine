@@ -15,7 +15,6 @@ WorldCreator::WorldCreator(QWidget* parent)
     createStatusBar();
     createDockWindow();
 
-    readSettings();
 
     //bug，鼠标右键被占用，导致dockwidget关闭后无法显示
     //暂时解决方案：强行显示
@@ -32,16 +31,9 @@ WorldCreator::WorldCreator(QWidget* parent)
 }
 
 
-void WorldCreator::contextMenuEvent(QContextMenuEvent *event)
-{
-     contextMenu->exec(QCursor::pos());
-}
-
-
 void WorldCreator::closeEvent(QCloseEvent *event)
 {
     if (okToContinue()) {
-        writeSettings();
         event->accept();
     } else {
         event->ignore();
@@ -63,7 +55,7 @@ void WorldCreator::newWorld()
     }
 }
 
-void WorldCreator::open()
+void WorldCreator::openWorld()
 {
     if (okToContinue()) {
         QString fileName = QFileDialog::getOpenFileName(this,
@@ -73,7 +65,6 @@ void WorldCreator::open()
         {
             openFile(fileName);
             curFile=World::instance()->getName();
-            updateDockWindow();
         }
     }
 }
@@ -82,19 +73,26 @@ void WorldCreator::closeWorld()
 {
     if(okToContinue())
     {
-        //world->close();
-        clearDockWindow();
+        World::instance()->clear();
     }
     setCurrentFile("");
 }
 
-bool WorldCreator::save()
+bool WorldCreator::saveWorld()
 {
-    if(curFile!="")
+    if(curFile=="")
     {
-        return saveFile(curFile);
+        bool ok=false;
+        curFile = QInputDialog::getText(this, tr("save"),
+                                        tr("world name:"), QLineEdit::Normal,
+                                        QDir::home().dirName(), &ok);
+
+        if(!ok)
+        {
+            return false;
+        }
     }
-    return false;
+    return saveFile(curFile);
 }
 
 
@@ -109,44 +107,28 @@ void WorldCreator::about()
 
 }
 
-void WorldCreator::openRecentFile()
-{
-    if (okToContinue()) {
-        QAction *action = qobject_cast<QAction *>(sender());
-        if (action)
-        {
-            openFile(action->data().toString());
-            //curFile=world->getWorldName();
-            updateDockWindow();
-        }
-
-    }
-}
-
-void WorldCreator::updateStatusBar()
-{
-    statusLabel->setText("world update...");
-}
 
 void WorldCreator::addDecoration(QString decorationName)
 {
     openglWidget->addDecoration(decorationName);
+    worldModified();
 }
 
 void WorldCreator::addCharacter(QString characterName)
 {
     openglWidget->addCharacter(characterName);
+    worldModified();
 }
 
 void WorldCreator::setBackground(QString backgroundName)
 {
     openglWidget->setBackground(backgroundName);
+    worldModified();
 }
 
 void WorldCreator::worldModified()
 {
     setWindowModified(true);
-    updateStatusBar();
 }
 
 void WorldCreator::createActions()
@@ -161,52 +143,23 @@ void WorldCreator::createActions()
     openAction->setIcon(QIcon(":/images/open.png"));
     openAction->setShortcut(QKeySequence::Open);
     openAction->setStatusTip(tr("Open an existing file"));
-    connect(openAction, SIGNAL(triggered()), this, SLOT(open()));
+    connect(openAction, SIGNAL(triggered()), this, SLOT(openWorld()));
 
     saveAction = new QAction(tr("&Save"), this);
     saveAction->setIcon(QIcon(":/images/save.png"));
     saveAction->setShortcut(QKeySequence::Save);
     saveAction->setStatusTip(tr("Save the world to disk"));
-    connect(saveAction, SIGNAL(triggered()), this, SLOT(save()));
+    connect(saveAction, SIGNAL(triggered()), this, SLOT(saveWorld()));
 
     closeAction=new QAction(tr("Close"),this);
     closeAction->setStatusTip(tr("close the world"));
     connect(closeAction,SIGNAL(triggered()),this,SLOT(closeWorld()));
-
 
     exitAction = new QAction(tr("E&xit"), this);
     exitAction->setShortcut(tr("Ctrl+Q"));
     exitAction->setStatusTip(tr("Exit the application"));
     connect(exitAction, SIGNAL(triggered()), this, SLOT(close()));
 
-    cutAction = new QAction(tr("Cu&t"), this);
-    cutAction->setIcon(QIcon(":/images/cut.png"));
-    cutAction->setShortcut(QKeySequence::Cut);
-    cutAction->setStatusTip(tr("Cut the current sprite "
-                               "to the clipboard"));
-    //connect(cutAction, SIGNAL(triggered()), world, SLOT(cut()));
-
-    copyAction = new QAction(tr("&Copy"), this);
-    copyAction->setIcon(QIcon(":/images/copy.png"));
-    copyAction->setShortcut(QKeySequence::Copy);
-    copyAction->setStatusTip(tr("Copy the current sprite "
-                                "to the clipboard"));
-    //connect(copyAction, SIGNAL(triggered()), world, SLOT(copy()));
-
-    pasteAction = new QAction(tr("&Paste"), this);
-    pasteAction->setIcon(QIcon(":/images/paste.png"));
-    pasteAction->setShortcut(QKeySequence::Paste);
-    pasteAction->setStatusTip(tr("Paste the sprite into "
-                                 "the current world"));
-//    connect(pasteAction, SIGNAL(triggered()),
-//            world, SLOT(paste()));
-
-    deleteAction = new QAction(tr("&Delete"), this);
-    deleteAction->setShortcut(QKeySequence::Delete);
-    deleteAction->setStatusTip(tr("Delete the current selection's sprite"));
-
-//    connect(deleteAction, SIGNAL(triggered()),
-//            world, SLOT(del()));
 
     showGridAction = new QAction(tr("&Show Grid"), this);
     showGridAction->setCheckable(true);
@@ -215,25 +168,6 @@ void WorldCreator::createActions()
                                     "grid"));
     //connect(showGridAction, SIGNAL(toggled(bool)),
     //        world, SLOT(setShowGrid(bool)));
-
-
-    characterSelectable=new QAction(tr("set character selectable"),this);
-    characterSelectable->setCheckable(true);
-    //characterSelectable->setChecked(world->getCharacterSelectable());
-    characterSelectable->setStatusTip(tr("Switch character selectable on or off"));
-    //connect(characterSelectable,SIGNAL(toggled(bool)),world,SLOT(setCharacterDragable(bool)));
-
-    terrainSelectable=new QAction(tr("set terrain selectable"),this);
-    terrainSelectable->setCheckable(true);
-   // terrainSelectable->setChecked(world->getTerrainSelectable());
-    terrainSelectable->setStatusTip(tr("Switch terrain selectable on or off"));
-    //connect(terrainSelectable,SIGNAL(toggled(bool)),world,SLOT(setTerrainDragable(bool)));
-
-    decorationSelectable=new QAction(tr("set decoration selectable"),this);
-    decorationSelectable->setCheckable(true);
-    //decorationSelectable->setChecked(world->getDecorationSelectable());
-    decorationSelectable->setStatusTip(tr("Switch decoration selectable on or off"));
-    //connect(decorationSelectable,SIGNAL(toggled(bool)),world,SLOT(setDecorationDragable(bool)));
 
     showRect=new QAction(tr("show collision rect"),this);
     showRect->setCheckable(true);
@@ -264,21 +198,10 @@ void WorldCreator::createMenus()
     fileMenu->addAction(newAction);
     fileMenu->addAction(openAction);
     fileMenu->addAction(saveAction);
-    separatorAction = fileMenu->addSeparator();
     fileMenu->addSeparator();
     fileMenu->addAction(closeAction);
     fileMenu->addSeparator();
     fileMenu->addAction(exitAction);
-
-    editMenu = menuBar()->addMenu(tr("Edit(&E)"));
-    editMenu->addAction(cutAction);
-    editMenu->addAction(copyAction);
-    editMenu->addAction(pasteAction);
-    editMenu->addAction(deleteAction);
-
-    editMenu->addSeparator();
-//    editMenu->addAction(findAction);
-//    editMenu->addAction(goToCellAction);
 
     propertyMenu = menuBar()->addMenu(tr("Property(&P)"));
     propertyMenu->addAction(worldDescriptionAction);
@@ -287,9 +210,6 @@ void WorldCreator::createMenus()
     moduleMenu = menuBar()->addMenu(tr("Module(&M)"));
 
     optionsMenu = menuBar()->addMenu(tr("Options(&O)"));
-    optionsMenu->addAction(characterSelectable);
-    optionsMenu->addAction(decorationSelectable);
-    optionsMenu->addAction(terrainSelectable);
     optionsMenu->addAction(showRect);
 
 
@@ -300,12 +220,6 @@ void WorldCreator::createMenus()
     helpMenu->addAction(aboutAction);
     helpMenu->addAction(aboutQtAction);
 
-    contextMenu=new QMenu(this);
-    contextMenu->addAction(cutAction);
-    contextMenu->addAction(copyAction);
-    contextMenu->addAction(pasteAction);
-    contextMenu->addSeparator();
-    contextMenu->addAction(spriteSettingAction);
 }
 
 void WorldCreator::createContextMenu()
@@ -324,13 +238,6 @@ void WorldCreator::createToolBars()
     fileToolBar->addAction(saveAction);
     fileToolBar->setObjectName("fileToolBar");
 
-    editToolBar = addToolBar(tr("&Edit"));
-    editToolBar->addAction(cutAction);
-    editToolBar->addAction(copyAction);
-    editToolBar->addAction(pasteAction);
-    editToolBar->addSeparator();
-    editToolBar->setObjectName("editToolBar");
-
 }
 
 void WorldCreator::createStatusBar()
@@ -343,7 +250,6 @@ void WorldCreator::createStatusBar()
 //    connect(spreadsheet, SIGNAL(modified()),
 //            this, SLOT(spreadsheetModified()));
 
-    updateStatusBar();
 }
 
 void WorldCreator::createDockWindow()
@@ -351,7 +257,6 @@ void WorldCreator::createDockWindow()
     backgroundWidget=new BackgroundWidget(this);
     characterWidget=new CharacterWidget(this);
     decorationWidget=new DecorationWidget(this);
-
 
     backgroundDockWidget=new QDockWidget(tr("background"));
     backgroundDockWidget->setObjectName("background");
@@ -369,29 +274,6 @@ void WorldCreator::createDockWindow()
     addDockWidget(Qt::RightDockWidgetArea,decorationDockWidget);
 }
 
-void WorldCreator::readSettings()
-{
- //   QSettings settings("qwertylevel3", "world");
-
- //   settings.beginGroup("mainwindow");
- //   restoreGeometry(settings.value("geometry").toByteArray());
- //   restoreState(settings.value("state").toByteArray());
- //   recentFiles = settings.value("recentFiles").toStringList();
- //   settings.endGroup();
- //   updateRecentFileActions();
-}
-
-void WorldCreator::writeSettings()
-{
- //   QSettings settings("qwertylevel3", "world");
-
- //   settings.beginGroup("mainwindow");
- //   settings.setValue("geometry", saveGeometry());
- //   settings.setValue("state",saveState());
- //   settings.setValue("recentFiles", recentFiles);
- //   settings.endGroup();
-}
-
 bool WorldCreator::okToContinue()
 {
     if (isWindowModified()) {
@@ -401,7 +283,7 @@ bool WorldCreator::okToContinue()
                         QMessageBox::Yes | QMessageBox::No
                         | QMessageBox::Cancel);
         if (r == QMessageBox::Yes) {
-            return save();
+            return saveWorld();
         } else if (r == QMessageBox::Cancel) {
             return false;
         }
@@ -441,23 +323,4 @@ void WorldCreator::setCurrentFile(const QString &fileName)
 
     setWindowTitle(tr("%1[*] - %2").arg(curFile)
                                    .arg(tr("World")));
-}
-
-QString WorldCreator::strippedName(const QString &fullFileName)
-{
-    return QFileInfo(fullFileName).fileName();
-}
-
-void WorldCreator::updateDockWindow()
-{
-    characterWidget->update();
-    backgroundWidget->update();
-    decorationWidget->update();
-}
-
-void WorldCreator::clearDockWindow()
-{
-//    characterWidget->clear();
-//    backgroundWidget->clear();
-//    decorationWidget->clear();
 }

@@ -13,7 +13,7 @@
             <TotalTerrainNumber>0</TotalTerrainNumber>
         </TerrainBox>
         <DecorationBox>
-            <TotalDecorationNumber>9</TotalDecorationNumber>
+            <TotalDecorationNumber>33</TotalDecorationNumber>
             <Decoration>
                 <DecorationName>crossWinter</DecorationName>
                 <x>72</x>
@@ -46,8 +46,8 @@
             </Decoration>
             <Decoration>
                 <DecorationName>iceman</DecorationName>
-                <x>87</x>
-                <y>70</y>
+                <x>-57</x>
+                <y>155</y>
                 <z>-10</z>
             </Decoration>
             <Decoration>
@@ -68,21 +68,165 @@
                 <y>84</y>
                 <z>-10</z>
             </Decoration>
+            <Decoration>
+                <DecorationName>cirrus</DecorationName>
+                <x>-26</x>
+                <y>52</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>grass2</DecorationName>
+                <x>303</x>
+                <y>-147</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>grass3Winter</DecorationName>
+                <x>201</x>
+                <y>100</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>wellWinter</DecorationName>
+                <x>110</x>
+                <y>108</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>woodWinter</DecorationName>
+                <x>61</x>
+                <y>51</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>woodWinter</DecorationName>
+                <x>25</x>
+                <y>50</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>woodWinter</DecorationName>
+                <x>67</x>
+                <y>11</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>woodWinter</DecorationName>
+                <x>57</x>
+                <y>-13</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>woodWinter</DecorationName>
+                <x>49</x>
+                <y>25</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>woodAutumn</DecorationName>
+                <x>11</x>
+                <y>-53</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>shadow</DecorationName>
+                <x>383</x>
+                <y>26</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>ice</DecorationName>
+                <x>394</x>
+                <y>-50</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>crossWinter</DecorationName>
+                <x>323</x>
+                <y>128</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>barrelWinter</DecorationName>
+                <x>264</x>
+                <y>41</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>tree0</DecorationName>
+                <x>-173</x>
+                <y>-39</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>tree3</DecorationName>
+                <x>-21</x>
+                <y>-120</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>tree2</DecorationName>
+                <x>262</x>
+                <y>-157</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>tree2</DecorationName>
+                <x>295</x>
+                <y>-203</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>tree2</DecorationName>
+                <x>292</x>
+                <y>-161</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>tree2</DecorationName>
+                <x>194</x>
+                <y>-160</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>tree2</DecorationName>
+                <x>236</x>
+                <y>-119</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>tree2</DecorationName>
+                <x>196</x>
+                <y>-203</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>tree2</DecorationName>
+                <x>225</x>
+                <y>-167</y>
+                <z>-10</z>
+            </Decoration>
+            <Decoration>
+                <DecorationName>tree2</DecorationName>
+                <x>248</x>
+                <y>-195</y>
+                <z>-10</z>
+            </Decoration>
         </DecorationBox>
         <CharacterBox>
             <TotalCharacterNumber>2</TotalCharacterNumber>
             <Character>
                 <CharacterName>test</CharacterName>
-                <Type></Type>
+                <Type>FRIEND</Type>
                 <x>167</x>
                 <y>16</y>
                 <z>-10</z>
             </Character>
             <Character>
                 <CharacterName>test</CharacterName>
-                <Type></Type>
-                <x>194</x>
-                <y>132</y>
+                <Type>FRIEND</Type>
+                <x>-350</x>
+                <y>160</y>
                 <z>-10</z>
             </Character>
         </CharacterBox>

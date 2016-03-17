@@ -24,10 +24,6 @@ protected:
     QPoint winCoodtoOpenglCood(const QPoint& winP);
     QPoint openglCoodtoWinCood(const QPoint& openglP);
 
-    //debug
-    void displayMousePos(QMouseEvent* e);
-    void displayChooseEntityPos();
-
     Entity* selectEntity(const QPoint& p);
 
     Entity* chooseEntity;

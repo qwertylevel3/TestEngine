@@ -14,60 +14,42 @@ public:
     explicit WorldCreator(QWidget* parent=0);
 
 private:
-    void contextMenuEvent(QContextMenuEvent *event);
     void closeEvent(QCloseEvent *event);
 
-    QString strippedName(const QString &fullFileName);
-
-    void updateDockWindow();
-    void clearDockWindow();
     void createActions();
     void createMenus();
     void createContextMenu();
     void createToolBars();
     void createStatusBar();
     void createDockWindow();
-    void readSettings();
-    void writeSettings();
+
     bool okToContinue();
     bool openFile(const QString& path);
     bool saveFile(const QString& fileName);
     void setCurrentFile(const QString& fileName);
-    void updateRecentFileActions();
     QString curFile;
-    enum {MaxRecentFiles=5};
-    QAction* separatorAction;
 
     QLabel* statusLabel;
 
     QMenu* fileMenu;
-    QMenu* editMenu;
     QMenu* selectSubMenu;
     QMenu* propertyMenu;
     QMenu* moduleMenu;
     QMenu* windowMenu;
     QMenu *optionsMenu;
     QMenu *helpMenu;
-    QMenu* contextMenu;
 
     QToolBar* fileToolBar;
-    QToolBar* editToolBar;
     QAction *newAction;
     QAction *openAction;
     QAction *saveAction;
     QAction *exitAction;
-    QAction* cutAction;
-    QAction* pasteAction;
-    QAction* deleteAction;
-    QAction* copyAction;
+
     QAction* closeAction;
     QAction* spriteSettingAction;
     QAction* worldDescriptionAction;
 
     QAction* showRect;
-    QAction* characterSelectable;
-    QAction* terrainSelectable;
-    QAction* decorationSelectable;
     QAction *showGridAction;
     QAction *aboutAction;
     QAction *aboutQtAction;
@@ -82,13 +64,13 @@ private:
     QDockWidget* decorationDockWidget;
 private slots:
     void worldModified();
+
     void newWorld();
-    void open();
+    void openWorld();
     void closeWorld();
-    bool save();
+    bool saveWorld();
+
     void about();
-    void openRecentFile();
-    void updateStatusBar();
 
     void addDecoration(QString decorationName);
     void addCharacter(QString characterName);
