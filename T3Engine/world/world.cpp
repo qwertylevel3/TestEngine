@@ -131,11 +131,12 @@ QMap<QString, Scene *> World::getSceneBox() const
 
 bool World::save(const QString &fileName)
 {
-    //QString path=QDir::currentPath()+QDir::separator()+fileName;
+    QString path=QDir::currentPath()+QDir::separator()
+            +"world"+QDir::separator()+fileName+".xml";
+    qDebug()<<path<<endl;
 
-    qDebug()<<"world.cpp 93:"<<fileName<<endl;
 
-    QFile file(fileName);
+    QFile file(path);
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
     {

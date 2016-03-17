@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<World>
+    <WorldName>Administrator</WorldName>
+    <TotalSceneNumber>1</TotalSceneNumber>
+    <Scene>
+        <Name>init</Name>
+        <Width>1000</Width>
+        <Height>1000</Height>
+        <Background>
+            <BackgroundName>grass1BK</BackgroundName>
+        </Background>
+        <TerrainBox>
+            <TotalTerrainNumber>0</TotalTerrainNumber>
+        </TerrainBox>
+        <DecorationBox>
+            <TotalDecorationNumber>0</TotalDecorationNumber>
+        </DecorationBox>
+        <CharacterBox>
+            <TotalCharacterNumber>0</TotalCharacterNumber>
+        </CharacterBox>
+        <Player>
+            <PlayerName>test</PlayerName>
+            <x>100</x>
+            <y>-40</y>
+            <z>-10</z>
+        </Player>
+        <TriggerBox>
+            <TotalTriggerNumber>0</TotalTriggerNumber>
+        </TriggerBox>
+    </Scene>
+</World>
