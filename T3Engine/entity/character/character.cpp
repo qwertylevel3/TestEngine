@@ -4,6 +4,7 @@
 #include"shoot.h"
 #include"focus.h"
 #include"clockmanager.h"
+#include"picturemanager.h"
 
 
 Character::Character(const QString &spriteName)
@@ -23,10 +24,19 @@ Character::~Character()
     ClockManager::instance()->deleteClock(heartId);
 }
 
+void Character::draw()
+{
+    Entity::draw();
+    //drawRect(viewRect);
+    drawField(alarmField);
+    //TODO...draw 2 rect
+}
+
 void Character::update()
 {
 
     Entity::update();
+
     runSkill();
     //qDebug()<<ClockManager::instance()->getTick(heartId)<<endl;
 }
@@ -201,6 +211,12 @@ void Character::initParamater()
     lastOrientation=Orientation::down;
     invincible=false;
     type=FRIEND;
+
+    viewField.setX(500);
+    viewField.setY(500);
+
+    alarmField.setX(100);
+    alarmField.setY(100);
 }
 
 void Character::runSkill()
@@ -361,6 +377,32 @@ void Character::endB_C()
 {
     skillBox["focus"]->end();
 }
+
+void Character::drawField(QVector2D r)
+{
+
+    Picture* rectPoint=PictureManager::instance()->getPicture("\\resource\\rect.png");
+
+    rectPoint->setAlpha(0.5);
+
+    rectPoint->setWidth(float(r.x()));
+    rectPoint->setHeight(float(r.y()));
+
+
+    rectPoint->setCoordinate(this->getX(),
+                             this->getY(),
+                             -1);
+
+    //rotate...
+
+    rectPoint->rotate(this->getRotateAngle(),
+                      this->getRotateX(),
+                      this->getRotateY(),
+                      this->getRotateZ());
+    rectPoint->draw();
+}
+
+
 bool Character::getInvincible() const
 {
     return invincible;

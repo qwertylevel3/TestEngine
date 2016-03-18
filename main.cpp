@@ -12,10 +12,10 @@ int main(int argc, char *argv[])
 
     T3Engine engine;
     engine.show();
-    engine.hide();
+    //engine.hide();
 
-    WorldCreator worldCreator;
-    worldCreator.show();
+    //WorldCreator worldCreator;
+    //worldCreator.show();
 
     return a.exec();
 }

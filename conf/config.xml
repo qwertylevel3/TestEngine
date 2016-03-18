@@ -12,7 +12,7 @@
 	<DecorationConfigFileName>conf/decoration.xml</DecorationConfigFileName>
 	<BulletConfigFileName>conf/bullet.xml</BulletConfigFileName>
 	<BackgroundConfigFileName>conf/background.xml</BackgroundConfigFileName>
-	<worldConfigFileName>conf/emptyWorld.xml</worldConfigFileName>
+	<worldConfigFileName>conf/testWorld.xml</worldConfigFileName>
 	<FaceConfigFileName>conf/face.xml</FaceConfigFileName>
 	<DialogConfigFileName>conf/dialog.xml</DialogConfigFileName>
 </Config>

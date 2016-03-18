@@ -15,6 +15,7 @@ public:
     Character(const QString& spriteName);
     virtual ~Character();
 
+    void draw();
     void update();
     Character* clone();
 
@@ -115,6 +116,10 @@ protected:
     TYPE type;
 
     int focusIndex;
+
+    void drawField(QVector2D r);
+    QVector2D viewField;
+    QVector2D alarmField;
 };
 
 #endif // CHARACTER_H
