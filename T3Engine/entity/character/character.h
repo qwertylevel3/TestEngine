@@ -6,6 +6,7 @@
 #include"skill.h"
 #include"entity.h"
 #include"orientation.h"
+#include"ai.h"
 
 class Character:public Entity
 {
@@ -22,41 +23,17 @@ public:
     void startCommand(InputModule::Command c);
     void endCommand(InputModule::Command c);
 
-    int getHP() const
-    {
-        return HP;
-    }
-    void setHP(int value)
-    {
-        HP = value;
-    }
+    int getHP() const;
+    void setHP(int value);
 
-    int getMP() const
-    {
-        return MP;
-    }
-    void setMP(int value)
-    {
-        MP = value;
-    }
+    int getMP() const;
+    void setMP(int value);
 
-    int getCurrentHP() const
-    {
-        return currentHP;
-    }
-    void setCurrentHP(int value)
-    {
-        currentHP = value;
-    }
+    int getCurrentHP() const;
+    void setCurrentHP(int value);
 
-    int getCurrentMP() const
-    {
-        return currentMP;
-    }
-    void setCurrentMP(int value)
-    {
-        currentMP = value;
-    }
+    int getCurrentMP() const;
+    void setCurrentMP(int value);
 
     float getSpeed() const;
     void setSpeed(float value);
@@ -81,10 +58,16 @@ public:
     bool getInvincible() const;
     void setInvincible(bool value);
 
+    void clearHeartAlarm();
+    bool isHeartAlarm();
+    void initAI();
+    void initClock();
+    void init();
 protected:
     void initSkill();
     void initParamater();
     void runSkill();
+    void runAI();
 
     void startUp();
     void startDown();
@@ -110,6 +93,8 @@ protected:
     Orientation::ORIENTATION orientation;
     Orientation::ORIENTATION lastOrientation;
     QMap<QString,Skill*> skillBox;
+    QList<AI*> AIList;
+
     int heartId;
     int heartRate;
 

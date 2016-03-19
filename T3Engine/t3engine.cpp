@@ -52,6 +52,11 @@ void T3Engine::init()
 
     World::instance()->init();
 
+    //随机数种子
+    QTime time;
+    time= QTime::currentTime();
+    qsrand(time.msec()+time.second()*1000);
+
 }
 
 

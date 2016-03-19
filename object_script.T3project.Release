@@ -54,6 +54,8 @@ INPUT(
 ./release\characterwidget.o
 ./release\background.o
 ./release\backgroundmanager.o
+./release\ai.o
+./release\wander.o
 ./release\qrc_shader.o
 ./release\qrc_images.o
 ./release\moc_inputmodule.o

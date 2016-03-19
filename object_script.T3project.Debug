@@ -54,6 +54,8 @@ INPUT(
 ./debug\characterwidget.o
 ./debug\background.o
 ./debug\backgroundmanager.o
+./debug\ai.o
+./debug\wander.o
 ./debug\qrc_shader.o
 ./debug\qrc_images.o
 ./debug\moc_inputmodule.o

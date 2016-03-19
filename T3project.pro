@@ -20,6 +20,7 @@ PRECOMPILED_HEADER = stable.h
 INCLUDEPATH += $$PWD\T3Engine\entity\
 INCLUDEPATH += $$PWD\T3Engine\entity\bullet\
 INCLUDEPATH += $$PWD\T3Engine\entity\character\
+INCLUDEPATH += $$PWD\T3Engine\entity\character\AI\
 INCLUDEPATH += $$PWD\T3Engine\entity\decoration\
 INCLUDEPATH += $$PWD\T3Engine\entity\terrain\
 INCLUDEPATH += $$PWD\T3Engine\entity\module\
@@ -91,7 +92,9 @@ SOURCES += main.cpp\
     WorldCreator/decorationwidget.cpp \
     WorldCreator/characterwidget.cpp \
     T3Engine/entity/background/background.cpp \
-    T3Engine/manager/entity/backgroundmanager.cpp
+    T3Engine/manager/entity/backgroundmanager.cpp \
+    T3Engine/entity/character/AI/ai.cpp \
+    T3Engine/entity/character/AI/wander.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -149,7 +152,9 @@ HEADERS  += \
     WorldCreator/decorationwidget.h \
     WorldCreator/characterwidget.h \
     T3Engine/entity/background/background.h \
-    T3Engine/manager/entity/backgroundmanager.h
+    T3Engine/manager/entity/backgroundmanager.h \
+    T3Engine/entity/character/AI/ai.h \
+    T3Engine/entity/character/AI/wander.h
 
 RESOURCES += \
     shader.qrc \

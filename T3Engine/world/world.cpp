@@ -340,6 +340,8 @@ void World::makeCharacter(Scene *scene)
         character->setZ(z);
         character->setType(type);
 
+        character->init();
+
         scene->addCharacterToBox(character);
 
         reader.readNextStartElement();//<character>

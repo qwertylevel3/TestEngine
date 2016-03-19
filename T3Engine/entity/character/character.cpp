@@ -5,6 +5,7 @@
 #include"focus.h"
 #include"clockmanager.h"
 #include"picturemanager.h"
+#include"wander.h"
 
 
 Character::Character(const QString &spriteName)
@@ -12,8 +13,7 @@ Character::Character(const QString &spriteName)
 {
     initParamater();
     initSkill();
-    heartId=ClockManager::instance()->genClock();
-    ClockManager::instance()->setClockInterval(heartId,heartRate);
+
     focusIndex=-1;
     setCollisionAble(true);
     setDestructible(true);
@@ -38,6 +38,7 @@ void Character::update()
     Entity::update();
 
     runSkill();
+    runAI();
     //qDebug()<<ClockManager::instance()->getTick(heartId)<<endl;
 }
 
@@ -109,6 +110,46 @@ void Character::endCommand(InputModule::Command c)
     {
         endB_C();
     }
+}
+
+int Character::getHP() const
+{
+    return HP;
+}
+
+void Character::setHP(int value)
+{
+    HP = value;
+}
+
+int Character::getMP() const
+{
+    return MP;
+}
+
+void Character::setMP(int value)
+{
+    MP = value;
+}
+
+int Character::getCurrentHP() const
+{
+    return currentHP;
+}
+
+void Character::setCurrentHP(int value)
+{
+    currentHP = value;
+}
+
+int Character::getCurrentMP() const
+{
+    return currentMP;
+}
+
+void Character::setCurrentMP(int value)
+{
+    currentMP = value;
 }
 float Character::getSpeed() const
 {
@@ -200,6 +241,29 @@ void Character::initSkill()
     skillBox.insert("focus",focus);
 }
 
+void Character::initAI()
+{
+    if(this->type!=PLAYER)
+    {
+        Wander* wander=new Wander(this);
+        AIList.append(wander);
+    }
+}
+
+void Character::initClock()
+{
+    heartId=ClockManager::instance()->genClock();
+    ClockManager::instance()->setClockInterval(heartId,heartRate);
+    qDebug()<<heartId<<endl;
+    qDebug()<<heartRate<<endl;
+}
+
+void Character::init()
+{
+    initClock();
+    initAI();
+}
+
 void Character::initParamater()
 {
     HP=0;
@@ -228,6 +292,14 @@ void Character::runSkill()
             i.value()->run();
         }
         ++i;
+    }
+}
+
+void Character::runAI()
+{
+    for(int i=0;i<AIList.size();i++)
+    {
+        AIList[i]->update();
     }
 }
 
@@ -411,6 +483,16 @@ bool Character::getInvincible() const
 void Character::setInvincible(bool value)
 {
     invincible = value;
+}
+
+void Character::clearHeartAlarm()
+{
+    ClockManager::instance()->clear(heartId);
+}
+
+bool Character::isHeartAlarm()
+{
+    return ClockManager::instance()->isAlarm(this->heartId);
 }
 
 int Character::getFocusIndex() const
