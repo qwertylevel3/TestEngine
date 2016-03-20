@@ -27,8 +27,7 @@ Character::~Character()
 void Character::draw()
 {
     Entity::draw();
-    //drawRect(viewRect);
-    drawField(alarmField);
+    //drawField(alarmField);
     //TODO...draw 2 rect
 }
 
@@ -254,8 +253,6 @@ void Character::initClock()
 {
     heartId=ClockManager::instance()->genClock();
     ClockManager::instance()->setClockInterval(heartId,heartRate);
-    qDebug()<<heartId<<endl;
-    qDebug()<<heartRate<<endl;
 }
 
 void Character::init()

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BulletBox>
-	<TotalBullletNumber>1</TotalBullletNumber>
+	<TotalBullletNumber>2</TotalBullletNumber>
 	<Bullet>
-		<Name>bullet</Name>
+		<Type>Direct</Type>
+		<Name>directBullet</Name>
+		<SpriteName>bullet</SpriteName>
+		<speed>10</speed>
+		<damage>20</damage>
+	</Bullet>
+	<Bullet>
+		<Type>Track</Type>
+		<Name>trackBullet</Name>
 		<SpriteName>bullet</SpriteName>
 		<speed>10</speed>
 		<damage>20</damage>

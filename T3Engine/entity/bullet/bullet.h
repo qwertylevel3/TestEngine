@@ -8,9 +8,12 @@
 class Bullet:public Entity
 {
 public:
+    static Bullet* getBullet(const QString& spriteName,const QString& type);
     Bullet(const QString& spriteName);
     Bullet* clone();
-    void update();
+    virtual void update();
+    virtual void init(Character* shooter);
+
     float getSpeed() const;
     void setSpeed(float value);
 
@@ -28,6 +31,12 @@ public:
 
     void boom();
 
+    Character *getTarget() const;
+    void setTarget(Character *value);
+
+    void setDirectionToTarget();
+    void fly();
+
 protected:
     float speed;
     float damage;
@@ -36,6 +45,7 @@ protected:
     float directionY;
 
     Character* shooter;
+    Character* target;
 };
 
 #endif // BULLET_H

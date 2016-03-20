@@ -6,6 +6,7 @@
 #include"inputmodule.h"
 #include"bulletmanager.h"
 #include"obb.h"
+#include"directbullet.h"
 
 Scene::Scene()
 {

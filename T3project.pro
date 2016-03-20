@@ -94,7 +94,9 @@ SOURCES += main.cpp\
     T3Engine/entity/background/background.cpp \
     T3Engine/manager/entity/backgroundmanager.cpp \
     T3Engine/entity/character/AI/ai.cpp \
-    T3Engine/entity/character/AI/wander.cpp
+    T3Engine/entity/character/AI/wander.cpp \
+    T3Engine/entity/bullet/trackbullet.cpp \
+    T3Engine/entity/bullet/directbullet.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -154,7 +156,9 @@ HEADERS  += \
     T3Engine/entity/background/background.h \
     T3Engine/manager/entity/backgroundmanager.h \
     T3Engine/entity/character/AI/ai.h \
-    T3Engine/entity/character/AI/wander.h
+    T3Engine/entity/character/AI/wander.h \
+    T3Engine/entity/bullet/trackbullet.h \
+    T3Engine/entity/bullet/directbullet.h
 
 RESOURCES += \
     shader.qrc \

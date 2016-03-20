@@ -44,34 +44,8 @@ void Shoot::shootBullet()
         return;
     }
 
-    Bullet* bullet=BulletManager::instance()->getBullet("bullet");
-    bullet->setZoomX(0.2);
-    bullet->setZoomY(0.2);
-
-    bullet->setX(character->getX());
-    bullet->setY(character->getY());
-    bullet->setZ(character->getZ());
-
-    bullet->setRemainTime(100);
-    float x1=character->getX();
-    float y1=character->getY();
-
-
-    float x2=focusCharacter->getX();
-    float y2=focusCharacter->getY();
-
-    float dx=x2-x1;
-    float dy=y2-y1;
-
-    float dv=sqrt(dx*dx+dy*dy);
-
-    float directionX=dx/dv;
-    float directionY=dy/dv;
-
-    bullet->setDirectionX(directionX);
-    bullet->setDirectionY(directionY);
-
-    bullet->setShooter(character);
+    Bullet* bullet=BulletManager::instance()->getBullet("trackBullet");
+    bullet->init(character);
 
     character->getScene()->addBulletToBox(bullet);
 }

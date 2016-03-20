@@ -44,6 +44,9 @@ Bullet* BulletManager::makeBullet()
 {
     reader.readNextStartElement();//<Bullet>
 
+    reader.readNextStartElement();//<Type>
+    QString type=reader.readElementText();
+
     reader.readNextStartElement();//<Name>
     QString name=reader.readElementText();
 
@@ -58,7 +61,7 @@ Bullet* BulletManager::makeBullet()
 
     reader.readNextStartElement();//</Bullet>
 
-    Bullet* bullet=new Bullet(spriteName);
+    Bullet* bullet=Bullet::getBullet(spriteName,type);
     bullet->setName(name);
     bullet->setSpeed(speed);
     bullet->setDamage(damage);

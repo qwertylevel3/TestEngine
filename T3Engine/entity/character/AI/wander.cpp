@@ -14,7 +14,7 @@ void Wander::update()
     {
         character->clearHeartAlarm();
         character->endCommand(currentCommand);
-        int num=qrand()%4;
+        int num=qrand()%6;
         switch(num)
         {
         case 0:
@@ -33,7 +33,9 @@ void Wander::update()
             character->startCommand(InputModule::right);
             currentCommand=InputModule::right;
             break;
+        case 4:
         case 5:
+        case 6:
             character->startCommand(InputModule::enter);
             currentCommand=InputModule::enter;
             break;
