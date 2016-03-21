@@ -212,6 +212,7 @@ Scene *World::makeScene()
     makeCharacter(tempScene);
     makePlayer(tempScene);
     makeTriggerBox(tempScene);
+    makeSceneBorder(tempScene);
 
     return tempScene;
 }
@@ -440,6 +441,43 @@ void World::makeTrigger(Scene *scene)
 
     scene->addTrigger(trigger);
 
+}
+
+void World::makeSceneBorder(Scene *scene)
+{
+    Decoration* borderUp=DecorationManager::instance()->getDecoration("empty");
+    Decoration* borderDown=DecorationManager::instance()->getDecoration("empty");
+    Decoration* borderLeft=DecorationManager::instance()->getDecoration("empty");
+    Decoration* borderRight=DecorationManager::instance()->getDecoration("empty");
+
+    int width=scene->getWidth();
+    int height=scene->getHeight();
+
+    borderUp->setZoomX(width/borderUp->getWidth());
+    borderDown->setZoomX(width/borderDown->getWidth());
+    borderLeft->setZoomY(height/borderLeft->getHeight());
+    borderRight->setZoomY(height/borderRight->getHeight());
+
+    borderUp->setX(0);
+    borderUp->setY(height/2);
+    borderUp->setZ(-10);
+
+    borderDown->setX(0);
+    borderDown->setY(-height/2);
+    borderDown->setZ(-10);
+
+    borderLeft->setX(width/2);
+    borderLeft->setY(0);
+    borderLeft->setZ(-10);
+
+    borderRight->setX(-width/2);
+    borderRight->setY(0);
+    borderRight->setZ(-10);
+
+    scene->addDecorationToBox(borderUp);
+    scene->addDecorationToBox(borderDown);
+    scene->addDecorationToBox(borderLeft);
+    scene->addDecorationToBox(borderRight);
 }
 
 

@@ -53,6 +53,7 @@ protected:
     void makePlayer(Scene* scene);
     void makeTriggerBox(Scene* scene);
     void makeTrigger(Scene* scene);
+    void makeSceneBorder(Scene* scene);
 
     void saveWorld(const QString& fileName);
 

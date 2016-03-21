@@ -132,6 +132,7 @@ void Scene::collision()
 {
     detectPlayerBulletCollision();
     detectCharacterBulletCollision();
+    detectCharacterDecorationCollision();
     detectPlayerCharacterCollision();
     detectPlayerDecorationCollision();
 }
@@ -207,7 +208,30 @@ void Scene::detectPlayerCharacterCollision()
 
 void Scene::detectCharacterDecorationCollision()
 {
-
+    for(int i=0;i<decorationList.size();i++)
+    {
+        for(int j=0;j<characterList.size();j++)
+        {
+            if(characterList[j]->isAlive() && decorationList[i]->isAlive()
+                    && isCollision(characterList[j],decorationList[i]))
+            {
+                characterList[j]->setDx(-characterList[j]->getDx());
+                if(isCollision(characterList[j],decorationList[i]))
+                {
+                    characterList[j]->setDx(-characterList[j]->getDx());
+                    characterList[j]->setDy(-characterList[j]->getDy());
+                    if(isCollision(characterList[j],decorationList[i]))
+                    {
+                        characterList[j]->setDx(-player->getDx());
+                    }
+                }
+            }
+            else
+            {
+                //qDebug()<<"..."<<endl;
+            }
+        }
+    }
 }
 
 void Scene::detectPlayerDecorationCollision()

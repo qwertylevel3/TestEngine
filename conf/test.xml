@@ -446,7 +446,39 @@
 		</Sprite>
 	</BulletSprite>
 	<DecorationSprite>
-		<TotalSpriteNumber>57</TotalSpriteNumber>
+		<TotalSpriteNumber>58</TotalSpriteNumber>
+		<Sprite>
+			<SpriteName>empty</SpriteName>
+			<TotalActionNumber>1</TotalActionNumber>
+			<width>10</width>
+			<height>10</height>
+			<Action>
+				<ActionName>act1</ActionName>
+				<FrameDelay>100</FrameDelay>
+				<FrameTotal>1</FrameTotal>
+				<IsRepeat>true</IsRepeat>
+				<RepeatStart>0</RepeatStart>
+				<RepeatOver>0</RepeatOver>
+				<FrameBox>
+					<Frame>
+						<PictureName>\resource\decoration\empty.png</PictureName>
+						<x>0</x>
+						<y>0</y>
+						<dx>10</dx>
+						<dy>10</dy>
+						<rectBox>
+							<rectNumber>1</rectNumber>
+							<rect>
+								<x>0</x>
+								<y>0</y>
+								<w>10</w>
+								<h>10</h>
+							</rect>
+						</rectBox>
+					</Frame>
+				</FrameBox>
+			</Action>
+		</Sprite>
 		<Sprite>
 			<SpriteName>scarecrow</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
