@@ -32,10 +32,10 @@ Sprite *Sprite::clone()
     newSp->setHeight(height);
 
 
-    QMap<QString,Action*>::const_iterator i=actionBox.constBegin();
+    QMap<QString,Animatioin*>::const_iterator i=actionBox.constBegin();
     while(i!=actionBox.constEnd())
     {
-        Action* a=i.value()->clone();
+        Animatioin* a=i.value()->clone();
         newSp->addAction(a);
         i++;
     }
@@ -84,7 +84,7 @@ void Sprite::setAlpha(float value)
 
 
 
-void Sprite::addAction(Action *value)
+void Sprite::addAction(Animatioin *value)
 {
     actionBox.insert(value->getName(),value);
 }

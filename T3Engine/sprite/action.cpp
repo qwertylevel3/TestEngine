@@ -1,6 +1,6 @@
-#include "action.h"
+#include "animation.h"
 
-Action::Action()
+Animatioin::Animatioin()
 {
     frameDelay=1;
     frameTotal=0;
@@ -13,14 +13,14 @@ Action::Action()
 
 }
 
-Action::~Action()
+Animatioin::~Animatioin()
 {
 
 }
 
-Action *Action::clone()
+Animatioin *Animatioin::clone()
 {
-    Action* newAction=new Action();
+    Animatioin* newAction=new Animatioin();
     newAction->setName(this->name);
     newAction->setCurrFrame(0);
     newAction->setFrameDelay(this->frameDelay);
@@ -39,12 +39,12 @@ Action *Action::clone()
     return newAction;
 }
 
-void Action::start()
+void Animatioin::start()
 {
     currFrame=repeatStart;
 }
 //update,return the state:0,over;1,busy
-int Action::update()
+int Animatioin::update()
 {
     if(frameClock++==frameDelay)
     {
@@ -66,13 +66,13 @@ int Action::update()
     return 1;
 }
 
-void Action::end()
+void Animatioin::end()
 {
 
 }
 
 
-void Action::drawRect()
+void Animatioin::drawRect()
 {
     frameBox[currFrame]->drawRect();
 }

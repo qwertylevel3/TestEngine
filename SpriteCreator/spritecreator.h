@@ -41,7 +41,7 @@ private:
 
 
     Sprite* makeNewSpriteInstance();
-    Action* makeNewSpriteActionInstance(int index);
+    Animatioin* makeNewSpriteActionInstance(int index);
     Frame* makeNewSpriteFrameInstance(int actionIndex,int frameIndex);
     
     QMenu* fileMenu;

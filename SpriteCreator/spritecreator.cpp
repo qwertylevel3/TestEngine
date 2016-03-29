@@ -260,15 +260,15 @@ Sprite *SpriteCreator::makeNewSpriteInstance()
 
     for(int i=0;i<sprite->getTotalActionNumber();i++)
     {
-        Action* action=makeNewSpriteActionInstance(i);
+        Animatioin* action=makeNewSpriteActionInstance(i);
         sprite->addAction(action);
     }
     return sprite;
 }
 
-Action* SpriteCreator::makeNewSpriteActionInstance(int index)
+Animatioin* SpriteCreator::makeNewSpriteActionInstance(int index)
 {
-    Action* action=new Action();
+    Animatioin* action=new Animatioin();
 
     action->setName(detailDialog->getActionName(index));
     action->setFrameDelay(detailDialog->getFrameDelay(index));

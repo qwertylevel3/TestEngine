@@ -1,7 +1,7 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#include"action.h"
+#include"animation.h"
 #include"gameconfigurator.h"
 #include"stable.h"
 
@@ -20,7 +20,7 @@ public:
         actionBox[currentAction]->setText(text);
     }
 
-    void addAction(Action* value);
+    void addAction(Animatioin* value);
     void setX(float x){this->x=x;}
     void setY(float y){this->y=y;}
     void setZ(float z){this->z=z;}
@@ -49,7 +49,7 @@ public:
     float getRotateX(){return ax;}
     float getRotateY(){return ay;}
     float getRotateZ(){return az;}
-    Action* getAction(const QString& actionName){return actionBox[actionName];}
+    Animatioin* getAction(const QString& actionName){return actionBox[actionName];}
 
     float getWidth() const
     {
@@ -113,7 +113,7 @@ protected:
     QString text;
 
 //    QList<Action*> actionBox;
-    QMap<QString,Action*> actionBox;
+    QMap<QString,Animatioin*> actionBox;
 };
 
 

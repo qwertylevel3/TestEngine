@@ -1,13 +1,13 @@
-#ifndef ACTION_H
-#define ACTION_H
+#ifndef ANIMATION_H
+#define ANIMATION_H
 
 #include"frame.h"
 
-class Action
+class Animatioin
 {
 public:
-    Action();
-    ~Action();
+    Animatioin();
+    ~Animatioin();
 
     void setText(const QString& text)
     {
@@ -60,7 +60,7 @@ public:
         frameBox[currFrame]->draw();
     }
 
-    Action* clone();
+    Animatioin* clone();
 
     void addFrame(Frame* frame){frameBox.push_back(frame);}
 
@@ -100,4 +100,4 @@ private:
     int repeatOver;//重复终止帧
 };
 
-#endif // ACTION_H
+#endif // ANIMATION_H

@@ -107,7 +107,7 @@ Sprite *SpriteManager::makeSprite()
 
     for(int i=0;i<totalActionNumber;i++)
     {
-        Action* action=makeAction();
+        Animatioin* action=makeAction();
         sprite->addAction(action);
         if(i==0)
         {
@@ -120,11 +120,11 @@ Sprite *SpriteManager::makeSprite()
     return sprite;
 }
 
-Action *SpriteManager::makeAction()
+Animatioin *SpriteManager::makeAction()
 {
     reader.readNextStartElement();//Action;
 
-    Action* action=new Action();
+    Animatioin* action=new Animatioin();
 
     reader.readNextStartElement();//ActionName;
     action->setName(reader.readElementText());

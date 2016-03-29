@@ -102,7 +102,6 @@ SOURCES += main.cpp\
 HEADERS  += \
     T3Engine/sprite/frame.h \
     T3Engine/manager/shadermanager.h \
-    T3Engine/sprite/action.h \
     T3Engine/sprite/sprite.h \
     T3Engine/singleton.h \
     T3Engine/manager/picturemanager.h \
@@ -160,7 +159,8 @@ HEADERS  += \
     T3Engine/entity/character/AI/wander.h \
     T3Engine/entity/bullet/trackbullet.h \
     T3Engine/entity/bullet/directbullet.h \
-    T3Engine/entity/character/AI/ainode.h
+    T3Engine/entity/character/AI/ainode.h \
+    T3Engine/sprite/animation.h
 
 RESOURCES += \
     shader.qrc \
