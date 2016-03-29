@@ -21,6 +21,7 @@ INCLUDEPATH += $$PWD\T3Engine\entity\
 INCLUDEPATH += $$PWD\T3Engine\entity\bullet\
 INCLUDEPATH += $$PWD\T3Engine\entity\character\
 INCLUDEPATH += $$PWD\T3Engine\entity\character\AI\
+INCLUDEPATH += $$PWD\T3Engine\entity\character\skill\
 INCLUDEPATH += $$PWD\T3Engine\entity\decoration\
 INCLUDEPATH += $$PWD\T3Engine\entity\terrain\
 INCLUDEPATH += $$PWD\T3Engine\entity\module\
@@ -29,7 +30,6 @@ INCLUDEPATH += $$PWD\T3Engine\entity\background\
 INCLUDEPATH += $$PWD\T3Engine\manager\
 INCLUDEPATH += $$PWD\T3Engine\manager\entity\
 INCLUDEPATH += $$PWD\T3Engine\world\
-INCLUDEPATH += $$PWD\T3Engine\skill\
 INCLUDEPATH += $$PWD\T3Engine\sprite\
 INCLUDEPATH ++ $$PWD\T3Engine\trigger\
 INCLUDEPATH += $$PWD\T3Engine\trigger\condition\
@@ -52,10 +52,7 @@ SOURCES += main.cpp\
     T3Engine/entity/decoration/decoration.cpp \
     T3Engine/entity/terrain/terrain.cpp \
     T3Engine/inputmodule.cpp \
-    T3Engine/skill/skill.cpp \
-    T3Engine/skill/move.cpp \
     T3Engine/entity/bullet/bullet.cpp \
-    T3Engine/skill/shoot.cpp \
     T3Engine/orientation.cpp \
     T3Engine/sprite/picture.cpp \
     T3Engine/sprite/picturetext.cpp \
@@ -67,7 +64,6 @@ SOURCES += main.cpp\
     SpriteCreator/actionpage.cpp \
     SpriteCreator/framepage.cpp \
     SpriteCreator/rectpage.cpp \
-    T3Engine/skill/focus.cpp \
     T3Engine/trigger/trigger.cpp \
     T3Engine/trigger/condition/condition.cpp \
     T3Engine/trigger/event/event.cpp \
@@ -97,7 +93,11 @@ SOURCES += main.cpp\
     T3Engine/entity/character/AI/wander.cpp \
     T3Engine/entity/bullet/trackbullet.cpp \
     T3Engine/entity/bullet/directbullet.cpp \
-    T3Engine/entity/character/AI/ainode.cpp
+    T3Engine/entity/character/AI/ainode.cpp \
+    T3Engine/entity/character/skill/focus.cpp \
+    T3Engine/entity/character/skill/move.cpp \
+    T3Engine/entity/character/skill/shoot.cpp \
+    T3Engine/entity/character/skill/skill.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -113,10 +113,7 @@ HEADERS  += \
     T3Engine/entity/decoration/decoration.h \
     T3Engine/entity/terrain/terrain.h \
     T3Engine/inputmodule.h \
-    T3Engine/skill/skill.h \
-    T3Engine/skill/move.h \
     T3Engine/entity/bullet/bullet.h \
-    T3Engine/skill/shoot.h \
     T3Engine/orientation.h \
     stable.h \
     T3Engine/sprite/picture.h \
@@ -129,7 +126,6 @@ HEADERS  += \
     SpriteCreator/actionpage.h \
     SpriteCreator/framepage.h \
     SpriteCreator/rectpage.h \
-    T3Engine/skill/focus.h \
     T3Engine/trigger/trigger.h \
     T3Engine/trigger/condition/condition.h \
     T3Engine/trigger/event/event.h \
@@ -160,7 +156,11 @@ HEADERS  += \
     T3Engine/entity/bullet/trackbullet.h \
     T3Engine/entity/bullet/directbullet.h \
     T3Engine/entity/character/AI/ainode.h \
-    T3Engine/sprite/animation.h
+    T3Engine/sprite/animation.h \
+    T3Engine/entity/character/skill/focus.h \
+    T3Engine/entity/character/skill/move.h \
+    T3Engine/entity/character/skill/shoot.h \
+    T3Engine/entity/character/skill/skill.h
 
 RESOURCES += \
     shader.qrc \

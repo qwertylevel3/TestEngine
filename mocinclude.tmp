@@ -12,6 +12,9 @@
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/T3Engine/entity/character/AI
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/T3Engine/entity/character/skill
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
+-IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/T3Engine/entity/decoration
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
@@ -34,9 +37,6 @@
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/T3Engine/world
--IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
--IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
--IC:/Users/Administrator/asd/c++/qt-project/T3project/T3Engine/skill
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/INCLUDEPATH
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/+=
 -IC:/Users/Administrator/asd/c++/qt-project/T3project/T3Engine/sprite

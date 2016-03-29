@@ -13,10 +13,7 @@ INPUT(
 ./debug\decoration.o
 ./debug\terrain.o
 ./debug\inputmodule.o
-./debug\skill.o
-./debug\move.o
 ./debug\bullet.o
-./debug\shoot.o
 ./debug\orientation.o
 ./debug\picture.o
 ./debug\picturetext.o
@@ -28,7 +25,6 @@ INPUT(
 ./debug\actionpage.o
 ./debug\framepage.o
 ./debug\rectpage.o
-./debug\focus.o
 ./debug\trigger.o
 ./debug\condition.o
 ./debug\event.o
@@ -59,6 +55,10 @@ INPUT(
 ./debug\trackbullet.o
 ./debug\directbullet.o
 ./debug\ainode.o
+./debug\focus.o
+./debug\move.o
+./debug\shoot.o
+./debug\skill.o
 ./debug\qrc_shader.o
 ./debug\qrc_images.o
 ./debug\moc_inputmodule.o

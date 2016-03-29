@@ -17,7 +17,7 @@ public:
     void setText(QString text)
     {
         this->text=text;
-        actionBox[currentAction]->setText(text);
+        animationBox[currentAnimation]->setText(text);
     }
 
     void addAction(Animatioin* value);
@@ -38,7 +38,7 @@ public:
     float getX(){return x;}
     float getY(){return y;}
     float getZ(){return z;}
-    QString getCurrentActionName(){return currentAction;}
+    QString getCurrentActionName(){return currentAnimation;}
     QList<QRectF>& getCurrentRects();
     QString getName(){return name;}
     int getTotalActionNumber(){return totalActionNumber;}
@@ -49,7 +49,7 @@ public:
     float getRotateX(){return ax;}
     float getRotateY(){return ay;}
     float getRotateZ(){return az;}
-    Animatioin* getAction(const QString& actionName){return actionBox[actionName];}
+    Animatioin* getAction(const QString& actionName){return animationBox[actionName];}
 
     float getWidth() const
     {
@@ -93,7 +93,7 @@ public:
 protected:
     QString name;
 
-    QString currentAction;
+    QString currentAnimation;
     int totalActionNumber;
 
     float zoomX;//放缩
@@ -113,14 +113,14 @@ protected:
     QString text;
 
 //    QList<Action*> actionBox;
-    QMap<QString,Animatioin*> actionBox;
+    QMap<QString,Animatioin*> animationBox;
 };
 
 
 inline
 QList<QRectF> &Sprite::getCurrentRects()
 {
-    return actionBox[currentAction]->getCurrFrame()->getRects();
+    return animationBox[currentAnimation]->getCurrFrame()->getRects();
 }
 
 #endif // SPRITE_H

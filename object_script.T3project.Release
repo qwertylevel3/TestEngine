@@ -13,10 +13,7 @@ INPUT(
 ./release\decoration.o
 ./release\terrain.o
 ./release\inputmodule.o
-./release\skill.o
-./release\move.o
 ./release\bullet.o
-./release\shoot.o
 ./release\orientation.o
 ./release\picture.o
 ./release\picturetext.o
@@ -28,7 +25,6 @@ INPUT(
 ./release\actionpage.o
 ./release\framepage.o
 ./release\rectpage.o
-./release\focus.o
 ./release\trigger.o
 ./release\condition.o
 ./release\event.o
@@ -59,6 +55,10 @@ INPUT(
 ./release\trackbullet.o
 ./release\directbullet.o
 ./release\ainode.o
+./release\focus.o
+./release\move.o
+./release\shoot.o
+./release\skill.o
 ./release\qrc_shader.o
 ./release\qrc_images.o
 ./release\moc_inputmodule.o

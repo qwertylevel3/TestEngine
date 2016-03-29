@@ -16,7 +16,7 @@ Sprite::Sprite()
     height=0.1;
     alpha=1.0;
 
-    currentAction="";
+    currentAnimation="";
     totalActionNumber=0;
 
     text="";
@@ -32,8 +32,8 @@ Sprite *Sprite::clone()
     newSp->setHeight(height);
 
 
-    QMap<QString,Animatioin*>::const_iterator i=actionBox.constBegin();
-    while(i!=actionBox.constEnd())
+    QMap<QString,Animatioin*>::const_iterator i=animationBox.constBegin();
+    while(i!=animationBox.constEnd())
     {
         Animatioin* a=i.value()->clone();
         newSp->addAction(a);
@@ -45,31 +45,31 @@ Sprite *Sprite::clone()
 
 void Sprite::update()
 {
-    actionBox[currentAction]->update();
+    animationBox[currentAnimation]->update();
 }
 
 void Sprite::draw()
 {
     if(!text.isEmpty())
     {
-        actionBox[currentAction]->setText(text);
+        animationBox[currentAnimation]->setText(text);
     }
-    actionBox[currentAction]->setCoordinate(x,y,z);
-    actionBox[currentAction]->setZoomX(zoomX);
-    actionBox[currentAction]->setZoomY(zoomY);
-    actionBox[currentAction]->mirror(mir);
-    actionBox[currentAction]->rotate(angle,ax,ay,az);
-    actionBox[currentAction]->setRepeatX(repeatX);
-    actionBox[currentAction]->setRepeatY(repeatY);
-    actionBox[currentAction]->setWidth(width);
-    actionBox[currentAction]->setHeight(height);
-    actionBox[currentAction]->setAlpha(alpha);
-    actionBox[currentAction]->draw();
+    animationBox[currentAnimation]->setCoordinate(x,y,z);
+    animationBox[currentAnimation]->setZoomX(zoomX);
+    animationBox[currentAnimation]->setZoomY(zoomY);
+    animationBox[currentAnimation]->mirror(mir);
+    animationBox[currentAnimation]->rotate(angle,ax,ay,az);
+    animationBox[currentAnimation]->setRepeatX(repeatX);
+    animationBox[currentAnimation]->setRepeatY(repeatY);
+    animationBox[currentAnimation]->setWidth(width);
+    animationBox[currentAnimation]->setHeight(height);
+    animationBox[currentAnimation]->setAlpha(alpha);
+    animationBox[currentAnimation]->draw();
 }
 
 void Sprite::drawRect()
 {
-    actionBox[currentAction]->drawRect();
+    animationBox[currentAnimation]->drawRect();
 }
 float Sprite::getAlpha() const
 {
@@ -86,10 +86,10 @@ void Sprite::setAlpha(float value)
 
 void Sprite::addAction(Animatioin *value)
 {
-    actionBox.insert(value->getName(),value);
+    animationBox.insert(value->getName(),value);
 }
 
 void Sprite::setCurrentAction(const QString &actionName)
 {
-    currentAction=actionName;
+    currentAnimation=actionName;
 }
