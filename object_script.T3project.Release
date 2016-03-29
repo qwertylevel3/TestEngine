@@ -58,6 +58,7 @@ INPUT(
 ./release\wander.o
 ./release\trackbullet.o
 ./release\directbullet.o
+./release\ainode.o
 ./release\qrc_shader.o
 ./release\qrc_images.o
 ./release\moc_inputmodule.o

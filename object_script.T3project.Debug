@@ -58,6 +58,7 @@ INPUT(
 ./debug\wander.o
 ./debug\trackbullet.o
 ./debug\directbullet.o
+./debug\ainode.o
 ./debug\qrc_shader.o
 ./debug\qrc_images.o
 ./debug\moc_inputmodule.o
