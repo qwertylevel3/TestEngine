@@ -143,7 +143,7 @@ void Scene::detectPlayerBulletCollision()
     {
         if(player->isAlive() && bulletList[i]->isAlive())
         {
-            if(isCollision(player,bulletList[i]))
+            if(detector.isCollision(player,bulletList[i]))
             {
                 //TODO
             }
@@ -160,7 +160,7 @@ void Scene::detectCharacterBulletCollision()
         {
             if(characterList[i]->isAlive() && bulletList[j]->isAlive())
             {
-                if(isCollision(characterList[i],bulletList[j]))
+                if(detector.isCollision(characterList[i],bulletList[j]))
                 {
                     //qDebug()<<"collision"<<endl;
                     if(characterList[i]->getType()==Character::ENEMY
@@ -194,7 +194,7 @@ void Scene::detectPlayerCharacterCollision()
     {
         if(player->isAlive() && characterList[i]->isAlive())
         {
-            if(isCollision(player,characterList[i]))
+            if(detector.isCollision(player,characterList[i]))
             {
                 //qDebug()<<"collision"<<endl;
             }
@@ -213,14 +213,14 @@ void Scene::detectCharacterDecorationCollision()
         for(int j=0;j<characterList.size();j++)
         {
             if(characterList[j]->isAlive() && decorationList[i]->isAlive()
-                    && isCollision(characterList[j],decorationList[i]))
+                    && detector.isCollision(characterList[j],decorationList[i]))
             {
                 characterList[j]->setDx(-characterList[j]->getDx());
-                if(isCollision(characterList[j],decorationList[i]))
+                if(detector.isCollision(characterList[j],decorationList[i]))
                 {
                     characterList[j]->setDx(-characterList[j]->getDx());
                     characterList[j]->setDy(-characterList[j]->getDy());
-                    if(isCollision(characterList[j],decorationList[i]))
+                    if(detector.isCollision(characterList[j],decorationList[i]))
                     {
                         characterList[j]->setDx(-player->getDx());
                     }
@@ -240,17 +240,17 @@ void Scene::detectPlayerDecorationCollision()
     {
         if(player->isAlive() && decorationList[i]->isAlive())
         {
-            if(isCollision(player,decorationList[i]))
+            if(detector.isCollision(player,decorationList[i]))
             {
                 //TODO
                 //qDebug()<<"collision"<<endl;
                 //player->setMoveAble(false);
                 player->setDx(-player->getDx());
-                if(isCollision(player,decorationList[i]))
+                if(detector.isCollision(player,decorationList[i]))
                 {
                     player->setDx(-player->getDx());
                     player->setDy(-player->getDy());
-                    if(isCollision(player,decorationList[i]))
+                    if(detector.isCollision(player,decorationList[i]))
                     {
                         player->setDx(-player->getDx());
                     }
@@ -264,79 +264,6 @@ void Scene::detectPlayerDecorationCollision()
     }
 }
 
-bool Scene::isCollision(Entity* a,Entity* b)
-{
-    QList<QRectF> aRectList=a->getCurrentRects();
-    QList<QRectF> bRectList=b->getCurrentRects();
-
-    for(int i=0;i<aRectList.size();i++)
-    {
-        for(int j=0;j<bRectList.size();j++)
-        {
-            QRectF aRect=a->getCurrentRects()[i];
-
-            float aRectx=aRect.x()+(a->getX()+a->getDx())*GameConfigurator::instance()->getScale();
-            float aRecty=aRect.y()+(a->getY()+a->getDy())*GameConfigurator::instance()->getScale();
-            float aRectwidth=aRect.width();
-            float aRectheight=aRect.height();
-
-
-            //aRect里保存的是矩形的中点和宽高，不是左上角点
-            aRect.setX(aRectx);
-            aRect.setY(aRecty);
-            aRect.setWidth(aRectwidth*2*a->getZoomX());
-            aRect.setHeight(aRectheight*2*a->getZoomY());
-
-            QRectF bRect=b->getCurrentRects()[j];
-
-            float bRectx=bRect.x()+b->getX()*GameConfigurator::instance()->getScale()+b->getDx();
-            //qDebug()<<bRectx<<endl;
-            //qDebug()<<GameConfigurator::instance()->getScale()<<endl;
-            //qDebug()<<bRectx<<endl;
-            float bRecty=bRect.y()+b->getY()*GameConfigurator::instance()->getScale()+b->getDy();
-            float bRectwidth=bRect.width();
-            float bRectheight=bRect.height();
-
-            bRect.setX(bRectx);
-            bRect.setY(bRecty);
-            bRect.setWidth(bRectwidth*2*b->getZoomX());
-            bRect.setHeight(bRectheight*2*b->getZoomY());
-            //            bRect.setX(bRectx);
-            //            bRect.setY(bRecty);
-            //            bRect.setWidth(bRectwidth);
-            //            bRect.setHeight(bRectheight);
-
-            OBB obb1(QPointF(aRect.x(),aRect.y()),aRect.width(),aRect.height(),a->getRotateAngle());
-            OBB obb2(QPointF(bRect.x(),bRect.y()),bRect.width(),bRect.height(),b->getRotateAngle());
-
-            //发现接触
-            if(detector.isCollision(obb1,obb2))
-            {
-                return true;
-            }
-        }
-    }
-    return false;
-}
-
-//碰撞检测，a,b的xy坐标意义为中点
-bool Scene::isCollision(QRectF a, QRectF b)
-{
-    float dx=a.x()-b.x();
-    dx=dx<0?-dx:dx;
-
-    float dy=a.y()-b.y();
-    dy=dy<0?-dy:dy;
-
-
-    if((dx<=a.width()/2+b.width()/2) &&
-            (dy<=a.height()/2+b.height()/2))
-    {
-        return true;
-    }
-
-    return false;
-}
 
 bool Scene::addEntityToLayerBox(Entity *entity)
 {

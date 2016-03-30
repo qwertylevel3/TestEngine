@@ -28,11 +28,8 @@ public:
     void detectPlayerBulletCollision();
     void detectCharacterBulletCollision();
     void detectPlayerCharacterCollision();
-
     void detectCharacterDecorationCollision();
     void detectPlayerDecorationCollision();
-    bool isCollision(Entity *a, Entity *b);
-    bool isCollision(QRectF a,QRectF b);
     
     void addCharacterToBox(Character* character);
     void addTerrainToBox(Terrain* terrain);

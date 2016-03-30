@@ -6,6 +6,7 @@
 #include"clockmanager.h"
 #include"picturemanager.h"
 #include"wander.h"
+#include"aiengine.h"
 
 
 Character::Character(const QString &spriteName)
@@ -240,11 +241,11 @@ void Character::initSkill()
 
 void Character::initAI()
 {
-    if(this->type!=PLAYER)
-    {
-        Wander* wander=new Wander(this);
-        AIList.append(wander);
-    }
+//    if(this->type!=PLAYER)
+//    {
+//        Wander* wander=new Wander(this);
+//        AIList.append(wander);
+//    }
 }
 
 void Character::initClock()
@@ -298,10 +299,7 @@ void Character::runSkill()
 
 void Character::runAI()
 {
-    for(int i=0;i<AIList.size();i++)
-    {
-        AIList[i]->update();
-    }
+    //AIEngine::instance()->run(this);
 }
 
 //start command.......
@@ -474,6 +472,16 @@ void Character::drawField(QVector2D r)
                       this->getRotateZ());
     rectPoint->draw();
 }
+AINode *Character::getAi() const
+{
+    return ai;
+}
+
+void Character::setAi(AINode *value)
+{
+    ai = value;
+}
+
 
 
 bool Character::getInvincible() const

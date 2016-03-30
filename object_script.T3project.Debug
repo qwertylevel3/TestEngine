@@ -2,7 +2,6 @@ INPUT(
 ./debug\main.o
 ./debug\frame.o
 ./debug\shadermanager.o
-./debug\action.o
 ./debug\sprite.o
 ./debug\picturemanager.o
 ./debug\spritemanager.o
@@ -59,6 +58,12 @@ INPUT(
 ./debug\move.o
 ./debug\shoot.o
 ./debug\skill.o
+./debug\action.o
+./debug\selector.o
+./debug\aimanager.o
+./debug\aiengine.o
+./debug\safeselector.o
+./debug\animation.o
 ./debug\qrc_shader.o
 ./debug\qrc_images.o
 ./debug\moc_inputmodule.o

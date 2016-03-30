@@ -43,7 +43,6 @@ INCLUDEPATH += $$PWD\WorldCreator\
 SOURCES += main.cpp\
     T3Engine/sprite/frame.cpp \
     T3Engine/manager/shadermanager.cpp \
-    T3Engine/sprite/action.cpp \
     T3Engine/sprite/sprite.cpp \
     T3Engine/manager/picturemanager.cpp \
     T3Engine/manager/spritemanager.cpp \
@@ -103,7 +102,9 @@ SOURCES += main.cpp\
     T3Engine/entity/character/AI/action/action.cpp \
     T3Engine/entity/character/AI/selector/selector.cpp \
     T3Engine/manager/entity/aimanager.cpp \
-    T3Engine/entity/character/AI/aiengine.cpp
+    T3Engine/entity/character/AI/aiengine.cpp \
+    T3Engine/entity/character/AI/selector/safeselector.cpp \
+    T3Engine/sprite/animation.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -170,7 +171,8 @@ HEADERS  += \
     T3Engine/entity/character/AI/action/action.h \
     T3Engine/entity/character/AI/selector/selector.h \
     T3Engine/manager/entity/aimanager.h \
-    T3Engine/entity/character/AI/aiengine.h
+    T3Engine/entity/character/AI/aiengine.h \
+    T3Engine/entity/character/AI/selector/safeselector.h
 
 RESOURCES += \
     shader.qrc \

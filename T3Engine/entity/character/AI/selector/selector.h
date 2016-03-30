@@ -2,22 +2,23 @@
 #define SELECTOR_H
 
 #include"ainode.h"
+#include"character.h"
 
 class Selector:public AINode
 {
 public:
     Selector();
-    virtual bool judge()=0;
+    virtual bool judge(Character* character)=0;
 
-    AINode *getLeftChild() const;
-    void setLeftChild(AINode *value);
+    AINode *getTChild() const;
+    void setTChild(AINode *value);
 
-    AINode *getRightChild() const;
-    void setRightChild(AINode *value);
+    AINode *getFChild() const;
+    void setFChild(AINode *value);
 
 protected:
-    AINode* leftChild;
-    AINode* rightChild;
+    AINode* TChild;
+    AINode* FChild;
 };
 
 #endif // SELECTOR_H

@@ -62,6 +62,9 @@ public:
     void initAI();
     void initClock();
     void init();
+    AINode *getAi() const;
+    void setAi(AINode *value);
+
 protected:
     void initSkill();
     void initParamater();
@@ -92,7 +95,7 @@ protected:
     Orientation::ORIENTATION orientation;
     Orientation::ORIENTATION lastOrientation;
     QMap<QString,Skill*> skillBox;
-    QList<AI*> AIList;
+//    QList<AI*> AIList;
 
     int heartId;
     int heartRate;
@@ -105,6 +108,7 @@ protected:
     QVector2D viewField;
     QVector2D alarmField;
 
+    AINode* ai;
 };
 
 #endif // CHARACTER_H

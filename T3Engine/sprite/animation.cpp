@@ -20,23 +20,23 @@ Animatioin::~Animatioin()
 
 Animatioin *Animatioin::clone()
 {
-    Animatioin* newAction=new Animatioin();
-    newAction->setName(this->name);
-    newAction->setCurrFrame(0);
-    newAction->setFrameDelay(this->frameDelay);
-    newAction->setFrameTotal(this->frameTotal);
-    newAction->setRepeat(this->isRepeat);
-    newAction->setRepeatStart(this->repeatStart);
-    newAction->setRepeatOver(this->repeatOver);
+    Animatioin* newAnimation=new Animatioin();
+    newAnimation->setName(this->name);
+    newAnimation->setCurrFrame(0);
+    newAnimation->setFrameDelay(this->frameDelay);
+    newAnimation->setFrameTotal(this->frameTotal);
+    newAnimation->setRepeat(this->isRepeat);
+    newAnimation->setRepeatStart(this->repeatStart);
+    newAnimation->setRepeatOver(this->repeatOver);
 
 
     for(int i=0;i<frameBox.size();i++)
     {
         Frame* f=frameBox[i]->clone();
-        newAction->addFrame(f);
+        newAnimation->addFrame(f);
     }
 
-    return newAction;
+    return newAnimation;
 }
 
 void Animatioin::start()
@@ -76,4 +76,5 @@ void Animatioin::drawRect()
 {
     frameBox[currFrame]->drawRect();
 }
+
 

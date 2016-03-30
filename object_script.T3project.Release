@@ -2,7 +2,6 @@ INPUT(
 ./release\main.o
 ./release\frame.o
 ./release\shadermanager.o
-./release\action.o
 ./release\sprite.o
 ./release\picturemanager.o
 ./release\spritemanager.o
@@ -59,6 +58,12 @@ INPUT(
 ./release\move.o
 ./release\shoot.o
 ./release\skill.o
+./release\action.o
+./release\selector.o
+./release\aimanager.o
+./release\aiengine.o
+./release\safeselector.o
+./release\animation.o
 ./release\qrc_shader.o
 ./release\qrc_images.o
 ./release\moc_inputmodule.o
