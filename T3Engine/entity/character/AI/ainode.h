@@ -7,9 +7,13 @@ class AINode
 {
 public:
     AINode();
-    virtual void update()=0;
-    virtual void judge()=0;
+    virtual ~AINode();
+    bool isLeaf();
+    bool getLeaf() const;
+    void setLeaf(bool value);
+
 protected:
+    bool leaf;
 };
 
 #endif // AINODE_H

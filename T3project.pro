@@ -21,6 +21,8 @@ INCLUDEPATH += $$PWD\T3Engine\entity\
 INCLUDEPATH += $$PWD\T3Engine\entity\bullet\
 INCLUDEPATH += $$PWD\T3Engine\entity\character\
 INCLUDEPATH += $$PWD\T3Engine\entity\character\AI\
+INCLUDEPATH += $$PWD\T3Engine\entity\character\AI\action\
+INCLUDEPATH += $$PWD\T3Engine\entity\character\AI\selector\
 INCLUDEPATH += $$PWD\T3Engine\entity\character\skill\
 INCLUDEPATH += $$PWD\T3Engine\entity\decoration\
 INCLUDEPATH += $$PWD\T3Engine\entity\terrain\
@@ -97,7 +99,11 @@ SOURCES += main.cpp\
     T3Engine/entity/character/skill/focus.cpp \
     T3Engine/entity/character/skill/move.cpp \
     T3Engine/entity/character/skill/shoot.cpp \
-    T3Engine/entity/character/skill/skill.cpp
+    T3Engine/entity/character/skill/skill.cpp \
+    T3Engine/entity/character/AI/action/action.cpp \
+    T3Engine/entity/character/AI/selector/selector.cpp \
+    T3Engine/manager/entity/aimanager.cpp \
+    T3Engine/entity/character/AI/aiengine.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -160,7 +166,11 @@ HEADERS  += \
     T3Engine/entity/character/skill/focus.h \
     T3Engine/entity/character/skill/move.h \
     T3Engine/entity/character/skill/shoot.h \
-    T3Engine/entity/character/skill/skill.h
+    T3Engine/entity/character/skill/skill.h \
+    T3Engine/entity/character/AI/action/action.h \
+    T3Engine/entity/character/AI/selector/selector.h \
+    T3Engine/manager/entity/aimanager.h \
+    T3Engine/entity/character/AI/aiengine.h
 
 RESOURCES += \
     shader.qrc \

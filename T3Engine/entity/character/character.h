@@ -1,12 +1,11 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-//#include"T3Engine/sprite/sprite.h"
-//#include"T3Engine/manager/spritemanager.h"
 #include"skill.h"
 #include"entity.h"
 #include"orientation.h"
 #include"ai.h"
+#include"ainode.h"
 
 class Character:public Entity
 {
@@ -105,6 +104,7 @@ protected:
     void drawField(QVector2D r);
     QVector2D viewField;
     QVector2D alarmField;
+
 };
 
 #endif // CHARACTER_H

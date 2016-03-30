@@ -11,12 +11,7 @@
 Character::Character(const QString &spriteName)
     :Entity(spriteName)
 {
-    initParamater();
-    initSkill();
 
-    focusIndex=-1;
-    setCollisionAble(true);
-    setDestructible(true);
 }
 
 Character::~Character()
@@ -44,6 +39,9 @@ void Character::update()
 Character *Character::clone()
 {
     Character* newCharacter=new Character(this->spriteName);
+
+    newCharacter->init();
+
     newCharacter->setName(this->name);
     newCharacter->setHP(this->HP);
     newCharacter->setMP(this->MP);
@@ -257,6 +255,8 @@ void Character::initClock()
 
 void Character::init()
 {
+    initParamater();
+    initSkill();
     initClock();
     initAI();
 }
@@ -278,6 +278,10 @@ void Character::initParamater()
 
     alarmField.setX(100);
     alarmField.setY(100);
+
+    focusIndex=-1;
+    setCollisionAble(true);
+    setDestructible(true);
 }
 
 void Character::runSkill()
