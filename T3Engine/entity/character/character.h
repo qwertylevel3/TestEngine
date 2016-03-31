@@ -65,6 +65,15 @@ public:
     AINode *getAi() const;
     void setAi(AINode *value);
 
+    QVector2D getViewField() const;
+    void setViewField(const QVector2D &value);
+
+    QVector2D getAlarmField() const;
+    void setAlarmField(const QVector2D &value);
+
+    InputModule::Command getCurrentCommand() const;
+    void setCurrentCommand(const InputModule::Command &value);
+
 protected:
     void initSkill();
     void initParamater();
@@ -109,6 +118,7 @@ protected:
     QVector2D alarmField;
 
     AINode* ai;
+    InputModule::Command currentCommand;
 };
 
 #endif // CHARACTER_H

@@ -13,6 +13,7 @@
 #include"facemanager.h"
 #include"dialogmanager.h"
 #include"backgroundmanager.h"
+#include"aimanager.h"
 
 T3Engine::T3Engine(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -40,6 +41,7 @@ void T3Engine::init()
     SpriteManager::instance()->init();
 
     ClockManager::instance()->init();
+    AIManager::instance()->init();
 
     CharacterManager::instance()->init();
     //TerrainManager::instance()->init();

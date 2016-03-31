@@ -7,6 +7,7 @@
 #include"picturemanager.h"
 #include"wander.h"
 #include"aiengine.h"
+#include"aimanager.h"
 
 
 Character::Character(const QString &spriteName)
@@ -23,7 +24,7 @@ Character::~Character()
 void Character::draw()
 {
     Entity::draw();
-    //drawField(alarmField);
+    drawField(alarmField);
     //TODO...draw 2 rect
 }
 
@@ -33,7 +34,10 @@ void Character::update()
     Entity::update();
 
     runSkill();
-    runAI();
+    if(this->type!=PLAYER)
+    {
+        runAI();
+    }
     //qDebug()<<ClockManager::instance()->getTick(heartId)<<endl;
 }
 
@@ -56,6 +60,7 @@ Character *Character::clone()
 
 void Character::startCommand(InputModule::Command c)
 {
+    currentCommand=c;
     if(c==InputModule::up)
     {
         startUp();
@@ -82,8 +87,10 @@ void Character::startCommand(InputModule::Command c)
     }
 }
 
+
 void Character::endCommand(InputModule::Command c)
 {
+    currentCommand=c;
     if(c==InputModule::up)
     {
         endUp();
@@ -241,11 +248,11 @@ void Character::initSkill()
 
 void Character::initAI()
 {
-//    if(this->type!=PLAYER)
-//    {
-//        Wander* wander=new Wander(this);
-//        AIList.append(wander);
-//    }
+    if(this->type!=PLAYER)
+    {
+        ai=AIManager::instance()->getAI("SimpleAI");
+    }
+
 }
 
 void Character::initClock()
@@ -299,7 +306,7 @@ void Character::runSkill()
 
 void Character::runAI()
 {
-    //AIEngine::instance()->run(this);
+    AIEngine::instance()->run(this);
 }
 
 //start command.......
@@ -472,6 +479,36 @@ void Character::drawField(QVector2D r)
                       this->getRotateZ());
     rectPoint->draw();
 }
+InputModule::Command Character::getCurrentCommand() const
+{
+    return currentCommand;
+}
+
+void Character::setCurrentCommand(const InputModule::Command &value)
+{
+    currentCommand = value;
+}
+
+QVector2D Character::getAlarmField() const
+{
+    return alarmField;
+}
+
+void Character::setAlarmField(const QVector2D &value)
+{
+    alarmField = value;
+}
+
+QVector2D Character::getViewField() const
+{
+    return viewField;
+}
+
+void Character::setViewField(const QVector2D &value)
+{
+    viewField = value;
+}
+
 AINode *Character::getAi() const
 {
     return ai;

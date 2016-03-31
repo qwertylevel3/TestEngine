@@ -1,7 +1,6 @@
 #ifndef STABLE_H
 #define STABLE_H
 
-
 //qt...
 #include<QFileDialog>
 #include<QAction>

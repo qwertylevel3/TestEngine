@@ -64,6 +64,8 @@ INPUT(
 ./debug\aiengine.o
 ./debug\safeselector.o
 ./debug\animation.o
+./debug\emptyaction.o
+./debug\fleeaction.o
 ./debug\qrc_shader.o
 ./debug\qrc_images.o
 ./debug\moc_inputmodule.o

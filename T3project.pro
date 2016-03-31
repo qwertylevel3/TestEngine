@@ -104,7 +104,9 @@ SOURCES += main.cpp\
     T3Engine/manager/entity/aimanager.cpp \
     T3Engine/entity/character/AI/aiengine.cpp \
     T3Engine/entity/character/AI/selector/safeselector.cpp \
-    T3Engine/sprite/animation.cpp
+    T3Engine/sprite/animation.cpp \
+    T3Engine/entity/character/AI/action/emptyaction.cpp \
+    T3Engine/entity/character/AI/action/fleeaction.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -172,7 +174,9 @@ HEADERS  += \
     T3Engine/entity/character/AI/selector/selector.h \
     T3Engine/manager/entity/aimanager.h \
     T3Engine/entity/character/AI/aiengine.h \
-    T3Engine/entity/character/AI/selector/safeselector.h
+    T3Engine/entity/character/AI/selector/safeselector.h \
+    T3Engine/entity/character/AI/action/emptyaction.h \
+    T3Engine/entity/character/AI/action/fleeaction.h
 
 RESOURCES += \
     shader.qrc \

@@ -134,3 +134,20 @@ bool CollisionDetector::isCollision(QRectF a, QRectF b)
     return false;
 }
 
+bool CollisionDetector::inField(QVector2D field, float fx, float fy, float x, float y)
+{
+    float dx=fx-x;
+    dx=dx<0?-dx:dx;
+
+    float dy=fy-y;
+    dy=dy<0?-dy:dy;
+
+    if(dx<=field.x()/2 &&
+            dy<=field.y()/2)
+    {
+        return true;
+    }
+
+    return false;
+}
+

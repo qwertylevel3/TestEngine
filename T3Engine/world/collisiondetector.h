@@ -15,15 +15,16 @@ class CollisionDetector
 public:
     static float Pi;
     CollisionDetector();
-    float radian2angle(float radian);
-    float angle2radian(float angle);
-    QVector2D rotate(QVector2D p,float angle);
+    static float radian2angle(float radian);
+    static float angle2radian(float angle);
+    static QVector2D rotate(QVector2D p,float angle);
 
-    bool isCollision(OBB obb1,OBB obb2);
+    static bool isCollision(OBB obb1,OBB obb2);
 
-    void collision();
-    bool isCollision(Entity *a, Entity *b);
-    bool isCollision(QRectF a,QRectF b);
+    static void collision();
+    static bool isCollision(Entity *a, Entity *b);
+    static bool isCollision(QRectF a,QRectF b);
+    static bool inField(QVector2D field,float fx,float fy,float x,float y);
 
 };
 
