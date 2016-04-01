@@ -417,7 +417,6 @@ void Character::endLeft()
     if(skillBox["moveUp"]->isRunning())
     {
         setMoveOrientation(Orientation::up);
-
     }
     else if(skillBox["moveDown"]->isRunning())
     {
@@ -487,6 +486,47 @@ InputModule::Command Character::getCurrentCommand() const
 void Character::setCurrentCommand(const InputModule::Command &value)
 {
     currentCommand = value;
+}
+
+bool Character::isRunning()
+{
+    if(skillBox["moveUp"]->isRunning())
+    {
+        return true;
+    }
+    if(skillBox["moveDown"]->isRunning())
+    {
+        return true;
+    }
+    if(skillBox["moveLeft"]->isRunning())
+    {
+        return true;
+    }
+    if(skillBox["moveRight"]->isRunning())
+    {
+        return true;
+    }
+    return false;
+}
+
+void Character::stopMoving()
+{
+    if(skillBox["moveUp"]->isRunning())
+    {
+        skillBox["moveUp"]->end();
+    }
+    if(skillBox["moveDown"]->isRunning())
+    {
+        skillBox["moveDown"]->end();
+    }
+    if(skillBox["moveLeft"]->isRunning())
+    {
+        skillBox["moveLeft"]->end();
+    }
+    if(skillBox["moveRight"]->isRunning())
+    {
+        skillBox["moveRight"]->end();
+    }
 }
 
 QVector2D Character::getAlarmField() const

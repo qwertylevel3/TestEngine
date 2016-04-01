@@ -74,6 +74,8 @@ public:
     InputModule::Command getCurrentCommand() const;
     void setCurrentCommand(const InputModule::Command &value);
 
+    bool isRunning();
+    void stopMoving();
 protected:
     void initSkill();
     void initParamater();

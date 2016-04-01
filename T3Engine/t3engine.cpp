@@ -15,6 +15,7 @@
 #include"backgroundmanager.h"
 #include"aimanager.h"
 
+
 T3Engine::T3Engine(QWidget *parent)
     : QOpenGLWidget(parent)
 {

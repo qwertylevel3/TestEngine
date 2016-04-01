@@ -66,6 +66,8 @@ INPUT(
 ./release\animation.o
 ./release\emptyaction.o
 ./release\fleeaction.o
+./release\runningselector.o
+./release\stopmovingaction.o
 ./release\qrc_shader.o
 ./release\qrc_images.o
 ./release\moc_inputmodule.o

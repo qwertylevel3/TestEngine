@@ -66,6 +66,8 @@ INPUT(
 ./debug\animation.o
 ./debug\emptyaction.o
 ./debug\fleeaction.o
+./debug\runningselector.o
+./debug\stopmovingaction.o
 ./debug\qrc_shader.o
 ./debug\qrc_images.o
 ./debug\moc_inputmodule.o

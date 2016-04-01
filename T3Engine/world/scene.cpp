@@ -10,6 +10,7 @@
 
 Scene::Scene()
 {
+
     pause=false;
     bk=0;
     for(int i=0;

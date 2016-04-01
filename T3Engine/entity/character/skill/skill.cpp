@@ -39,7 +39,7 @@ void Skill::incCount()
 
 void Skill::decCount()
 {
-    count--;
+    count==0?count:--count;
 }
 
 bool Skill::isRunning()

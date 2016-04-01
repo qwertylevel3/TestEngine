@@ -1,7 +1,9 @@
 #include "aimanager.h"
-#include"action/emptyaction.h"
-#include"action/fleeaction.h"
+#include"emptyaction.h"
+#include"fleeaction.h"
 #include"safeselector.h"
+#include"runningselector.h"
+#include"stopmovingaction.h"
 
 AIManager::AIManager()
 {
@@ -11,8 +13,19 @@ AIManager::AIManager()
 void AIManager::init()
 {
     SafeSelector* root=new SafeSelector();
-    root->setTChild(new EmptyAction());
-    root->setFChild(new FleeAction());
+
+    RunningSelector* runningSelector_1=new RunningSelector();
+    RunningSelector* runningSelector_2=new RunningSelector();
+
+    root->setTChild(runningSelector_1);
+    root->setFChild(runningSelector_2);
+
+    runningSelector_1->setTChild(new StopMovingAction);
+    runningSelector_1->setFChild(new EmptyAction);
+
+    runningSelector_2->setTChild(new EmptyAction);
+    runningSelector_2->setFChild(new FleeAction);
+
 
     AIBox.insert("SimpleAI",root);
 }
