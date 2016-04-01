@@ -128,6 +128,7 @@ public:
     float getDy() const;
     void setDy(float value);
 
+
 protected:
     QString name;
     QString spriteName;
