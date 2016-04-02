@@ -75,6 +75,10 @@ public:
     void setCurrentCommand(const InputModule::Command &value);
 
     bool isRunning();
+    bool isMovingUp();
+    bool isMovingDown();
+    bool isMovingLeft();
+    bool isMovingRight();
     void stopMoving();
 protected:
     void initSkill();

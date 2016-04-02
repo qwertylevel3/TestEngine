@@ -314,11 +314,11 @@ void Character::startUp()
 {
     skillBox["moveUp"]->start();
     setMoveOrientation(Orientation::up);
-    if(skillBox["moveLeft"]->isRunning())
+    if(isMovingLeft())
     {
         setMoveOrientation(Orientation::upLeft);
     }
-    else if(skillBox["moveRight"]->isRunning())
+    else if(isMovingRight())
     {
         setMoveOrientation(Orientation::upRight);
     }
@@ -328,11 +328,11 @@ void Character::startDown()
 {
     skillBox["moveDown"]->start();
     setMoveOrientation(Orientation::down);
-    if(skillBox["moveLeft"]->isRunning())
+    if(isMovingLeft())
     {
         setMoveOrientation(Orientation::downLeft);
     }
-    if(skillBox["moveRight"]->isRunning())
+    else if(isMovingRight())
     {
         setMoveOrientation(Orientation::downRight);
     }
@@ -342,11 +342,11 @@ void Character::startLeft()
 {
     skillBox["moveLeft"]->start();
     setMoveOrientation(Orientation::left);
-    if(skillBox["moveUp"]->isRunning())
+    if(isMovingUp())
     {
         setMoveOrientation(Orientation::upLeft);
     }
-    else if(skillBox["moveDown"]->isRunning())
+    else if(isMovingDown())
     {
         setMoveOrientation(Orientation::downLeft);
     }
@@ -356,11 +356,11 @@ void Character::startRight()
 {
     skillBox["moveRight"]->start();
     setMoveOrientation(Orientation::right);
-    if(skillBox["moveUp"]->isRunning())
+    if(isMovingUp())
     {
         setMoveOrientation(Orientation::upRight);
     }
-    if(skillBox["moveDown"]->isRunning())
+    if(isMovingDown())
     {
         setMoveOrientation(Orientation::downRight);
     }
@@ -380,11 +380,11 @@ void Character::startB_C()
 void Character::endUp()
 {
     skillBox["moveUp"]->end();
-    if(skillBox["moveLeft"]->isRunning())
+    if(isMovingLeft())
     {
         setMoveOrientation(Orientation::left);
     }
-    else if(skillBox["moveRight"]->isRunning())
+    else if(isMovingRight())
     {
         setMoveOrientation(Orientation::right);
     }
@@ -397,11 +397,11 @@ void Character::endUp()
 void Character::endDown()
 {
     skillBox["moveDown"]->end();
-    if(skillBox["moveLeft"]->isRunning())
+    if(isMovingLeft())
     {
         setMoveOrientation(Orientation::left);
     }
-    else if(skillBox["moveDown"]->isRunning())
+    else if(isMovingRight())
     {
         setMoveOrientation(Orientation::right);
     }
@@ -414,11 +414,11 @@ void Character::endDown()
 void Character::endLeft()
 {
     skillBox["moveLeft"]->end();
-    if(skillBox["moveUp"]->isRunning())
+    if(isMovingUp())
     {
         setMoveOrientation(Orientation::up);
     }
-    else if(skillBox["moveDown"]->isRunning())
+    else if(isMovingDown())
     {
         setMoveOrientation(Orientation::down);
     }
@@ -431,11 +431,11 @@ void Character::endLeft()
 void Character::endRight()
 {
     skillBox["moveRight"]->end();
-    if(skillBox["moveUp"]->isRunning())
+    if(isMovingUp())
     {
         setMoveOrientation(Orientation::up);
     }
-    else if(skillBox["moveDown"]->isRunning())
+    else if(isMovingDown())
     {
         setMoveOrientation(Orientation::down);
     }
@@ -490,42 +490,62 @@ void Character::setCurrentCommand(const InputModule::Command &value)
 
 bool Character::isRunning()
 {
-    if(skillBox["moveUp"]->isRunning())
+    if(isMovingUp())
     {
         return true;
     }
-    if(skillBox["moveDown"]->isRunning())
+    if(isMovingDown())
     {
         return true;
     }
-    if(skillBox["moveLeft"]->isRunning())
+    if(isMovingLeft())
     {
         return true;
     }
-    if(skillBox["moveRight"]->isRunning())
+    if(isMovingRight())
     {
         return true;
     }
     return false;
 }
 
+bool Character::isMovingUp()
+{
+    return skillBox["moveUp"]->isRunning();
+}
+
+bool Character::isMovingDown()
+{
+    return skillBox["moveDown"]->isRunning();
+}
+
+bool Character::isMovingLeft()
+{
+    return skillBox["moveLeft"]->isRunning();
+}
+
+bool Character::isMovingRight()
+{
+    return skillBox["moveRight"]->isRunning();
+}
+
 void Character::stopMoving()
 {
-    if(skillBox["moveUp"]->isRunning())
+    if(isMovingUp())
     {
-        skillBox["moveUp"]->end();
+        endUp();
     }
-    if(skillBox["moveDown"]->isRunning())
+    if(isMovingDown())
     {
-        skillBox["moveDown"]->end();
+        endDown();
     }
-    if(skillBox["moveLeft"]->isRunning())
+    if(isMovingLeft())
     {
-        skillBox["moveLeft"]->end();
+        endLeft();
     }
-    if(skillBox["moveRight"]->isRunning())
+    if(isMovingRight())
     {
-        skillBox["moveRight"]->end();
+        endRight();
     }
 }
 
