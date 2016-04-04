@@ -411,7 +411,7 @@
 		</Sprite>
 	</CharacterSprite>
 	<BulletSprite>
-		<TotalSpriteNumber>1</TotalSpriteNumber>
+		<TotalSpriteNumber>2</TotalSpriteNumber>
 		<Sprite>
 			<SpriteName>bullet</SpriteName>
 			<TotalActionNumber>1</TotalActionNumber>
@@ -438,6 +438,38 @@
 								<y>0</y>
 								<w>47</w>
 								<h>51</h>
+							</rect>
+						</rectBox>
+					</Frame>
+				</FrameBox>
+			</Action>
+		</Sprite>
+		<Sprite>
+			<SpriteName>laser</SpriteName>
+			<TotalActionNumber>1</TotalActionNumber>
+			<width>187</width>
+			<height>116</height>
+			<Action>
+				<ActionName>laser</ActionName>
+				<FrameDelay>100</FrameDelay>
+				<FrameTotal>1</FrameTotal>
+				<IsRepeat>false</IsRepeat>
+				<RepeatStart>0</RepeatStart>
+				<RepeatOver>0</RepeatOver>
+				<FrameBox>
+					<Frame>
+						<PictureName>\resource\bullet\laser.png</PictureName>
+						<x>0</x>
+						<y>0</y>
+						<dx>187</dx>
+						<dy>116</dy>
+						<rectBox>
+							<rectNumber>1</rectNumber>
+							<rect>
+								<x>0</x>
+								<y>0</y>
+								<w>180</w>
+								<h>60</h>
 							</rect>
 						</rectBox>
 					</Frame>

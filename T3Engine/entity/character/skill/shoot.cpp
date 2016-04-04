@@ -44,8 +44,11 @@ void Shoot::shootBullet()
         return;
     }
 
-    Bullet* bullet=BulletManager::instance()->getBullet("trackBullet");
+//    Bullet* bullet=BulletManager::instance()->getBullet("trackBullet");
+    Bullet* bullet=BulletManager::instance()->getBullet("laser");
     bullet->init(character);
+//    bullet->setRemainTime(10);
+
 
     character->getScene()->addBulletToBox(bullet);
 }

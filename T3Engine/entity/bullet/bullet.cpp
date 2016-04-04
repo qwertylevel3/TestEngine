@@ -2,6 +2,8 @@
 #include"directbullet.h"
 #include"trackbullet.h"
 #include"scene.h"
+#include<math.h>
+#include"collisiondetector.h"
 
 Bullet::Bullet(const QString &spriteName)
     :Entity(spriteName)
@@ -118,16 +120,26 @@ void Bullet::setDirectionToTarget()
         float x2=target->getX();
         float y2=target->getY();
 
-        float dx=x2-x1;
-        float dy=y2-y1;
+    //    float dx=x2-x1;
+    //    float dy=y2-y1;
 
-        float dv=sqrt(dx*dx+dy*dy);
+        float tempAngle;
+        if(x2>x1)
+        {
+            tempAngle=-CollisionDetector::radian2angle(atan((y2-y1)/(x2-x1)));
+        }
+        else if(x2<x1)
+        {
+            tempAngle=-CollisionDetector::radian2angle(atan((y2-y1)/(x2-x1)));
+            tempAngle+=180;
+        }
+        else
+        {
+            tempAngle=180;
+        }
 
-        float directionX=dx/dv;
-        float directionY=dy/dv;
-
-        setDirectionX(directionX);
-        setDirectionY(directionY);
+        this->setRotateZ(1);
+        this->setRotateAngle(tempAngle);
     }
 }
 

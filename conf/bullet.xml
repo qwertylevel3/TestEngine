@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BulletBox>
-	<TotalBullletNumber>2</TotalBullletNumber>
+	<TotalBullletNumber>3</TotalBullletNumber>
 	<Bullet>
 		<Type>Direct</Type>
 		<Name>directBullet</Name>
@@ -13,6 +13,13 @@
 		<Name>trackBullet</Name>
 		<SpriteName>bullet</SpriteName>
 		<speed>10</speed>
+		<damage>20</damage>
+	</Bullet>
+	<Bullet>
+		<Type>Direct</Type>
+		<Name>laser</Name>
+		<SpriteName>laser</SpriteName>
+		<speed>0</speed>
 		<damage>20</damage>
 	</Bullet>
 </BulletBox>
