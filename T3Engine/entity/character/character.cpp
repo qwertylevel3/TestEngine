@@ -24,7 +24,7 @@ Character::~Character()
 void Character::draw()
 {
     Entity::draw();
-    drawField(alarmField);
+    //drawField(alarmField);
     //TODO...draw 2 rect
 }
 

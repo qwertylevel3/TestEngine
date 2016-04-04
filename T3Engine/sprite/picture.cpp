@@ -63,7 +63,7 @@ void Picture::allocateBuffer()
 void Picture::updateArrayBuffer()
 {
     matrix.setToIdentity();
-    matrix.rotate(angle,x,y,z);
+    matrix.rotate(angle,ax,ay,az);
     //matrix.scale(zoomX,zoomY,1);
 
    // width=width*zoomX;
@@ -113,29 +113,61 @@ void Picture::updateVertexData()
     float tempWidth=width*zoomX/GameConfigurator::instance()->getScale();
     float tempHeight=height*zoomY/GameConfigurator::instance()->getScale();
 
-    vertices[0]=VertexData({(QVector4D(-1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+    QVector4D tempPosition[4];
+    tempPosition[0]=QVector4D(-1.0f*tempWidth,-1.0f*tempHeight,0.0f,1);
+    tempPosition[1]=QVector4D(1.0f*tempWidth,-1.0f*tempHeight,0.0f,1);
+    tempPosition[2]=QVector4D(-1.0f*tempWidth,1.0f*tempHeight,0.0f,1);
+    tempPosition[3]=QVector4D(1.0f*tempWidth,1.0f*tempHeight,0.0f,1);
+
+
+    //rotate
+    for(int i=0;i<4;i++)
+    {
+        tempPosition[i]=tempPosition[i]*matrix;
+    }
+
+    //move
+    for(int i=0;i<4;i++)
+    {
+        tempPosition[i].setX(tempPosition[i].x()+x);
+        tempPosition[i].setY(tempPosition[i].y()+y);
+        tempPosition[i].setZ(tempPosition[i].z()+z);
+    }
+
+
+//    vertices[0]=VertexData({(QVector4D(-1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+//                            QVector2D(0.0f+tx, 0.0f+ty)});
+//    vertices[1]=VertexData({(QVector4D( 1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+//                            QVector2D(1.0f*tw+tx+repeatX, 0.0f+ty)});
+//    vertices[2]=VertexData({(QVector4D(-1.0f*tempWidth+x,  1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+//                            QVector2D(0.0f+tx, 1.0f*th+ty+repeatY)});
+//    vertices[3]=VertexData({(QVector4D( 1.0f*tempWidth+x,  1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+//                            QVector2D(1.0f*tw+tx+repeatX, 1.0f*th+ty+repeatY)});
+
+    vertices[0]=VertexData({tempPosition[0].toVector3D(),
                             QVector2D(0.0f+tx, 0.0f+ty)});
-    vertices[1]=VertexData({(QVector4D( 1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+    vertices[1]=VertexData({tempPosition[1].toVector3D(),
                             QVector2D(1.0f*tw+tx+repeatX, 0.0f+ty)});
-    vertices[2]=VertexData({(QVector4D(-1.0f*tempWidth+x,  1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+    vertices[2]=VertexData({tempPosition[2].toVector3D(),
                             QVector2D(0.0f+tx, 1.0f*th+ty+repeatY)});
-    vertices[3]=VertexData({(QVector4D( 1.0f*tempWidth+x,  1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+    vertices[3]=VertexData({tempPosition[3].toVector3D(),
                             QVector2D(1.0f*tw+tx+repeatX, 1.0f*th+ty+repeatY)});
+
 }
 
 void Picture::updateVertexDataMir()
 {
-    float tempWidth=width*zoomX/GameConfigurator::instance()->getScale();
-    float tempHeight=height*zoomY/GameConfigurator::instance()->getScale();
-
-    vertices[0]=VertexData({(QVector4D(-1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
-                            QVector2D(1.0f*tw+tx+repeatX, 0.0f+ty)});
-    vertices[1]=VertexData({(QVector4D( 1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
-                            QVector2D(0.0f+tx, 0.0f+ty)});
-    vertices[2]=VertexData({(QVector4D(-1.0f*tempWidth+x, 1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
-                            QVector2D(1.0f*tw+tx+repeatX, 1.0f*th+ty+repeatY)});
-    vertices[3]=VertexData({(QVector4D( 1.0f*tempWidth+x,  1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
-                            QVector2D(0.0f+tx, 1.0f*th+ty+repeatY)});
+//    float tempWidth=width*zoomX/GameConfigurator::instance()->getScale();
+//    float tempHeight=height*zoomY/GameConfigurator::instance()->getScale();
+//
+//    vertices[0]=VertexData({(QVector4D(-1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+//                            QVector2D(1.0f*tw+tx+repeatX, 0.0f+ty)});
+//    vertices[1]=VertexData({(QVector4D( 1.0f*tempWidth+x, -1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+//                            QVector2D(0.0f+tx, 0.0f+ty)});
+//    vertices[2]=VertexData({(QVector4D(-1.0f*tempWidth+x, 1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+//                            QVector2D(1.0f*tw+tx+repeatX, 1.0f*th+ty+repeatY)});
+//    vertices[3]=VertexData({(QVector4D( 1.0f*tempWidth+x,  1.0f*tempHeight+y,  0.0f+z,1)*matrix).toVector3D(),
+//                            QVector2D(0.0f+tx, 1.0f*th+ty+repeatY)});
 }
 
 void Picture::setName(const QString &imagePath)
