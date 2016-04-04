@@ -371,9 +371,9 @@ void World::makePlayer(Scene *scene)
     player->setZ(z);
     player->setType("PLAYER");
 
-    //player->setRotateAngle(45);
-    //player->setRotateZ(1);
-    //player->setZoomX(2);
+    player->setRotateAngle(45);
+    player->setRotateZ(1);
+    player->setZoomX(4);
     //player->setZoomY(2);
     //player->setAlpha(0.5);
 
@@ -426,8 +426,6 @@ void World::makeTrigger(Scene *scene)
     Event* event=Event::getEvent(eventType);
     event->setScene(scene);
     event->config(&reader);
-
-
 
     reader.readNextStartElement();//</event>
 

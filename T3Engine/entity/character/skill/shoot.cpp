@@ -47,6 +47,7 @@ void Shoot::shootBullet()
 //    Bullet* bullet=BulletManager::instance()->getBullet("trackBullet");
     Bullet* bullet=BulletManager::instance()->getBullet("laser");
     bullet->init(character);
+    bullet->setZoomX(10);
 //    bullet->setRemainTime(10);
 
 
