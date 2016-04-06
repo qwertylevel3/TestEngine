@@ -91,6 +91,18 @@ public:
     float getAz() const;
     void setAz(float value);
 
+    float getZoomLeft() const;
+    void setZoomLeft(float value);
+
+    float getZoomRight() const;
+    void setZoomRight(float value);
+
+    float getZoomUp() const;
+    void setZoomUp(float value);
+
+    float getZoomDown() const;
+    void setZoomDown(float value);
+
 private:
     void initFaceGeometry();
     void allocateBuffer();
@@ -117,6 +129,10 @@ private:
 
     float zoomX;//放缩
     float zoomY;
+    float zoomLeft;
+    float zoomRight;
+    float zoomUp;
+    float zoomDown;
     float x,y,z;//位置坐标
     float width;//宽高，单位为像素
     float height;

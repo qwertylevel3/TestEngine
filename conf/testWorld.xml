@@ -117,7 +117,7 @@
 				<Condition>
 					<ConditionType>TimeUp</ConditionType>
 					<config>
-						<time>3000</time>
+						<time>300000</time>
 					</config>
 				</Condition>
 				<Event>

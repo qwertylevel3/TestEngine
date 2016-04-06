@@ -112,6 +112,12 @@ void Picture::updateVertexData()
 {
     float tempWidth=width*zoomX/GameConfigurator::instance()->getScale();
     float tempHeight=height*zoomY/GameConfigurator::instance()->getScale();
+//    float tempLeft=width/2*;
+//    float tempRight;
+//    float tempUp;
+//    float tempDown;
+    tempWidth/=2;
+    tempHeight/=2;
 
     QVector4D tempPosition[4];
     tempPosition[0]=QVector4D(-1.0f*tempWidth,-1.0f*tempHeight,0.0f,1);
@@ -175,6 +181,46 @@ void Picture::setName(const QString &imagePath)
     int len=imagePath.length()-QDir::currentPath().length();
     name=imagePath.right(len);
 }
+float Picture::getZoomDown() const
+{
+    return zoomDown;
+}
+
+void Picture::setZoomDown(float value)
+{
+    zoomDown = value;
+}
+
+float Picture::getZoomUp() const
+{
+    return zoomUp;
+}
+
+void Picture::setZoomUp(float value)
+{
+    zoomUp = value;
+}
+
+float Picture::getZoomRight() const
+{
+    return zoomRight;
+}
+
+void Picture::setZoomRight(float value)
+{
+    zoomRight = value;
+}
+
+float Picture::getZoomLeft() const
+{
+    return zoomLeft;
+}
+
+void Picture::setZoomLeft(float value)
+{
+    zoomLeft = value;
+}
+
 float Picture::getAz() const
 {
     return az;

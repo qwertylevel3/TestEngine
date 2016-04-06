@@ -82,8 +82,8 @@ bool CollisionDetector::isCollision(Entity *a, Entity *b)
             //aRect里保存的是矩形的中点和宽高，不是左上角点
             aRect.setX(aRectx);
             aRect.setY(aRecty);
-            aRect.setWidth(aRectwidth*2*a->getZoomX());
-            aRect.setHeight(aRectheight*2*a->getZoomY());
+            aRect.setWidth(aRectwidth*a->getZoomX());
+            aRect.setHeight(aRectheight*a->getZoomY());
 
             QRectF bRect=b->getCurrentRects()[j];
 
@@ -97,8 +97,8 @@ bool CollisionDetector::isCollision(Entity *a, Entity *b)
 
             bRect.setX(bRectx);
             bRect.setY(bRecty);
-            bRect.setWidth(bRectwidth*2*b->getZoomX());
-            bRect.setHeight(bRectheight*2*b->getZoomY());
+            bRect.setWidth(bRectwidth*b->getZoomX());
+            bRect.setHeight(bRectheight*b->getZoomY());
             //            bRect.setX(bRectx);
             //            bRect.setY(bRecty);
             //            bRect.setWidth(bRectwidth);
