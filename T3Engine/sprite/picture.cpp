@@ -86,6 +86,10 @@ void Picture::initParameter()
     texture=0;
     zoomX=1;
     zoomY=1;
+    zoomUp=1;
+    zoomDown=1;
+    zoomLeft=1;
+    zoomRight=1;
     x=y=z=0;
     width=1;
     height=1;
@@ -112,19 +116,19 @@ void Picture::updateVertexData()
 {
     float tempWidth=width*zoomX/GameConfigurator::instance()->getScale();
     float tempHeight=height*zoomY/GameConfigurator::instance()->getScale();
-//    float tempLeft=width/2*;
-//    float tempRight;
-//    float tempUp;
-//    float tempDown;
     tempWidth/=2;
     tempHeight/=2;
 
-    QVector4D tempPosition[4];
-    tempPosition[0]=QVector4D(-1.0f*tempWidth,-1.0f*tempHeight,0.0f,1);
-    tempPosition[1]=QVector4D(1.0f*tempWidth,-1.0f*tempHeight,0.0f,1);
-    tempPosition[2]=QVector4D(-1.0f*tempWidth,1.0f*tempHeight,0.0f,1);
-    tempPosition[3]=QVector4D(1.0f*tempWidth,1.0f*tempHeight,0.0f,1);
+    float tempLeft=(width/2)*zoomLeft/GameConfigurator::instance()->getScale();
+    float tempRight=(width/2)*zoomRight/GameConfigurator::instance()->getScale();
+    float tempUp=(height/2)*zoomUp/GameConfigurator::instance()->getScale();
+    float tempDown=(height/2)*zoomDown/GameConfigurator::instance()->getScale();
 
+    QVector4D tempPosition[4];
+    tempPosition[0]=QVector4D(-1.0f*tempLeft,-1.0f*tempDown,0.0f,1);
+    tempPosition[1]=QVector4D(1.0f*tempRight,-1.0f*tempDown,0.0f,1);
+    tempPosition[2]=QVector4D(-1.0f*tempLeft,1.0f*tempUp,0.0f,1);
+    tempPosition[3]=QVector4D(1.0f*tempRight,1.0f*tempUp,0.0f,1);
 
     //rotate
     for(int i=0;i<4;i++)
@@ -158,7 +162,6 @@ void Picture::updateVertexData()
                             QVector2D(0.0f+tx, 1.0f*th+ty+repeatY)});
     vertices[3]=VertexData({tempPosition[3].toVector3D(),
                             QVector2D(1.0f*tw+tx+repeatX, 1.0f*th+ty+repeatY)});
-
 }
 
 void Picture::updateVertexDataMir()

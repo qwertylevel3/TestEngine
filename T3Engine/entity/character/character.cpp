@@ -23,6 +23,11 @@ Character::~Character()
 
 void Character::draw()
 {
+//    if(this->type==PLAYER)
+//    {
+//        qDebug()<<"player Draw"<<endl;
+//    }
+
     Entity::draw();
     //drawField(alarmField);
     //TODO...draw 2 rect

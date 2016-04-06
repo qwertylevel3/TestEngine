@@ -20,6 +20,23 @@ struct Frame
     {
         picturePoint->setZoomY(zoomY);
     }
+    void setZoomUp(float zoomUp)
+    {
+        picturePoint->setZoomUp(zoomUp);
+    }
+    void setZoomDown(float zoomDown)
+    {
+        picturePoint->setZoomDown(zoomDown);
+    }
+    void setZoomLeft(float zoomLeft)
+    {
+        picturePoint->setZoomLeft(zoomLeft);
+    }
+    void setZoomRight(float zoomRight)
+    {
+        picturePoint->setZoomRight(zoomRight);
+    }
+
     void mirror(bool mir)
     {
         picturePoint->setMirror(mir);

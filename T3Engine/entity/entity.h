@@ -70,6 +70,11 @@ public:
     void setTotalActionNumber(int t){sprite->setTotalActionNumber(t);}
     void setZoomX(float z);
     void setZoomY(float z);
+    void setZoomUp(float z);
+    void setZoomDown(float z);
+    void setZoomLeft(float z);
+    void setZoomRight(float z);
+
 
     //TODO: handle child......
     void mirror(bool m){sprite->mirror(m);}

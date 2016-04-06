@@ -31,10 +31,14 @@ public:
     void setZoomX(float z)
     {
         zoomX=z;
+        zoomLeft=z;
+        zoomRight=z;
     }
     void setZoomY(float z)
     {
         zoomY=z;
+        zoomUp=z;
+        zoomDown=z;
     }
     void setMatrix(const QMatrix4x4& m)
     {

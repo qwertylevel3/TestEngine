@@ -26,6 +26,22 @@ public:
     {
         frameBox[currFrame]->setZoomY(zoomY);
     }
+    void setZoomUp(float zoomUp)
+    {
+        frameBox[currFrame]->setZoomUp(zoomUp);
+    }
+    void setZoomDown(float zoomDown)
+    {
+        frameBox[currFrame]->setZoomDown(zoomDown);
+    }
+    void setZoomLeft(float zoomLeft)
+    {
+        frameBox[currFrame]->setZoomLeft(zoomLeft);
+    }
+    void setZoomRight(float zoomRight)
+    {
+        frameBox[currFrame]->setZoomRight(zoomRight);
+    }
     void mirror(float mir)
     {
         frameBox[currFrame]->mirror(mir);

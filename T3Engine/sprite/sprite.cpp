@@ -4,6 +4,10 @@ Sprite::Sprite()
 {
     zoomX=1;
     zoomY=1;
+    zoomUp=1;
+    zoomDown=1;
+    zoomLeft=1;
+    zoomRight=1;
     x=y=z=0;
 
     mir=false;
@@ -55,8 +59,12 @@ void Sprite::draw()
         animationBox[currentAnimation]->setText(text);
     }
     animationBox[currentAnimation]->setCoordinate(x,y,z);
-    animationBox[currentAnimation]->setZoomX(zoomX);
-    animationBox[currentAnimation]->setZoomY(zoomY);
+    //animationBox[currentAnimation]->setZoomX(zoomX);
+    //animationBox[currentAnimation]->setZoomY(zoomY);
+    animationBox[currentAnimation]->setZoomUp(zoomUp);
+    animationBox[currentAnimation]->setZoomDown(zoomDown);
+    animationBox[currentAnimation]->setZoomLeft(zoomLeft);
+    animationBox[currentAnimation]->setZoomRight(zoomRight);
     animationBox[currentAnimation]->mirror(mir);
     animationBox[currentAnimation]->rotate(angle,ax,ay,az);
     animationBox[currentAnimation]->setRepeatX(repeatX);
@@ -80,6 +88,46 @@ void Sprite::setAlpha(float value)
 {
     alpha = value;
 }
+float Sprite::getZoomUp() const
+{
+    return zoomUp;
+}
+
+void Sprite::setZoomUp(float value)
+{
+    zoomUp = value;
+}
+float Sprite::getZoomDown() const
+{
+    return zoomDown;
+}
+
+void Sprite::setZoomDown(float value)
+{
+    zoomDown = value;
+}
+float Sprite::getZoomLeft() const
+{
+    return zoomLeft;
+}
+
+void Sprite::setZoomLeft(float value)
+{
+    zoomLeft = value;
+}
+float Sprite::getZoomRight() const
+{
+    return zoomRight;
+}
+
+void Sprite::setZoomRight(float value)
+{
+    zoomRight = value;
+}
+
+
+
+
 
 
 
