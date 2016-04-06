@@ -76,9 +76,3 @@ float OBB::angle2radian(float angle)
 {
     return 3.1415926*angle/180;
 }
-
-
-
-
-
-

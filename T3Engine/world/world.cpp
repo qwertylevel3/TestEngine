@@ -371,9 +371,9 @@ void World::makePlayer(Scene *scene)
     player->setZ(z);
     player->setType("PLAYER");
 
-    player->setRotateAngle(45);
-    player->setRotateZ(1);
-    player->setZoomX(4);
+    //player->setRotateAngle(45);
+    //player->setRotateZ(1);
+    //player->setZoomX(3);
     //player->setZoomY(2);
     //player->setAlpha(0.5);
 

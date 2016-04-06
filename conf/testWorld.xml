@@ -65,8 +65,8 @@
 			</Decoration>
 			<Decoration>
 				<DecorationName>scarecrow</DecorationName>
-				<x>1</x>
-				<y>-10</y>
+				<x>0</x>
+				<y>0</y>
 				<z>-10</z>
 			</Decoration>
 			<Decoration>
@@ -107,8 +107,8 @@
 		</CharacterBox>
 		<Player>
 			<PlayerName>test</PlayerName>
-			<x>100</x>
-			<y>-40</y>
+			<x>0</x>
+			<y>0</y>
 			<z>-10</z>
 		</Player>
 		<TriggerBox>

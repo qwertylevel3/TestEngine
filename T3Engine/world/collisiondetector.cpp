@@ -33,6 +33,7 @@ bool CollisionDetector::isCollision(OBB obb1, OBB obb2)
     QVector2D nv;
     nv.setX(obb1.getCenterPoint().x()-obb2.getCenterPoint().x());
     nv.setY(obb1.getCenterPoint().y()-obb2.getCenterPoint().y());
+
     QVector2D axisA1=obb1.getAxes().horAxis;
     if(obb1.getProjectionRadius(axisA1)+obb2.getProjectionRadius(axisA1)
             <= fabs(QVector2D::dotProduct(nv,axisA1)))
@@ -103,8 +104,8 @@ bool CollisionDetector::isCollision(Entity *a, Entity *b)
             //            bRect.setWidth(bRectwidth);
             //            bRect.setHeight(bRectheight);
 
-            OBB obb1(QPointF(aRect.x(),aRect.y()),aRect.width(),aRect.height(),a->getRotateAngle());
-            OBB obb2(QPointF(bRect.x(),bRect.y()),bRect.width(),bRect.height(),b->getRotateAngle());
+            OBB obb1(QPointF(aRect.x(),aRect.y()),aRect.width(),aRect.height(),-a->getRotateAngle());
+            OBB obb2(QPointF(bRect.x(),bRect.y()),bRect.width(),bRect.height(),-b->getRotateAngle());
 
             //发现接触
             if(isCollision(obb1,obb2))
