@@ -258,6 +258,7 @@ void Picture::loadImage(const QString &imagePath)
         return ;
     }
     setName(imagePath);
+
 }
 
 void Picture::rotate(float angle, float a_x, float a_y, float a_z)
@@ -267,6 +268,16 @@ void Picture::rotate(float angle, float a_x, float a_y, float a_z)
     ay=a_y;
     az=a_z;
 
+}
+
+float Picture::getWidth()
+{
+    return width*zoomX;
+}
+
+float Picture::getHeight()
+{
+    return height*zoomY;
 }
 
 
@@ -311,6 +322,28 @@ void Picture::setCoordinate(float x, float y, float z)
     this->x=x;
     this->y=y;
     this->z=z;
+}
+
+void Picture::setWidth(float w)
+{
+//    width=w;
+    setZoomX(w/width);
+}
+
+void Picture::setHeight(float h)
+{
+//    height=h;
+    setZoomY(h/height);
+}
+
+void Picture::setOriWidth(float w)
+{
+    width=w;
+}
+
+void Picture::setOriHeight(float h)
+{
+    height=h;
 }
 
 

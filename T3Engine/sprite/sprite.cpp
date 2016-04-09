@@ -12,8 +12,8 @@ Sprite::Sprite()
     ax=ay=az=0;
     repeatX=0;
     repeatY=0;
-    width=0.1;
-    height=0.1;
+    width=1;
+    height=1;
     alpha=1.0;
 
     currentAnimation="";
@@ -28,8 +28,11 @@ Sprite *Sprite::clone()
     newSp->setName(this->name);
     newSp->setCurrentAction(this->getCurrentActionName());
     newSp->setTotalActionNumber(this->totalActionNumber);
+    newSp->setOriWidth(oriWidth);
+    newSp->setOriHeight(oriHeight);
     newSp->setWidth(width);
     newSp->setHeight(height);
+
 
 
     QMap<QString,Animatioin*>::const_iterator i=animationBox.constBegin();
@@ -55,14 +58,16 @@ void Sprite::draw()
         animationBox[currentAnimation]->setText(text);
     }
     animationBox[currentAnimation]->setCoordinate(x,y,z);
+    animationBox[currentAnimation]->setOriWidth(oriWidth);
+    animationBox[currentAnimation]->setOriHeight(oriHeight);
     animationBox[currentAnimation]->setZoomX(zoomX);
     animationBox[currentAnimation]->setZoomY(zoomY);
+//    animationBox[currentAnimation]->setWidth(width);
+//    animationBox[currentAnimation]->setHeight(height);
     animationBox[currentAnimation]->mirror(mir);
     animationBox[currentAnimation]->rotate(angle,ax,ay,az);
     animationBox[currentAnimation]->setRepeatX(repeatX);
     animationBox[currentAnimation]->setRepeatY(repeatY);
-    animationBox[currentAnimation]->setWidth(width);
-    animationBox[currentAnimation]->setHeight(height);
     animationBox[currentAnimation]->setAlpha(alpha);
     animationBox[currentAnimation]->draw();
 }
@@ -80,6 +85,26 @@ void Sprite::setAlpha(float value)
 {
     alpha = value;
 }
+float Sprite::getOriWidth() const
+{
+    return oriWidth;
+}
+
+void Sprite::setOriWidth(float value)
+{
+    oriWidth = value;
+}
+float Sprite::getOriHeight() const
+{
+    return oriHeight;
+}
+
+void Sprite::setOriHeight(float value)
+{
+    oriHeight = value;
+}
+
+
 
 void Sprite::addAction(Animatioin *value)
 {
@@ -89,4 +114,16 @@ void Sprite::addAction(Animatioin *value)
 void Sprite::setCurrentAction(const QString &actionName)
 {
     currentAnimation=actionName;
+}
+
+void Sprite::setZoomX(float z)
+{
+    zoomX=z;
+    width=oriWidth*z;
+}
+
+void Sprite::setZoomY(float z)
+{
+    zoomY=z;
+    height=oriHeight*z;
 }

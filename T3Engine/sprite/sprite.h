@@ -27,8 +27,8 @@ public:
     void setCurrentAction(const QString& actionName);
     void setName(const QString& n){name=n;}
     void setTotalActionNumber(int n){totalActionNumber=n;}
-    void setZoomX(float z){zoomX=z;}
-    void setZoomY(float z){zoomY=z;}
+    void setZoomX(float z);
+    void setZoomY(float z);
     void mirror(bool m){mir=m;}
     void setRotateAngle(float a){angle=a;}
     void setRotateX(float x){ax=x;}
@@ -51,12 +51,14 @@ public:
     float getRotateZ(){return az;}
     Animatioin* getAction(const QString& actionName){return animationBox[actionName];}
 
+
     float getWidth() const
     {
         return width;
     }
     void setWidth(float value)
     {
+        zoomX=value/oriWidth;
         width=value;
     }
 
@@ -66,6 +68,7 @@ public:
     }
     void setHeight(float value)
     {
+        zoomY=value/oriHeight;
         height=value;
     }
 
@@ -102,6 +105,12 @@ public:
     float getZoomRight() const;
     void setZoomRight(float value);
 
+    float getOriWidth() const;
+    void setOriWidth(float value);
+
+    float getOriHeight() const;
+    void setOriHeight(float value);
+
 protected:
     QString name;
 
@@ -117,6 +126,8 @@ protected:
 
     float angle;//旋转角度
     float ax,ay,az;//旋转轴
+    float oriWidth;
+    float oriHeight;
     float width;
     float height;
     int repeatX;//重复绘制

@@ -99,10 +99,12 @@ Sprite *SpriteManager::makeSprite()
 
     reader.readNextStartElement();//<width>
     float width=reader.readElementText().toFloat();
+    sprite->setOriWidth(width);
     sprite->setWidth(width);
 
     reader.readNextStartElement();//<height>
     float height=reader.readElementText().toFloat();
+    sprite->setOriHeight(height);
     sprite->setHeight(height);
 
     for(int i=0;i<totalActionNumber;i++)

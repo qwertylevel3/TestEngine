@@ -177,6 +177,16 @@ void Entity::setZ(float z)
     }
 }
 
+float Entity::getOriWidth() const
+{
+    return sprite->getOriWidth();
+}
+
+float Entity::getOriHeight() const
+{
+    return sprite->getOriHeight();
+}
+
 void Entity::setCurrentAction(const QString &actionName)
 {
     sprite->setCurrentAction(actionName);

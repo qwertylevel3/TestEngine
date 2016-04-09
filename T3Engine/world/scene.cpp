@@ -538,8 +538,8 @@ void Scene::addTrigger(Trigger *trigger)
 void Scene::setBackground(Background *BK)
 {
 
-    float w=BK->getWidth();
-    float h=BK->getHeight();
+    float w=BK->getOriWidth();
+    float h=BK->getOriHeight();
 
     BK->setWidth(getWidth());
     BK->setHeight(getHeight());

@@ -25,8 +25,10 @@ public:
 
 
     void setCoordinate(float x,float y,float z=0);
-    void setWidth(float w){width=w;}
-    void setHeight(float h){height=h;}
+    void setWidth(float w);
+    void setHeight(float h);
+    void setOriWidth(float w);
+    void setOriHeight(float h);
     void setTexturePosition(float t_x,float t_y,float t_w,float t_h);
     void setZoomX(float z)
     {
@@ -48,8 +50,8 @@ public:
     }
     void rotate(float angle,float a_x,float a_y,float a_z=0);
 
-    float getWidth(){return width;}
-    float getHeight(){return height;}
+    float getWidth();
+    float getHeight();
     float getX(){return x;}
     float getY(){return y;}
     float getZ(){return z;}

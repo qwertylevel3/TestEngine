@@ -62,11 +62,11 @@ void Frame::drawRect()
 
     for(int i=0;i<rects.size();i++)
     {
-        rectPoint->setWidth(float(rects[i].width()));
-        rectPoint->setHeight(float(rects[i].height()));
+        rectPoint->setWidth(float(rects[i].width()*picturePoint->getZoomX()));
+        rectPoint->setHeight(float(rects[i].height()*picturePoint->getZoomY()));
 
-        rectPoint->setZoomX(picturePoint->getZoomX());
-        rectPoint->setZoomY(picturePoint->getZoomY());
+//        rectPoint->setZoomX(picturePoint->getZoomX());
+//        rectPoint->setZoomY(picturePoint->getZoomY());
 
         rectPoint->setCoordinate(picturePoint->getX()+float(rects[i].x())/scale,//*picturePoint->getWidth())/scale,
                                  picturePoint->getY()+float(rects[i].y())/scale,//*picturePoint->getHeight())/scale,

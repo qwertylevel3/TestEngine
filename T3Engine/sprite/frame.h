@@ -36,6 +36,15 @@ struct Frame
     {
         picturePoint->setHeight(height);
     }
+    void setOriWidth(float w)
+    {
+        picturePoint->setOriWidth(w);
+    }
+    void setOriHeight(float h)
+    {
+        picturePoint->setOriHeight(h);
+    }
+
     void setRepeatX(int value)
     {
         picturePoint->setRepeatX(value);

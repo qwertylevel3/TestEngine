@@ -42,6 +42,15 @@ public:
     {
         frameBox[currFrame]->setHeight(height);
     }
+    void setOriWidth(float w)
+    {
+        frameBox[currFrame]->setOriWidth(w);
+    }
+    void setOriHeight(float h)
+    {
+        frameBox[currFrame]->setOriHeight(h);
+    }
+
     void setRepeatX(int value)
     {
         frameBox[currFrame]->setRepeatX(value);

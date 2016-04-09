@@ -61,6 +61,9 @@ public:
     float getWidth() const;
     float getHeight() const;
 
+    float getOriWidth() const;
+    float getOriHeight() const;
+
     void setLocalX(float x);
     void setLocalY(float y);
     void setLocalZ(float z);
