@@ -62,21 +62,11 @@ void Frame::drawRect()
 
     for(int i=0;i<rects.size();i++)
     {
-//        rectPoint->setWidth(float(rects[i].width()*picturePoint->getZoomX()));
-//        rectPoint->setHeight(float(rects[i].height()*picturePoint->getZoomY()));
-
-        if(rects[i].width()==10 && rects[i].height()==10)
-        {
-            qDebug()<<">>>"<<endl;
-        }
-
         rectPoint->setWidth(float(rects[i].width()));
         rectPoint->setHeight(float(rects[i].height()));
 
-        rectPoint->setZoomUp(picturePoint->getZoomUp());
-        rectPoint->setZoomDown(picturePoint->getZoomDown());
-        rectPoint->setZoomLeft(picturePoint->getZoomLeft());
-        rectPoint->setZoomRight(picturePoint->getZoomRight());
+        rectPoint->setZoomX(picturePoint->getZoomX());
+        rectPoint->setZoomY(picturePoint->getZoomY());
 
         rectPoint->setCoordinate(picturePoint->getX()+float(rects[i].x())/scale,//*picturePoint->getWidth())/scale,
                                  picturePoint->getY()+float(rects[i].y())/scale,//*picturePoint->getHeight())/scale,

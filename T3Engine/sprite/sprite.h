@@ -27,8 +27,8 @@ public:
     void setCurrentAction(const QString& actionName);
     void setName(const QString& n){name=n;}
     void setTotalActionNumber(int n){totalActionNumber=n;}
-    void setZoomX(float z){zoomX=z;zoomLeft=z;zoomRight=z;}
-    void setZoomY(float z){zoomY=z;zoomUp=z;zoomDown=z;}
+    void setZoomX(float z){zoomX=z;}
+    void setZoomY(float z){zoomY=z;}
     void mirror(bool m){mir=m;}
     void setRotateAngle(float a){angle=a;}
     void setRotateX(float x){ax=x;}
@@ -110,10 +110,6 @@ protected:
 
     float zoomX;//放缩
     float zoomY;
-    float zoomUp;
-    float zoomDown;
-    float zoomLeft;
-    float zoomRight;
 
     float x,y,z;//位置坐标
 

@@ -64,6 +64,8 @@ bool CollisionDetector::isCollision(OBB obb1, OBB obb2)
 
 bool CollisionDetector::isCollision(Entity *a, Entity *b)
 {
+    float scale=GameConfigurator::instance()->getScale();
+
     QList<QRectF> aRectList=a->getCurrentRects();
     QList<QRectF> bRectList=b->getCurrentRects();
 
@@ -73,36 +75,30 @@ bool CollisionDetector::isCollision(Entity *a, Entity *b)
         {
             QRectF aRect=a->getCurrentRects()[i];
 
-            float aRectx=aRect.x()+(a->getX()+a->getDx())*GameConfigurator::instance()->getScale();
-            float aRecty=aRect.y()+(a->getY()+a->getDy())*GameConfigurator::instance()->getScale();
-            float aRectwidth=aRect.width();
-            float aRectheight=aRect.height();
+            float aRectx=aRect.x()+(a->getX()+a->getDx())*scale;
+            float aRecty=aRect.y()+(a->getY()+a->getDy())*scale;
+            float aRectwidth=aRect.width()*a->getZoomX();
+            float aRectheight=aRect.height()*a->getZoomY();
 
-
-            //aRect里保存的是矩形的中点和宽高，不是左上角点
             aRect.setX(aRectx);
             aRect.setY(aRecty);
-            aRect.setWidth(aRectwidth*a->getZoomX());
-            aRect.setHeight(aRectheight*a->getZoomY());
+            aRect.setWidth(aRectwidth);
+            aRect.setHeight(aRectheight);
+
 
             QRectF bRect=b->getCurrentRects()[j];
 
-            float bRectx=bRect.x()+b->getX()*GameConfigurator::instance()->getScale()+b->getDx();
-            //qDebug()<<bRectx<<endl;
-            //qDebug()<<GameConfigurator::instance()->getScale()<<endl;
-            //qDebug()<<bRectx<<endl;
-            float bRecty=bRect.y()+b->getY()*GameConfigurator::instance()->getScale()+b->getDy();
-            float bRectwidth=bRect.width();
-            float bRectheight=bRect.height();
+            float bRectx=bRect.x()+(b->getX()+b->getDx())*scale;
+            float bRecty=bRect.y()+(b->getY()+b->getDy())*scale;
+            float bRectwidth=bRect.width()*b->getZoomX();
+            float bRectheight=bRect.height()*b->getZoomY();
+
 
             bRect.setX(bRectx);
             bRect.setY(bRecty);
-            bRect.setWidth(bRectwidth*b->getZoomX());
-            bRect.setHeight(bRectheight*b->getZoomY());
-            //            bRect.setX(bRectx);
-            //            bRect.setY(bRecty);
-            //            bRect.setWidth(bRectwidth);
-            //            bRect.setHeight(bRectheight);
+            bRect.setWidth(bRectwidth);
+            bRect.setHeight(bRectheight);
+
 
             OBB obb1(QPointF(aRect.x(),aRect.y()),aRect.width(),aRect.height(),-a->getRotateAngle());
             OBB obb2(QPointF(bRect.x(),bRect.y()),bRect.width(),bRect.height(),-b->getRotateAngle());

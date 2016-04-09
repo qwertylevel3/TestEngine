@@ -204,50 +204,6 @@ void Entity::setZoomY(float z)
     }
 }
 
-void Entity::setZoomUp(float z)
-{
-    sprite->setZoomUp(z);
-    QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
-    while(i!=childBox.constEnd())
-    {
-        i.value()->setZoomUp(z);
-        i++;
-    }
-}
-
-void Entity::setZoomDown(float z)
-{
-    sprite->setZoomDown(z);
-    QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
-    while(i!=childBox.constEnd())
-    {
-        i.value()->setZoomDown(z);
-        i++;
-    }
-}
-
-void Entity::setZoomLeft(float z)
-{
-    sprite->setZoomLeft(z);
-    QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
-    while(i!=childBox.constEnd())
-    {
-        i.value()->setZoomLeft(z);
-        i++;
-    }
-}
-
-void Entity::setZoomRight(float z)
-{
-    sprite->setZoomRight(z);
-    QMap<QString,Entity*>::const_iterator i=childBox.constBegin();
-    while(i!=childBox.constEnd())
-    {
-        i.value()->setZoomRight(z);
-        i++;
-    }
-}
-
 Entity *Entity::getChild(QString name)
 {
     return childBox[name];

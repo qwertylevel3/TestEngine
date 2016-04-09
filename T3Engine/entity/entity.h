@@ -70,10 +70,6 @@ public:
     void setTotalActionNumber(int t){sprite->setTotalActionNumber(t);}
     void setZoomX(float z);
     void setZoomY(float z);
-    void setZoomUp(float z);
-    void setZoomDown(float z);
-    void setZoomLeft(float z);
-    void setZoomRight(float z);
 
 
     //TODO: handle child......
@@ -96,6 +92,10 @@ public:
     int getTotalActionNumber(){return sprite->getTotalActionNumber();}
     float getZoomX(){return sprite->getZoomX();}
     float getZoomY(){return sprite->getZoomY();}
+    float getZoomLeft(){return sprite->getZoomLeft();}
+    float getZoomRight(){return sprite->getZoomRight();}
+    float getZoomUp(){return sprite->getZoomUp();}
+    float getZoomDown(){return sprite->getZoomDown();}
     bool isMirror(){return sprite->isMirror();}
     float getRotateAngle(){return sprite->getRotateAngle();}
 
