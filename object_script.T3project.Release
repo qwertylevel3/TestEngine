@@ -56,7 +56,6 @@ INPUT(
 ./release\ainode.o
 ./release\focus.o
 ./release\move.o
-./release\shoot.o
 ./release\skill.o
 ./release\action.o
 ./release\selector.o
@@ -68,6 +67,9 @@ INPUT(
 ./release\fleeaction.o
 ./release\runningselector.o
 ./release\stopmovingaction.o
+./release\laserbullet.o
+./release\shootlaser.o
+./release\shootbullet.o
 ./release\qrc_shader.o
 ./release\qrc_images.o
 ./release\moc_inputmodule.o

@@ -97,7 +97,6 @@ SOURCES += main.cpp\
     T3Engine/entity/character/AI/ainode.cpp \
     T3Engine/entity/character/skill/focus.cpp \
     T3Engine/entity/character/skill/move.cpp \
-    T3Engine/entity/character/skill/shoot.cpp \
     T3Engine/entity/character/skill/skill.cpp \
     T3Engine/entity/character/AI/action/action.cpp \
     T3Engine/entity/character/AI/selector/selector.cpp \
@@ -108,7 +107,10 @@ SOURCES += main.cpp\
     T3Engine/entity/character/AI/action/emptyaction.cpp \
     T3Engine/entity/character/AI/action/fleeaction.cpp \
     T3Engine/entity/character/AI/selector/runningselector.cpp \
-    T3Engine/entity/character/AI/action/stopmovingaction.cpp
+    T3Engine/entity/character/AI/action/stopmovingaction.cpp \
+    T3Engine/entity/bullet/laserbullet.cpp \
+    T3Engine/entity/character/skill/shootlaser.cpp \
+    T3Engine/entity/character/skill/shootbullet.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -170,7 +172,6 @@ HEADERS  += \
     T3Engine/sprite/animation.h \
     T3Engine/entity/character/skill/focus.h \
     T3Engine/entity/character/skill/move.h \
-    T3Engine/entity/character/skill/shoot.h \
     T3Engine/entity/character/skill/skill.h \
     T3Engine/entity/character/AI/action/action.h \
     T3Engine/entity/character/AI/selector/selector.h \
@@ -180,7 +181,10 @@ HEADERS  += \
     T3Engine/entity/character/AI/action/emptyaction.h \
     T3Engine/entity/character/AI/action/fleeaction.h \
     T3Engine/entity/character/AI/selector/runningselector.h \
-    T3Engine/entity/character/AI/action/stopmovingaction.h
+    T3Engine/entity/character/AI/action/stopmovingaction.h \
+    T3Engine/entity/bullet/laserbullet.h \
+    T3Engine/entity/character/skill/shootlaser.h \
+    T3Engine/entity/character/skill/shootbullet.h
 
 RESOURCES += \
     shader.qrc \

@@ -93,18 +93,6 @@ public:
     float getAlpha() const;
     void setAlpha(float value);
 
-    float getZoomUp() const;
-    void setZoomUp(float value);
-
-    float getZoomDown() const;
-    void setZoomDown(float value);
-
-    float getZoomLeft() const;
-    void setZoomLeft(float value);
-
-    float getZoomRight() const;
-    void setZoomRight(float value);
-
     float getOriWidth() const;
     void setOriWidth(float value);
 

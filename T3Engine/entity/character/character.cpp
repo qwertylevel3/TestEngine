@@ -1,7 +1,7 @@
 #include "character.h"
 #include"inputmodule.h"
 #include"move.h"
-#include"shoot.h"
+#include"shootbullet.h"
 #include"focus.h"
 #include"clockmanager.h"
 #include"picturemanager.h"
@@ -243,9 +243,9 @@ void Character::initSkill()
     skillBox.insert("moveLeft",moveLeft);
     skillBox.insert("moveRight",moveRight);
 
-    Shoot* shoot=new Shoot(this);
-    shoot->setInterval(15);
-    skillBox.insert("shoot",shoot);
+    ShootBullet* shootBullet=new ShootBullet(this);
+    shootBullet->setInterval(15);
+    skillBox.insert("shoot",shootBullet);
 
     Focus* focus=new Focus(this);
     skillBox.insert("focus",focus);

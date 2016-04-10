@@ -1,12 +1,12 @@
-#ifndef SHOOT_H
-#define SHOOT_H
+#ifndef SHOOTBULLET_H
+#define SHOOTBULLET_H
 
 #include"skill.h"
 
-class Shoot:public Skill
+class ShootBullet:public Skill
 {
 public:
-    Shoot(Character *e);
+    ShootBullet(Character *e);
     void start();
     void end();
     void run();
@@ -19,4 +19,4 @@ protected:
     int interval;
 };
 
-#endif // SHOOT_H
+#endif // SHOOTBULLET_H

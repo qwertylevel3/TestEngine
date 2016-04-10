@@ -1,27 +1,27 @@
-#include "shoot.h"
+#include "shootbullet.h"
 #include"bulletmanager.h"
 #include"clockmanager.h"
 #include"scene.h"
 #include"math.h"
 
 
-Shoot::Shoot(Character *e)
+ShootBullet::ShootBullet(Character *e)
     :Skill(e)
 {
     clockId=ClockManager::instance()->genClock();
 }
 
-void Shoot::start()
+void ShootBullet::start()
 {
     Skill::start();
 }
 
-void Shoot::end()
+void ShootBullet::end()
 {
     Skill::end();
 }
 
-void Shoot::run()
+void ShootBullet::run()
 {
     if(character->getFocusIndex()==-1)
     {
@@ -34,7 +34,7 @@ void Shoot::run()
     }
 }
 
-void Shoot::shootBullet()
+void ShootBullet::shootBullet()
 {
     int focusIndex=character->getFocusIndex();
 
@@ -44,21 +44,19 @@ void Shoot::shootBullet()
         return;
     }
 
-//    Bullet* bullet=BulletManager::instance()->getBullet("trackBullet");
-    Bullet* bullet=BulletManager::instance()->getBullet("laser");
+    Bullet* bullet=BulletManager::instance()->getBullet("trackBullet");
+//    Bullet* bullet=BulletManager::instance()->getBullet("directBullet");
     bullet->init(character);
-    bullet->setZoomX(10);
 //    bullet->setRemainTime(10);
-
 
     character->getScene()->addBulletToBox(bullet);
 }
-int Shoot::getInterval() const
+int ShootBullet::getInterval() const
 {
     return interval;
 }
 
-void Shoot::setInterval(int value)
+void ShootBullet::setInterval(int value)
 {
     interval = value;
     ClockManager::instance()->setClockInterval(clockId,value);

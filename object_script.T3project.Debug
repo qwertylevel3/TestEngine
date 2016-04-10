@@ -56,7 +56,6 @@ INPUT(
 ./debug\ainode.o
 ./debug\focus.o
 ./debug\move.o
-./debug\shoot.o
 ./debug\skill.o
 ./debug\action.o
 ./debug\selector.o
@@ -68,6 +67,9 @@ INPUT(
 ./debug\fleeaction.o
 ./debug\runningselector.o
 ./debug\stopmovingaction.o
+./debug\laserbullet.o
+./debug\shootlaser.o
+./debug\shootbullet.o
 ./debug\qrc_shader.o
 ./debug\qrc_images.o
 ./debug\moc_inputmodule.o

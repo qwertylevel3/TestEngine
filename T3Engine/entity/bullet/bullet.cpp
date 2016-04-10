@@ -120,8 +120,12 @@ void Bullet::setDirectionToTarget()
         float x2=target->getX();
         float y2=target->getY();
 
-    //    float dx=x2-x1;
-    //    float dy=y2-y1;
+        float dx=x2-x1;
+        float dy=y2-y1;
+        float dd=dx*dx+dy*dy;
+
+        this->setDirectionX(dx/sqrt(dd));
+        this->setDirectionY(dy/sqrt(dd));
 
         float tempAngle;
         if(x2>x1)
@@ -163,5 +167,4 @@ void Bullet::init(Character* shooter)
     setRemainTime(100);
 
     setDirectionToTarget();
-
 }

@@ -95,10 +95,6 @@ public:
     int getTotalActionNumber(){return sprite->getTotalActionNumber();}
     float getZoomX(){return sprite->getZoomX();}
     float getZoomY(){return sprite->getZoomY();}
-    float getZoomLeft(){return sprite->getZoomLeft();}
-    float getZoomRight(){return sprite->getZoomRight();}
-    float getZoomUp(){return sprite->getZoomUp();}
-    float getZoomDown(){return sprite->getZoomDown();}
     bool isMirror(){return sprite->isMirror();}
     float getRotateAngle(){return sprite->getRotateAngle();}
 
