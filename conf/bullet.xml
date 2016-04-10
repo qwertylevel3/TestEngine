@@ -20,6 +20,6 @@
 		<Name>laser</Name>
 		<SpriteName>laser</SpriteName>
 		<speed>0</speed>
-		<damage>20</damage>
+		<damage>100</damage>
 	</Bullet>
 </BulletBox>

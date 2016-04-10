@@ -13,10 +13,15 @@ public:
 
     int getInterval() const;
     void setInterval(int value);
+
+    QString getBulletName() const;
+    void setBulletName(const QString &value);
+
 protected:
-    void shootBullet();
+    void shoot();
     int clockId;
     int interval;
+    QString bulletName;
 };
 
 #endif // SHOOTBULLET_H

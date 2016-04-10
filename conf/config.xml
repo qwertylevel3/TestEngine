@@ -2,7 +2,7 @@
 <!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
 <Config>
 	<Scale>1</Scale>
-	<DrawRect>1</DrawRect>
+	<DrawRect>0</DrawRect>
 	<PaintNear>3</PaintNear>
 	<PaintFar>20</PaintFar>
 	<WindowWidth>1000</WindowWidth>

@@ -1,9 +1,9 @@
 #include "laserbullet.h"
+#include"clockmanager.h"
 
 LaserBullet::LaserBullet(const QString &spriteName)
     :Bullet(spriteName)
 {
-
 }
 
 void LaserBullet::update()

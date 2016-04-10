@@ -9,6 +9,7 @@ ShootBullet::ShootBullet(Character *e)
     :Skill(e)
 {
     clockId=ClockManager::instance()->genClock();
+    bulletName="trackBullet";
 }
 
 void ShootBullet::start()
@@ -30,27 +31,39 @@ void ShootBullet::run()
     if(ClockManager::instance()->isAlarm(clockId))
     {
         ClockManager::instance()->clear(clockId);
-        shootBullet();
+        shoot();
     }
 }
 
-void ShootBullet::shootBullet()
+void ShootBullet::shoot()
 {
     int focusIndex=character->getFocusIndex();
 
     Character* focusCharacter=character->getScene()->getCharacterList()[focusIndex];
+
     if(focusCharacter->getState()==Character::DEAD)
     {
         return;
     }
 
-    Bullet* bullet=BulletManager::instance()->getBullet("trackBullet");
+    Bullet* bullet=BulletManager::instance()->getBullet(bulletName);
 //    Bullet* bullet=BulletManager::instance()->getBullet("directBullet");
     bullet->init(character);
 //    bullet->setRemainTime(10);
 
     character->getScene()->addBulletToBox(bullet);
 }
+
+QString ShootBullet::getBulletName() const
+{
+    return bulletName;
+}
+
+void ShootBullet::setBulletName(const QString &value)
+{
+    bulletName = value;
+}
+
 int ShootBullet::getInterval() const
 {
     return interval;

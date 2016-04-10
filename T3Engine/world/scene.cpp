@@ -273,6 +273,7 @@ bool Scene::addEntityToLayerBox(Entity *entity)
     if(z>GameConfigurator::instance()->getPaintFar() ||
             z<GameConfigurator::instance()->getPaintNear())
     {
+        qDebug()<<"add entity to Layer error:"<<entity->getName()<<" | z:"<<z<<endl;
         return false;
     }
     layerBox[-(entity->getZ())].append(entity);
