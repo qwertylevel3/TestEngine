@@ -70,6 +70,7 @@ INPUT(
 ./debug\laserbullet.o
 ./debug\shootlaser.o
 ./debug\shootbullet.o
+./debug\player.o
 ./debug\qrc_shader.o
 ./debug\qrc_images.o
 ./debug\moc_inputmodule.o

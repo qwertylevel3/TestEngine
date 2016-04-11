@@ -110,7 +110,8 @@ SOURCES += main.cpp\
     T3Engine/entity/character/AI/action/stopmovingaction.cpp \
     T3Engine/entity/bullet/laserbullet.cpp \
     T3Engine/entity/character/skill/shootlaser.cpp \
-    T3Engine/entity/character/skill/shootbullet.cpp
+    T3Engine/entity/character/skill/shootbullet.cpp \
+    T3Engine/entity/character/player.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -184,7 +185,8 @@ HEADERS  += \
     T3Engine/entity/character/AI/action/stopmovingaction.h \
     T3Engine/entity/bullet/laserbullet.h \
     T3Engine/entity/character/skill/shootlaser.h \
-    T3Engine/entity/character/skill/shootbullet.h
+    T3Engine/entity/character/skill/shootbullet.h \
+    T3Engine/entity/character/player.h
 
 RESOURCES += \
     shader.qrc \

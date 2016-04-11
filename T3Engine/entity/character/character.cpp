@@ -284,7 +284,7 @@ void Character::initParamater()
     MP=0;
     currentHP=0;
     currentMP=0;
-    speed=10;
+    speed=2;
     orientation=Orientation::down;
     lastOrientation=Orientation::down;
     invincible=false;

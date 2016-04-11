@@ -4,6 +4,7 @@
 #include"backgroundmanager.h"
 #include"terrainmanager.h"
 #include"scene.h"
+#include"player.h"
 
 World::World()
 {
@@ -50,6 +51,14 @@ void World::draw()
 void World::switchScene(const QString &sceneName)
 {
     currentScene=sceneName;
+    Player::instance()->init();
+    Player::instance()->setX(0);
+    Player::instance()->setY(0);
+    Player::instance()->setZ(-10);
+
+    InputModule::instance()->setEntity(Player::instance());
+
+    sceneBox[currentScene]->setPlayer(Player::instance());
 }
 QString World::getName() const
 {
@@ -200,6 +209,7 @@ Scene *World::makeScene()
     reader.readNextStartElement();//<height>
     int height=reader.readElementText().toInt();
 
+
     Scene* tempScene=new Scene();
 
     tempScene->setName(name);
@@ -210,9 +220,11 @@ Scene *World::makeScene()
     makeTerrain(tempScene);
     makeDecoration(tempScene);
     makeCharacter(tempScene);
-    makePlayer(tempScene);
+//    makePlayer(tempScene);
     makeTriggerBox(tempScene);
     makeSceneBorder(tempScene);
+
+    reader.readNextStartElement();//</scene>
 
     return tempScene;
 }
