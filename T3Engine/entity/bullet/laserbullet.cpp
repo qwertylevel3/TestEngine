@@ -11,6 +11,11 @@ void LaserBullet::update()
     Bullet::update();
 }
 
+void LaserBullet::boom()
+{
+
+}
+
 Bullet *LaserBullet::clone()
 {
     LaserBullet* newBullet=new LaserBullet(this->spriteName);

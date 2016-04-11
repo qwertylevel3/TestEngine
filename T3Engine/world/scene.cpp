@@ -168,14 +168,14 @@ void Scene::detectCharacterBulletCollision()
                             &&( bulletList[j]->getShooter()->getType()==Character::PLAYER
                             || bulletList[j]->getShooter()->getType()==Character::FRIEND))
                     {
-                        characterList[i]->getDamage(bulletList[i]->getDamage());
+                        characterList[i]->getDamage(bulletList[j]->getDamage());
                         bulletList[j]->boom();
                     }
                     else if((characterList[i]->getType()==Character::PLAYER
                             || characterList[i]->getType()==Character::FRIEND)
                             && bulletList[j]->getShooter()->getType()==Character::ENEMY)
                     {
-                        characterList[i]->getDamage(bulletList[i]->getDamage());
+                        characterList[i]->getDamage(bulletList[j]->getDamage());
                         bulletList[j]->boom();
                     }
                 }

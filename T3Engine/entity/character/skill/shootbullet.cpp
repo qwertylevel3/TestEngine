@@ -10,6 +10,7 @@ ShootBullet::ShootBullet(Character *e)
 {
     clockId=ClockManager::instance()->genClock();
     bulletName="trackBullet";
+    interval=15;
 }
 
 void ShootBullet::start()

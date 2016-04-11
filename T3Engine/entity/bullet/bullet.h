@@ -29,7 +29,7 @@ public:
     float getDirectionY() const;
     void setDirectionY(float value);
 
-    void boom();
+    virtual void boom();
 
     Character *getTarget() const;
     void setTarget(Character *value);
