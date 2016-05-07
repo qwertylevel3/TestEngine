@@ -3,6 +3,21 @@
 
 #include"bullet.h"
 
+class BulletList
+{
+public:
+    BulletList();
+    void addBullet(Bullet* bullet);
+    Bullet* getBullet();
+    QString getBulletName() const;
+    void setBulletName(const QString &value);
+    ~BulletList();
+
+private:
+    QString bulletName;
+    int index;
+    QList<Bullet* > list;
+};
 
 class BulletManager:public Singleton<BulletManager>
 {
@@ -10,12 +25,11 @@ public:
     BulletManager();
     void init();
     Bullet* getBullet(const QString& bulletName);
-    void addBullet(const QString& bulletName,Bullet* bullet){bulletBox.insert(bulletName,bullet);}
 protected:
-    QMap<QString,Bullet*> bulletBox;
+    QMap<QString,BulletList*> bulletBox;
     QXmlStreamReader reader;
 
-    Bullet* makeBullet();
+    BulletList* makeBulletList();
 };
 
 #endif // BULLETMANAGER_H

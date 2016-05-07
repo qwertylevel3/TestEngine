@@ -244,12 +244,12 @@ void Character::initSkill()
     skillBox.insert("moveLeft",moveLeft);
     skillBox.insert("moveRight",moveRight);
 
-//    ShootBullet* shootBullet=new ShootBullet(this);
-//    shootBullet->setInterval(15);
-//    skillBox.insert("shoot",shootBullet);
+    ShootBullet* shootBullet=new ShootBullet(this);
+    shootBullet->setInterval(1);
+    skillBox.insert("shoot",shootBullet);
 
-    ShootLaser* shootLaser=new ShootLaser(this);
-    skillBox.insert("shoot",shootLaser);
+//    ShootLaser* shootLaser=new ShootLaser(this);
+//    skillBox.insert("shoot",shootLaser);
 
     Focus* focus=new Focus(this);
     skillBox.insert("focus",focus);

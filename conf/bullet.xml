@@ -5,6 +5,7 @@
 		<Type>Direct</Type>
 		<Name>directBullet</Name>
 		<SpriteName>bullet</SpriteName>
+		<total>200</total>
 		<speed>10</speed>
 		<damage>20</damage>
 	</Bullet>
@@ -12,13 +13,15 @@
 		<Type>Track</Type>
 		<Name>trackBullet</Name>
 		<SpriteName>bullet</SpriteName>
+		<total>200</total>
 		<speed>10</speed>
-		<damage>20</damage>
+		<damage>1</damage>
 	</Bullet>
 	<Bullet>
 		<Type>Direct</Type>
 		<Name>laser</Name>
 		<SpriteName>laser</SpriteName>
+		<total>20</total>
 		<speed>0</speed>
 		<damage>1</damage>
 	</Bullet>

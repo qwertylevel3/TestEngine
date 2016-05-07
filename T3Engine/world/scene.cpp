@@ -38,13 +38,16 @@ Scene::Scene()
 
 Scene::~Scene()
 {
-    for(int i=0;i<layerBox.size();i++)
-    {
-        for(int j=0;j<layerBox[i].size();j++)
-        {
-            delete layerBox[i][j];
-        }
-    }
+//    for(int i=0;i<layerBox.size();i++)
+//    {
+//        for(int j=0;j<layerBox[i].size();j++)
+//        {
+//            delete layerBox[i][j];
+//        }
+//    }
+
+    //todo......
+
     delete bk;
 }
 

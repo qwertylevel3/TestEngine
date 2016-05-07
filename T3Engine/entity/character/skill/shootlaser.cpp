@@ -18,6 +18,7 @@ void ShootLaser::start()
         laser=BulletManager::instance()->getBullet(laserName);
         laser->init(character);
         laser->setRemainTime(99999);
+        //laser->setAlpha(0.5);
         //TODO change scene , refresh laser
         character->getScene()->addBulletToBox(laser);
     }

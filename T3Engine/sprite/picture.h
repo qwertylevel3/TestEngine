@@ -116,7 +116,6 @@ private:
     QString name;
     PictureText text;
 
-
     float zoomX;//放缩
     float zoomY;
     float x,y,z;//位置坐标
