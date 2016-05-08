@@ -2,7 +2,6 @@
 #include"decorationmanager.h"
 #include"charactermanager.h"
 #include"backgroundmanager.h"
-#include"terrainmanager.h"
 #include"scene.h"
 #include"player.h"
 
@@ -217,7 +216,6 @@ Scene *World::makeScene()
     tempScene->setHeight(height);
 
     makeBackground(tempScene);
-    makeTerrain(tempScene);
     makeDecoration(tempScene);
     makeCharacter(tempScene);
 //    makePlayer(tempScene);
@@ -241,43 +239,6 @@ void World::makeBackground(Scene *scene)
     scene->setBackground(BK);
 
     reader.readNextStartElement();//</Background>
-
-}
-
-void World::makeTerrain(Scene *scene)
-{
-     reader.readNextStartElement();//<TerrainBox>
-
-    reader.readNextStartElement();//<TotalTerrainNumber>
-    int terrainNumber=reader.readElementText().toInt();
-
-    for(int i=0;i<terrainNumber;i++)
-    {
-        reader.readNextStartElement();//<Terrain>
-
-        reader.readNextStartElement();//<TerrainName>
-        QString terrainName=reader.readElementText();
-
-        reader.readNextStartElement();//<x>
-        float x=reader.readElementText().toFloat();
-
-        reader.readNextStartElement();//<y>
-        float y=reader.readElementText().toFloat();
-
-        reader.readNextStartElement();//<z>
-        float z=reader.readElementText().toFloat();
-
-        Terrain* terrain=TerrainManager::instance()->getTerrain(terrainName);
-        terrain->setX(x);
-        terrain->setY(y);
-        terrain->setZ(z);
-
-        scene->addTerrainToBox(terrain);
-
-        reader.readNextStartElement();//</Terrain>
-
-    }
-    reader.readNextStartElement();//</TerrainBox>
 
 }
 

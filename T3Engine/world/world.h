@@ -47,7 +47,6 @@ protected:
 
     Scene* makeScene();
     void makeBackground(Scene* scene);
-    void makeTerrain(Scene* scene);
     void makeDecoration(Scene* scene);
     void makeCharacter(Scene* scene);
     void makePlayer(Scene* scene);

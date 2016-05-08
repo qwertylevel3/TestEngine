@@ -10,7 +10,6 @@ INPUT(
 ./debug\gameconfigurator.o
 ./debug\t3engine.o
 ./debug\decoration.o
-./debug\terrain.o
 ./debug\inputmodule.o
 ./debug\bullet.o
 ./debug\orientation.o
@@ -32,7 +31,6 @@ INPUT(
 ./debug\bulletmanager.o
 ./debug\charactermanager.o
 ./debug\decorationmanager.o
-./debug\terrainmanager.o
 ./debug\dialog.o
 ./debug\face.o
 ./debug\sentence.o

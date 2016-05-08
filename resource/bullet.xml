@@ -13,7 +13,7 @@
 		<Type>Track</Type>
 		<Name>trackBullet</Name>
 		<SpriteName>bullet</SpriteName>
-		<total>200</total>
+		<total>10</total>
 		<speed>10</speed>
 		<damage>1</damage>
 	</Bullet>

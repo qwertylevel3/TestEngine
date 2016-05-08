@@ -1,6 +1,5 @@
 #include"scene.h"
 #include"gameconfigurator.h"
-#include"terrainmanager.h"
 #include"charactermanager.h"
 #include"decorationmanager.h"
 #include"inputmodule.h"
@@ -104,13 +103,6 @@ void Scene::update()
             if(characterList[i]->isAlive())
             {
                 characterList[i]->update();
-            }
-        }
-        for(int i=0;i<terrainList.size();i++)
-        {
-            if(terrainList[i]->isAlive())
-            {
-                terrainList[i]->update();
             }
         }
         for(int i=0;i<decorationList.size();i++)
@@ -348,7 +340,6 @@ void Scene::save(QXmlStreamWriter *writer)
     writer->writeTextElement("Height",QString::number(this->height));
 
     writeBackground(writer);
-    writeTerrainBox(writer);
     writeDecorationBox(writer);
     writeCharacterBox(writer);
     writePlayer(writer);
@@ -366,17 +357,6 @@ void Scene::writeBackground(QXmlStreamWriter *writer)
     writer->writeEndElement();
 }
 
-void Scene::writeTerrainBox(QXmlStreamWriter *writer)
-{
-    writer->writeStartElement("TerrainBox");
-
-    writer->writeTextElement("TotalTerrainNumber",QString::number(terrainList.size()));
-
-    //TODO
-    //......
-
-    writer->writeEndElement();
-}
 
 void Scene::writeDecorationBox(QXmlStreamWriter *writer)
 {
@@ -507,14 +487,6 @@ void Scene::addCharacterToBox(Character *character)
     if(addEntityToLayerBox(character))
     {
         characterList.append(character);
-    }
-}
-
-void Scene::addTerrainToBox(Terrain *terrain)
-{
-    if(addEntityToLayerBox(terrain))
-    {
-        terrainList.append(terrain);
     }
 }
 

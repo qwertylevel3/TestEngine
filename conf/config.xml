@@ -7,12 +7,11 @@
 	<PaintFar>20</PaintFar>
 	<WindowWidth>1000</WindowWidth>
 	<WindowHeight>700</WindowHeight>
-	<SpriteConfigFileName>conf/sprite.xml</SpriteConfigFileName>
+	<SpriteConfigFileName>resource/sprite.xml</SpriteConfigFileName>
 	<CharacterConfigFileName>conf/character.xml</CharacterConfigFileName>
-	<TerrainConfigFileName>conf/terrain.xml</TerrainConfigFileName>
 	<DecorationConfigFileName>conf/decoration.xml</DecorationConfigFileName>
-	<BulletConfigFileName>conf/bullet.xml</BulletConfigFileName>
-	<BackgroundConfigFileName>conf/background.xml</BackgroundConfigFileName>
+	<BulletConfigFileName>resource/bullet.xml</BulletConfigFileName>
+	<BackgroundConfigFileName>resource/background.xml</BackgroundConfigFileName>
 	<worldConfigFileName>conf/testWorld.xml</worldConfigFileName>
 	<FaceConfigFileName>conf/face.xml</FaceConfigFileName>
 	<DialogConfigFileName>conf/dialog.xml</DialogConfigFileName>

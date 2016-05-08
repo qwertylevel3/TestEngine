@@ -51,7 +51,6 @@ SOURCES += main.cpp\
     T3Engine/gameconfigurator.cpp \
     T3Engine/t3engine.cpp \
     T3Engine/entity/decoration/decoration.cpp \
-    T3Engine/entity/terrain/terrain.cpp \
     T3Engine/inputmodule.cpp \
     T3Engine/entity/bullet/bullet.cpp \
     T3Engine/orientation.cpp \
@@ -73,7 +72,6 @@ SOURCES += main.cpp\
     T3Engine/manager/entity/bulletmanager.cpp \
     T3Engine/manager/entity/charactermanager.cpp \
     T3Engine/manager/entity/decorationmanager.cpp \
-    T3Engine/manager/entity/terrainmanager.cpp \
     T3Engine/entity/dialog/dialog.cpp \
     T3Engine/entity/dialog/face.cpp \
     T3Engine/entity/dialog/sentence.cpp \
@@ -125,7 +123,6 @@ HEADERS  += \
     T3Engine/gameconfigurator.h \
     T3Engine/t3engine.h \
     T3Engine/entity/decoration/decoration.h \
-    T3Engine/entity/terrain/terrain.h \
     T3Engine/inputmodule.h \
     T3Engine/entity/bullet/bullet.h \
     T3Engine/orientation.h \
@@ -148,7 +145,6 @@ HEADERS  += \
     T3Engine/manager/entity/bulletmanager.h \
     T3Engine/manager/entity/charactermanager.h \
     T3Engine/manager/entity/decorationmanager.h \
-    T3Engine/manager/entity/terrainmanager.h \
     T3Engine/entity/dialog/dialog.h \
     T3Engine/entity/dialog/face.h \
     T3Engine/entity/dialog/sentence.h \

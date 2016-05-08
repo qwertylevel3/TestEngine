@@ -10,9 +10,6 @@
 		<Background>
 			<BackgroundName>grass1BK</BackgroundName>
 		</Background>
-		<TerrainBox>
-			<TotalTerrainNumber>0</TotalTerrainNumber>
-		</TerrainBox>
 		<DecorationBox>
 			<TotalDecorationNumber>8</TotalDecorationNumber>
 			<Decoration>
@@ -112,9 +109,6 @@
 		<Background>
 			<BackgroundName>grass1BK</BackgroundName>
 		</Background>
-		<TerrainBox>
-			<TotalTerrainNumber>0</TotalTerrainNumber>
-		</TerrainBox>
 		<DecorationBox>
 			<TotalDecorationNumber>11</TotalDecorationNumber>
 			<Decoration>

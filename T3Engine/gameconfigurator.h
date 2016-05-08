@@ -33,15 +33,6 @@ public:
         characterConfigFileName = value;
     }
 
-    QString getTerrainConfigFileName() const
-    {
-        return terrainConfigFileName;
-    }
-    void setTerrainConfigFileName(const QString &value)
-    {
-        terrainConfigFileName = value;
-    }
-
     QString getDecorationConfigFileName() const
     {
         return decorationConfigFileName;
@@ -112,7 +103,6 @@ protected:
     QSurfaceFormat format;
     QString spriteConfigFileName;
     QString characterConfigFileName;
-    QString terrainConfigFileName;
     QString decorationConfigFileName;
     QString bulletConfigFileName;
     QString worldConfigFileName;

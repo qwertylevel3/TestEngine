@@ -6,7 +6,6 @@
 #include"gameconfigurator.h"
 #include"spritemanager.h"
 #include"charactermanager.h"
-#include"terrainmanager.h"
 #include"decorationmanager.h"
 #include"bulletmanager.h"
 #include"clockmanager.h"

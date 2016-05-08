@@ -84,8 +84,6 @@ void GameConfigurator::makeParameter()
     reader.readNextStartElement();//<characterConfigFileName>
     characterConfigFileName=reader.readElementText();
 
-    reader.readNextStartElement();//<terrainConfigFileName>
-    terrainConfigFileName=reader.readElementText();
 
     reader.readNextStartElement();//<decorationConfigFilaName>
     decorationConfigFileName=reader.readElementText();

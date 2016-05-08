@@ -1,7 +1,7 @@
 #include "bulletmanager.h"
 #include"stable.h"
 #include"gameconfigurator.h"
-
+#include"stable.h"
 
 BulletList::BulletList()
 {
@@ -22,10 +22,14 @@ Bullet *BulletList::getBullet()
     int start=index;
     while(list[index]->isAlive())
     {
-        index=(++index)%list.size();
+        index++;
+        index=index%list.size();
         qDebug()<<index<<endl;
+        assert(index!=start);
         if(index==start)
         {
+            //todo
+            //enhance the list......
             qDebug()<<bulletName<<" is full"<<endl;
             return NULL;
         }
@@ -52,11 +56,7 @@ BulletList::~BulletList()
 }
 
 
-
-
-
-
-
+//-----------------------------------------------------------//
 
 
 BulletManager::BulletManager()

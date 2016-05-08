@@ -3,7 +3,6 @@
 
 #include"decoration.h"
 #include"character.h"
-#include"terrain.h"
 #include"bullet.h"
 #include"collisiondetector.h"
 #include"trigger.h"
@@ -32,7 +31,6 @@ public:
     void detectPlayerDecorationCollision();
     
     void addCharacterToBox(Character* character);
-    void addTerrainToBox(Terrain* terrain);
     void addDecorationToBox(Decoration* decoration);
     void addBulletToBox(Bullet* bullet);
     void addTrigger(Trigger* trigger);
@@ -80,7 +78,6 @@ protected:
     bool addEntityToLayerBox(Entity* entity);
 
     QList<Character*> characterList;
-    QList<Terrain*> terrainList;
     QList<Decoration*> decorationList;
     QList<Bullet*> bulletList;
     QList<Dialog*> dialogList;

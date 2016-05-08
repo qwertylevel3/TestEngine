@@ -57,8 +57,13 @@
 #include<QList>
 #include<QHash>
 
+//c
+#include<cassert>
+
 //own...
 #include"T3Engine/singleton.h"
+
+
 
 
 

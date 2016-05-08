@@ -10,7 +10,6 @@ INPUT(
 ./release\gameconfigurator.o
 ./release\t3engine.o
 ./release\decoration.o
-./release\terrain.o
 ./release\inputmodule.o
 ./release\bullet.o
 ./release\orientation.o
@@ -32,7 +31,6 @@ INPUT(
 ./release\bulletmanager.o
 ./release\charactermanager.o
 ./release\decorationmanager.o
-./release\terrainmanager.o
 ./release\dialog.o
 ./release\face.o
 ./release\sentence.o
