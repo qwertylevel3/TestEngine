@@ -8,11 +8,11 @@
 	<WindowWidth>1000</WindowWidth>
 	<WindowHeight>700</WindowHeight>
 	<SpriteConfigFileName>resource/sprite.xml</SpriteConfigFileName>
-	<CharacterConfigFileName>conf/character.xml</CharacterConfigFileName>
-	<DecorationConfigFileName>conf/decoration.xml</DecorationConfigFileName>
+	<CharacterConfigFileName>world/testWorld/character.xml</CharacterConfigFileName>
+	<DecorationConfigFileName>resource/decoration.xml</DecorationConfigFileName>
 	<BulletConfigFileName>resource/bullet.xml</BulletConfigFileName>
 	<BackgroundConfigFileName>resource/background.xml</BackgroundConfigFileName>
-	<worldConfigFileName>conf/testWorld.xml</worldConfigFileName>
-	<FaceConfigFileName>conf/face.xml</FaceConfigFileName>
-	<DialogConfigFileName>conf/dialog.xml</DialogConfigFileName>
+	<worldConfigFileName>world/testWorld/testWorld.xml</worldConfigFileName>
+	<FaceConfigFileName>world/testWorld/face.xml</FaceConfigFileName>
+	<DialogConfigFileName>world/testWorld/dialog.xml</DialogConfigFileName>
 </Config>

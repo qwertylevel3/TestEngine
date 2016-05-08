@@ -94,6 +94,10 @@ Sprite *SpriteManager::makeSprite()
     sprite->setName(spriteName);
 
     reader.readNextStartElement();
+    QString pictureName=reader.readElementText();//<pictureName>
+    sprite->setPictureName(pictureName);
+
+    reader.readNextStartElement();
     int totalActionNumber=reader.readElementText().toInt();//<totalActionNumber>
     sprite->setTotalActionNumber(totalActionNumber);
 
@@ -109,12 +113,7 @@ Sprite *SpriteManager::makeSprite()
 
     for(int i=0;i<totalActionNumber;i++)
     {
-        Animatioin* action=makeAction();
-        sprite->addAction(action);
-        if(i==0)
-        {
-            sprite->setCurrentAction(action->getName());
-        }
+        makeAnimation(sprite);
     }
 
     reader.readNextStartElement();//</sprite>
@@ -122,34 +121,34 @@ Sprite *SpriteManager::makeSprite()
     return sprite;
 }
 
-Animatioin *SpriteManager::makeAction()
+void SpriteManager::makeAnimation(Sprite *sprite)
 {
     reader.readNextStartElement();//Action;
 
-    Animatioin* action=new Animatioin();
+    Animatioin* animation=new Animatioin();
 
     reader.readNextStartElement();//ActionName;
-    action->setName(reader.readElementText());
+    animation->setName(reader.readElementText());
 
     reader.readNextStartElement();
     int frameDelay=reader.readElementText().toInt();
-    action->setFrameDelay(frameDelay);
+    animation->setFrameDelay(frameDelay);
 
     reader.readNextStartElement();
     int frameTotal=reader.readElementText().toInt();
-    action->setFrameTotal(frameTotal);
+    animation->setFrameTotal(frameTotal);
 
     reader.readNextStartElement();
     bool isRepeat=reader.readElementText()=="true"?true:false;
-    action->setRepeat(isRepeat);
+    animation->setRepeat(isRepeat);
 
     reader.readNextStartElement();
     int repeatStart=reader.readElementText().toInt();
-    action->setRepeatStart(repeatStart);
+    animation->setRepeatStart(repeatStart);
 
     reader.readNextStartElement();
     int repeatOver=reader.readElementText().toInt();
-    action->setRepeatOver(repeatOver);
+    animation->setRepeatOver(repeatOver);
 
     reader.readNextStartElement();//frameBox
 
@@ -157,22 +156,21 @@ Animatioin *SpriteManager::makeAction()
     {
         QString temp=reader.name().toString();
 
-        Frame* frame=makeFrame();
-        action->addFrame(frame);
+        Frame* frame=makeFrame(sprite);
+        animation->addFrame(frame);
     }
     reader.readNextStartElement();//</FrameBox>
     reader.readNextStartElement();//</Action>
 
-    return action;
+    sprite->addAction(animation);
+
+    //todo...
+    sprite->setCurrentAction(animation->getName());
 }
 
-Frame *SpriteManager::makeFrame()
+Frame *SpriteManager::makeFrame(Sprite *sprite)
 {
     reader.readNextStartElement();//frame
-
-    reader.readNextStartElement();
-
-    QString pictureName=reader.readElementText();
 
     reader.readNextStartElement();
     float x=reader.readElementText().toFloat();
@@ -180,15 +178,10 @@ Frame *SpriteManager::makeFrame()
     reader.readNextStartElement();
     float y=reader.readElementText().toFloat();
 
-    reader.readNextStartElement();
-    float dx=reader.readElementText().toFloat();
 
-    reader.readNextStartElement();
-    float dy=reader.readElementText().toFloat();
+    QRectF rect(x,y,sprite->getWidth(),sprite->getHeight());
 
-    QRectF rect(x,y,dx,dy);
-
-    Frame* frame=new Frame(pictureName,rect);
+    Frame* frame=new Frame(sprite->getPictureName(),rect);
 
     reader.readNextStartElement();//<rectBox>
 

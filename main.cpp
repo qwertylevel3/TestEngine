@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    GameConfigurator::instance()->init("conf/config.xml");
+    GameConfigurator::instance()->init("config.xml");
 
     T3Engine engine;
 

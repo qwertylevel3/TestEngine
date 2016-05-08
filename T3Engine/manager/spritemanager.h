@@ -40,8 +40,8 @@ protected:
     QXmlStreamWriter writer;
 
     Sprite* makeSprite();
-    Animatioin* makeAction();
-    Frame* makeFrame();
+    void makeAnimation(Sprite* sprite);
+    Frame* makeFrame(Sprite* sprite);
     QRectF makeRect();
 
 };

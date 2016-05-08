@@ -99,8 +99,12 @@ public:
     float getOriHeight() const;
     void setOriHeight(float value);
 
+    QString getPictureName() const;
+    void setPictureName(const QString &value);
+
 protected:
     QString name;
+    QString pictureName;
 
     QString currentAnimation;
     int totalActionNumber;

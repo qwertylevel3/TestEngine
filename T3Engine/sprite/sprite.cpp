@@ -103,6 +103,16 @@ void Sprite::setOriHeight(float value)
 {
     oriHeight = value;
 }
+QString Sprite::getPictureName() const
+{
+    return pictureName;
+}
+
+void Sprite::setPictureName(const QString &value)
+{
+    pictureName = value;
+}
+
 
 
 

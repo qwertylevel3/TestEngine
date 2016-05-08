@@ -5,6 +5,7 @@
 		<TotalSpriteNumber>1</TotalSpriteNumber>
 		<Sprite>
 			<SpriteName>test</SpriteName>
+			<PictureName>\resource\picture\character\test.png</PictureName>
 			<TotalActionNumber>8</TotalActionNumber>
 			<width>32</width>
 			<height>48</height>
@@ -17,11 +18,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>0</x>
 						<y>144</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -43,11 +41,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>0</x>
 						<y>96</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -69,11 +64,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>0</x>
 						<y>48</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -95,11 +87,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -121,11 +110,8 @@
 				<RepeatOver>3</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>0</x>
 						<y>144</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -137,11 +123,8 @@
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>32</x>
 						<y>144</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -153,11 +136,8 @@
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>64</x>
 						<y>144</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -169,11 +149,8 @@
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>96</x>
 						<y>144</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -195,11 +172,8 @@
 				<RepeatOver>3</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>0</x>
 						<y>96</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -211,11 +185,8 @@
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>32</x>
 						<y>96</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -227,11 +198,8 @@
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>64</x>
 						<y>96</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -243,11 +211,8 @@
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>96</x>
 						<y>96</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -269,11 +234,8 @@
 				<RepeatOver>3</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>0</x>
 						<y>48</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -285,11 +247,8 @@
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>32</x>
 						<y>48</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -301,11 +260,8 @@
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>64</x>
 						<y>48</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -316,12 +272,9 @@
 							</rect>
 						</rectBox>
 					</Frame>
-					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
+					<Frame>me>
 						<x>96</x>
 						<y>48</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -343,11 +296,8 @@
 				<RepeatOver>3</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -359,11 +309,8 @@
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>32</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -375,11 +322,8 @@
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>64</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -391,11 +335,8 @@
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\character\test.png</PictureName>
 						<x>96</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -414,6 +355,7 @@
 		<TotalSpriteNumber>2</TotalSpriteNumber>
 		<Sprite>
 			<SpriteName>bullet</SpriteName>
+			<PictureName>\resource\picture\bullet\bullet.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>57</width>
 			<height>61</height>
@@ -426,11 +368,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\bullet\bullet.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>57</dx>
-						<dy>61</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -446,6 +385,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>laser</SpriteName>
+			<PictureName>\resource\picture\bullet\laser.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>187</width>
 			<height>116</height>
@@ -458,11 +398,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\bullet\laser.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>187</dx>
-						<dy>116</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -481,6 +418,7 @@
 		<TotalSpriteNumber>58</TotalSpriteNumber>
 		<Sprite>
 			<SpriteName>empty</SpriteName>
+			<PictureName>\resource\picture\decoration\empty.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>10</width>
 			<height>10</height>
@@ -493,11 +431,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\empty.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>10</dx>
-						<dy>10</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -513,6 +448,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>scarecrow</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -525,11 +461,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -545,6 +478,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>holeAutumn</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -557,11 +491,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>32</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -577,6 +508,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>woodAutumn</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -589,11 +521,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>64</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -609,6 +538,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>smallStoneAutumn</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -621,11 +551,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>96</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -635,6 +562,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>rickAutumn</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -647,11 +575,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>128</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -667,6 +592,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>rickWinter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -679,11 +605,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>160</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -699,6 +622,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grain</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -711,11 +635,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>192</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -725,6 +646,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>rice</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -737,11 +659,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>224</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -751,6 +670,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>iceman</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -763,11 +683,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>0</x>
 						<y>32</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -783,6 +700,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>holeWinter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -795,11 +713,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>32</x>
 						<y>32</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -815,6 +730,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>woodWinter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -827,11 +743,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>64</x>
 						<y>32</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -847,6 +760,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>smallStoneWinter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -859,11 +773,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>96</x>
 						<y>32</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -873,6 +784,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>ice</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -885,11 +797,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>128</x>
 						<y>32</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -899,6 +808,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>barrelWinter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -911,11 +821,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>160</x>
 						<y>32</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -931,6 +838,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>crossWinter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -943,11 +851,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>192</x>
 						<y>32</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -963,6 +868,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>steleWinter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -975,11 +881,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>224</x>
 						<y>32</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -995,6 +898,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>boardWinter0</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1007,11 +911,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>256</x>
 						<y>32</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1027,6 +928,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>boardWinter1</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1039,11 +941,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>288</x>
 						<y>32</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1059,6 +958,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>wellWinter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1071,11 +971,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>320</x>
 						<y>32</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1091,6 +988,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>stone0</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1103,11 +1001,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>0</x>
 						<y>64</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1123,6 +1018,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>stone1</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1135,11 +1031,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>32</x>
 						<y>64</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1155,6 +1048,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>stone0Winter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1167,11 +1061,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>64</x>
 						<y>64</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1187,6 +1078,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>stone1Winter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1199,11 +1091,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>96</x>
 						<y>64</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1219,6 +1108,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>tree0Small</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1231,11 +1121,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>0</x>
 						<y>96</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1251,6 +1138,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>tree1Small</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1263,11 +1151,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>32</x>
 						<y>96</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1283,6 +1168,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>tree2Small</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1295,11 +1181,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>64</x>
 						<y>96</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1315,6 +1198,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>tree3Small</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1327,11 +1211,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>96</x>
 						<y>96</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1347,6 +1228,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>flowerShrub</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1359,11 +1241,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>128</x>
 						<y>96</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1379,6 +1258,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>rafflesia</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1391,11 +1271,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>160</x>
 						<y>96</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1411,6 +1288,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>tree0</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>64</height>
@@ -1423,11 +1301,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>0</x>
 						<y>128</y>
-						<dx>32</dx>
-						<dy>64</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1443,6 +1318,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>tree1</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>64</height>
@@ -1455,11 +1331,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>32</x>
 						<y>128</y>
-						<dx>32</dx>
-						<dy>64</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1475,6 +1348,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>tree2</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>64</height>
@@ -1487,11 +1361,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>64</x>
 						<y>128</y>
-						<dx>32</dx>
-						<dy>64</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1507,6 +1378,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>tree3</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>64</height>
@@ -1519,11 +1391,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>96</x>
 						<y>128</y>
-						<dx>32</dx>
-						<dy>64</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1539,6 +1408,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>cirrus</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>64</height>
@@ -1551,11 +1421,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>128</x>
 						<y>128</y>
-						<dx>32</dx>
-						<dy>64</dy>
 						<rectBox>
 							<rectNumber>1</rectNumber>
 							<rect>
@@ -1571,6 +1438,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>deadman0</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1583,11 +1451,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>160</x>
 						<y>128</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1597,6 +1462,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>deadman2</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1609,11 +1475,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>192</x>
 						<y>128</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1623,6 +1486,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>deadman3</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1635,11 +1499,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>224</x>
 						<y>128</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1649,6 +1510,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>flower0</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1661,11 +1523,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>0</x>
 						<y>192</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1675,6 +1534,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>flower1</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1687,11 +1547,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>32</x>
 						<y>192</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1701,6 +1558,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>flower2</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1713,11 +1571,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>64</x>
 						<y>192</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1727,6 +1582,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>flower3</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1739,11 +1595,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>96</x>
 						<y>192</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1753,6 +1606,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>vegetable0</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1765,11 +1619,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>128</x>
 						<y>192</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1779,6 +1630,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>vegetable1</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1791,11 +1643,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>160</x>
 						<y>192</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1805,6 +1654,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>vegetable2</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1817,11 +1667,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>192</x>
 						<y>192</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1831,6 +1678,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>vegetable3</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1843,11 +1691,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>224</x>
 						<y>192</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1857,6 +1702,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>mushroom0</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1869,11 +1715,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>256</x>
 						<y>192</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1883,6 +1726,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>mushroom1</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1895,11 +1739,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>288</x>
 						<y>192</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1909,6 +1750,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grass0</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1921,11 +1763,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>0</x>
 						<y>224</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1935,6 +1774,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grass1</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1947,11 +1787,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>32</x>
 						<y>224</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1961,6 +1798,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grass2</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1973,11 +1811,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>64</x>
 						<y>224</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -1987,6 +1822,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grass3</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -1999,11 +1835,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>96</x>
 						<y>224</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2013,6 +1846,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grass0Winter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2025,11 +1859,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>128</x>
 						<y>224</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2039,6 +1870,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grass1Winter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2051,11 +1883,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>160</x>
 						<y>224</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2065,6 +1894,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grass2Winter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2077,11 +1907,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>192</x>
 						<y>224</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2091,6 +1918,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grass3Winter</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2103,11 +1931,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration.png</PictureName>
 						<x>224</x>
 						<y>224</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2117,6 +1942,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>targetCircle</SpriteName>
+			<PictureName>\resource\picture\decoration\target.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>48</width>
 			<height>48</height>
@@ -2129,41 +1955,29 @@
 				<RepeatOver>3</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\target.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>48</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\decoration\target.png</PictureName>
 						<x>48</x>
 						<y>0</y>
-						<dx>48</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\decoration\target.png</PictureName>
 						<x>96</x>
 						<y>0</y>
-						<dx>48</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
 					</Frame>
 					<Frame>
-						<PictureName>\resource\decoration\target.png</PictureName>
 						<x>144</x>
 						<y>0</y>
-						<dx>48</dx>
-						<dy>48</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2173,6 +1987,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>shadow</SpriteName>
+			<PictureName>\resource\picture\decoration\decoration1.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2185,11 +2000,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\decoration1.png</PictureName>
 						<x>480</x>
 						<y>352</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2202,6 +2014,7 @@
 		<TotalSpriteNumber>16</TotalSpriteNumber>
 		<Sprite>
 			<SpriteName>stone0BK</SpriteName>
+			<PictureName>\resource\picture\terrain\stone0.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2214,11 +2027,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\stone0.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2228,6 +2038,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>clothBK</SpriteName>
+			<PictureName>\resource\picture\terrain\cloth.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2240,11 +2051,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\cloth.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2254,6 +2062,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>mudBK</SpriteName>
+			<PictureName>\resource\picture\terrain\mud.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2266,11 +2075,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\mud.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2280,6 +2086,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>mudRedBK</SpriteName>
+			<PictureName>\resource\picture\terrain\mudRed.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2292,11 +2099,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\mudRed.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2306,6 +2110,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grassSummerBK</SpriteName>
+			<PictureName>\resource\picture\terrain\grassSummer.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2318,11 +2123,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\grassSummer.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2332,6 +2134,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grassAutumnBK</SpriteName>
+			<PictureName>\resource\picture\terrain\grassAutumn.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2344,11 +2147,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\grassAutumn.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2358,6 +2158,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grassSpringBK</SpriteName>
+			<PictureName>\resource\picture\terrain\grassSpring.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2370,11 +2171,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\grassSpring.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2384,6 +2182,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grassWinterBK</SpriteName>
+			<PictureName>\resource\picture\terrain\grassWinter.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2396,11 +2195,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\grassWinter.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2410,6 +2206,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grass0BK</SpriteName>
+			<PictureName>\resource\picture\terrain\grass0.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2422,11 +2219,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\grass0.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2436,6 +2230,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>sand0BK</SpriteName>
+			<PictureName>\resource\picture\terrain\sand0.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2448,11 +2243,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\sand0.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2462,6 +2254,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>sand1BK</SpriteName>
+			<PictureName>\resource\picture\terrain\sand1.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2474,11 +2267,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\sand1.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2488,6 +2278,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>snow0BK</SpriteName>
+			<PictureName>\resource\picture\terrain\snow0.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2500,11 +2291,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\snow0.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2514,6 +2302,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>grass1BK</SpriteName>
+			<PictureName>\resource\picture\terrain\grass1.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2526,11 +2315,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\grass1.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2540,6 +2326,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>stone1BK</SpriteName>
+			<PictureName>\resource\picture\terrain\stone1.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2552,11 +2339,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\stone1.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2566,6 +2350,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>sand2BK</SpriteName>
+			<PictureName>\resource\picture\terrain\sand2.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2578,11 +2363,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\sand2.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2592,6 +2374,7 @@
 		</Sprite>
 		<Sprite>
 			<SpriteName>snow1BK</SpriteName>
+			<PictureName>\resource\picture\terrain\snow1.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>32</width>
 			<height>32</height>
@@ -2604,11 +2387,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\terrain\snow1.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>32</dx>
-						<dy>32</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2621,6 +2401,7 @@
 		<TotalSpriteNumber>1</TotalSpriteNumber>
 		<Sprite>
 			<SpriteName>testFace</SpriteName>
+			<PictureName>\resource\picture\face\testFace.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>300</width>
 			<height>360</height>
@@ -2633,11 +2414,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\face\testFace.png</PictureName>
 						<x>0</x>
 						<y>0</y>
-						<dx>300</dx>
-						<dy>360</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
@@ -2650,6 +2428,7 @@
 		<TotalSpriteNumber>1</TotalSpriteNumber>
 		<Sprite>
 			<SpriteName>dialog</SpriteName>
+			<PictureName>\resource\picture\decoration\dialog.png</PictureName>
 			<TotalActionNumber>1</TotalActionNumber>
 			<width>1000</width>
 			<height>300</height>
@@ -2662,11 +2441,8 @@
 				<RepeatOver>0</RepeatOver>
 				<FrameBox>
 					<Frame>
-						<PictureName>\resource\decoration\dialog.png</PictureName>
 						<x>1</x>
 						<y>1</y>
-						<dx>1000</dx>
-						<dy>300</dy>
 						<rectBox>
 							<rectNumber>0</rectNumber>
 						</rectBox>
