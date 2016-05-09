@@ -80,6 +80,7 @@ public:
     bool isMovingLeft();
     bool isMovingRight();
     void stopMoving();
+
 protected:
     void initSkill();
     void initParamater();
@@ -125,6 +126,7 @@ protected:
 
     AINode* ai;
     InputModule::Command currentCommand;
+
 };
 
 #endif // CHARACTER_H

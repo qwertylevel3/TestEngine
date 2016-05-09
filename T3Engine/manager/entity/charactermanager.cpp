@@ -57,6 +57,12 @@ Character *CharacterManager::makeCharacter()
     reader.readNextStartElement();//<SpriteName>
     QString spriteName=reader.readElementText();
 
+    reader.readNextStartElement();//<x>
+    int x=reader.readElementText().toInt();
+
+    reader.readNextStartElement();//<y>
+    int y=reader.readElementText().toInt();
+
     reader.readNextStartElement();//<HP>
     int HP=reader.readElementText().toInt();
 
@@ -79,6 +85,8 @@ Character *CharacterManager::makeCharacter()
 
     Character* character=new Character(spriteName);
     character->setName(name);
+    character->setX(x);
+    character->setY(y);
     character->setHP(HP);
     character->setMP(MP);
     character->setCurrentHP(currentHP);

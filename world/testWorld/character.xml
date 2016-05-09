@@ -2,8 +2,22 @@
 <CharacterBox>
 	<TotalCharacterNumber>1</TotalCharacterNumber>
 	<Character>
-		<Name>test</Name>
+		<Name>test1</Name>
 		<SpriteName>test</SpriteName>
+		<x>200</x>
+		<y>10</y>
+		<HP>100</HP>
+		<MP>100</MP>
+		<CurrentHP>100</CurrentHP>
+		<CurrentMP>100</CurrentMP>
+		<Speed>2</Speed>
+		<HeartRate>100</HeartRate>
+	</Character>
+	<Character>
+		<Name>test2</Name>
+		<SpriteName>test</SpriteName>
+		<x>-200</x>
+		<y>-10</y>
 		<HP>100</HP>
 		<MP>100</MP>
 		<CurrentHP>100</CurrentHP>

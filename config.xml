@@ -12,7 +12,7 @@
 	<DecorationConfigFileName>resource/decoration.xml</DecorationConfigFileName>
 	<BulletConfigFileName>resource/bullet.xml</BulletConfigFileName>
 	<BackgroundConfigFileName>resource/background.xml</BackgroundConfigFileName>
-	<worldConfigFileName>world/testWorld/testWorld.xml</worldConfigFileName>
-	<FaceConfigFileName>world/testWorld/face.xml</FaceConfigFileName>
+	<worldConfigFileName>testWorld</worldConfigFileName>
+	<FaceConfigFileName>resource/face.xml</FaceConfigFileName>
 	<DialogConfigFileName>world/testWorld/dialog.xml</DialogConfigFileName>
 </Config>

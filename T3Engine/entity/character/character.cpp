@@ -487,6 +487,7 @@ void Character::drawField(QVector2D r)
                       this->getRotateZ());
     rectPoint->draw();
 }
+
 InputModule::Command Character::getCurrentCommand() const
 {
     return currentCommand;

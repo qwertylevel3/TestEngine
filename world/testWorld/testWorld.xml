@@ -67,23 +67,6 @@
 				<z>-4</z>
 			</Decoration> -->
 		</DecorationBox>
-		<CharacterBox>
-			<TotalCharacterNumber>2</TotalCharacterNumber>
-			<Character>
-				<CharacterName>test</CharacterName>
-				<Type>ENEMY</Type>
-				<x>250</x>
-				<y>-60</y>
-				<z>-10</z>
-			</Character>
-			<Character>
-				<CharacterName>test</CharacterName>
-				<Type>ENEMY</Type>
-				<x>-250</x>
-				<y>-60</y>
-				<z>-10</z>
-			</Character>
-		</CharacterBox>
 		<TriggerBox>
 			<TotalTriggerNumber>1</TotalTriggerNumber>
 			<Trigger>
@@ -184,23 +167,6 @@
 				<z>-4</z>
 			</Decoration> -->
 		</DecorationBox>
-		<CharacterBox>
-			<TotalCharacterNumber>2</TotalCharacterNumber>
-			<Character>
-				<CharacterName>test</CharacterName>
-				<Type>ENEMY</Type>
-				<x>250</x>
-				<y>-60</y>
-				<z>-10</z>
-			</Character>
-			<Character>
-				<CharacterName>test</CharacterName>
-				<Type>ENEMY</Type>
-				<x>-250</x>
-				<y>-60</y>
-				<z>-10</z>
-			</Character>
-		</CharacterBox>
 		<TriggerBox>
 			<TotalTriggerNumber>1</TotalTriggerNumber>
 			<Trigger>

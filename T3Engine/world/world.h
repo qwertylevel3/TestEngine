@@ -39,13 +39,14 @@ protected:
     QString setSavePath(const QString& fileName);
 
     QString name;
+    QString worldPath;
     QMap<QString ,Scene*> sceneBox;
     QString currentScene;
 
     QXmlStreamWriter writer;
 
 
-    Scene* makeScene();
+    Scene* makeScene(const QString& sceneName);
     void makeBackground(Scene* scene);
     void makeDecoration(Scene* scene);
     void makeCharacter(Scene* scene);
