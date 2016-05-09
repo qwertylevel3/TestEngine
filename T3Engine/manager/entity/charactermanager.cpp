@@ -38,7 +38,7 @@ void CharacterManager::init()
 
 Character *CharacterManager::getCharacter(const QString &characterName)
 {
-    return characterBox[characterName]->clone();
+    return characterBox[characterName];
 }
 
 QMap<QString, Character *> &CharacterManager::getCharacterBox()
@@ -56,6 +56,9 @@ Character *CharacterManager::makeCharacter()
 
     reader.readNextStartElement();//<SpriteName>
     QString spriteName=reader.readElementText();
+
+    reader.readNextStartElement();//<currentScene>
+    QString currentScene=reader.readElementText();
 
     reader.readNextStartElement();//<x>
     int x=reader.readElementText().toInt();
@@ -85,6 +88,7 @@ Character *CharacterManager::makeCharacter()
 
     Character* character=new Character(spriteName);
     character->setName(name);
+    character->setCurrentScene(currentScene);
     character->setX(x);
     character->setY(y);
     character->setHP(HP);

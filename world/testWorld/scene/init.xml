@@ -6,7 +6,13 @@
 		<BackgroundName>grass1BK</BackgroundName>
 	</Background>
 	<DecorationBox>
-		<TotalDecorationNumber>8</TotalDecorationNumber>
+		<TotalDecorationNumber>9</TotalDecorationNumber>
+		<Decoration>
+			<DecorationName>door</DecorationName>
+			<x>100</x>
+			<y>100</y>
+			<z>-10</z>
+		</Decoration>
 		<Decoration>
 			<DecorationName>tree0</DecorationName>
 			<x>0</x>

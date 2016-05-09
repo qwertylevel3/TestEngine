@@ -487,6 +487,16 @@ void Character::drawField(QVector2D r)
                       this->getRotateZ());
     rectPoint->draw();
 }
+QString Character::getCurrentScene() const
+{
+    return currentScene;
+}
+
+void Character::setCurrentScene(const QString &value)
+{
+    currentScene = value;
+}
+
 
 InputModule::Command Character::getCurrentCommand() const
 {

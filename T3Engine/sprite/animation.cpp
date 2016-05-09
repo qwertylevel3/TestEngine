@@ -58,7 +58,7 @@ int Animatioin::update()
         {
             if(++currFrame>repeatOver)
             {
-                currFrame=repeatStart;
+                currFrame=repeatOver;
                 return 0;
             }
         }

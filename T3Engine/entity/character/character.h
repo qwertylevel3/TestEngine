@@ -81,6 +81,9 @@ public:
     bool isMovingRight();
     void stopMoving();
 
+    QString getCurrentScene() const;
+    void setCurrentScene(const QString &value);
+
 protected:
     void initSkill();
     void initParamater();
@@ -126,6 +129,9 @@ protected:
 
     AINode* ai;
     InputModule::Command currentCommand;
+
+    //the scene that character location now
+    QString currentScene;
 
 };
 

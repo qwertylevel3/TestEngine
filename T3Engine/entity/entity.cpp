@@ -246,6 +246,23 @@ void Entity::setState(const STATE &value)
 {
     state = value;
 }
+
+void Entity::setState(const QString &value)
+{
+    if(value=="DEAD" || value=="dead")
+    {
+        setState(DEAD);
+    }
+    else if(value=="ALIVE" || value=="alive")
+    {
+        setState(ALIVE);
+    }
+    else
+    {
+        qDebug()<<value<<" is undefined"<<endl;
+        exit(0);
+    }
+}
 int Entity::getRemainTime() const
 {
     return remainTime;

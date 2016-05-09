@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CharacterBox>
-	<TotalCharacterNumber>1</TotalCharacterNumber>
+	<TotalCharacterNumber>2</TotalCharacterNumber>
 	<Character>
 		<Name>test1</Name>
 		<SpriteName>test</SpriteName>
+		<currentScene>init</currentScene>
 		<x>200</x>
 		<y>10</y>
 		<HP>100</HP>
@@ -16,6 +17,7 @@
 	<Character>
 		<Name>test2</Name>
 		<SpriteName>test</SpriteName>
+		<currentScene>scene1</currentScene>
 		<x>-200</x>
 		<y>-10</y>
 		<HP>100</HP>

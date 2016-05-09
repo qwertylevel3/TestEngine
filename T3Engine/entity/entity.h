@@ -113,6 +113,7 @@ public:
 
     STATE getState() const;
     void setState(const STATE &value);
+    void setState(const QString& value);
 
     int getRemainTime() const;
     void setRemainTime(int value);
