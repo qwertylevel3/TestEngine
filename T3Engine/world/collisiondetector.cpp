@@ -64,6 +64,11 @@ bool CollisionDetector::isCollision(OBB obb1, OBB obb2)
 
 bool CollisionDetector::isCollision(Entity *a, Entity *b)
 {
+    if(!a->isCollisionAble() || !b->isCollisionAble())
+    {
+        return false;
+    }
+
     float scale=GameConfigurator::instance()->getScale();
 
     QList<QRectF> aRectList=a->getCurrentRects();

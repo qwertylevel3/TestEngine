@@ -9,6 +9,8 @@ Decoration *Decoration::clone()
 {
     Decoration* newDecoration=new Decoration(this->spriteName);
     newDecoration->setName(this->name);
+    newDecoration->setCollisionAble(this->collisionAble);
+    newDecoration->setDestructible(this->destructible);
 
     return newDecoration;
 }
@@ -21,6 +23,3 @@ void Decoration::setHP(int value)
 {
     HP = value;
 }
-
-
-

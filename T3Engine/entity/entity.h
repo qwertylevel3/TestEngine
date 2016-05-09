@@ -118,10 +118,10 @@ public:
     int getRemainTime() const;
     void setRemainTime(int value);
 
-    bool getCollisionAble() const;
+    bool isCollisionAble() const;
     void setCollisionAble(bool value);
 
-    bool getDestructible() const;
+    bool isDestructible() const;
     void setDestructible(bool value);
 
     bool getMoveAble() const;

@@ -272,7 +272,7 @@ void Entity::setRemainTime(int value)
 {
     remainTime = value;
 }
-bool Entity::getCollisionAble() const
+bool Entity::isCollisionAble() const
 {
     return collisionAble;
 }
@@ -281,7 +281,7 @@ void Entity::setCollisionAble(bool value)
 {
     collisionAble = value;
 }
-bool Entity::getDestructible() const
+bool Entity::isDestructible() const
 {
     return destructible;
 }

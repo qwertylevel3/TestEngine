@@ -5,7 +5,7 @@
 	<Decoration>
 		<Name>door</Name>
 		<SpriteName>door</SpriteName>
-		<collisionAble>1</collisionAble>
+		<collisionAble>0</collisionAble>
 		<destructible>0</destructible>
 	</Decoration>
 	<Decoration>
