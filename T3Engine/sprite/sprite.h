@@ -71,7 +71,6 @@ public:
         zoomY=value/oriHeight;
         height=value;
     }
-
     int getRepeatX() const
     {
         return repeatX;

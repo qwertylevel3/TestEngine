@@ -458,6 +458,7 @@ Character *Scene::getPlayer() const
 void Scene::setPlayer(Character *value)
 {
     player = value;
+    player->setCurrentScene(this->getName());
     addEntityToLayerBox(player);
 }
 

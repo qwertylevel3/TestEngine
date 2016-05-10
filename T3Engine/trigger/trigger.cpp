@@ -38,6 +38,3 @@ void Trigger::save(QXmlStreamWriter *writer)
 
     writer->writeEndElement();
 }
-
-
-

@@ -1,5 +1,6 @@
 #include "condition.h"
 #include"timeupcondition.h"
+#include"arrivecondition.h"
 #include"scene.h"
 
 Condition::Condition()
@@ -19,11 +20,17 @@ Condition *Condition::getCondition(const QString &type)
         TimeUpCondition* condition=new TimeUpCondition();
         return condition;
     }
+    if(type=="Arrive")
+    {
+        ArriveCondition* condition=new ArriveCondition();
+        return condition;
+    }
     else
     {
         qDebug()<<"unknow condition type:"<<type<<endl;
-        return NULL;
+        exit(0);
     }
+    exit(0);
 }
 
 Scene *Condition::getScene() const

@@ -54,6 +54,11 @@ Decoration *DecorationManager::makeDecoration()
     reader.readNextStartElement();//<Name>
     QString name=reader.readElementText();
 
+    if(name=="empty")
+    {
+        qDebug()<<",,,"<<endl;
+    }
+
     reader.readNextStartElement();//<SpriteName>
     QString spriteName=reader.readElementText();
 
@@ -68,7 +73,7 @@ Decoration *DecorationManager::makeDecoration()
     Decoration* decoration=new Decoration(spriteName);
     decoration->setName(name);
     decoration->setCollisionAble(collisionAble);
-    decoration->setCollisionAble(destractiable);
+    decoration->setDestructible(destractiable);
     return decoration;
 }
 

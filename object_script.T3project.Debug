@@ -69,6 +69,8 @@ INPUT(
 ./debug\shootlaser.o
 ./debug\shootbullet.o
 ./debug\player.o
+./debug\arrivecondition.o
+./debug\emptyevent.o
 ./debug\qrc_shader.o
 ./debug\qrc_images.o
 ./debug\moc_inputmodule.o

@@ -70,6 +70,7 @@
 	</DecorationBox>
 	<TriggerBox>
 		<TotalTriggerNumber>1</TotalTriggerNumber>
+		<!--
 		<Trigger>
 			<Condition>
 				<ConditionType>TimeUp</ConditionType>
@@ -81,6 +82,24 @@
 				<EventType>Dialog</EventType>
 				<config>
 					<dialogName>init</dialogName>
+				</config>
+			</Event>
+		</Trigger>
+		-->
+		<Trigger>
+			<Condition>
+				<ConditionType>Arrive</ConditionType>
+				<config>
+					<characterName>test1</characterName>
+					<x>200</x>
+					<y>0</y>
+					<width>100</width>
+					<height>100</height>
+				</config>
+			</Condition>
+			<Event>
+				<EventType>Empty</EventType>
+				<config>
 				</config>
 			</Event>
 		</Trigger>

@@ -69,6 +69,8 @@ INPUT(
 ./release\shootlaser.o
 ./release\shootbullet.o
 ./release\player.o
+./release\arrivecondition.o
+./release\emptyevent.o
 ./release\qrc_shader.o
 ./release\qrc_images.o
 ./release\moc_inputmodule.o

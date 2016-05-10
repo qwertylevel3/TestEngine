@@ -25,7 +25,6 @@ INCLUDEPATH += $$PWD\T3Engine\entity\character\AI\action\
 INCLUDEPATH += $$PWD\T3Engine\entity\character\AI\selector\
 INCLUDEPATH += $$PWD\T3Engine\entity\character\skill\
 INCLUDEPATH += $$PWD\T3Engine\entity\decoration\
-INCLUDEPATH += $$PWD\T3Engine\entity\terrain\
 INCLUDEPATH += $$PWD\T3Engine\entity\module\
 INCLUDEPATH += $$PWD\T3Engine\entity\dialog\
 INCLUDEPATH += $$PWD\T3Engine\entity\background\
@@ -109,7 +108,9 @@ SOURCES += main.cpp\
     T3Engine/entity/bullet/laserbullet.cpp \
     T3Engine/entity/character/skill/shootlaser.cpp \
     T3Engine/entity/character/skill/shootbullet.cpp \
-    T3Engine/entity/character/player.cpp
+    T3Engine/entity/character/player.cpp \
+    T3Engine/trigger/condition/arrivecondition.cpp \
+    T3Engine/trigger/event/emptyevent.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -182,7 +183,9 @@ HEADERS  += \
     T3Engine/entity/bullet/laserbullet.h \
     T3Engine/entity/character/skill/shootlaser.h \
     T3Engine/entity/character/skill/shootbullet.h \
-    T3Engine/entity/character/player.h
+    T3Engine/entity/character/player.h \
+    T3Engine/trigger/condition/arrivecondition.h \
+    T3Engine/trigger/event/emptyevent.h
 
 RESOURCES += \
     shader.qrc \
