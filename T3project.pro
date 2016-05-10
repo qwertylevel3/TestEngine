@@ -110,7 +110,8 @@ SOURCES += main.cpp\
     T3Engine/entity/character/skill/shootbullet.cpp \
     T3Engine/entity/character/player.cpp \
     T3Engine/trigger/condition/arrivecondition.cpp \
-    T3Engine/trigger/event/emptyevent.cpp
+    T3Engine/trigger/event/emptyevent.cpp \
+    T3Engine/trigger/event/changesceneevent.cpp
 
 HEADERS  += \
     T3Engine/sprite/frame.h \
@@ -185,7 +186,8 @@ HEADERS  += \
     T3Engine/entity/character/skill/shootbullet.h \
     T3Engine/entity/character/player.h \
     T3Engine/trigger/condition/arrivecondition.h \
-    T3Engine/trigger/event/emptyevent.h
+    T3Engine/trigger/event/emptyevent.h \
+    T3Engine/trigger/event/changesceneevent.h
 
 RESOURCES += \
     shader.qrc \

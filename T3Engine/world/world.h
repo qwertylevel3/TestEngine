@@ -33,6 +33,8 @@ public:
     QMap<QString, Scene *> getSceneBox() const;
 
     bool save(const QString& fileName);
+
+    void changeScene(const QString& sceneName,float x,float y);
 protected:
     bool load(const QString& path);
     QString setInitPath();
