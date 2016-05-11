@@ -10,6 +10,7 @@ class PictureManager:public Singleton<PictureManager>
 public:
     PictureManager();
     void init();
+    void destroy();
     Picture *getPicture(const QString& pictureName);
 
     //调试用，看看读了那些图,qdebug输出资源标识符以及相应资源指针

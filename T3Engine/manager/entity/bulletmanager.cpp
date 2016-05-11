@@ -8,6 +8,14 @@ BulletList::BulletList()
     index=0;
 }
 
+void BulletList::destory()
+{
+    for(int i=0;i<list.size();i++)
+    {
+        delete list[i];
+    }
+}
+
 void BulletList::addBullet(Bullet *bullet)
 {
     list.push_back(bullet);
@@ -90,6 +98,16 @@ void BulletManager::init()
     }
 
     file.close();
+}
+
+void BulletManager::destory()
+{
+    QMap<QString,BulletList*>::iterator i=bulletBox.begin();
+    while(i!=bulletBox.end())
+    {
+        i.value()->destory();
+        i++;
+    }
 }
 
 Bullet* BulletManager::getBullet(const QString &bulletName)

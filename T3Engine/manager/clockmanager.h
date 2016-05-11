@@ -27,8 +27,10 @@ public:
     ClockManager();
 
     void init();
+    void destroy();
 
     void update();
+
     int genClock();
     bool setClockInterval(int clockId,int interval);
     bool isAlarm(int clockId);

@@ -11,6 +11,7 @@ public:
     World();
     ~World();
     bool init();
+    void destory();
     bool open(const QString& path);
 
     void clear();

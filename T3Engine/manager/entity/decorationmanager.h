@@ -9,6 +9,7 @@ class DecorationManager:public Singleton<DecorationManager>
 public:
     DecorationManager();
     void init();
+    void destroy();
 
     Decoration* getDecoration(const QString& decorationName);
     void addDecoration(const QString& decorationName,Decoration* decoration){decorationBox.insert(decorationName,decoration);}

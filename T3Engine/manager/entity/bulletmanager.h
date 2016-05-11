@@ -7,6 +7,7 @@ class BulletList
 {
 public:
     BulletList();
+    void destory();
     void addBullet(Bullet* bullet);
     Bullet* getBullet();
     QString getBulletName() const;
@@ -24,6 +25,7 @@ class BulletManager:public Singleton<BulletManager>
 public:
     BulletManager();
     void init();
+    void destory();
     Bullet* getBullet(const QString& bulletName);
 protected:
     QMap<QString,BulletList*> bulletBox;

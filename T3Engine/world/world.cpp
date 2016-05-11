@@ -22,6 +22,16 @@ bool World::init()
     return load(worldPath);
 }
 
+void World::destory()
+{
+     QMap<QString ,Scene*>::iterator i=sceneBox.begin();
+     while(i!=sceneBox.end())
+     {
+         delete i.value();
+         i++;
+     }
+}
+
 bool World::open(const QString &path)
 {
     return load(path);
@@ -149,6 +159,11 @@ bool World::save(const QString &fileName)
 
     file.close();
     return true;
+}
+
+void World::changeScene(const QString &sceneName, float x, float y)
+{
+    
 }
 
 bool World::load(const QString &path)
@@ -428,6 +443,7 @@ void World::makeTrigger(Scene *scene)
     Event* event=Event::getEvent(eventType);
     event->setScene(scene);
     event->config(&reader);
+
 
     reader.readNextStartElement();//</event>
 

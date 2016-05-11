@@ -30,6 +30,16 @@ void AIManager::init()
     AIBox.insert("SimpleAI",root);
 }
 
+void AIManager::destory()
+{
+    QMap<QString,AINode*>::iterator i=AIBox.begin();
+    while(i!=AIBox.end())
+    {
+        delete i.value();
+        i++;
+    }
+}
+
 AINode *AIManager::getAI(const QString &AIName)
 {
     if(!AIBox.contains(AIName))

@@ -7,6 +7,7 @@ class ShaderManager:public Singleton<ShaderManager>,public QOpenGLFunctions
 public:
     ShaderManager();
     bool init();
+    void destory();
     bool loadVertexShader(const QString& vShader);
     bool loadFragmentShader(const QString& fShader);
     QOpenGLShaderProgram* getProgram(){return program;}

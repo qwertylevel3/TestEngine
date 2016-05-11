@@ -8,6 +8,7 @@ class Selector:public AINode
 {
 public:
     Selector();
+    ~Selector();
     virtual bool judge(Character* character)=0;
 
     AINode *getTChild() const;

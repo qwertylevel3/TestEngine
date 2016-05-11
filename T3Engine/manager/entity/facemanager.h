@@ -8,6 +8,7 @@ class FaceManager:public Singleton<FaceManager>
 public:
     FaceManager();
     void init();
+    void destroy();
 
     Face* getFace(const QString& faceName);
     void addFace(const QString& faceName,Face* face);

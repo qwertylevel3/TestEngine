@@ -51,6 +51,11 @@ void ClockManager::init()
 
 }
 
+void ClockManager::destroy()
+{
+
+}
+
 void ClockManager::update()
 {
     int count=0;
@@ -82,9 +87,9 @@ int ClockManager::genClock()
     }
     if(index>=MAXClock)
     {
-        qDebug()<<"clock out of range"<<endl;
+        qDebug()<<index<<"clock out of range"<<endl;
         delete c;
-        return -1;
+        exit(0);
     }
     return index;
 }

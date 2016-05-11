@@ -4,6 +4,12 @@ Selector::Selector()
 {
     leaf=false;
 }
+
+Selector::~Selector()
+{
+    delete TChild;
+    delete FChild;
+}
 AINode *Selector::getTChild() const
 {
     return TChild;

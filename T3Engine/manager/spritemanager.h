@@ -9,6 +9,7 @@ class SpriteManager:public Singleton<SpriteManager>
 public:
     SpriteManager();
     void init();
+    void destroy();
 
     Sprite* getSprite(const QString& spriteName);
 

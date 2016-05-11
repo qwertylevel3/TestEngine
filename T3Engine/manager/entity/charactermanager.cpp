@@ -36,6 +36,16 @@ void CharacterManager::init()
     file.close();
 }
 
+void CharacterManager::destroy()
+{
+    QMap<QString,Character*>::iterator i=characterBox.begin();
+    while(i!=characterBox.end())
+    {
+        delete i.value();
+        i++;
+    }
+}
+
 Character *CharacterManager::getCharacter(const QString &characterName)
 {
     return characterBox[characterName];

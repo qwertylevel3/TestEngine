@@ -36,6 +36,16 @@ void DecorationManager::init()
 
 }
 
+void DecorationManager::destroy()
+{
+    QMap<QString,Decoration*>::iterator i=decorationBox.begin();
+    while(i!=decorationBox.end())
+    {
+        delete i.value();
+        i++;
+    }
+}
+
 Decoration *DecorationManager::getDecoration(const QString &decorationName)
 {
     return decorationBox[decorationName]->clone();
@@ -53,11 +63,6 @@ Decoration *DecorationManager::makeDecoration()
 
     reader.readNextStartElement();//<Name>
     QString name=reader.readElementText();
-
-    if(name=="empty")
-    {
-        qDebug()<<",,,"<<endl;
-    }
 
     reader.readNextStartElement();//<SpriteName>
     QString spriteName=reader.readElementText();

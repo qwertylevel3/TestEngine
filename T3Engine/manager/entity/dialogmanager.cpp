@@ -33,6 +33,16 @@ void DialogManager::init()
     file.close();
 }
 
+void DialogManager::destroy()
+{
+    QMap<QString,Dialog*>::iterator i=dialogBox.begin();
+    while(i!=dialogBox.end())
+    {
+        delete i.value();
+        i++;
+    }
+}
+
 Dialog *DialogManager::getDialog(const QString &dialogName)
 {
     return dialogBox[dialogName]->clone();

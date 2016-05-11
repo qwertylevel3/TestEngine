@@ -82,7 +82,6 @@ protected:
     QList<Bullet*> bulletList;
     QList<Dialog*> dialogList;
     Background* bk;
-
     Character* player;
 
     QList<QList<Entity*> > layerBox;

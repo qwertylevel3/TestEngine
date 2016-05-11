@@ -27,29 +27,33 @@ T3Engine::T3Engine(QWidget *parent)
 
 T3Engine::~T3Engine()
 {
+    World::instance()->destory();
+
+    DialogManager::instance()->destroy();
+    BackgroundManager::instance()->destroy();
+    FaceManager::instance()->destroy();
+    BulletManager::instance()->destory();
+    DecorationManager::instance()->destroy();
+    CharacterManager::instance()->destroy();
+    AIManager::instance()->destory();
+    ClockManager::instance()->destroy();
+    SpriteManager::instance()->destroy();
+    PictureManager::instance()->destroy();
+    ShaderManager::instance()->destory();
 }
 
 void T3Engine::init()
 {
-    //读取shader
     ShaderManager::instance()->init();
-    //读取图片资源
     PictureManager::instance()->init();
-
-    //PictureManager::instance()->showPictureBoxMessage();
-
     SpriteManager::instance()->init();
-
     ClockManager::instance()->init();
     AIManager::instance()->init();
-
     CharacterManager::instance()->init();
-    //TerrainManager::instance()->init();
     DecorationManager::instance()->init();
     BulletManager::instance()->init();
     FaceManager::instance()->init();
     BackgroundManager::instance()->init();
-
     DialogManager::instance()->init();
 
     World::instance()->init();
@@ -58,7 +62,6 @@ void T3Engine::init()
     QTime time;
     time= QTime::currentTime();
     qsrand(time.msec()+time.second()*1000);
-
 }
 
 

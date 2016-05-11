@@ -8,6 +8,7 @@ class DialogManager:public Singleton<DialogManager>
 public:
     DialogManager();
     void init();
+    void destroy();
 
     Dialog* getDialog(const QString& dialogName);
     void addDialog(const QString& dialogName,Dialog* dialog);

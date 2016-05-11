@@ -28,7 +28,6 @@ Picture::~Picture()
 {
     arrayBuf.destroy();
     indexBuf.destroy();
-    delete texture;
 }
 
 

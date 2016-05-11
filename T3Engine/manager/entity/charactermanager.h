@@ -8,6 +8,7 @@ class CharacterManager:public Singleton<CharacterManager>
 public:
     CharacterManager();
     void init();
+    void destroy();
 
     Character* getCharacter(const QString& characterName);
     void addCharacter(const QString& characterName,Character* character){characterBox.insert(characterName,character);}

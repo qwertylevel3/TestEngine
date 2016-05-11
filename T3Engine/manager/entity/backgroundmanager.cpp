@@ -34,9 +34,24 @@ void BackgroundManager::init()
     file.close();
 }
 
+void BackgroundManager::destroy()
+{
+    for(int i=0;i<activeBox.size();i++)
+    {
+        delete activeBox[i];
+    }
+    QMap<QString, Background*>::iterator i = backgroundBox.begin();
+    while (i != backgroundBox.end()) {
+        delete i.value();
+        ++i;
+    }
+}
+
 Background *BackgroundManager::getBackground(const QString &bkName)
 {
-    return backgroundBox[bkName]->clone();
+    Background* bk=backgroundBox[bkName]->clone();
+    activeBox.append(bk);
+    return bk;
 }
 
 void BackgroundManager::addBackground(Background *bk)

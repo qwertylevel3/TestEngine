@@ -9,6 +9,7 @@ class AIManager:public Singleton<AIManager>
 public:
     AIManager();
     void init();
+    void destory();
     AINode *getAI(const QString& AIName);
 protected:
     QMap<QString,AINode*> AIBox;

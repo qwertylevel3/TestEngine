@@ -34,6 +34,16 @@ void FaceManager::init()
     file.close();
 }
 
+void FaceManager::destroy()
+{
+    QMap<QString,Face*>::iterator i=faceBox.begin();
+    while(i!=faceBox.end())
+    {
+        delete i.value();
+        i++;
+    }
+}
+
 Face *FaceManager::getFace(const QString &faceName)
 {
     return faceBox[faceName];

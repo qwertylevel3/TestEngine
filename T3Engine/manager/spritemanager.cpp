@@ -34,9 +34,20 @@ void SpriteManager::init()
     file.close();
 }
 
+void SpriteManager::destroy()
+{
+    QMap<QString,Sprite*>::iterator i=spriteBox.begin();
+    while(i!=spriteBox.end())
+    {
+        delete i.value();
+        i++;
+    }
+}
+
 Sprite *SpriteManager::getSprite(const QString &spriteName)
 {
     return spriteBox[spriteName]->clone();
+
 }
 
 

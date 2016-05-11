@@ -49,4 +49,9 @@ bool ShaderManager::init()
     return true;
 }
 
+void ShaderManager::destory()
+{
+    delete program;
+}
+
 

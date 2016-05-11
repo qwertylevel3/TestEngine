@@ -13,6 +13,16 @@ void PictureManager::init()
     loadImage(path);
 }
 
+void PictureManager::destroy()
+{
+    QHash<QString,Picture* >::iterator i=pictureBox.begin();
+    while(i!=pictureBox.end())
+    {
+        delete i.value();
+        i++;
+    }
+}
+
 Picture *PictureManager::getPicture(const QString &pictureName)
 {
     return pictureBox.value(pictureName);
